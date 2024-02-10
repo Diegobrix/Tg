@@ -1,0 +1,125 @@
+body {
+   --page-margin: 1rem;
+   --fs-100: 16px;
+
+   font-size: var(--fs-100);
+   padding: var(--page-margin);
+}
+
+header {
+   display: flex;
+   gap: 1rem;
+}
+
+.greetings-wrapper h1 {
+   font-size: var(--fs-200);
+}
+
+.greetings-wrapper span {
+   color: var(--neutral-100);
+   font-size: var(--fs-300);
+}
+
+.greetings-wrapper button {
+   width: 1.5rem;
+   margin-right: .5rem;
+
+   background: url("../../../../assets/icons/hamburger-menu.svg") no-repeat center center;
+   background-size: contain;
+
+}
+
+header > div {
+   display: flex;
+
+   padding: .5rem 1rem;
+   border-radius: 25vw;
+
+   background-color: var(--primary-600);
+}
+
+header [aria-hidden="true"] {
+   display: none;
+}
+
+main {
+   margin-top: 2rem;
+}
+
+.recipes_overview--wrapper [class$="--wrapper"] {
+   position: relative;
+   display: flex;
+   align-items: center;
+
+   background: var(--primary-600);
+   border-radius: 20px;
+
+   padding: 1rem;
+   padding-right: 3rem;
+
+   margin-block: .7rem;
+
+   color: var(--neutral-100);
+}
+
+.recipes_overview--wrapper .options-handler {
+   --icon-variant: url("../../../../assets/icons/details.svg");
+}
+
+:where(:not(.recipes_overview--wrapper)) .options-handler {
+   --icon-variant: url("../../../../assets/icons/details_dark.svg");
+}
+
+.options-handler {
+   position: absolute;
+   right: 1rem;
+
+   width: 1.5rem;
+   aspect-ratio: 1;
+
+   background: var(--icon-variant) no-repeat center center;
+   background-size: contain;  
+}
+
+.recipes--wrapper {
+   justify-content: space-between;
+
+   & .recipes_amount-display {
+      font-size: var(--fs-300);
+   }
+}
+
+.recipes_overview--wrapper .popular_category--wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   & h2 {
+      position: absolute;
+      top: 1rem;
+
+      font-size: calc(var(--fs-200) - 6px);
+   }
+
+   & > p {
+      align-self: flex-end;
+      text-decoration: underline;
+      font-size: calc(var(--fs-100) + 3px);
+   }
+}
+
+.popular_category--wrapper div {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   & p {
+      font-size: calc(var(--fs-300) + 10px);
+   }
+}
+
+@media screen and (min-width: 720px) {
+   .greetings-wrapper button {
+      display: none;
+   }
+}

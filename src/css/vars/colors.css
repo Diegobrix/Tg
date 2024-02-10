@@ -1,0 +1,20 @@
+:root{
+   --primary-100:hsl(52 100% 50%);
+   --primary-200:hsl(130 86% 49%);
+   --primary-300:hsl(0 100% 63%);
+   --primary-400:hsl(206, 100%, 50%);
+   --primary-500:hsl(215 91% 47%);
+   --primary-600:hsl(273 98% 46%);
+
+   --neutral-100:hsl(0 0% 100%);
+   --neutral-200:hsl(210 33% 95%);
+   --neutral-300:hsl(253 80% 85%);
+   --neutral-400:hsl(196 64% 71%);
+   --neutral-500:hsl(254 84% 69%);
+   --neutral-600:hsl(0 0% 45%);
+   --neutral-700:hsl(0 0% 0%);
+   
+   --transparent:#0000;
+   --transparent-100:hsl(0 0% 100% / .2);
+   --transparent-200:hsl(0 0% 0% / .5);
+}

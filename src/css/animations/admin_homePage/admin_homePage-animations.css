@@ -1,0 +1,9 @@
+@keyframes showMenu {
+   from {
+      left: -50%;
+   }
+
+   to {
+      left: 0;
+   }
+}
