@@ -65,11 +65,9 @@
                <div class="most_recent_recipe--wrapper">
                   <h2>Última Receita Adicionada</h2>
                   <p class="most_recent_recipe-display">Lorem ipsum sit dolor</p>
-                  <div>
-                     <figure>
-                        <img src="../../../assets/images/teste.jpg" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
-                     </figure>
-                  </div>
+                  <figure>
+                     <img src="../../../assets/images/teste.jpg" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                  </figure>
                </div>
             </div>
             <section class="categories--wrapper">
@@ -80,15 +78,15 @@
                <div class="categories-container">
                   <!-- Trazer as Categorias Pelo PHP -->
                   <div class="category">
-                     <div class="bar" style="--bar-size: 1;"></div>
+                     <div class="bar bigger" style="--bar-size: 1;" data-recipes-amount="10"></div>
                      <p class="category-title">Ao mosso</p>
                   </div>
                   <div class="category">
-                     <div class="bar" style="--bar-size: .5;"></div>
+                     <div class="bar" style="--bar-size: .5;" data-recipes-amount="5"></div>
                      <p class="category-title">Ao mosso</p>
                   </div>
                   <div class="category">
-                     <div class="bar" style="--bar-size: .87;"></div>
+                     <div class="bar" style="--bar-size: .87;" data-recipes-amount="8"></div>
                      <p class="category-title">Ao mosso</p>
                   </div>
                </div>
@@ -108,12 +106,14 @@
             <div class="suggestions_container">
                <span>Sugestão do Dia</span>
                <div class="suggestions--wrapper">
-                  <div class="suggestion"></div>
-                  <div class="suggestion"></div>
-                  <div class="suggestion"></div>
-                  <div class="suggestion"></div>
-                  <div class="suggestion"></div>
-                  <div class="suggestion"></div>
+                  <div class="suggestion" id="1" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="true"></div>
+                  <div class="suggestion" id="2" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" id="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" id="4" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" id="5" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" id="6" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <button class="btn-handler btn-prev"><</button>
+                  <button class="btn-handler btn-next">></button>
                </div>
             </div>
          </section>
