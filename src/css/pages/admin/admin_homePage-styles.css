@@ -281,11 +281,7 @@ main {
    left: 0;
 }
 
-@media screen and (min-width: 720px) {
-   :root {
-      overflow: hidden;
-   }
-
+@media screen and (min-width: 1440px) {
    body > * {
       margin-inline: 10%;
    }
@@ -447,6 +443,7 @@ main {
          display: block;
          margin: 0; 
          border-radius: 15px;
+         border: 3px dashed var(--primary-500);
       }
    }
 

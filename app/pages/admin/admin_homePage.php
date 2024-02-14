@@ -119,7 +119,7 @@
                   <div class="suggestion" data-current_step="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
                   <div class="suggestion" data-current_step="4" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
                   <div class="suggestion" data-current_step="5" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" data-current_step="6" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="6" style="--thumb: var(--neutral-200);" aria-current="false"></div>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
                </div>
