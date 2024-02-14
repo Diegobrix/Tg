@@ -43,6 +43,8 @@ header [aria-hidden="true"] {
 }
 
 main {
+   display: grid;
+
    margin-top: 2rem;
 }
 
@@ -144,23 +146,27 @@ main {
    margin-block: 2rem;
 }
 
-.categories--label {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
 .categories-container {
    --flex-dir: column;
 
+   position: relative;
    display: flex;
    flex-direction: var(--flex-dir);
    gap: .5rem;
 
    margin-top: .5rem;
    padding: 1rem;
+   padding-top: 2.5rem;
    border-radius: 10px;
    background: var(--neutral-200);
+
+   & .options-handler {
+      position: absolute;
+      top: .5rem;
+      --icon-variant: url("../../../../assets/icons/details_dark.svg");
+
+      rotate: 90deg;
+   }
 }
 
 .category {
@@ -194,7 +200,7 @@ main {
       color: var(--primary-700);
       font-size: (var(--fs-100));
 
-      transform: translateY(-50%);
+      transform: translate(0, -50%);
    }
 }
 
@@ -276,7 +282,175 @@ main {
 }
 
 @media screen and (min-width: 720px) {
+   :root {
+      overflow: hidden;
+   }
+
+   body > * {
+      margin-inline: 10%;
+   }
+   
    .greetings-wrapper button {
+      display: none;
+   }
+
+   main {
+      grid-auto-flow: column;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 1rem;
+  
+      height: min-content;
+   }
+
+   .recipes_overview--wrapper {
+      display: grid;
+      grid-template-columns: 25% 1fr;
+      grid-template-rows: repeat(auto-fit, 1fr);
+
+      gap: 1rem;
+   
+      & [class$="--wrapper"] {
+         margin: 0;
+      }
+   }
+
+   .recipes_overview--wrapper .recipes--wrapper {
+      flex-direction: column;
+      place-content: center;
+      gap: .5rem;
+      aspect-ratio: 1;
+
+      padding: 0;
+
+      & .options-handler {
+         top: 1rem;
+         right: .1rem;
+      }
+   }
+
+   .recipes_overview--wrapper .popular_category--wrapper {
+      padding-right: 3rem;
+
+      & p.popular_category_amount-display {
+         font-size: calc(var(--fs-300) + 15px);
+      }
+   }
+
+   .most_recent_recipe--wrapper {
+      grid-area: 2/1/2/3;
+      aspect-ratio: unset;
+   }
+
+   .suggestions--wrapper {
+      border: 0;
+
+      & .btn-handler {
+         display: none;
+      } 
+   }
+
+   .categories-container {
+      --flex-dir: row;
+      justify-content: center;
+
+      padding-top: 4rem;
+      contain: paint;
+   
+      &::after {
+
+         content: "";
+         position: absolute;
+         bottom: 2.2rem;
+         width: 100%;
+         height: 2px;
+         color: hsl(254 84% 69% / .15);
+         background: currentColor;
+         box-shadow: 0 -2rem 0 0,
+                     0 -4rem 0 0,
+                     0 -6rem 0 0,
+                     0 -8rem 0 0,
+                     0 -10rem 0 0;
+         z-index: -1;
+      }
+
+      & .options-handler {
+         --icon-variant: url("../../../../assets/icons/details_dark.svg");
+
+         top: .7rem;
+         rotate: 180deg;
+      }
+   }
+
+   .category {
+      --flex-dir: column;
+      justify-content: flex-end;
+      gap: .5rem;
+      
+      & .bar {
+         position: relative;
+         width: 1.6rem;
+         height: calc(var(--bar-max-size) * var(--bar-size));
+      }
+
+      & .bar:hover::after {
+         top: -2.7rem;
+         right: 50%;
+
+         transform: translate(50%, 0);
+      }
+   }
+
+   .other_options-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: .2fr 1fr;
+      gap: 1rem;
+
+      & [class$="-widget"] {
+         margin: 0;
+         aspect-ratio: 16/9;
+      }
+   }
+
+   div[class$="-widget"] p[class$="amount"] {
+      font-size: calc(var(--fs-300) + 10px);
+   }
+
+   [class$="-widget"] .options-handler {
+      top: 1rem;
+      right: .5rem;
+   }
+
+   .suggestions_container {
+      grid-area: 2/1/2/3;
+      align-self: start;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 1rem;
+
+      margin: 0;
+   }
+
+   .suggestions--wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 10rem);
+      grid-template-rows: repeat(2, 10rem);
+      gap: 1rem;
+      justify-content: space-evenly;
+      width: 100%;
+      aspect-ratio: unset;
+      padding: 1rem;
+      background: var(--primary-700);
+      overflow: visible;
+
+      & .suggestion {
+         display: block;
+         margin: 0; 
+         border-radius: 15px;
+      }
+   }
+
+   .btn-handler {
       display: none;
    }
 }

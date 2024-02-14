@@ -24,7 +24,7 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css"/>
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_homePage-styles.css"/>
 
-      <script defer src="../../../src/js/pages/admin_homePage/hamburger-menu.js"></script>
+      <script defer src="../../../src/js/hamburger-menu.js"></script>
       <script defer src="../../../src/js/pages/admin_homePage/widget-details-handler.js"></script>
       <script defer src="../../../src/js/pages/admin_homePage/admin_homePage_controller.js"></script>
    </head>
@@ -72,10 +72,10 @@
             </div>
             <section class="categories--wrapper">
                <div class="categories--label">
-                  <h2>Categorias</h2>
-                  <span><a href="#">Todas Categorias ></a></span>
+                  <h2>Top Categorias</h2>
                </div>
                <div class="categories-container">
+                  <button class="options-handler"></button>
                   <!-- Trazer as Categorias Pelo PHP -->
                   <div class="category">
                      <div class="bar bigger" style="--bar-size: 1;" data-recipes-amount="10"></div>
@@ -87,6 +87,14 @@
                   </div>
                   <div class="category">
                      <div class="bar" style="--bar-size: .87;" data-recipes-amount="8"></div>
+                     <p class="category-title">Ao mosso</p>
+                  </div>
+                  <div class="category">
+                     <div class="bar" style="--bar-size: .7;" data-recipes-amount="7"></div>
+                     <p class="category-title">Ao mosso</p>
+                  </div>
+                  <div class="category">
+                     <div class="bar" style="--bar-size: .66;" data-recipes-amount="6"></div>
                      <p class="category-title">Ao mosso</p>
                   </div>
                </div>
@@ -106,12 +114,12 @@
             <div class="suggestions_container">
                <span>Sugestão do Dia</span>
                <div class="suggestions--wrapper">
-                  <div class="suggestion" id="1" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="true"></div>
-                  <div class="suggestion" id="2" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" id="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" id="4" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" id="5" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" id="6" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="1" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="true"></div>
+                  <div class="suggestion" data-current_step="2" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="4" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="5" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
+                  <div class="suggestion" data-current_step="6" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
                </div>

@@ -25,7 +25,7 @@ const CURRENT_ITEM_HANDLER = document.querySelectorAll(".btn-handler");
 
 SUGGESTION.forEach((sug) => {
    sug.addEventListener("click", () => {
-      window.alert("Clicado: " + sug.getAttribute("id"));
+      window.alert("Clicado: " + sug.getAttribute("data-current_step"));
    })
 });
 
