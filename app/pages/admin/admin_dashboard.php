@@ -15,39 +15,42 @@
       <nav>
          <div class="header-controller">
             <button class="btn-back"></button>
-            <h2>olá <span class="userName">Fulano</span></h2>
+            <h2>olá <span class="username">Fulano</span></h2>
          </div>
-         <ul aria-expanded="false">
-            <li data-current="true"><a href="#">Receitas</a></li>
-            <li data-current="false"><a href="#">Categorias</a></li>
-            <li data-current="false"><a href="#">Vídeos</a></li>
-            <li data-current="false"><a href="#">Ingredientes</a></li>
+         <ul aria-expanded="true">
+            <li data-current="true">Receitas</li>
+            <li data-current="false">Categorias</li>
+            <li data-current="false">Vídeos</li>
+            <li data-current="false">Ingredientes</li>
          </ul>
          <button id="mobile_menu--handler"></button>
       </nav>
    </header>
-   <nav class="search_navigation--wrapper">
-      <div>
-         <input type="text" name="search" id="txtDashboardSearch">
-      </div>
-      <div>
-         <select name="filter-categories" id="categories">
-            <option value="#" selected disabled>Filtrar</option>
-            <option value="most_recent">Mais Recente</option>
-            <option value="older">Mais Antigo</option>
-         </select>
-      </div>
-   </nav>
-   <main>
-      <div id="result--wrapper">
-         <div class="result">
-            <figure>
-               <img src="../../../assets/images/teste.jpg" alt="">
-            </figure>
-            <h2 class="result-title">Chorume ao molho branco</h2>
-            <span class="result-category">Ao mosso</span>
-            <button class="result_handler"></button>
+   <section>
+      <nav class="search_navigation--wrapper">
+         <div>
+            <span></span>
+            <input type="text" name="search" id="txtDashboardSearch" placeholder="Pesquisar">
          </div>
-      </div>
-   </main>
+         <div>
+            <select name="filter-categories" id="categories">
+               <option value="#" selected disabled>Filtrar</option>
+               <option value="most_recent">Mais Recente</option>
+               <option value="older">Mais Antigo</option>
+            </select>
+         </div>
+      </nav>
+      <main>
+         <div id="result--wrapper">
+            <div class="result">
+               <figure>
+                  <img src="../../../assets/images/teste.jpg" alt="">
+               </figure>
+               <h2 class="result-title">Chorume ao molho branco</h2>
+               <span class="result-category">Ao mosso</span>
+               <button class="result_handler"></button>
+            </div>
+         </div>
+      </main>
+   </section>
 </html>

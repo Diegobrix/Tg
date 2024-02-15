@@ -48,6 +48,7 @@ ul[aria-expanded="false"] {
 }
 
 .search_navigation--wrapper {
+   --element-padding: 7px;
    --radius: 5px;
 
    display: flex;
@@ -57,30 +58,48 @@ ul[aria-expanded="false"] {
    padding: 1rem 0 1rem .5rem;
 
    & div {
+      position: relative;
+      
       padding: .5rem;
       background: var(--primary-700);
       border-radius: calc(var(--radius) * 2);
    }
 }
 
+.search_navigation--wrapper :first-child span {
+   position: absolute;
+   top: 0;
+   left: .7rem;
+
+   height: 1.5rem;
+   aspect-ratio: 1;
+
+   background: url("../../../../assets/icons/search.svg") no-repeat center center;
+   transform: translate(0, 50%);
+
+   cursor: pointer;
+}
+
 input {
-   padding: 5px;
+   padding: var(--element-padding);
+   padding-left: 2rem;
 
    border: 1px solid var(--neutral-600);
    border-radius: var(--radius);
 }
 
 select {
-   padding: 5px;
+   padding: var(--element-padding);
    border-radius: var(--radius);
 }
 
 main {
    --radius: 30px;
-
+   
+   min-height: 75.6vh;
    padding-block: 1rem;
    background: var(--primary-700);
-   border-radius: var(--radius);
+   border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .result {
@@ -112,7 +131,7 @@ main {
    font-size: var(--fs-100);
    color: #fff;
 
-   max-width: 70%;
+   max-width: 22ch;
    text-wrap: nowrap;
    text-overflow: ellipsis;
 
@@ -141,4 +160,70 @@ main {
 
    background: url("../../../../assets/icons/details.svg") no-repeat center center;
    background-size: contain;
+}
+
+@media screen and (min-width: 1440px) {
+   body {
+      display: flex;
+      justify-content: center;
+
+      gap: 0 3rem;
+   }
+
+   .header-controller h2 {
+      display: block;
+   
+      & .username {
+         color: var(--neutral-100);
+      }
+   }
+
+   header {
+      width: 10rem;
+      height: 100vh;
+      margin: 0;
+
+      background: var(--primary-700);
+   }
+
+   header nav {
+      position: relative;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      height: 100%;
+   }
+
+   header nav ul {
+      gap: .5rem;
+   
+      & li[data-current="false"] {
+         color: var(--neutral-100);
+      }
+   }
+
+   .header-controller {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+
+      width: 100%;
+      padding-inline: 1rem;
+
+      transform: translate(-50%, 0);
+   }
+
+   #mobile_menu--handler {
+      display: none;
+   }
+
+   header + section {
+      width: 70%;
+   } 
+
+   main {
+      min-height: 88.8vh;
+   }
 }
