@@ -17,15 +17,16 @@
             <button class="btn-back"></button>
             <h2>olá <span class="userName">Fulano</span></h2>
          </div>
-         <ul>
+         <ul aria-expanded="false">
             <li data-current="true"><a href="#">Receitas</a></li>
             <li data-current="false"><a href="#">Categorias</a></li>
             <li data-current="false"><a href="#">Vídeos</a></li>
             <li data-current="false"><a href="#">Ingredientes</a></li>
          </ul>
+         <button id="mobile_menu--handler"></button>
       </nav>
    </header>
-   <nav>
+   <nav class="search_navigation--wrapper">
       <div>
          <input type="text" name="search" id="txtDashboardSearch">
       </div>
@@ -38,8 +39,15 @@
       </div>
    </nav>
    <main>
-      <div class="result-display">
-
+      <div id="result--wrapper">
+         <div class="result">
+            <figure>
+               <img src="../../../assets/images/teste.jpg" alt="">
+            </figure>
+            <h2 class="result-title">Chorume ao molho branco</h2>
+            <span class="result-category">Ao mosso</span>
+            <button class="result_handler"></button>
+         </div>
       </div>
    </main>
 </html>

@@ -1,0 +1,144 @@
+header {
+   margin: .5rem;
+}
+
+header nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.header-controller h2 {
+   display: none;
+}
+
+#mobile_menu--handler {
+   width: 2.5rem;
+   aspect-ratio: 1;
+   padding: 1rem;
+   border-radius: 10px;
+
+   background: url("../../../../assets/icons/hamburger-menu.svg") no-repeat center center;
+   background-size: 70%;
+   background-color: var(--primary-700);
+}
+
+.btn-back {
+   width: 2.5rem;
+   aspect-ratio: 1;
+   border-radius: 10px;
+
+   background: url("../../../../assets/icons/page_exit.svg") center center;
+   background-color: var(--primary-700);
+}
+
+ul {
+   display: flex;
+   flex-direction: column;
+}
+
+ul[aria-expanded="false"] {
+   & li {
+      font-size: var(--fs-200);
+   }
+   
+   & li[data-current="false"] {
+      display: none;
+   }
+}
+
+.search_navigation--wrapper {
+   --radius: 5px;
+
+   display: flex;
+   align-items: center;
+   gap: 0 .5rem;
+
+   padding: 1rem 0 1rem .5rem;
+
+   & div {
+      padding: .5rem;
+      background: var(--primary-700);
+      border-radius: calc(var(--radius) * 2);
+   }
+}
+
+input {
+   padding: 5px;
+
+   border: 1px solid var(--neutral-600);
+   border-radius: var(--radius);
+}
+
+select {
+   padding: 5px;
+   border-radius: var(--radius);
+}
+
+main {
+   --radius: 30px;
+
+   padding-block: 1rem;
+   background: var(--primary-700);
+   border-radius: var(--radius);
+}
+
+.result {
+   position: relative;
+
+   display: flex;
+   align-items: center;
+   gap: 0 .5rem;
+
+   padding: 1rem;
+
+   & .result-category {
+      display: none;
+   }
+}
+
+.result + .result::before {
+   content: "";
+   position: absolute;
+   top: 0;
+
+   width: 90%;
+   height: 3px;
+   border-radius: 25vw;
+   background: var(--primary-500);
+}
+
+.result h2 {
+   font-size: var(--fs-100);
+   color: #fff;
+
+   max-width: 70%;
+   text-wrap: nowrap;
+   text-overflow: ellipsis;
+
+   overflow: hidden;
+}
+
+.result figure {
+   max-width: 4rem;
+   aspect-ratio: 1;
+   border-radius: 10px;
+   overflow: hidden;
+
+   margin: 0;
+
+   & img {
+      object-fit: cover;
+   }
+}
+
+.result_handler {
+   position: absolute;
+   right: .5rem;
+
+   width: 2rem;
+   aspect-ratio: 1;
+
+   background: url("../../../../assets/icons/details.svg") no-repeat center center;
+   background-size: contain;
+}
