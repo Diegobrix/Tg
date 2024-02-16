@@ -23,7 +23,20 @@
 
          if($isCorrect)
          {
-            echo"Tudo Celto";
+            $userData = array();
+            $userData['userId'] = $dbHash['idUsuario'];
+            $userData['userName'] = $dbHash['nomeUsuario'];
+            $userData['userEmail'] = $dbHash['emailUsuario'];
+
+            $admin_data = json_encode($userData);
+            $adminPath = "../pages/admin/admin_temp_data/admin_cred_data.json";
+
+            if(file_exists($adminPath))
+            {
+               unlink($adminPath);
+            }
+
+            file_put_contents($adminPath, $admin_data);
          }
          else
          {

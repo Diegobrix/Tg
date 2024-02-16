@@ -26,7 +26,7 @@
 
          if ($stmt->rowCount() == 0)
          {
-            $stmtRegister = $conn->prepare("INSERT INTO `usuario`(nomeUsuario, emailUsuario, senhaUsuario) VALUES(:userName, :userEmail, :userPass);");
+            $stmtRegister = $conn->prepare("INSERT INTO `administrador`(nomeUsuario, emailUsuario, senhaUsuario) VALUES(:userName, :userEmail, :userPass);");
             $stmtRegister->execute(array(
                ":userName" => $userName,
                ":userEmail" => $userEmail,

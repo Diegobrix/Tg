@@ -30,6 +30,7 @@
    </head>
    <body>
       <?php 
+
          //Tirar Despois
          $number = 100.6;
          //echo number_format((float)$number, 2, ".");
@@ -38,7 +39,7 @@
          <div class="greetings-wrapper">
             <button id="mobile_menu--handler">
             </button>
-            <h1>Olá, <span class="username">Fulano</span></h1>
+            <h1>Olá, <span class="username"><?=$user['name']?></span></h1>
          </div>
          <div class="desktop-menu" aria-hidden="false">
             <ul></ul>
@@ -51,22 +52,22 @@
             <div class="recipes_overview--wrapper">
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
-                  <p class="recipes_amount-display">1200</p>
+                  <p class="recipes_amount-display"></p>
                   <button class="options-handler"></button>
                </div>
                <div class="popular_category--wrapper">
                   <h2>Principal Categoria</h2>
                   <p class="popular_category-display">Ao mosso</p>
                   <div>
-                     <p class="popular_category_amount-display">55</p>
+                     <p class="popular_category_amount-display"></p>
                      <span>Receitas</span>
                   </div>
                </div>
                <div class="most_recent_recipe--wrapper">
                   <h2>Última Receita Adicionada</h2>
-                  <p class="most_recent_recipe-display">Lorem ipsum sit dolor</p>
+                  <p class="most_recent_recipe-display"></p>
                   <figure>
-                     <img src="../../../assets/images/teste.jpg" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/phpAqui" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
@@ -81,34 +82,18 @@
                      <div class="bar bigger" style="--bar-size: 1;" data-recipes-amount="10"></div>
                      <p class="category-title">Ao mosso</p>
                   </div>
-                  <div class="category">
-                     <div class="bar" style="--bar-size: .5;" data-recipes-amount="5"></div>
-                     <p class="category-title">Ao mosso</p>
-                  </div>
-                  <div class="category">
-                     <div class="bar" style="--bar-size: .87;" data-recipes-amount="8"></div>
-                     <p class="category-title">Ao mosso</p>
-                  </div>
-                  <div class="category">
-                     <div class="bar" style="--bar-size: .7;" data-recipes-amount="7"></div>
-                     <p class="category-title">Ao mosso</p>
-                  </div>
-                  <div class="category">
-                     <div class="bar" style="--bar-size: .66;" data-recipes-amount="6"></div>
-                     <p class="category-title">Ao mosso</p>
-                  </div>
                </div>
             </section>
          </section>
          <section class="other_options-wrapper">
             <div class="videos-widget">
                <h2>Vídeos</h2>
-               <p class="videos_amount">7</p>
+               <p class="videos_amount"></p>
                <button class="options-handler"></button>
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
-               <p class="categories_amount">6</p>
+               <p class="categories_amount"></p>
                <button class="options-handler"></button>
             </div>
             <div class="suggestions_container">
