@@ -23,20 +23,19 @@
 
          if($isCorrect)
          {
-            $userData = array();
-            $userData['userId'] = $dbHash['idUsuario'];
-            $userData['userName'] = $dbHash['nomeUsuario'];
-            $userData['userEmail'] = $dbHash['emailUsuario'];
+            require_once("../temp_data/tempDataGenerator.php");
 
-            $admin_data = json_encode($userData);
-            $adminPath = "../pages/admin/admin_temp_data/admin_cred_data.json";
+            $tempAdmin = new TemporaryData("admin_data");
 
-            if(file_exists($adminPath))
+            $adminData = array();
+            $adminData['idUsuario'] = $dbHash['idUsuario'];
+            $adminData['nomeUsuario'] = $dbHash['nomeUsuario'];
+            $adminData['emailUsuario'] = $dbHash['emailUsuario'];
+
+            if($tempAdmin->generateTempData(json_encode($adminData)))
             {
-               unlink($adminPath);
+               header("location: ../../../pages/admin_homePage.php");
             }
-
-            file_put_contents($adminPath, $admin_data);
          }
          else
          {
@@ -45,6 +44,6 @@
       }
       else
       {
-
+         echo"Usuário Desconhecido!";
       }
    }
