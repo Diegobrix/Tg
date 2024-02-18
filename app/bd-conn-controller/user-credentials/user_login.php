@@ -23,7 +23,7 @@
 
          if($isCorrect)
          {
-            require_once("../temp_data/tempDataGenerator.php");
+            require_once("../temp_data/TemporaryData.php");
 
             $tempAdmin = new TemporaryData("admin_data");
 
@@ -34,7 +34,7 @@
 
             if($tempAdmin->generateTempData(json_encode($adminData)))
             {
-               header("location: ../../../pages/admin_homePage.php");
+               header("location: __DIR__/../../../pages/admin/admin_homePage.php");
             }
          }
          else

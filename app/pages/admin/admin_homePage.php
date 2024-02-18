@@ -30,6 +30,15 @@
    </head>
    <body>
       <?php 
+         require_once("./adminPagesConstructor.php");
+         $pageConstructor = new AdminPagesConstructor();
+
+         $user = $pageConstructor->getAdminData();
+
+         if($user == null)
+         {
+            die();
+         }
 
          //Tirar Despois
          $number = 100.6;
@@ -39,7 +48,7 @@
          <div class="greetings-wrapper">
             <button id="mobile_menu--handler">
             </button>
-            <h1>Olá, <span class="username"><?=$user['name']?></span></h1>
+            <h1>Olá, <span class="username"><?=$user['nomeUsuario']?></span></h1>
          </div>
          <div class="desktop-menu" aria-hidden="false">
             <ul></ul>
