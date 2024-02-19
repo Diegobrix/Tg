@@ -62,6 +62,20 @@ img {
    object-fit: contain;
 }
 
+.greetings-wrapper h1 {
+   display: flex;
+   align-items: center;
+   gap: 0 1px;
+}
+
+.username {
+   display: block;
+   max-width: var(--max-width);
+   text-wrap: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
+}
+
 @supports selector(::-webkit-scrollbar) and selector(::-webkit-scrollbar-thumb) {
    body::-webkit-scrollbar {
       width: 10px;

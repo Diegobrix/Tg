@@ -13,6 +13,19 @@
 		}
    }
    */
+
+   require_once("AdminPagesConstructor.php");
+   $pageConstructor = new AdminPagesConstructor();
+
+   $user = $pageConstructor->getAdminData();
+
+   if($user == null)
+   {
+      session_unset();
+      session_destroy();
+
+      die();
+   }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,18 +43,9 @@
    </head>
    <body>
       <?php 
-         require_once("./adminPagesConstructor.php");
-         $pageConstructor = new AdminPagesConstructor();
-
-         $user = $pageConstructor->getAdminData();
-
-         if($user == null)
-         {
-            die();
-         }
-
+         require_once("");
          //Tirar Despois
-         $number = 100.6;
+         //$number = 100.6;
          //echo number_format((float)$number, 2, ".");
       ?>
       <header>
@@ -86,7 +90,6 @@
                </div>
                <div class="categories-container">
                   <button class="options-handler"></button>
-                  <!-- Trazer as Categorias Pelo PHP -->
                   <div class="category">
                      <div class="bar bigger" style="--bar-size: 1;" data-recipes-amount="10"></div>
                      <p class="category-title">Ao mosso</p>
