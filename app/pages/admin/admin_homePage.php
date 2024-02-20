@@ -25,6 +25,8 @@
 
       die();
    }
+
+   $content = $pageConstructor->getContentData("content_data");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -43,7 +45,6 @@
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
-
 
          
          //Tirar Despois
@@ -67,7 +68,7 @@
             <div class="recipes_overview--wrapper">
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
-                  <p class="recipes_amount-display"></p>
+                  <p class="recipes_amount-display"><?=$content['recipes_amount']?></p>
                   <button class="options-handler"></button>
                </div>
                <div class="popular_category--wrapper">

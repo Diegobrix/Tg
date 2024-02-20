@@ -14,6 +14,11 @@
          return $this->generateFile($this->dataPath.$this->page.".json");
       }
 
+      public function getContentData($page)
+      {
+         return $this->generateFile($this->dataPath.$page.".json");
+      }
+
       private function generateFile($file)
       {
          if(!file_exists($file))
