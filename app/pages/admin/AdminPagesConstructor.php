@@ -1,20 +1,27 @@
 <?php
    class AdminPagesConstructor
    {
-      private $dataPath = __DIR__."/../../bd-conn-controller/temp_data/data/admin_data.json";
+      public $dataPath = __DIR__."/../../bd-conn-controller/temp_data/data/";
+      public $page;
 
-      function __construct()
+      function __construct($page = "admin_data")
       {
+         $this->page = $page;
       }
 
       public function getAdminData()
       {
-         if(!file_exists($this->dataPath))
+         return $this->generateFile($this->dataPath.$this->page.".json");
+      }
+
+      private function generateFile($file)
+      {
+         if(!file_exists($file))
          {
             return null;   
          }
 
-         $adminData = json_decode(file_get_contents($this->dataPath), true);
-         return $adminData;
+         $encodedData = json_decode(file_get_contents($file), true);
+         return $encodedData;
       }
    }

@@ -16,7 +16,6 @@
 
    require_once("AdminPagesConstructor.php");
    $pageConstructor = new AdminPagesConstructor();
-
    $user = $pageConstructor->getAdminData();
 
    if($user == null)
@@ -43,7 +42,10 @@
    </head>
    <body>
       <?php 
-         require_once("");
+         require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
+
+
+         
          //Tirar Despois
          //$number = 100.6;
          //echo number_format((float)$number, 2, ".");
@@ -52,7 +54,7 @@
          <div class="greetings-wrapper">
             <button id="mobile_menu--handler">
             </button>
-            <h1>Olá, <span class="username"><?=$user['nomeUsuario']?></span></h1>
+            <h1>Olá, <span class="username"><?=$user['username']?></span></h1>
          </div>
          <div class="desktop-menu" aria-hidden="false">
             <ul></ul>

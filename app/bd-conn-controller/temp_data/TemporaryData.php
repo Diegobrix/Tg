@@ -8,7 +8,7 @@
 
       public function generateTempData($data)
       {
-         $path = "../temp_data/data/".$this->url.".json";
+         $path = __DIR__.'/data/'.$this->url.".json";
 
          try
          {

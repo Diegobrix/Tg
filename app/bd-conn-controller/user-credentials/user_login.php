@@ -28,9 +28,9 @@
             $tempAdmin = new TemporaryData("admin_data");
 
             $adminData = array();
-            $adminData['idUsuario'] = $dbHash['idUsuario'];
-            $adminData['nomeUsuario'] = $dbHash['nomeUsuario'];
-            $adminData['emailUsuario'] = $dbHash['emailUsuario'];
+            $adminData['idUser'] = $dbHash['idUsuario'];
+            $adminData['username'] = $dbHash['nomeUsuario'];
+            $adminData['userEmail'] = $dbHash['emailUsuario'];
 
             if($tempAdmin->generateTempData(json_encode($adminData)))
             {
