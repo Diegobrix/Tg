@@ -85,7 +85,7 @@ main {
    justify-content: space-between;
 
    & .recipes_amount-display {
-      font-size: var(--fs-300);
+      font-size: calc(var(--fs-300) + 10px);
    }
 }
 

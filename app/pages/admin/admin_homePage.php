@@ -45,7 +45,7 @@
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
-
+         require_once("../../bd-conn-controller/pages/admin/getDataFromDB.php");
          
          //Tirar Despois
          //$number = 100.6;
@@ -68,22 +68,22 @@
             <div class="recipes_overview--wrapper">
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
-                  <p class="recipes_amount-display"><?=$content['recipes_amount']?></p>
+                  <p class="recipes_amount-display"><?=$content[0]['recipes_amount']?></p>
                   <button class="options-handler"></button>
                </div>
                <div class="popular_category--wrapper">
                   <h2>Principal Categoria</h2>
-                  <p class="popular_category-display">Ao mosso</p>
+                  <p class="popular_category-display"><?=$popularCategory?></p>
                   <div>
-                     <p class="popular_category_amount-display"></p>
+                     <p class="popular_category_amount-display"><?=$popularCategoryAmount?></p>
                      <span>Receitas</span>
                   </div>
                </div>
                <div class="most_recent_recipe--wrapper">
                   <h2>Última Receita Adicionada</h2>
-                  <p class="most_recent_recipe-display"></p>
+                  <p class="most_recent_recipe-display"><?=$lastRecipeTitle?></p>
                   <figure>
-                     <img src="../../../assets/images/phpAqui" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/<?=$lastRecipeThumb?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
@@ -93,22 +93,30 @@
                </div>
                <div class="categories-container">
                   <button class="options-handler"></button>
-                  <div class="category">
-                     <div class="bar bigger" style="--bar-size: 1;" data-recipes-amount="10"></div>
-                     <p class="category-title">Ao mosso</p>
-                  </div>
+                  <?php
+                     for($i = 0; $i < count($categories); $i++)
+                     {
+                        $currentAmount = $contentData[1][$i]['amount'];
+                  ?>
+                     <div class="category">
+                        <div class="bar <?=$currentAmount/$popularCategoryAmount==1?'bigger':''?>" style="--bar-size: <?=$currentAmount/$popularCategoryAmount?>;" data-recipes-amount="<?=$currentAmount?>"></div>
+                        <p class="category-title"><?=implode($categories[$i])?></p>
+                     </div>
+                  <?php
+                     }
+                  ?>
                </div>
             </section>
          </section>
          <section class="other_options-wrapper">
             <div class="videos-widget">
                <h2>Vídeos</h2>
-               <p class="videos_amount"></p>
+               <p class="videos_amount"><?=$videosAmount?></p>
                <button class="options-handler"></button>
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
-               <p class="categories_amount"></p>
+               <p class="categories_amount"><?=$categoriesAmount?></p>
                <button class="options-handler"></button>
             </div>
             <div class="suggestions_container">
