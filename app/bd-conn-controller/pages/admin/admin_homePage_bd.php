@@ -13,7 +13,7 @@
       $content = array();
       
       $content[0] = $data;
-      $stmtCategories = $conn->prepare("SELECT categoriaReceita as category, COUNT(idReceita) AS amount FROM receita GROUP BY categoriaReceita;");
+      $stmtCategories = $conn->prepare("SELECT categoriaReceita as category, COUNT(idReceita) AS amount FROM receita GROUP BY categoriaReceita LIMIT 5;");
       $stmtCategories->execute();
 
       $i = 0;
