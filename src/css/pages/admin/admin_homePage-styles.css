@@ -257,6 +257,10 @@ main {
    }
 }
 
+.suggestion .suggestion_title {
+   display: none;
+}
+
 .suggestions--wrapper:hover .btn-handler {
    visibility: visible;
 }
@@ -445,11 +449,24 @@ main {
       overflow: visible;
 
       & .suggestion {
+         position: relative;
          display: block;
          margin: 0; 
          border-radius: 15px;
          border: 3px dashed var(--primary-500);
+         overflow: hidden;
       }
+   }
+
+   .suggestion:hover .suggestion_title {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      background: var(--transparent-300);
+      text-align: center;
+      width: 100%;
+      padding: .5rem 0;
+      backdrop-filter: blur(3px);
    }
 
    .btn-handler {

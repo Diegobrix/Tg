@@ -1,8 +1,11 @@
 <?php
    class DaySuggestions
    {
-      function __construct()
+      private $recipes;
+
+      function __construct($recipes)
       {
+         $this->recipes = $recipes;
       }
 
       public function getSuggestions()

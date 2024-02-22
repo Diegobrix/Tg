@@ -63,14 +63,16 @@
    //endregion
 
    //region Recipes
-   $lastId = isset($recipes)?$recipes[count($recipes) - 1]['idReceita']:1;
-
-   $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita, fotoReceita, categoriaReceita, autor FROM `receita` WHERE idReceita >= :lastId LIMIT 100;");
-   $stmtRecipes->bindParam(":lastId", $lastId);
-   $stmtRecipes->execute();
-
-   if($stmtRecipes->rowCount() > 0)
+   function getRecipes($lastId, $conn)
    {
-      $recipes = $stmtRecipes->fetchAll(PDO::FETCH_ASSOC);
+      $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita, fotoReceita, categoriaReceita, autor FROM `receita` WHERE idReceita >= :lastId LIMIT 100;");
+      $stmtRecipes->bindParam(":lastId", $lastId);
+      $stmtRecipes->execute();
+
+      if($stmtRecipes->rowCount() > 0)
+      {
+         $recipes = $stmtRecipes->fetchAll(PDO::FETCH_ASSOC);
+         return $recipes;
+      }
    }
    //endregion

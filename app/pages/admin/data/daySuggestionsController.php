@@ -2,7 +2,7 @@
    $suggestionsFilePath = __DIR__."/./temp_data/suggestions.json";
    if(!file_exists($suggestionsFilePath))
    {
-      //Generate new file
+      generateSuggestions();
    }
    else
    {
@@ -21,7 +21,7 @@
             if(($dateTimeDiff->h > 24) || ($dateTimeDiff->days > 0))
             {
                unlink($suggestionsFilePath);
-               //Generate new file
+               generateSuggestions();
             }
          }
       }
@@ -29,4 +29,11 @@
       {
          die();
       }
+   }
+
+   function generateSuggestions()
+   {
+      require_once("./getDataFromDB.php");
+      
+      //$daySuggestions = new DaySuggestions($recipes);
    }

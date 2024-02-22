@@ -123,16 +123,18 @@
                <span>Sugestão do Dia</span>
                <div class="suggestions--wrapper">
                   <?php
-                     require_once("./data/daySuggestionsController.php");
+                     //require_once("./data/daySuggestionsController.php");
+                     $recipes = getRecipes(1, $conn);
 
-
+                     for($i = 0; $i < 6; $i++)
+                     {
                   ?>
-                  <div class="suggestion" data-current_step="1" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="true"></div>
-                  <div class="suggestion" data-current_step="2" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" data-current_step="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" data-current_step="4" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" data-current_step="5" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
-                  <div class="suggestion" data-current_step="6" style="--thumb: var(--neutral-200);" aria-current="false"></div>
+                        <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$recipes[$i]['fotoReceita'] != null ?'url(../../../../assets/images/'.$recipes[$i]['fotoReceita'].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 0?'true':'false'?>">
+                           <p class="suggestion_title"><?=$recipes[$i]['tituloReceita']?></p>
+                        </div>
+                  <?php
+                     }
+                  ?>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
                </div>
