@@ -1,7 +1,7 @@
 <?php
    require_once("../../../conf/defineSourcePath.php");
 
-   $contentData = json_decode(file_get_contents(__DIR__."/../../temp_data/data/content_data.json"), true);
+   $contentData = json_decode(file_get_contents(__DIR__."/../../../bd-conn-controller/temp_data/data/content_data.json"), true);
 
    $stmtPopularCategory = $conn->prepare("SELECT c.descricaoCategoria AS category_desc, (SELECT COUNT(r.idReceita) FROM `receita` AS `r` WHERE r.categoriaReceita = c.idCategoria) AS most_pop_category_amount FROM `categoria` AS `c` WHERE idCategoria = :most_popular_category;");
    $stmtPopularCategory->bindParam(":most_popular_category", $contentData[0]['most_popular_category']);

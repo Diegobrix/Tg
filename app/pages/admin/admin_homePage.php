@@ -45,7 +45,7 @@
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
-         require_once("../../bd-conn-controller/pages/admin/getDataFromDB.php");
+         require_once("./data/getDataFromDB.php");
          
          //Tirar Despois
          //$number = 100.6;
@@ -72,7 +72,7 @@
                   <button class="options-handler"></button>
                </div>
                <div class="popular_category--wrapper">
-                  <h2>Principal Categoria</h2>
+                  <h2>Categoria Preferida</h2>
                   <p class="popular_category-display"><?=$popularCategory?></p>
                   <div>
                      <p class="popular_category_amount-display"><?=$popularCategoryAmount?></p>
@@ -99,7 +99,7 @@
                         $currentAmount = $contentData[1][$i]['amount'];
                   ?>
                      <div class="category">
-                        <div class="bar <?=$currentAmount/$popularCategoryAmount==1?'bigger':''?>" style="--bar-size: <?=$currentAmount/$popularCategoryAmount?>;" data-recipes-amount="<?=$currentAmount?>"></div>
+                        <div class="bar <?=$currentAmount/$popularCategoryAmount==1?'bigger':''?>" style="--bar-size: <?=number_format((float)$currentAmount/$popularCategoryAmount, 2, '.')?>;" data-recipes-amount="<?=$currentAmount?>"></div>
                         <p class="category-title"><?=implode($categories[$i])?></p>
                      </div>
                   <?php
@@ -122,6 +122,11 @@
             <div class="suggestions_container">
                <span>Sugestão do Dia</span>
                <div class="suggestions--wrapper">
+                  <?php
+                     require_once("./data/daySuggestionsController.php");
+
+
+                  ?>
                   <div class="suggestion" data-current_step="1" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="true"></div>
                   <div class="suggestion" data-current_step="2" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>
                   <div class="suggestion" data-current_step="3" style="--thumb: url(../../../../assets/images/teste.jpg);" aria-current="false"></div>

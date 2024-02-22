@@ -27,10 +27,13 @@
 
             $tempAdmin = new TemporaryData("admin_data");
 
+            date_default_timezone_set('America/Sao_Paulo');
+
             $adminData = array();
             $adminData['idUser'] = $dbHash['idUsuario'];
             $adminData['username'] = $dbHash['nomeUsuario'];
             $adminData['userEmail'] = $dbHash['emailUsuario'];
+            $adminData['login_snapshot'] = date('d-m-Y h:i');
 
             if($tempAdmin->generateTempData(json_encode($adminData)))
             {
