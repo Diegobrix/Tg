@@ -11,8 +11,8 @@
       private $randomized = array();
       public function getSuggestions()
       {
-         $randomizedRecipes = $this->randomizeSuggestion($this->recipes, $this->randomized);
-         return $randomizedRecipes;
+         $suggestions = $this->convertSuggestionId($this->randomizeSuggestion($this->recipes, $this->randomized), $this->recipes);
+         return $suggestions;
       }
 
       private function randomizeSuggestion($recipes, $randomized, $loopIndex = 0, $attempt = 0)
@@ -40,5 +40,22 @@
          }
 
          return $randomized;
+      }
+
+      private function convertSuggestionId($suggestions, $recipes)
+      {
+         $suggestion = array();
+         $i = 0;
+         foreach($suggestions as $s)
+         {
+            $suggestion[$i] = array(
+               $recipes[$s - 1]['idReceita'],
+               $recipes[$s - 1]['title'], 
+               $recipes[$s - 1]['recipeThumb']
+            );
+            $i+= 1;
+         }
+
+         return $suggestion;
       }
    }
