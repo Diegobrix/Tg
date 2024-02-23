@@ -33,7 +33,23 @@
 
    function generateSuggestions()
    {
-      require_once("./getDataFromDB.php");
-      
-      //$daySuggestions = new DaySuggestions($recipes);
+      require(__DIR__."/../../../../conf/defineSourcePath.php");
+      require_once(__DIR__."/./getDataFromDB.php");
+
+      $contentData = json_decode(file_get_contents(__DIR__."/../../../bd-conn-controller/temp_data/data/content_data.json"), true);
+      if($contentData[0]['recipes_amount']<=100)
+      {
+         $lastId = 1;
+      }
+      else
+      {
+         $lastId = $contentData['recipes_amount'];
+      }
+
+      require(__DIR__."/./DaySuggestions.php");
+      $daySuggestions = new DaySuggestions(getRecipes($lastId, $conn));
+      $randomized = $daySuggestions->getSuggestions();
+
+      $suggestionsFilePath = __DIR__."/temp_data/day_suggestions.json";
+      file_put_contents($suggestionsFilePath, json_encode($randomized));
    }

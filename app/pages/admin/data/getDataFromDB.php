@@ -1,6 +1,5 @@
 <?php
    require_once("../../../conf/defineSourcePath.php");
-
    $contentData = json_decode(file_get_contents(__DIR__."/../../../bd-conn-controller/temp_data/data/content_data.json"), true);
 
    //region PopularCategory
@@ -65,7 +64,7 @@
    //region Recipes
    function getRecipes($lastId, $conn)
    {
-      $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita, fotoReceita, categoriaReceita, autor FROM `receita` WHERE idReceita >= :lastId LIMIT 100;");
+      $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita AS title, fotoReceita AS recipeThumb, categoriaReceita, autor FROM `receita` WHERE idReceita >= :lastId LIMIT 100;");
       $stmtRecipes->bindParam(":lastId", $lastId);
       $stmtRecipes->execute();
 

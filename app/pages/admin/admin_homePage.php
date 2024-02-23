@@ -123,18 +123,12 @@
                <span>Sugestão do Dia</span>
                <div class="suggestions--wrapper">
                   <?php
-                     //require_once("./data/daySuggestionsController.php");
-                     $recipes = getRecipes(1, $conn);
-
-                     for($i = 0; $i < 6; $i++)
-                     {
-                  ?>
+                     require_once("./data/daySuggestionsController.php");
+                  ?><!--
                         <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$recipes[$i]['fotoReceita'] != null ?'url(../../../../assets/images/'.$recipes[$i]['fotoReceita'].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 0?'true':'false'?>">
                            <p class="suggestion_title"><?=$recipes[$i]['tituloReceita']?></p>
                         </div>
-                  <?php
-                     }
-                  ?>
+                     -->
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
                </div>
