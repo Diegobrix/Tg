@@ -29,7 +29,6 @@
       $daySuggestions = new DaySuggestions(getRecipes($lastId, $conn));
       $randomized = $daySuggestions->getSuggestions();
 
-      print_r($randomized);
       $suggestionsFile = __DIR__."/temp_data/day_suggestions.json";
       file_put_contents($suggestionsFile, json_encode($randomized));
    }

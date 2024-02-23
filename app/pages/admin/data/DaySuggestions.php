@@ -17,7 +17,7 @@
 
       private function randomizeSuggestion($recipes, $randomized, $loopIndex = 0, $attempt = 0)
       {
-         $maxAttempts = 50;
+         $maxAttempts = 200;
          if ($attempt >= $maxAttempts)
          {
             return $randomized;
@@ -46,6 +46,7 @@
       {
          $suggestion = array();
          $i = 0;
+         
          foreach($suggestions as $s)
          {
             $suggestion[$i] = array(

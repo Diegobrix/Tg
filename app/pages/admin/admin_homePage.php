@@ -124,11 +124,31 @@
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/daySuggestionsController.php");
-                  ?><!--
-                        <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$recipes[$i]['fotoReceita'] != null ?'url(../../../../assets/images/'.$recipes[$i]['fotoReceita'].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 0?'true':'false'?>">
-                           <p class="suggestion_title"><?=$recipes[$i]['tituloReceita']?></p>
-                        </div>
-                     -->
+                     $suggestions = __DIR__."/data/temp_data/day_suggestions.json";
+
+                     if(file_exists($suggestions))
+                     {
+                        try
+                        {
+                           $suggestionsJson = json_decode(file_get_contents($suggestions), true);
+                           $i = 1;
+
+                           foreach($suggestionsJson as $json)
+                           {
+                  ?>
+                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 0?'true':'false'?>">
+                                 <p class="suggestion_title"><?=$json[1]?></p>
+                              </div>
+                  <?php
+                              $i+= 1;
+                           }
+                        }
+                        catch(ValueError $e)
+                        {
+                           header("Refresh:0");
+                        }
+                     }
+                  ?>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
                </div>
