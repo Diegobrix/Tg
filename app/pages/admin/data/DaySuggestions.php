@@ -15,23 +15,27 @@
          return $randomizedRecipes;
       }
 
-      private function randomizeSuggestion($recipes, $randomized, $loopIndex = 0)
+      private function randomizeSuggestion($recipes, $randomized, $loopIndex = 0, $attempt = 0)
       {
-         if($loopIndex < 6)
+         $maxAttempts = 50;
+         if ($attempt >= $maxAttempts)
          {
-            $recipe = random_int(1, $recipes[count($recipes) - 1]['idReceita']);
-            
+            return $randomized;
+         }
+        
+         $random = random_int(1, count($recipes));
+         if(in_array($random, $randomized))
+         {
+            return $this->randomizeSuggestion($recipes, $randomized, $loopIndex, $attempt + 1);
+         }
+         else
+         {
             if($loopIndex < 6)
             {
-               if(in_array($recipe, $randomized))
-               {
-                  return $this->randomizeSuggestion($recipes, $randomized, $loopIndex);
-               }
+               array_push($randomized, $random);
+               $loopIndex += 1;
 
-               array_push($randomized, $recipe);
-
-               $loopIndex++;
-               return $this->randomizeSuggestion($recipes, $randomized, $loopIndex);
+               return $this->randomizeSuggestion($recipes, $randomized, $loopIndex, $attempt);
             }
          }
 
