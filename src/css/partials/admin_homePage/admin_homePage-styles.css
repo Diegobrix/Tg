@@ -1,3 +1,7 @@
+:root:has(.mobile-menu[aria-expanded="true"]) {
+   overflow: hidden;
+}
+
 :root:has(.mobile-menu[aria-expanded="true"]) .backdrop {
    position: fixed;
    top: 0;
@@ -21,6 +25,7 @@
    min-width: 60vw;
    height: 100vh;
    z-index: 10;
+   padding: 1rem;
    background-color: red;
    animation: openMenu .3s ease-in forwards;
 }

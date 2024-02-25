@@ -66,7 +66,7 @@
          </div>
       </header>
       <aside class="mobile-menu" aria-expanded="false">
-         <button class="btn_close"></button>
+         <button id="btn_close"></button>
       </aside>
       <div class="backdrop"></div>
       <main>
