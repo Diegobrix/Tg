@@ -1,3 +1,6 @@
+@import url("../../animations/admin_homePage/admin_homePage-animations.css");
+@import url("../../partials/admin_homePage/admin_homePage-styles.css");
+
 body {
    --page-margin: 1rem;
    --fs-100: 16px;
@@ -39,13 +42,24 @@ header > div {
    background-color: var(--primary-700);
 }
 
+header li {
+   cursor: pointer;
+}
+
 header [aria-hidden="true"] {
    display: none;
 }
 
+.greetings-wrapper,
+.desktop-menu,
+.recipes_overview--wrapper [class$="--wrapper"],
+.other_options-wrapper [class$="-widget"],
+.categories-container {
+   box-shadow: 1px 2px 2px 0 hsl(0 0% 0% / .3);
+}
+
 main {
    display: grid;
-
    margin-top: 2rem;
 }
 
@@ -299,6 +313,34 @@ main {
       display: none;
    }
 
+   header ul {
+      position: relative;
+      display: flex;
+      justify-content: space-evenly;
+      gap: 0 1rem;
+      padding-right: 4rem;
+      
+      & li:hover {
+         color: var(--neutral-100);
+         transition: all .2s;
+      }
+   }
+
+   .btn_menu_add {
+      position: absolute;
+      top: 25%;
+      right: -9px;
+
+      width: 3.5rem;
+      aspect-ratio: 1;
+      border: 3px solid var(--primary-500);
+      border-radius: 50%;
+      background: url("../../../../assets/icons/plus.svg") no-repeat center center;
+      background-size: 60%;
+      background-color: var(--neutral-100);
+      transform: translate(0, -42%);
+   }
+
    main {
       grid-auto-flow: column;
       grid-template-columns: repeat(2, 1fr);
@@ -424,6 +466,10 @@ main {
    [class$="-widget"] .options-handler {
       top: 1rem;
       right: .5rem;
+   }
+
+   .suggestions--wrapper {
+      box-shadow: 1px 2px 2px 0 hsl(0 0% 0% / .3);
    }
 
    .suggestions_container {

@@ -1,0 +1,26 @@
+:root:has(.mobile-menu[aria-expanded="true"]) .backdrop {
+   position: fixed;
+   top: 0;
+   width: 100vw;
+   height: 100vh;
+   background: hsl(0 0% 0% / .3);
+   backdrop-filter: blur(3px);
+   z-index: 9;
+}
+
+.mobile-menu[aria-expanded="false"] {
+   display: none;
+}
+
+.mobile-menu[aria-expanded="true"] {
+   position: fixed;
+   top: 0;
+   left: -60vw;
+
+   display: flex;
+   min-width: 60vw;
+   height: 100vh;
+   z-index: 10;
+   background-color: red;
+   animation: openMenu .3s ease-in forwards;
+}

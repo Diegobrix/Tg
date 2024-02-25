@@ -58,11 +58,17 @@
             <h1>Olá, <span class="username"><?=$user['username']?></span></h1>
          </div>
          <div class="desktop-menu" aria-hidden="false">
-            <ul></ul>
+            <ul>
+               <li>Receitas</li>
+               <li>Categorias</li>
+               <button class="btn_menu_add"></button>
+            </ul>
          </div>
       </header>
       <aside class="mobile-menu" aria-expanded="false">
+         <button class="btn_close"></button>
       </aside>
+      <div class="backdrop"></div>
       <main>
          <section>
             <div class="recipes_overview--wrapper">
@@ -83,7 +89,7 @@
                   <h2>Última Receita Adicionada</h2>
                   <p class="most_recent_recipe-display"><?=$lastRecipeTitle?></p>
                   <figure>
-                     <img src="../../../assets/images/<?=$lastRecipeThumb?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/recipes/<?=$lastRecipeThumb?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
@@ -120,7 +126,7 @@
                <button class="options-handler"></button>
             </div>
             <div class="suggestions_container">
-               <span>Sugestão do Dia</span>
+               <span>Sugestões do Dia</span>
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/daySuggestionsController.php");
@@ -136,7 +142,7 @@
                            foreach($suggestionsJson as $json)
                            {
                   ?>
-                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 0?'true':'false'?>">
+                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 1?'true':'false'?>">
                                  <p class="suggestion_title"><?=$json[1]?></p>
                               </div>
                   <?php

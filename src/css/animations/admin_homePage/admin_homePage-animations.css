@@ -1,8 +1,4 @@
-@keyframes showMenu {
-   from {
-      left: -50%;
-   }
-
+@keyframes openMenu {
    to {
       left: 0;
    }
