@@ -41,15 +41,13 @@
       <script defer src="../../../src/js/hamburger-menu.js"></script>
       <script defer src="../../../src/js/pages/admin_homePage/widget-details-handler.js"></script>
       <script defer src="../../../src/js/pages/admin_homePage/admin_homePage_controller.js"></script>
+      <script defer src="../../../src/js/pages/admin_homePage/admin_homePage_responsive.js"></script>
+      <script defer src="../../../src/js/pages/admin_homePage/admin_homePage_menu-controller.js"></script>
    </head>
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
          require_once("./data/getDataFromDB.php");
-         
-         //Tirar Despois
-         //$number = 100.6;
-         //echo number_format((float)$number, 2, ".");
       ?>
       <header>
          <div class="greetings-wrapper">
@@ -63,10 +61,20 @@
                <li>Categorias</li>
                <button class="btn_menu_add"></button>
             </ul>
+            <div class="dropdown_menu" aria-hidden="true">
+               <ul>
+                  <li>Nova receita</li>
+                  <li>Nova categoria</li>
+               </ul>
+            </div>
          </div>
       </header>
       <aside class="mobile-menu" aria-expanded="false">
          <button id="btn_close"></button>
+         <ul>
+            <li>Receitas</li>
+            <li>Categorias</li>
+         </ul>
       </aside>
       <div class="backdrop"></div>
       <main>

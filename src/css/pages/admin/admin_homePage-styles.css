@@ -59,11 +59,30 @@ header [aria-hidden="true"] {
 }
 
 #btn_close {
+   position: absolute;
+   top: 1rem;
+   left: 1rem;
+
    height: 1.7rem;
    aspect-ratio: 1;
 
    background: url("../../../../assets/icons/close.svg") no-repeat center center;
 }
+
+.mobile-menu ul {
+   display: flex;
+   flex-direction: column;
+   gap: 10px 0;
+
+   & li:hover {
+      color: #fff;
+   }
+}
+
+.backdrop {
+   display: none;
+}
+
 
 main {
    display: grid;
@@ -346,6 +365,38 @@ main {
       background-size: 60%;
       background-color: var(--neutral-100);
       transform: translate(0, -42%);
+      z-index: 11;
+   }
+
+   .desktop-menu {
+      position: relative;
+   }
+
+   .dropdown_menu[aria-hidden="true"] {
+      visibility: hidden;
+   }
+
+   .dropdown_menu ul {
+      --animStart: 2rem;
+      position: absolute;
+      top: var(--animStart);
+      right: -2rem;
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      padding: .5rem;
+      text-wrap: nowrap;
+      z-index: 10;
+
+      background: var(--neutral-200);
+      border-radius: 5px;
+      box-shadow: 2px 3px 4px hsl(0 0% 0% / .4);
+      color: var(--primary-700);
+      animation: showDropDownMenu .4s ease-in-out forwards;
+   }
+
+   .dropdown_menu li:hover {
+      color: #000;
    }
 
    main {

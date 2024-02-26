@@ -5,6 +5,7 @@
 :root:has(.mobile-menu[aria-expanded="true"]) .backdrop {
    position: fixed;
    top: 0;
+   display: block;
    width: 100vw;
    height: 100vh;
    background: hsl(0 0% 0% / .3);
@@ -19,13 +20,18 @@
 .mobile-menu[aria-expanded="true"] {
    position: fixed;
    top: 0;
-   left: -60vw;
+   left: -50vw;
 
    display: flex;
-   min-width: 60vw;
+   justify-content: flex-start;
+   align-items: center;
+
+   width: 50vw;
    height: 100vh;
    z-index: 10;
-   padding: 1rem;
-   background-color: red;
+   padding-inline: 1rem;
+   background-color: var(--primary-600);
    animation: openMenu .3s ease-in forwards;
+   border-right: 3px solid hsl(215 91% 55% / .5);
+   box-shadow: 2px 0 2px hsl(0 0% 0% / .1);
 }
