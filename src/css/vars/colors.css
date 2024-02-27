@@ -18,5 +18,6 @@
    --transparent:#0000;
    --transparent-100:hsl(0 0% 100% / .2);
    --transparent-200:hsl(0 0% 0% / .5);
+   --transparent-250:hsl(0 0% 25% / .3);
    --transparent-300:hsl(210 33% 95% / .7);
 }

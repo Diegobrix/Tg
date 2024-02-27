@@ -1,13 +1,11 @@
 <?php
-   
    session_start();
-   /*
-   if(!isset($_SESSION['admin_id']))
+   if((!isset($_SESSION['admin_id'])) || ($_SESSION['admin_id'] == false))
    {
-         session_destroy();
-			header("location: <Caminho para volta>");
+      session_unset();
+      session_destroy();
+		header("location: ../credentials.php");
    }
-   */
 
    require_once("AdminPagesConstructor.php");
    $pageConstructor = new AdminPagesConstructor($_SESSION['admin_token']);
@@ -63,7 +61,7 @@
                </ul>
             </div>
          </div>
-         <button class="logout"><a href="">Sair</a></button>
+         <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
       </header>
       <aside class="mobile-menu" aria-expanded="false">
          <button id="btn_close"></button>

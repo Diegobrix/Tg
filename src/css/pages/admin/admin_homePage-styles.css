@@ -83,6 +83,9 @@ header [aria-hidden="true"] {
    display: none;
 }
 
+.logout {
+   display: none;
+}
 
 main {
    display: grid;
@@ -301,6 +304,18 @@ main {
    display: none;
 }
 
+.suggestion:hover .suggestion_title {
+   position: absolute;
+   bottom: 0;
+   display: block;
+   background: var(--transparent-250);
+   text-align: center;
+   width: 100%;
+   padding: .5rem 0;
+   backdrop-filter: blur(3px);
+   z-index: 2;
+}
+
 .suggestions--wrapper:hover .btn-handler {
    visibility: visible;
 }
@@ -316,6 +331,7 @@ main {
 
    color: #000;
    background: hsl(210 33% 95% / .5);
+   z-index: 1;
 }
 
 .btn-next {
@@ -581,17 +597,6 @@ main {
          border: 3px dashed var(--primary-500);
          overflow: hidden;
       }
-   }
-
-   .suggestion:hover .suggestion_title {
-      position: absolute;
-      bottom: 0;
-      display: block;
-      background: var(--transparent-300);
-      text-align: center;
-      width: 100%;
-      padding: .5rem 0;
-      backdrop-filter: blur(3px);
    }
 
    .btn-handler {
