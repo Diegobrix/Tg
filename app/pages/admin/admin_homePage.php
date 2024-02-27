@@ -67,8 +67,9 @@
          <button id="btn_close"></button>
          <ul>
             <li>Receitas</li>
-            <li>Categorias</li>
+            <li>Categorias </li>
          </ul>
+         <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
       </aside>
       <div class="backdrop"></div>
       <main>

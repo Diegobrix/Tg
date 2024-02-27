@@ -76,7 +76,7 @@ img {
    overflow: hidden;
 }
 
-li {
+li:not(:has(ul)) {
    transition: all .2s;
    cursor: pointer;
 }

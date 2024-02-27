@@ -87,6 +87,23 @@ header [aria-hidden="true"] {
    display: none;
 }
 
+.mobile-menu {
+   position: relative;
+}
+
+.mobile-menu[aria-expanded="true"] .logout {
+   position: absolute;
+   right: 1rem;
+   bottom: 1rem;
+   display: block;
+   font-size: var(--fs-100);
+   transition: all .3s;
+}
+
+.mobile-menu .logout:hover {
+   color: var(--neutral-100);
+}
+
 main {
    display: grid;
    margin-top: 2rem;
