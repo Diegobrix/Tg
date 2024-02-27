@@ -1,21 +1,16 @@
 <?php
-   /*
+   
    session_start();
-
-   if(isset($_SESSION))
+   /*
+   if(!isset($_SESSION['admin_id']))
    {
-      $lvl = $_SESSION['lvl'];
-
-		if($lvl != "A")
-		{
          session_destroy();
 			header("location: <Caminho para volta>");
-		}
    }
    */
 
    require_once("AdminPagesConstructor.php");
-   $pageConstructor = new AdminPagesConstructor();
+   $pageConstructor = new AdminPagesConstructor($_SESSION['admin_token']);
    $user = $pageConstructor->getAdminData();
 
    if($user == null)
@@ -68,6 +63,7 @@
                </ul>
             </div>
          </div>
+         <button class="logout"><a href="">Sair</a></button>
       </header>
       <aside class="mobile-menu" aria-expanded="false">
          <button id="btn_close"></button>

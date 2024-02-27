@@ -24,8 +24,13 @@
          if($isCorrect)
          {
             require_once("../temp_data/TemporaryData.php");
+            require_once("../temp_data/random_token.php");
 
-            $tempAdmin = new TemporaryData("admin_data");
+            session_start();
+            $_SESSION['admin_token'] = getRandomToken(4);
+            $_SESSION['admin_id'] = $dbHash['idUsuario'];
+
+            $tempAdmin = new TemporaryData($_SESSION['admin_token']."_admin_data");
 
             date_default_timezone_set('America/Sao_Paulo');
 

@@ -3,10 +3,11 @@
    {
       public $dataPath = __DIR__."/../../bd-conn-controller/temp_data/data/";
       public $page;
+      private $token;
 
-      function __construct($page = "admin_data")
+      function __construct($admin_token, $page = "_admin_data")
       {
-         $this->page = $page;
+         $this->page = $admin_token.$page;
       }
 
       public function getAdminData()

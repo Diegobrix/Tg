@@ -6,7 +6,9 @@
    }
    else
    {
-      $snapshotJson = json_decode(file_get_contents(__DIR__."/../../../bd-conn-controller/temp_data/data/admin_data.json"), true);
+      $file = "/../../../bd-conn-controller/temp_data/data/".$_SESSION['admin_token']."_admin_data.json";
+
+      $snapshotJson = json_decode(file_get_contents(__DIR__.$file), true);
       $loginSnapshot = $snapshotJson['login_snapshot'];
 
       try

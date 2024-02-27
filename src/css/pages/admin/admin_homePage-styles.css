@@ -339,6 +339,10 @@ main {
       display: none;
    }
 
+   header {
+      position: relative;
+   }
+
    header ul {
       position: relative;
       display: flex;
@@ -397,6 +401,23 @@ main {
 
    .dropdown_menu li:hover {
       color: #000;
+   }
+
+   .logout {
+      position: absolute;
+      top: 50%;
+      right: 0;
+
+      display: grid;
+      place-items: center;
+
+      height: fit-content;
+      padding: .9rem 1.6rem;
+      border-radius: 25vw;
+      transform: translate(0, -50%);
+      font-size: var(--fs-100);
+      color: var(--neutral-100);
+      background: var(--primary-700);
    }
 
    main {
