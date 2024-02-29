@@ -10,19 +10,19 @@
       public function generateDataset($data)
       {
          $path = __DIR__."/datasets/";
-         if(file_exists($path.$this->filename))
+         if(!file_exists($path.$this->filename))
          {
-            unlink($path.$this->filename);
+            if(file_put_contents($path.$this->filename, $data))
+            {
+               return true;
+            }
+            else
+            {
+               return false;
+            }
          }
 
-         if(file_put_contents($path.$this->filename, $data))
-         {
-            return true;
-         }
-         else
-         {
-            return false;
-         }
+         return null;
       }
 
       function __destruct()
