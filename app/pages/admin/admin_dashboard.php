@@ -1,3 +1,26 @@
+<?php
+   session_start();
+   if((!isset($_SESSION['admin_id'])) || ($_SESSION['admin_id'] == false))
+   {
+      session_unset();
+      session_destroy();
+		header("location: ../credentials.php");
+   }
+
+   require_once("AdminPagesConstructor.php");
+   $pageConstructor = new AdminPagesConstructor($_SESSION['admin_token']);
+   $user = $pageConstructor->getAdminData();
+
+   if($user == null)
+   {
+      session_unset();
+      session_destroy();
+
+      die();
+   }
+
+   $content = $pageConstructor->getContentData("content_data");
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,7 +38,7 @@
       <nav>
          <div class="header-controller">
             <button class="btn-back"></button>
-            <h2>olá <span class="username">Fulano</span></h2>
+            <h2>olá, <span class="username"><?=$user['username']?></span></h2>
          </div>
          <ul aria-expanded="true">
             <li data-current="true">Receitas</li>
