@@ -27,6 +27,7 @@
    }
    //endregion
 
+   //region Videos
    $stmtVideos = $conn -> prepare("SELECT * FROM `video` LIMIT 100;");
    $stmtVideos -> execute();
 
@@ -35,3 +36,16 @@
    {
       $videos = null;
    }
+   //endregion
+
+   //region Ingredients
+   $stmtIngredients = $conn -> prepare("SELECT * FROM `ingrediente` LIMIT 100;");
+   $stmtIngredients -> execute();
+
+   $ingredients = new DashboardData("ingredients.json");
+   if($ingredients->generateDataset(json_encode($stmtIngredients->fetchAll(PDO::FETCH_ASSOC))))
+   {
+      $ingredients = null;
+   }
+
+   //endregion
