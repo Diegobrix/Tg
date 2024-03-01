@@ -6,13 +6,10 @@
    $stmtRecipes = $conn -> prepare("SELECT idReceita, tituloReceita, fotoReceita, (SELECT descricaoCategoria FROM categoria WHERE idCategoria = categoriaReceita) AS categoria, autor FROM `receita` LIMIT 100;");
    $stmtRecipes -> execute();
 
-   if($stmtRecipes -> rowCount() > 0)
+   $recipes = new DashboardData("recipes.json");
+   if($recipes->generateDataset(json_encode($stmtRecipes->fetchAll(PDO::FETCH_ASSOC))))
    {
-      $recipes = new DashboardData("recipes.json");
-      if($recipes->generateDataset(json_encode($stmtRecipes->fetchAll(PDO::FETCH_ASSOC))))
-      {
-         $recipes = null;
-      }
+      $recipes = null;
    }
    //endregion
    
@@ -33,11 +30,8 @@
    $stmtVideos = $conn -> prepare("SELECT * FROM `video` LIMIT 100;");
    $stmtVideos -> execute();
 
-   if($stmtVideos -> rowCount() > 0)
+   $videos = new DashboardData("videos.json");
+   if($videos->generateDataset(json_encode($stmtVideos->fetchAll(PDO::FETCH_ASSOC))))
    {
-      $videos = new DashboardData("videos.json");
-      if($videos->generateDataset(json_encode($stmtVideos->fetchAll(PDO::FETCH_ASSOC))))
-      {
-         $videos = null;
-      }
+      $videos = null;
    }
