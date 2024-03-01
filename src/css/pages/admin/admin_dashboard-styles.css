@@ -12,6 +12,10 @@ header nav {
    display: none;
 }
 
+.stats-wrapper {
+   display: none;
+}
+
 #mobile_menu--handler {
    width: 2.5rem;
    aspect-ratio: 1;
@@ -222,6 +226,11 @@ main {
    header + section {
       width: 70%;
    } 
+
+   .stats-wrapper {
+      display: flex;
+      
+   }
 
    main {
       min-height: 88.8vh;

@@ -46,6 +46,9 @@
             <li data-current="false">Vídeos</li>
             <li data-current="false">Ingredientes</li>
          </ul>
+         <div class="stats-wrapper">
+            
+         </div>
          <button id="mobile_menu--handler"></button>
       </nav>
    </header>
