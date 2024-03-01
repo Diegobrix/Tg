@@ -29,3 +29,15 @@
       }
    }
    //endregion
+
+   $stmtVideos = $conn -> prepare("SELECT * FROM `video` LIMIT 100;");
+   $stmtVideos -> execute();
+
+   if($stmtVideos -> rowCount() > 0)
+   {
+      $videos = new DashboardData("videos.json");
+      if($videos->generateDataset(json_encode($stmtVideos->fetchAll(PDO::FETCH_ASSOC))))
+      {
+         $videos = null;
+      }
+   }
