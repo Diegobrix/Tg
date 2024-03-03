@@ -31,6 +31,9 @@
    <!-- CSS -->
    <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css" />
    <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_dashboard-styles.css" />
+
+   <!-- JS -->
+   <script defer src="../../../src/js/pages/admin/admin_dashboard/generateStats.js"></script>
 </head>
 <body>
 </body>
@@ -47,7 +50,18 @@
             <li data-current="false">Ingredientes</li>
          </ul>
          <div class="stats-wrapper">
-            
+            <div class="stats">
+               <div class="stat_bar" data-legend="recipes"></div>
+               <div class="stat_bar" data-legend="categories"></div>
+               <div class="stat_bar" data-legend="videos"></div>
+               <div class="stat_bar" data-legend="ingredients"></div>
+            </div>
+            <div class="stats_legends">
+               <div class="legend legend_recipe">Receitas</div>
+               <div class="legend legend_category">Categorias</div>
+               <div class="legend legend_video">Vídeos</div>
+               <div class="legend legend_ingredient">Ingredientes</div>
+            </div>
          </div>
          <button id="mobile_menu--handler"></button>
       </nav>
