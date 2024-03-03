@@ -40,6 +40,25 @@ async function describeJson(urls)
   return jsons;
 }
 
+function getBigger(jsons, bigger, current)
+{
+  if(current < jsons.length)
+  {
+    if((bigger == null) || (bigger.amount < jsons[current].amount))
+    {
+      bigger = jsons[current];
+      current += 1;
+
+      return getBigger(jsons, bigger, current);
+    }
+
+    current += 1;
+    return getBigger(jsons, bigger, current);
+  }
+
+  return bigger;
+}
+
 describeJson(urls)
   .then(response => {
     let jsons = [];
@@ -54,6 +73,9 @@ describeJson(urls)
 function processJsons(jsons)
 {
   const STAT_BARS = document.querySelectorAll(".stat_bar");
+  let bigger = getBigger(jsons, null, 0);
+
+  console.log(bigger);
 
   for(let json of jsons)
   {
