@@ -81,9 +81,17 @@ function processJsons(jsons)
   {
     STAT_BARS.forEach(item => {
       let barId = item.dataset.legend;
-      if(barId == json.id)
+      if(barId == bigger.id)
       {
-        item.setAttribute("style", "--amount: "+json.amount +";");
+        item.classList.add("bigger_stat");
+        item.setAttribute("style", "--amount: 1;");
+      }
+      else
+      {
+        if(barId == json.id)
+        {
+          item.setAttribute("style", "--amount: "+(json.amount / bigger.amount) +";");
+        }
       }
     });
   }
