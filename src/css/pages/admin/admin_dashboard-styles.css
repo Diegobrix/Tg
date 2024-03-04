@@ -14,6 +14,10 @@ header nav {
    justify-content: space-between;
 }
 
+header + section {
+   margin-left: 10vw;
+}
+
 .header-controller h2 {
    display: none;
 }
@@ -57,10 +61,6 @@ ul[aria-expanded="false"] {
    }
 }
 
-header + section {
-   margin-left: 10vw;
-}
-
 .search_navigation--wrapper {
    --element-padding: 7px;
    --radius: 5px;
@@ -71,7 +71,7 @@ header + section {
    display: flex;
    align-items: center;
    gap: 0 .5rem;
-
+   
    width: 100%;
    padding: 1rem 0 1rem .5rem;
    background: hsl(0 0 100% / .2);
@@ -105,21 +105,18 @@ input {
    padding: var(--element-padding);
    padding-left: 2rem;
 
+   width: 25vw;
+   width: 25dvw;
    border: 1px solid var(--neutral-600);
-   border-radius: var(--radius);
-}
-
-select {
-   padding: var(--element-padding);
    border-radius: var(--radius);
 }
 
 main {
    --radius: 30px;
    
+   margin-top: 11.9vh;
+   margin-top: 11.9dvh;
    min-height: 75.6vh;
-   margin-top: 12dvh;
-   margin-top: 12vh;
    padding-block: 1rem;
    background: var(--primary-700);
    border-radius: var(--radius) var(--radius) 0 0;

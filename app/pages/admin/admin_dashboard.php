@@ -34,6 +34,7 @@
 
    <!-- JS -->
    <script defer src="../../../src/js/pages/admin/admin_dashboard/generateStats.js"></script>
+   <script defer src="../../../src/js/pages/admin/admin_dashboard/generateList.js"></script>
 </head>
 <body>
 </body>
@@ -83,13 +84,6 @@
          <div>
             <span></span>
             <input type="text" name="search" id="txtDashboardSearch" placeholder="Pesquisar">
-         </div>
-         <div>
-            <select name="filter-categories" id="categories">
-               <option value="#" selected disabled>Filtrar</option>
-               <option value="most_recent">Mais Recente</option>
-               <option value="older">Mais Antigo</option>
-            </select>
          </div>
       </nav>
       <main>
