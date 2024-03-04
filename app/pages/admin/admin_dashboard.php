@@ -34,7 +34,6 @@
 
    <!-- JS -->
    <script defer src="../../../src/js/pages/admin/admin_dashboard/generateStats.js"></script>
-   <script defer src="../../../src/js/pages/admin/admin_dashboard/generateList.js"></script>
 </head>
 <body>
 </body>
