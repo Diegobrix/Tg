@@ -95,14 +95,6 @@
       </nav>
       <main>
          <div id="result--wrapper">
-            <div class="result">
-               <figure>
-                  <img src="../../../assets/images/teste.jpg" alt="">
-               </figure>
-               <h2 class="result-title">Chorume ao molho branco</h2>
-               <span class="result-category">Ao mosso</span>
-               <button class="result_handler"></button>
-            </div>
          </div>
       </main>
    </section>

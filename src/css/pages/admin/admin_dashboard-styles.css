@@ -1,6 +1,11 @@
 @import url("../../partials/admin/dashboard/stats-styles.css");
 
 header {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 4rem;
+
    margin: .5rem;
 }
 
@@ -52,15 +57,26 @@ ul[aria-expanded="false"] {
    }
 }
 
+header + section {
+   margin-left: 10vw;
+}
+
 .search_navigation--wrapper {
    --element-padding: 7px;
    --radius: 5px;
+
+   position: fixed;
+   top: 0;
 
    display: flex;
    align-items: center;
    gap: 0 .5rem;
 
+   width: 100%;
    padding: 1rem 0 1rem .5rem;
+   background: hsl(0 0 100% / .2);
+   backdrop-filter: blur(1q);
+   z-index: 10;
 
    & div {
       position: relative;
@@ -102,6 +118,8 @@ main {
    --radius: 30px;
    
    min-height: 75.6vh;
+   margin-top: 12dvh;
+   margin-top: 12vh;
    padding-block: 1rem;
    background: var(--primary-700);
    border-radius: var(--radius) var(--radius) 0 0;
