@@ -86,7 +86,7 @@ function processJsons(jsons)
           item.classList.add("bigger_stat");
         }
 
-        item.setAttribute("style", "--amount: "+(json.amount / bigger.amount) +";");
+        item.setAttribute("style", "--bar-size: "+(json.amount / bigger.amount) +";");
       }
     });
   }

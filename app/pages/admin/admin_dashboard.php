@@ -57,10 +57,22 @@
                <div class="stat_bar" data-legend="ingredients"></div>
             </div>
             <div class="stats_legends">
-               <div class="legend legend_recipe">Receitas</div>
-               <div class="legend legend_category">Categorias</div>
-               <div class="legend legend_video">Vídeos</div>
-               <div class="legend legend_ingredient">Ingredientes</div>
+               <div class="legend-wrapper legend_recipe">
+                  <span></span>
+                  <p>Receitas</p>
+               </div>
+               <div class="legend-wrapper legend_category">
+                  <span></span>
+                  <p>Categorias</p>
+               </div>
+               <div class="legend-wrapper legend_video">
+                  <span></span>
+                  <p>Vídeos</p>
+               </div>
+               <div class="legend-wrapper legend_ingredient">
+                  <span></span>
+                  <p>Ingredientes</p>
+               </div>
             </div>
          </div>
          <button id="mobile_menu--handler"></button>

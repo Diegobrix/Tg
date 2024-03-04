@@ -20,4 +20,9 @@
    --transparent-200:hsl(0 0% 0% / .5);
    --transparent-250:hsl(0 0% 25% / .3);
    --transparent-300:hsl(210 33% 95% / .7);
+
+   --legend-100: hsl(143 98% 46%);
+   --legend-200: hsl(37 98% 46%);
+   --legend-300: hsl(0 0% 20%);
+   --legend-400: hsl(64 98% 46%);
 }

@@ -1,5 +1,5 @@
 @import url("../../animations/admin_homePage/admin_homePage-animations.css");
-@import url("../../partials/admin_homePage/admin_homePage-styles.css");
+@import url("../../partials/admin_homePage/admin/homePage/admin_homePage-styles.css");
 
 body {
    --page-margin: 1rem;
