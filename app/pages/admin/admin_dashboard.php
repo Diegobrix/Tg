@@ -45,10 +45,10 @@
             <h2>olá, <span class="username"><?=$user['username']?></span></h2>
          </div>
          <ul aria-expanded="true">
-            <li data-current="true">Receitas</li>
-            <li data-current="false">Categorias</li>
-            <li data-current="false">Vídeos</li>
-            <li data-current="false">Ingredientes</li>
+            <li data-current="true" data-link="recipes">Receitas</li>
+            <li data-current="false" data-link="categories">Categorias</li>
+            <li data-current="false" data-link="videos">Vídeos</li>
+            <li data-current="false" data-link="ingredients">Ingredientes</li>
          </ul>
          <div class="stats-wrapper">
             <div class="stats">
@@ -84,6 +84,13 @@
          <div>
             <span></span>
             <input type="text" name="search" id="txtDashboardSearch" placeholder="Pesquisar">
+         </div>
+         <div class="add-container">
+            <button id="btn_add"></button>
+            <ul aria-hidden="false">
+               <li>Nova receita</li>
+               <li>Nova categoria</li>
+            </ul>
          </div>
       </nav>
       <main>
