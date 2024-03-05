@@ -115,16 +115,16 @@ ul[aria-expanded="false"] {
    background: #0000;
    border: 3px solid var(--primary-700);
 
-   & [aria-hidden="true"] {
+   & .dropdown_menu[aria-hidden="true"] {
       display: none;
    }
 
-   & [aria-hidden="false"] {
+   & .dropdown_menu[aria-hidden="false"] {
       display: block;
    }
 }
 
-.add-container #btn_add+ul {
+.search_navigation--wrapper .add-container .btn_menu_add+ul {
    position: absolute;
    top: 1.5rem;
 
@@ -151,7 +151,7 @@ ul[aria-expanded="false"] {
    }
 }
 
-.add-container #btn_add {
+.add-container .btn_menu_add {
    width: 100%;
    height: 100%;
    background: url("../../../../assets/icons/plus.svg") no-repeat center center;

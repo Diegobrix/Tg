@@ -35,7 +35,7 @@
       <script defer src="../../../src/js/pages/admin/admin_homePage/widget-details-handler.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
-      <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_menu-controller.js"></script>
+      <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
    </head>
    <body>
       <?php 

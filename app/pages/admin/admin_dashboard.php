@@ -35,6 +35,8 @@
    <!-- JS -->
    <script defer src="../../../src/js/pages/admin/admin_dashboard/generateStats.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/generateList.js"></script>
+   <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
+   
 </head>
 <body>
 </body>
@@ -86,8 +88,8 @@
             <input type="text" name="search" id="txtDashboardSearch" placeholder="Pesquisar">
          </div>
          <div class="add-container">
-            <button id="btn_add"></button>
-            <ul aria-hidden="false">
+            <button class="btn_menu_add"></button>
+            <ul class="dropdown_menu" aria-hidden="true">
                <li>Nova receita</li>
                <li>Nova categoria</li>
             </ul>
