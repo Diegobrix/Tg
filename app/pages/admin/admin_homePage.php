@@ -31,11 +31,13 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css"/>
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_homePage-styles.css"/>
 
-      <script defer src="../../../src/js/hamburger-menu.js"></script>
+      <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/widget-details-handler.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
       <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
+
+      <script defer src="../../../src/js/sessionController.js"></script>
    </head>
    <body>
       <?php 
