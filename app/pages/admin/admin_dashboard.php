@@ -37,6 +37,7 @@
    <script defer src="../../../src/js/pages/admin/admin_dashboard/generateList.js"></script>
    <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
    
+   <script defer src="../../../src/js/sessionController.js"></script>
 </head>
 <body>
 </body>
