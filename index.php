@@ -10,6 +10,5 @@
       <link rel="stylesheet" type="text/css" href="src/css/pages/index-styles.css">
    </head>
    <body>
-      
    </body>
 </html>

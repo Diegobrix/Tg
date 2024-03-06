@@ -36,8 +36,6 @@
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
       <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
-
-      <script defer src="../../../src/js/sessionController.js"></script>
    </head>
    <body>
       <?php 
@@ -58,7 +56,7 @@
             </ul>
             <div class="dropdown_menu" aria-hidden="true">
                <ul>
-                  <li>Nova receita</li>
+                  <li><a href="../../pages/admin/misc/addRecipe.php">Nova receita</a></li>
                   <li>Nova categoria</li>
                </ul>
             </div>
