@@ -9,11 +9,20 @@ STEP_HANDLER.forEach(handler => {
 
 function handleSteps(trigger)
 {
-   let currentStep = getCurrentStep();
+   let currentStep = parseInt(getCurrentStep());
 
+   for(let i = 0; i <= currentStep; i++)
+   {
+      STEPS[i].dataset.already = "true";
+   }
+   
    if(trigger == "next")
    {
       goNextStep(STEPS, currentStep);
+   }
+   else
+   {
+      goPrevStep(STEPS, currentStep);
    }
 }
 
@@ -33,7 +42,7 @@ function getCurrentStep()
 
 function goNextStep(steps, currentStep)
 {
-   let nextStep = Number(currentStep) + 1;
+   let nextStep = currentStep + 1;
    
    if(nextStep < steps.length)
    {
@@ -44,9 +53,9 @@ function goNextStep(steps, currentStep)
 
 function goPrevStep(steps, currentStep)
 {
-   let prevStep = Number(currentStep) - 1;
+   let prevStep = currentStep - 1;
    
-   if(prevStep > 0)
+   if(prevStep >= 0)
    {
       steps[currentStep].dataset.current = "false";
       steps[prevStep].dataset.current = "true";

@@ -1,0 +1,21 @@
+.steps-wrapper {
+   display: flex;
+   align-items: center;
+
+   gap: 0 5px;
+}
+
+.step {
+   width: 1.5rem;
+   aspect-ratio: 1;
+   border-radius: 50%; 
+   border: 7px solid var(--neutral-700);
+
+   &[data-already="true"] {
+      border-color: green;
+   }
+
+   &[data-current="true"] {
+      border-color: red;
+   }
+}

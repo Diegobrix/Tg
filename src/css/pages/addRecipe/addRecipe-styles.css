@@ -1,29 +1,6 @@
-footer {
-   position: fixed;
-   bottom: 1rem;
-   right: 0;
+@import url("../../partials/misc/step-styles.css");
 
+footer {
    display: flex;
    justify-content: space-between;
-
-   width: 75vw;
-   padding-right: 1rem;
-}
-
-.steps-wrapper {
-   display: flex;
-   align-items: center;
-
-   gap: 0 5px;
-}
-
-.step {
-   width: 1.5rem;
-   aspect-ratio: 1;
-   border-radius: 50%; 
-   border: 7px solid var(--neutral-700);
-
-   &[data-current="true"] {
-      border-color: red;
-   }
 }
