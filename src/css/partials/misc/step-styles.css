@@ -1,3 +1,21 @@
+/* Form Steps */
+form .form_step[data-current="false"],
+button[type="submit"] {
+   display: none;
+}
+
+form:has(.form_step[data-step="0"][data-current="true"]) .btn_prev {
+   display: none;
+}
+
+form:has(.form_step[data-step="3"][data-current="true"]) .btn_next {
+   display: none;
+}
+form:has(.form_step[data-step="3"][data-current="true"]) button[type="submit"] {
+   display: block;
+}
+
+/* Steps Indicators */
 .steps-wrapper {
    display: flex;
    align-items: center;
@@ -18,9 +36,9 @@
    &[data-current="true"] {
       border-color: red;
    }
+}
 
-   &[data-current="true"] + .step,
-   &[data-current="true"] + .step ~ .step {
-      border-color: var(--neutral-700);
-   }
+.step[data-current="true"] + .step,
+.step[data-current="true"] + .step ~ .step {
+   border-color: var(--neutral-700);
 }
