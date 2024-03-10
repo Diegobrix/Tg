@@ -28,8 +28,6 @@
                <textarea required name="recipe_description" id="txtDescription"></textarea>
             </section>
             <section class="form_step" data-step="1" data-current="false">
-
-               <input required type="text" name="test">
             </section>
             <section class="form_step" data-step="2" data-current="false"></section>
             <section class="form_step" data-step="3" data-current="false"></section>
