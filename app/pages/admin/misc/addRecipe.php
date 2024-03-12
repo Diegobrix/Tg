@@ -20,21 +20,21 @@
             <h1>Adicionar Receita</h1>
          </div>
          <ul class="steps_descriptions">
-            <li data-current="true">
+            <li class="step_display" data-step="0" data-current="true">
                <i class="step-icon">1</i>
                <div class="step_description--wrapper">
                   <span>Passo 1</span>
                   <p>Informações Básicas</p>
                </div>
             </li>
-            <li data-current="false">
+            <li class="step_display" data-step="1" data-current="false">
                <i class="step-icon">2</i>
                <div class="step_description--wrapper">
                   <span>Passo 2</span>
                   <p>Benefícios e Categoria</p>
                </div>
             </li>
-            <li data-current="false">
+            <li class="step_display" data-step="2" data-current="false">
                <i class="step-icon">3</i>
                <div class="step_description--wrapper">
                   <span>Passo 3</span>

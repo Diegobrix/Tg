@@ -66,8 +66,8 @@ form section {
    --input-color: var(--bg-color);
    border: 3px solid hsl(273, 26%, 92%);
    border-radius: 5px;
-   box-shadow: 2px 2px 1px hsl(273 26% 85%),
-   -2px -2px 1px hsl(273 26% 96%);
+   box-shadow: 2px 2px 3px hsl(273 26% 85% / .5),
+   -2px -2px 5px hsl(273 26% 94% / .5);
    outline-color: hsl(273, 26%, 87%);
 
    background: var(--input-color);
