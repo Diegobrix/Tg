@@ -19,6 +19,10 @@ form:has(.form_step[data-step="2"][data-current="true"]) button[type="submit"] {
    display: block;
 }
 
+form:has(.form_step[data-step="0"][data-current="true"]) .form_footer {
+   flex-direction: row-reverse;
+}
+
 /* Steps Indicators */
 .steps-wrapper {
    display: flex;

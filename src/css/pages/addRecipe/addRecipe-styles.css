@@ -1,1 +1,67 @@
 @import url("../../partials/misc/step-styles.css");
+
+.steps_descriptions {
+   display: flex;
+   justify-content: center;
+
+   gap: 0 .5rem;
+
+   & li {
+      pointer-events: none;
+      cursor: initial;
+   }
+}
+
+header .header_head,
+.steps_descriptions .step_description--wrapper {
+   display: none;
+}
+
+.step-icon {
+   display: grid;
+   place-items: center;
+
+   width: 2rem;
+   aspect-ratio: 1;
+   
+   border-radius: 50%;
+   border: 3px solid var(--primary-700);
+
+   background: #0000;
+   color: var(--primary-700);
+   font-style: normal;
+}
+
+.steps_descriptions li[data-current="true"] .step-icon {
+   background: var(--primary-700);
+   color: var(--neutral-100);
+}
+
+.form_footer {
+   position: absolute;
+   bottom: 0;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   width: 100%;
+   padding: 1rem .5rem;
+
+   & .step-handler {
+      color: var(--neutral-600);
+   }
+
+   & .btn_next,
+   & .btn_finish {
+      padding: .7rem 1rem;
+      background: var(--primary-700);
+      border-radius: 8px;
+      
+      color: var(--neutral-100);
+   }
+}
+
+.steps-wrapper {
+   display: none;
+}
