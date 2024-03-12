@@ -1,5 +1,7 @@
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
-const STEPS_DIPLAY_HEADER = document.querySelectorAll(".step_display");
+const FORM_STEPS = document.querySelectorAll(".form_step");
+
+const STEPS_AMOUNT = 0;
 
 STEP_HANDLER.forEach(handler => {
    handler.addEventListener("click", () => {
@@ -18,20 +20,20 @@ function changeStep(trigger)
 
 function nextStep(currentStep)
 {
-   let stepsAmount = STEPS_DIPLAY_HEADER.length;
-   if(currentStep < (stepsAmount - 1))
+   if(currentStep < STEPS_AMOUNT)
    {
       clearSteps();
       currentStep += 1;
    }
 
-   STEPS_DIPLAY_HEADER[currentStep].dataset.current = "true";
+   nextHeadStep(currentStep);
+   //Mais
 }
 
 function getCurrentStep()
 {
    let current;
-   STEPS_DIPLAY_HEADER.forEach((step) => {
+   HEADER_STEPS.forEach((step) => {
       if(step.dataset.current == "true")
       {
          current = step.dataset.step;
@@ -43,7 +45,6 @@ function getCurrentStep()
 
 function clearSteps()
 {
-   STEPS_DIPLAY_HEADER.forEach(step => {
-      step.dataset.current = "false";
-   });
+   clearHeadSteps();
+   //Mais
 }
