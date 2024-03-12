@@ -1,7 +1,11 @@
 /* Form Steps */
 form .form_step[data-current="false"],
 button[type="submit"] {
-   display: none;
+   /* display: none; */
+}
+
+textarea {
+   resize: none;
 }
 
 form:has(.form_step[data-step="0"][data-current="true"]) .btn_prev {

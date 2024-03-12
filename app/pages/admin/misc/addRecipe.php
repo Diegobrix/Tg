@@ -28,10 +28,21 @@
                <textarea required name="recipe_description" id="txtDescription"></textarea>
             </section>
             <section class="form_step" data-step="1" data-current="false">
+               <textarea name="recipe_benefits" id="txtBenefits"></textarea>
             </section>
-            <section class="form_step" data-step="2" data-current="false"></section>
-            <section class="form_step" data-step="3" data-current="false"></section>
-            
+            <section class="form_step" data-step="2" data-current="false">
+               <h2>Adicionar Ingredientes</h2>
+               <nav>
+                  <button class="add_ingredient"></button>
+                  <div class="search_bar">
+                     <span>
+                        <i></i>
+                        <input type="text">
+                     </span>
+                  </div>
+                  <button class="ingredients_edit"></button>
+               </nav>
+            </section>            
             <div class="form_footer">
                <button type="button" class="step-handler btn_prev" data-action="prev">< Anterior</button>
                <button type="button" class="step-handler btn_next" data-action="next">Próximo ></button>
@@ -42,7 +53,6 @@
             <div class="step" data-step="0" data-current="true" data-already="false"></div>
             <div class="step" data-step="1" data-current="false" data-already="false"></div>
             <div class="step" data-step="2" data-current="false" data-already="false"></div>
-            <div class="step" data-step="3" data-current="false" data-already="false"></div>
          </div>
       </main>
    </body>
