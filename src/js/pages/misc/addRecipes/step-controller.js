@@ -1,7 +1,5 @@
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
-const FORM_STEPS = document.querySelectorAll(".form_step");
-
-const STEPS_AMOUNT = 0;
+const STEPS_AMOUNT = FORM_STEPS.length;
 
 STEP_HANDLER.forEach(handler => {
    handler.addEventListener("click", () => {
@@ -20,14 +18,14 @@ function changeStep(trigger)
 
 function nextStep(currentStep)
 {
-   if(currentStep < STEPS_AMOUNT)
+   if(currentStep < (STEPS_AMOUNT - 1))
    {
       clearSteps();
       currentStep += 1;
    }
 
    nextHeadStep(currentStep);
-   //Mais
+   nextFormStep(currentStep);
 }
 
 function getCurrentStep()
@@ -46,5 +44,5 @@ function getCurrentStep()
 function clearSteps()
 {
    clearHeadSteps();
-   //Mais
+   clearFormSteps();
 }

@@ -11,9 +11,9 @@
       <link rel="stylesheet" type="text/css" href="../../../../src/css/pages/addRecipe/addRecipe-styles.css" />
 
       <!-- JS -->
-      <script defer src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/form_step.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/header_step.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
    </head>
    <body>
       <header>
