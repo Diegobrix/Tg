@@ -19,10 +19,7 @@ function changeStep(trigger)
 function nextStep(currentStep)
 {
    let stepsAmount = STEPS_DIPLAY_HEADER.length;
-   console.log("Size: " + stepsAmount);
-   console.log("Atual: "+ currentStep);
-
-   if(currentStep < stepsAmount)
+   if(currentStep < (stepsAmount - 1))
    {
       clearSteps();
       currentStep += 1;
