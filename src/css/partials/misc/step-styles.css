@@ -1,7 +1,7 @@
 /* Form Steps */
 form .form_step[data-current="false"],
 button[type="submit"] {
-   /* display: none; */
+   display: none;
 }
 
 textarea {
@@ -12,10 +12,10 @@ form:has(.form_step[data-step="0"][data-current="true"]) .btn_prev {
    display: none;
 }
 
-form:has(.form_step[data-step="3"][data-current="true"]) .btn_next {
+form:has(.form_step[data-step="2"][data-current="true"]) .btn_next {
    display: none;
 }
-form:has(.form_step[data-step="3"][data-current="true"]) button[type="submit"] {
+form:has(.form_step[data-step="2"][data-current="true"]) button[type="submit"] {
    display: block;
 }
 
