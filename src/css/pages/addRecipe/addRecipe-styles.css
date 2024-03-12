@@ -1,5 +1,10 @@
 @import url("../../partials/misc/step-styles.css");
 
+body {
+   --bg-color: hsl(273, 26%, 93%);
+   background: var(--bg-color);
+}
+
 .steps_descriptions {
    display: flex;
    justify-content: center;
@@ -35,6 +40,45 @@ header .header_head,
 .steps_descriptions li[data-current="true"] .step-icon {
    background: var(--primary-700);
    color: var(--neutral-100);
+}
+
+form section {
+   display: grid;
+   padding: 1rem;
+   margin-inline: 1rem;
+
+   border-radius: 10px;
+   background: var(--neutral-100);
+   box-shadow: 7px 6px 6px hsl(0 0% 0% / .1);
+}
+
+.input-group {
+   display: inherit;
+   gap: 10px 0;
+}
+
+.input-group + .input-group {
+   margin-top: 1rem;
+}
+
+.input-group input,
+.input-group textarea {
+   --input-color: var(--bg-color);
+   border: 3px solid hsl(273, 26%, 92%);
+   border-radius: 5px;
+   box-shadow: 2px 2px 1px hsl(273 26% 85%),
+   -2px -2px 1px hsl(273 26% 96%);
+   outline-color: hsl(273, 26%, 87%);
+
+   background: var(--input-color);
+}
+
+form input {
+   padding: .5rem;
+}
+
+form textarea {
+   height: 20rem;
 }
 
 .form_footer {

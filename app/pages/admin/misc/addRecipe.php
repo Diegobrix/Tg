@@ -46,10 +46,14 @@
       <main>
          <form action="" method="POST" enctype="multipart/form-data">
             <section class="form_step" data-step="0" data-current="true">
-               <label for="txtTitle">Título</label>
-               <input required type="text" name="recipe_title" id="txtTitle">
-               <label for="txtDescription">Descrição</label>
-               <textarea required name="recipe_description" id="txtDescription"></textarea>
+               <div class="input-group">
+                  <label for="txtTitle">Título</label>
+                  <input required type="text" name="recipe_title" id="txtTitle">
+               </div>
+               <div class="input-group">
+                  <label for="txtDescription">Descrição</label>
+                  <textarea required name="recipe_description" id="txtDescription"></textarea>
+               </div>
             </section>
             <section class="form_step" data-step="1" data-current="false">
                <div>
