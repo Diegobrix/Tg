@@ -19,12 +19,8 @@ function stepHandler(trigger)
    {
       if(checkFields(currentStep))
       {
-         return nextStep(currentStep); 
-      }
-      else
-      {
-         return;
-      }
+         return nextStep(currentStep);
+      } 
    }
    
    return previousStep(currentStep);
@@ -75,17 +71,8 @@ function clearSteps()
 
 function checkFields(currentStep)
 {
-   let isValid = true;
-   let groups = FORM_STEPS[currentStep].querySelectorAll(".input-group");
+   let groups = [...FORM_STEPS[currentStep].querySelectorAll(".input-group *:required")];
+   let inputsValid = groups.every(input => input.reportValidity());
 
-   groups.forEach(group => {
-      let invalidFields = group.querySelectorAll("*:invalid");
-
-      if(invalidFields.length > 0)
-      {
-         isValid = false;
-      }
-   });
-
-   return isValid;
+   return inputsValid?true:false;
 }

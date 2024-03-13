@@ -79,7 +79,7 @@
                         <input type="text">
                      </span>
                   </div>
-                  <button class="ingredients_edit"></button>
+                  <button type="button" class="ingredients_edit"></button>
                </nav>
             </section>
             <div class="form_footer">
