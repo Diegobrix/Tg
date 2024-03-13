@@ -22,14 +22,14 @@
             <h1>Adicionar Receita</h1>
          </div>
          <ul class="steps_descriptions">
-            <li class="step_display" data-step="0" data-current="true">
+            <li class="step_display" data-step="0" data-current="false">
                <i class="step-icon">1</i>
                <div class="step_description--wrapper">
                   <span>Passo 1</span>
                   <p>Informações Básicas</p>
                </div>
             </li>
-            <li class="step_display" data-step="1" data-current="false">
+            <li class="step_display" data-step="1" data-current="true">
                <i class="step-icon">2</i>
                <div class="step_description--wrapper">
                   <span>Passo 2</span>
@@ -47,7 +47,7 @@
       </header>
       <main>
          <form action="" method="POST" enctype="multipart/form-data">
-            <section class="form_step" data-step="0" data-current="true">
+            <section class="form_step" data-step="0" data-current="false">
                <div class="input-group">
                   <label for="txtTitle">Título</label>
                   <input required type="text" name="recipe_title" id="txtTitle">
@@ -57,16 +57,26 @@
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="false">
+            <section class="form_step" data-step="1" data-current="true">
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
                   <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
                </div>
-               <div>
-                  <figure class="img_thumb">
-                     <input type="file" name="recipe_thumb" id="recipeThumb">
-                     <img src="">
-                  </figure>
+               <div class="input-wrapper">
+                  <div class="input-group">
+                     <figure class="img_thumb" data-empty="true">
+                        <input type="file" name="recipe_thumb" id="recipeThumb">
+                        <img src="">
+                     </figure>
+                  </div>
+                  <div class="input-group">
+                     <h3>Categoria</h3>
+                     <select required name="recipe_category" id="slcCategory">
+                        <option disabled selected value="#">Selecionar categoria</option>
+                        <!-- Opções via php -->
+                     </select>
+                     <button type="button">Add. Categoria</button>
+                  </div>
                </div>
             </section>
             <section class="form_step" data-step="2" data-current="false">
