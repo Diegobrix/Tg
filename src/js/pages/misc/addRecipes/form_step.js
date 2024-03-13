@@ -7,7 +7,7 @@ function clearFormSteps()
    });
 }
 
-function nextFormStep(currentStep)
+function formChangeStep(currentStep)
 {
    FORM_STEPS[currentStep].dataset.current = "true";
 }

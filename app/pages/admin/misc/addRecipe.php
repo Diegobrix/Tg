@@ -82,10 +82,9 @@
                   <button class="ingredients_edit"></button>
                </nav>
             </section>
-            
             <div class="form_footer">
-               <button type="button" class="step-handler btn_prev" data-action="prev">< Anterior</button>
-               <button type="button" class="step-handler btn_next" data-action="next">Próximo ></button>
+               <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
+               <button class="step-handler btn_next" data-action="next">Próximo ></button>
                <button type="submit" class="step-handler btn_finish" data-action="finish">Finalizar</button>
             </div>
          </form>

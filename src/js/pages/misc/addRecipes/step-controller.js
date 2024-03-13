@@ -2,17 +2,27 @@ const STEP_HANDLER = document.querySelectorAll(".step-handler");
 const STEPS_AMOUNT = FORM_STEPS.length;
 
 STEP_HANDLER.forEach(handler => {
-   handler.addEventListener("click", () => {
-      changeStep(handler.dataset.action);
+   handler.addEventListener("click", (event) => {
+      let action = handler.dataset.action;
+      if(action != "finish")
+      {
+         event.preventDefault();
+         stepHandler(action);
+      }
    });
 });
 
-function changeStep(trigger)
+function stepHandler(trigger)
 {
    let currentStep = parseInt(getCurrentStep());
-   if(trigger == "next")
+   if(checkFields(currentStep))
    {
-      return nextStep(currentStep); 
+      if(trigger == "next")
+      {
+         return nextStep(currentStep); 
+      }
+   
+      return previousStep(currentStep);
    }
 }
 
@@ -24,8 +34,20 @@ function nextStep(currentStep)
       currentStep += 1;
    }
 
-   nextHeadStep(currentStep);
-   nextFormStep(currentStep);
+   formChangeStep(currentStep);
+   headerChangeStep(currentStep);
+}
+
+function previousStep(currentStep)
+{
+   if(currentStep > 0)
+   {
+      clearSteps();
+      currentStep -= 1;
+   }
+
+   formChangeStep(currentStep);
+   headerChangeStep(currentStep);
 }
 
 function getCurrentStep()
@@ -45,4 +67,21 @@ function clearSteps()
 {
    clearHeadSteps();
    clearFormSteps();
+}
+
+function checkFields(currentStep)
+{
+   let isValid = true;
+   let groups = FORM_STEPS[currentStep].querySelectorAll(".input-group");
+
+   groups.forEach(group => {
+      let invalidFields = group.querySelectorAll("*:invalid");
+
+      if(invalidFields.length > 0)
+      {
+         isValid = false;
+      }
+   });
+
+   return isValid;
 }

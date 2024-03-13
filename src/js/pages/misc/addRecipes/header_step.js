@@ -7,7 +7,7 @@ function clearHeadSteps()
    });
 }
 
-function nextHeadStep(currentStep)
+function headerChangeStep(currentStep)
 {
    HEADER_STEPS[currentStep].dataset.current = "true";
 }
