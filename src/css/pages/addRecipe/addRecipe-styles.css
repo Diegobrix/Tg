@@ -64,21 +64,21 @@ form section {
 .input-group input,
 .input-group textarea {
    --input-color: var(--bg-color);
-   border: 3px solid hsl(273, 26%, 92%);
+   border: 3px solid hsl(273, 26%, 93%);
    border-radius: 5px;
    box-shadow: 2px 2px 3px hsl(273 26% 85% / .5),
    -2px -2px 5px hsl(273 26% 94% / .5);
    outline-color: hsl(273, 26%, 87%);
+   padding: .5rem;
 
    background: var(--input-color);
 }
 
-form input {
-   padding: .5rem;
-}
-
 form textarea {
-   height: 20rem;
+   max-width: 100%;
+   width: auto;
+
+   aspect-ratio: 9/9;
 }
 
 .form_footer {

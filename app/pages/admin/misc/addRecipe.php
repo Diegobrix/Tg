@@ -58,9 +58,9 @@
                </div>
             </section>
             <section class="form_step" data-step="1" data-current="false">
-               <div>
+               <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
-                  <textarea name="recipe_benefits" id="txtBenefits"></textarea>
+                  <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
                </div>
                <div>
                   <figure class="img_thumb">

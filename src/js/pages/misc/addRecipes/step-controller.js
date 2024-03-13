@@ -6,8 +6,8 @@ STEP_HANDLER.forEach(handler => {
       let action = handler.dataset.action;
       if(action != "finish")
       {
-         event.preventDefault();
          stepHandler(action);
+         event.preventDefault();
       }
    });
 });
@@ -15,15 +15,19 @@ STEP_HANDLER.forEach(handler => {
 function stepHandler(trigger)
 {
    let currentStep = parseInt(getCurrentStep());
-   if(checkFields(currentStep))
+   if(trigger == "next")
    {
-      if(trigger == "next")
+      if(checkFields(currentStep))
       {
          return nextStep(currentStep); 
       }
-   
-      return previousStep(currentStep);
+      else
+      {
+         return;
+      }
    }
+   
+   return previousStep(currentStep);
 }
 
 function nextStep(currentStep)
