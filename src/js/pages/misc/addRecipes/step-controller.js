@@ -15,14 +15,18 @@ STEP_HANDLER.forEach(handler => {
 function stepHandler(trigger)
 {
    let currentStep = parseInt(getCurrentStep());
+   console.log(currentStep);
    if(trigger == "next")
    {
+      console.log("Yes");
       if(checkFields(currentStep))
       {
+         console.log("Inside");
          return nextStep(currentStep);
-      } 
-   }
-   
+      }
+      
+      return;
+   }   
    return previousStep(currentStep);
 }
 
@@ -53,13 +57,14 @@ function previousStep(currentStep)
 function getCurrentStep()
 {
    let current;
-   HEADER_STEPS.forEach((step) => {
+   FORM_STEPS.forEach((step) => {
       if(step.dataset.current == "true")
       {
          current = step.dataset.step;
       }
    });
 
+   console.log(current);
    return current;
 }
 
