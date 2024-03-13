@@ -105,6 +105,10 @@ form .form_step[data-step="1"] textarea {
    margin-inline: auto;
    overflow: hidden;
 
+   &[data-empty="false"] {
+      background: #0000;
+   }
+
    & img {
       display: block;
       object-fit: cover;

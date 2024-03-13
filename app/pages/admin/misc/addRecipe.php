@@ -58,7 +58,7 @@
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="true">
+            <section class="form_step" data-step="1" data-current="false">
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
                   <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
@@ -80,7 +80,7 @@
                   </div>
                </div>
             </section>
-            <section class="form_step" data-step="2" data-current="false">
+            <section class="form_step" data-step="2" data-current="true">
                <h2>Adicionar Ingredientes</h2>
                <nav>
                   <button class="add_ingredient"></button>

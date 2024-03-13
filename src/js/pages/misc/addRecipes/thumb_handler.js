@@ -12,8 +12,6 @@ THUMB_INPUT.addEventListener("change", (event) => {
      return;
    }
 
-   window.alert("Hey");
    THUMB_FIGURE.dataset.empty = "false";
    THUMB.src = selectedToUrl;
-   THUMB_FIGURE.setAttribute("style", "background: #0000;");
 });
