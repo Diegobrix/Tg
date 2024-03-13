@@ -1,0 +1,8 @@
+@keyframes btn_click {
+   from {
+      left: -10%;
+   }
+   to {
+      left: 100%;
+   }
+}

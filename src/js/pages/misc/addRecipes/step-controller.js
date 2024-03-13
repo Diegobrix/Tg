@@ -18,13 +18,10 @@ function stepHandler(trigger)
    console.log(currentStep);
    if(trigger == "next")
    {
-      console.log("Yes");
       if(checkFields(currentStep))
       {
-         console.log("Inside");
          return nextStep(currentStep);
       }
-      
       return;
    }   
    return previousStep(currentStep);
@@ -64,7 +61,6 @@ function getCurrentStep()
       }
    });
 
-   console.log(current);
    return current;
 }
 
