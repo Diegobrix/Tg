@@ -11,10 +11,9 @@
       <link rel="stylesheet" type="text/css" href="../../../../src/css/pages/addRecipe/addRecipe-styles.css" />
 
       <!-- JS -->
-      <script defer src="../../../../src/js/pages/misc/addRecipes/form_step.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/header_step.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
+      <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
    </head>
    <body>
       <header>
@@ -48,7 +47,7 @@
       </header>
       <main>
          <form action="#" method="GET" enctype="multipart/form-data">
-            <section class="form_step" data-step="0" data-current="false">
+            <section class="form_step" data-step="0" data-current="true">
                <div class="input-group">
                   <label for="txtTitle">Título</label>
                   <input required type="text" name="recipe_title" id="txtTitle">
@@ -80,18 +79,20 @@
                   </div>
                </div>
             </section>
-            <section class="form_step" data-step="2" data-current="true">
-               <h2>Adicionar Ingredientes</h2>
-               <nav>
-                  <button class="add_ingredient"></button>
+            <section class="form_step" data-step="2" data-current="false">
+               <h2>Adicionar<br>Ingredientes</h2>
+               <nav class="ingredients-controller">
+                  <button type="button" class="add_ingredient"></button>
                   <div class="search_bar">
-                     <span>
-                        <i></i>
-                        <input type="text">
-                     </span>
+                     <i></i>
+                     <input type="text" name ="ingredientName" id="txtSearchIngredient">
                   </div>
                   <button type="button" class="ingredients_edit"></button>
                </nav>
+               <h3>Ingredientes</h3>
+               <div class="ingredients">
+
+               </div>
             </section>
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>

@@ -1,3 +1,7 @@
+import {clearHeadSteps, headerChangeStep} from "./header_step.js";
+import {clearFormSteps, formChangeStep} from "./form_step.js";
+
+const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
 const STEPS_AMOUNT = FORM_STEPS.length;
 
@@ -15,7 +19,6 @@ STEP_HANDLER.forEach(handler => {
 function stepHandler(trigger)
 {
    let currentStep = parseInt(getCurrentStep());
-   console.log(currentStep);
    if(trigger == "next")
    {
       if(checkFields(currentStep))
