@@ -13,6 +13,7 @@
       <!-- JS -->
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/dialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
    </head>
    <body>
@@ -93,6 +94,7 @@
                <div class="ingredients">
 
                </div>
+               <dialog id="add_ingredient-modal"></dialog>
             </section>
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
