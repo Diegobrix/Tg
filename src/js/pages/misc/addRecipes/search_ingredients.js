@@ -1,5 +1,3 @@
-import Xhr from "../../../bd_conn/Xhr.js";
-
 const INGREDIENT_SEARCH_BAR = document.getElementById("txtSearchIngredient");
 
 INGREDIENT_SEARCH_BAR.addEventListener("keypress", (event) => {
@@ -14,7 +12,6 @@ INGREDIENT_SEARCH_BAR.addEventListener("keypress", (event) => {
    }
 });
 
-const xhr = new Xhr("http://192.168.0.13/tg/");
 function getIngredients(param)
 {
    const endpoint = "app/bd-conn-controller/pages/misc/getContent/getIngredients.php";

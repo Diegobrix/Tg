@@ -2,11 +2,7 @@ dialog {
    position: fixed;
    inset: 0;
    margin: auto;
-   
+
    border: 0;
    outline-color: transparent;
-}
-
-dialog::backdrop {
-   background: #0000;
 }
