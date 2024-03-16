@@ -15,7 +15,6 @@
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/dialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
-      <script defer src="../../../../src/js/bd_conn/addRecipe/getIngredients.js"></script>
    </head>
    <body>
       <header>
@@ -92,6 +91,7 @@
                   <button type="button" class="ingredients_edit"></button>
                </nav>
                <h3>Ingredientes</h3>
+               
                <div class="ingredients">
 
                </div>

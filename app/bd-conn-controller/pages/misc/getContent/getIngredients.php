@@ -1,22 +1,23 @@
 <?php
    header("Access-Control-Allow-Origin: *");
+   require_once(__DIR__."/../../../../../conf/defineSourcePath.php");
    require_once(__DIR__."/../../../../../conf/finishApi.php");
 
    $response = array();
-   $response['status'] = "failed";
+   $response['isEmpty'] = true;
 
-   if($_SERVER['REQUEST_METHOD'] == "POST")
+   $stmt = $conn -> prepare("SELECT idIngrediente AS 'id', descricaoIngrediente AS 'ingredient' FROM `ingrediente`;");
+   $stmt -> execute();
+
+   if($stmt -> rowCount() > 0)
    {
-      $data = json_decode(file_get_contents("php://input"), true);
-      if(sizeof($data) <= 0)
+      $response['isEmpty'] = false;      
+      $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+      
+      foreach($result as $res)
       {
-         finishHim();
+         $response['ingredient'] = $res;
       }
    }
-   else
-   {
-      finishHim();
-   }
 
-   $response["data"] = $data['teste'];
    echo json_encode($response);
