@@ -91,7 +91,13 @@
                   <button type="button" class="ingredients_edit"></button>
                </nav>
                <h3>Ingredientes</h3>
-               
+               <div class="ingredient_suggestions-container">
+               <template data-template>
+                  <div class="suggestion hide">
+                     <div class="ingredient"></div>
+                  </div>
+               </template>
+               </div>
                <div class="ingredients">
 
                </div>
