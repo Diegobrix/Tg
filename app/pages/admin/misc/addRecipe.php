@@ -114,8 +114,8 @@
                </div>
                <dialog id="add_ingredient-modal">
                   <h2>Crie um<br> novo ingrediente</h2>
-                  <input type="text">
-                  <div class="amount-wrapper" aria-hidden="false">
+                  <input type="text" name="ingredient_name" id="txtIngredient">
+                  <div class="amount-wrapper" aria-hidden="true">
                      <h3>Quantidade:</h3>
                      <div>
                         <input type="text">
@@ -135,7 +135,7 @@
                         </select>
                      </div>
                   </div>
-                  <button type="button">Próximo</button>
+                  <button type="button" data-current-action="next" id="add_ingredient_modal_controller">Próximo</button>
                </dialog>
             </section>
             <div class="form_footer">
