@@ -48,6 +48,10 @@
       </header>
       <main>
          <form action="#" method="GET" enctype="multipart/form-data">
+            <?php
+               require_once("../../../bd-conn-controller/pages/misc/addRecipeDB.php");
+               $categories = getCategories($conn);
+            ?>
             <section class="form_step" data-step="0" data-current="false">
                <div class="input-group">
                   <label for="txtTitle">Título</label>
@@ -74,7 +78,14 @@
                      <h3>Categoria</h3>
                      <select required name="recipe_category" id="slcCategory">
                         <option disabled selected value="#">Selecionar categoria</option>
-                        <!-- Opções via php -->
+                        <?php
+                           foreach($categories as $category)
+                           {
+                        ?>
+                           <option value="<?=$category['id']?>"><?=$category['category']?></option>
+                        <?php
+                           }
+                        ?>
                      </select>
                      <button class="btn_add_category" type="button">Add. Categoria</button>
                   </div>
@@ -87,21 +98,45 @@
                   <div class="search_bar">
                      <i></i>
                      <input type="text" name ="ingredientName" id="txtSearchIngredient">
+                     <div class="ingredient_suggestions-container">
+                        <template data-template>
+                           <div class="suggestion hide">
+                              <div class="ingredient"></div>
+                           </div>
+                        </template>
+                     </div>
                   </div>
                   <button type="button" class="ingredients_edit"></button>
                </nav>
                <h3>Ingredientes</h3>
-               <div class="ingredient_suggestions-container">
-               <template data-template>
-                  <div class="suggestion hide">
-                     <div class="ingredient"></div>
-                  </div>
-               </template>
-               </div>
                <div class="ingredients">
 
                </div>
-               <dialog id="add_ingredient-modal"></dialog>
+               <dialog id="add_ingredient-modal">
+                  <h2>Crie um<br> novo ingrediente</h2>
+                  <input type="text">
+                  <div class="amount-wrapper" aria-hidden="false">
+                     <h3>Quantidade:</h3>
+                     <div>
+                        <input type="text">
+                        <select name="amount_unit" id="slcUnit">
+                           <?php
+                              $units = getUnits($conn);
+                              if(isset($units))
+                              {
+                                 foreach($units as $unit)
+                                 {
+                           ?>
+                                    <option value="<?=$unit['id']?>"><?=$unit['unit']?></option>
+                           <?php
+                                 }
+                              }
+                           ?>
+                        </select>
+                     </div>
+                  </div>
+                  <button type="button">Próximo</button>
+               </dialog>
             </section>
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>

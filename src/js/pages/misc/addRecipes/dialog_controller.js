@@ -3,9 +3,11 @@ const MODAL_HANDLER = document.querySelector(".add_ingredient");
 
 MODAL_HANDLER.addEventListener("click", () => {
    setTimeout(() => {
-      MODAL.show();
+      
    }, 10);
 });
+
+MODAL.showModal();
 
 window.addEventListener("click", (event) => {
    let modalState = MODAL.getAttribute("open");

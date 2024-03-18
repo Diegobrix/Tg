@@ -9,7 +9,7 @@ INGREDIENT_SEARCH_BAR.addEventListener("input", (key) => {
       const isVisible = ingredient.ingredient.toLowerCase().includes(SEARCHBAR_CONTENT);
       ingredient.suggestion.classList.toggle("hide", !isVisible);
 
-      if(SEARCHBAR_CONTENT.length <= 0)
+      if((SEARCHBAR_CONTENT.length <= 0) && (!ingredient.suggestion.classList.contains("hide")))
       {
          ingredient.suggestion.classList.add("hide");
       }

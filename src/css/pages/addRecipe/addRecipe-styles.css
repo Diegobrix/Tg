@@ -1,5 +1,6 @@
 @import url("../../partials/misc/step-styles.css");
 @import url("../../partials/misc/dialog-styles.css");
+@import url("../../partials/misc/addRecipes/suggestions_list-styles.css");
 @import url("../../animations/misc/addRecipe_anim-styles.css");
 
 body {
@@ -67,7 +68,8 @@ form > section {
 
 .input-group input,
 .input-group textarea,
-select {
+select,
+dialog input {
    --input-color: var(--bg-color);
    border: 3px solid hsl(273, 26%, 93%);
    border-radius: 5px;
@@ -186,6 +188,11 @@ select {
 .ingredients-controller .add_ingredient:active,
 .ingredients-controller .ingredients_edit:active {
    background-color: var(--neutral-300);
+}
+
+.search_bar {
+   position: relative;
+   z-index: 9;
 }
 
 .search_bar i {
