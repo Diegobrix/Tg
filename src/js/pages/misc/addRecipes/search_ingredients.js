@@ -24,7 +24,7 @@ const requestOptions = {
 
 let ingredients = [];
 
-fetch("http://192.168.0.13/tg/app/bd-conn-controller/pages/misc/getContent/getIngredients.php", requestOptions)
+fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/getContent/getIngredients.php", requestOptions)
 .then(response => response.json())
 .then(data => {
    ingredients = Object.values(data).map(ingredient => {
