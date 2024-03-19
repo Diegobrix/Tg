@@ -118,7 +118,7 @@
                   <div class="amount-wrapper" aria-hidden="true">
                      <h3>Quantidade:</h3>
                      <div>
-                        <input type="text">
+                        <input type="text" name="ingredient_amount" id="txtIngredientAmount">
                         <select name="amount_unit" id="slcUnit">
                            <?php
                               $units = getUnits($conn);

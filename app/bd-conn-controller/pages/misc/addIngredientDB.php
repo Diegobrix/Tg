@@ -1,33 +1,19 @@
 <?php
+   header("Access-Control-Allow-Origin: *");
+   $response = array();
+   $response['status'] = "failed";
+
    if($_SERVER['REQUEST_METHOD'] == "POST")
    {
-      require_once("../_conn/conn.php");
+      require_once(__DIR__."/../../../_conn/conn.php");
 
       if(isset($conn))
       {
-         $ingredient = filter_input(INPUT_POST, "ingredient", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+         $jsonData = file_get_contents("php://input");
+         $data = json_decode($jsonData, true);
 
-         $stmt = $conn -> prepare("SELECT * FROM `ingrediente` WHERE descricaoIngrediente = :ingredient");
-         $stmt -> bindParam(":ingredient", $ingredient);
-         $stmt -> execute();
-
-         if($stmt -> rowCount() == 0)
-         {
-            CreateIngredient($conn, $ingredient);
-            
-         }
-         else
-         {
-            //Exeste;
-         }
-
-         function CreateIngredient($conn, $ingredient)
-         {
-            $insertStmt = $conn -> prepare("INSERT INTO `ingrediente`(descricaoIngrediente) value(:ingredient)");
-            $insertStmt -> bindParam(":ingredient", $ingredient);
-            $insertStmt -> execute();
-         }
-      }      
+         
+      }
    }
-
-   __halt_compiler();
+   
+   echo json_encode($response);
