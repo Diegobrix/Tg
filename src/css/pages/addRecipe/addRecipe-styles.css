@@ -1,6 +1,7 @@
 @import url("../../partials/misc/step-styles.css");
 @import url("../../partials/misc/dialog-styles.css");
 @import url("../../partials/misc/addRecipes/suggestions_list-styles.css");
+@import url("../../partials/misc/addRecipes/custom_select-styles.css");
 @import url("../../animations/misc/addRecipe_anim-styles.css");
 
 body {
@@ -132,6 +133,7 @@ input[type="file"] {
 
 select {
    max-width: 70%;
+   size: 10px;
    padding: .5rem;
 
    background: var(--primary-700);

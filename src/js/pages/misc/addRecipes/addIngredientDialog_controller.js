@@ -8,10 +8,10 @@ const UNIT_SELECTOR = document.getElementById("slcUnit");
 
 MODAL_HANDLER.addEventListener("click", () => {
    setTimeout(() => {
+      MODAL.showModal();
    }, 10);
 });
 
-MODAL.showModal();
 
 window.addEventListener("click", (event) => {
    let modalState = MODAL.getAttribute("open");
@@ -79,18 +79,20 @@ function finishRegistration()
       "amount_unit": UNIT_SELECTOR.value
    };
 
+   const INGREDIENT_TEMPLATE = document.getElementById("ingredient_template");
+   const INGREDIENTS_CONTAINER = document.querySelector(".ingredients");
    let response = sendData(ingredientRequestBody)
    .then(r => {
       console.log(r);
-      /*
-      if(r.status == "failed")
+      if(r.status == "success")
       {
-         window.alert("Erro");
+         let ingredientWrapper = INGREDIENT_TEMPLATE.content.cloneNode(true).children[0];
+         const ingredientInput = ingredientWrapper.querySelector("input[type='hidden']");
+
+         /* Trazer os dados */
+
+         INGREDIENTS_CONTAINER.append(ingredientWrapper);
       }
-      else
-      {
-         window.alert("Deu bom meu nobre");
-      }*/
    });
 }
 

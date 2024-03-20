@@ -13,7 +13,8 @@
       <!-- JS -->
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/dialog_controller.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
    </head>
    <body>
@@ -62,7 +63,7 @@
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="false">
+            <section class="form_step" data-step="1" data-current="true">
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
                   <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
@@ -76,22 +77,31 @@
                   </div>
                   <div class="input-group">
                      <h3>Categoria</h3>
-                     <select required name="recipe_category" id="slcCategory">
-                        <option disabled selected value="#">Selecionar categoria</option>
-                        <?php
-                           foreach($categories as $category)
-                           {
-                        ?>
-                           <option value="<?=$category['id']?>"><?=$category['category']?></option>
-                        <?php
-                           }
-                        ?>
-                     </select>
+                     <div class="cutom_select" id="category_custom_select">
+                        <label class="select_face" for="categorySelectHandler">
+                           <input type="checkbox" id="categorySelectHandler">
+                           <h4>Selecione uma Categoria </h4>
+                           <div class="chevrons">
+                              <i class="chevron chevron_down"></i>
+                              <i class="chevron chevron_up"></i>
+                           </div>
+                        </label>
+                        <div class="options" aria-hidden="false">
+                           <?php
+                              foreach($categories as $category)
+                              {
+                           ?>
+                           
+                           <?php
+                              }
+                           ?>
+                        </div>
+                     </div>
                      <button class="btn_add_category" type="button">Add. Categoria</button>
                   </div>
                </div>
             </section>
-            <section class="form_step" data-step="2" data-current="true">
+            <section class="form_step" data-step="2" data-current="false">
                <h2>Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>
@@ -110,7 +120,16 @@
                </nav>
                <h3>Ingredientes</h3>
                <div class="ingredients">
-
+                  <template id="ingredient_template">
+                     <div class="ingredient">
+                        <input class="ingredient_input" type="hidden">
+                        <p class="ingredient_name"></p>
+                        <button class="btn_edit_ingredient"></button>
+                        <div class="ingredient_details" aria-expanded="false">
+                           <input type="text" name="" id="" class="ingredient_amount" disabled>
+                        </div>
+                     </div>
+                  </template>
                </div>
                <dialog id="add_ingredient-modal">
                   <h2>Crie um<br> novo ingrediente</h2>

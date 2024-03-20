@@ -11,9 +11,10 @@
    {    
       $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
+      $response['ingredient'] = array();
       foreach($result as $res)
       {
-         $response['ingredient'] = $res;
+         $response['ingredient'][] = $res;
       }
    }
 

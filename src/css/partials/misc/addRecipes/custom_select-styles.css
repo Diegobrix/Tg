@@ -1,0 +1,60 @@
+.select_face {
+   --padding: .7rem;
+
+   position: relative;
+   display: flex;
+
+   text-align: start;
+   width: clamp(200px, 85%, 350px);
+   padding: 1rem var(--padding);
+   border-radius: 10px;
+   background: var(--primary-700);
+   color: var(--neutral-100);
+}
+
+.select_face h4 {
+   font-size: .9rem;
+}
+
+input[type="checkbox"] {
+   display: none;
+}
+
+.chevrons {
+   position: absolute;
+   top: 50%;
+   right: var(--padding);
+   
+   display: flex;
+   align-items: center; 
+   transform: translate(0, -50%);
+}
+
+.chevron {
+   width: 1.5rem;
+   aspect-ratio: 1;
+   
+   background: var(--icon) no-repeat center center;
+   background-size: cover;
+   
+   &.chevron_up {
+      --icon: url("../../../../../assets/icons/chevron_up_icon_light.svg");
+   }
+   
+   &.chevron_down {
+      --icon: url("../../../../../assets/icons/chevron_down_icon_light.svg");
+   }
+}
+
+.chevron_up {
+   display: none;
+}
+
+.select_face:has( input[type="checkbox"]:checked) .chevron_down {
+   display: none;
+}
+
+.select_face:has( input[type="checkbox"]:checked) .chevron_up {
+   display: block;
+}
+
