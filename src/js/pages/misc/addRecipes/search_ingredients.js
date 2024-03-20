@@ -27,7 +27,10 @@ let ingredients = [];
 fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/getContent/getIngredients.php", requestOptions)
 .then(response => response.json())
 .then(data => {
-   ingredients = Object.values(data).map(ingredient => {
+   console.log(data);
+   let dataResponse = Object.values(data)[0];
+
+   ingredients = dataResponse.map(ingredient => {
       const suggestionWrapper = SUGGESTIONS_TEMPLATE.content.cloneNode(true).children[0];
       const suggestion = suggestionWrapper.querySelector(".ingredient");
 
