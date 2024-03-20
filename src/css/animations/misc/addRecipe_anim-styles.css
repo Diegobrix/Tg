@@ -9,18 +9,9 @@
 
 @keyframes suggestion_list_appear {
    from {
-      top: 0;
+      top: var(--origin);
    }
    to {
-      top: 2.05rem;
-   }
-}
-
-@keyframes suggestion_list_disappear {
-   from {
-      top: 0;
-   }
-   to {
-      top: -1.6rem;
+      top: var(--destination);
    }
 }
