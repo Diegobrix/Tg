@@ -113,7 +113,7 @@ async function sendData(data)
 
    try
    {
-      const response = await fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addIngredientDB.php", requestOptions);
+      const response = await fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addIngredientDB.php", requestOptions);
       return await response.json();
    }
    catch(e)

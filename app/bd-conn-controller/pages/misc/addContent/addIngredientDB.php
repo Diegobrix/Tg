@@ -5,7 +5,7 @@
 
    if($_SERVER['REQUEST_METHOD'] == "POST")
    {
-      require_once(__DIR__."/../../../_conn/conn.php");
+      require_once(__DIR__."/../../../../_conn/conn.php");
 
       if(isset($conn))
       {

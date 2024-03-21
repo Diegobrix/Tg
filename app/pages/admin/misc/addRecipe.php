@@ -50,7 +50,7 @@
       <main>
          <form action="#" method="GET" enctype="multipart/form-data">
             <?php
-               require_once("../../../bd-conn-controller/pages/misc/addRecipeDB.php");
+               require_once("../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php");
                $categories = getCategories($conn);
             ?>
             <section class="form_step" data-step="0" data-current="false">
@@ -103,6 +103,9 @@
                      <button class="btn_add_category" type="button">Add. Categoria</button>
                   </div>
                </div>
+               <dialog id="add_category-modal">
+
+               </dialog>
             </section>
             <section class="form_step" data-step="2" data-current="false">
                <h2>Adicionar<br>Ingredientes</h2>
@@ -114,7 +117,9 @@
                      <div class="ingredient_suggestions-container">
                         <template data-template>
                            <div class="suggestion hide">
-                              <div class="ingredient"></div>
+                              <div class="ingredient">
+
+                              </div>
                            </div>
                         </template>
                      </div>

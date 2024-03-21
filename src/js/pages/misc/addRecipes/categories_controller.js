@@ -2,6 +2,8 @@ const CATEGORIES_SELECT_HANDLER = document.getElementById("categorySelectHandler
 const OPTIONS_CONTAINER = document.getElementById("categoryOptionsContainer");
 const SELECT_DISPLAYER = document.getElementById("selectedCategory");
 const CATEGORIES = document.querySelectorAll(".category");
+const ADD_CATEGORY_MODAL_HANDLER = document.querySelector(".btn_add_category");
+const ADD_CATEGORY_MODAL = document.getElementById("add_category-modal");
 
 CATEGORIES_SELECT_HANDLER.addEventListener("change", () => {
    showCategories(CATEGORIES_SELECT_HANDLER.checked);
@@ -25,3 +27,7 @@ function showCategories(state)
    CATEGORIES_SELECT_HANDLER.checked = state;
    return !state;
 }
+
+ADD_CATEGORY_MODAL_HANDLER.addEventListener("click", () => {
+   ADD_CATEGORY_MODAL.showModal();
+});
