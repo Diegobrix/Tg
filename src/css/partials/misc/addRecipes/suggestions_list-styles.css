@@ -25,9 +25,6 @@
 }
 
 .search_bar:has(input:focus) .ingredient_suggestions-container {
-   --origin: 0;
-   --destination: 2.05rem;
-   
    visibility: visible;
    animation: suggestion_list_appear .5s ease-in-out forwards;
 }
