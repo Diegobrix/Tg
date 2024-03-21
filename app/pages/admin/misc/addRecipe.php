@@ -77,7 +77,7 @@
                   </div>
                   <div class="input-group">
                      <h3>Categoria</h3>
-                     <div class="cutom_select" id="category_custom_select">
+                     <div class="custom_select" id="category_custom_select">
                         <label class="select_face" for="categorySelectHandler">
                            <input type="checkbox" id="categorySelectHandler">
                            <h4 id="selectedCategory">Selecione uma Categoria </h4>
@@ -86,15 +86,19 @@
                               <i class="chevron chevron_up"></i>
                            </div>
                         </label>
-                        <div class="options" aria-hidden="false">
+                        <ul id="categoryOptionsContainer" class="options" aria-hidden="true">
                            <?php
                               foreach($categories as $category)
                               {
                            ?>
+                              <li>
+                                 <input class="category" type="radio" name="category" value="<?=$category['id']?>" id="category-<?=$category['id']?>" data-label="<?=$category['category']?>">
+                                 <label for="category-<?=$category['id']?>"><?=$category['category']?></label>
+                              </li>
                            <?php
                               }
                            ?>
-                        </div>
+                        </ul>
                      </div>
                      <button class="btn_add_category" type="button">Add. Categoria</button>
                   </div>
