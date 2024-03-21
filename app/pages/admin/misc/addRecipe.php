@@ -80,7 +80,7 @@
                      <label class="custom_select" for="categorySelectHandler">
                         <div class="select_face">
                            <input type="checkbox" id="categorySelectHandler">
-                           <h4>Selecione uma Categoria </h4>
+                           <h4 id="selectedCategory">Selecione uma Categoria </h4>
                            <div class="chevrons">
                               <i class="chevron chevron_down"></i>
                               <i class="chevron chevron_up"></i>
@@ -88,13 +88,15 @@
                         </div>
                         <ul id="categoryOptionsContainer" class="options" aria-hidden="true">
                            <?php
-                           /*
                               foreach($categories as $category)
                               {
                            ?>
+                              <li>
+                                 <input class="category" type="radio" name="category" value="<?=$category['id']?>" id="category<?=$category['id']?>" data-label="<?=$category['category']?>">
+                                 <label for="category<?=$category['id']?>"><?=$category['category']?></label>
+                              </li>
                            <?php
                               }
-                              */
                            ?>
                         </ul>
                      </label>
