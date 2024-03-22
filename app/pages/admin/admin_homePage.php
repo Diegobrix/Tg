@@ -52,14 +52,7 @@
             <ul>
                <li>Receitas</li>
                <li>Categorias</li>
-               <button class="btn_menu_add"></button>
             </ul>
-            <div class="dropdown_menu" aria-hidden="true">
-               <ul>
-                  <li><a href="../../pages/admin/misc/addRecipe.php">Nova receita</a></li>
-                  <li>Nova categoria</li>
-               </ul>
-            </div>
          </div>
          <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
       </header>

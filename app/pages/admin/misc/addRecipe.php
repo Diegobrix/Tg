@@ -104,7 +104,9 @@
                   </div>
                </div>
                <dialog id="add_category-modal">
-
+                  <h2>Crie uma<br> nova categoria</h2>
+                  <input type="text" name="category_title" id="add_category_input">
+                  <button type="button" id="add_category_sender">Finalizar</button>
                </dialog>
             </section>
             <section class="form_step" data-step="2" data-current="false">

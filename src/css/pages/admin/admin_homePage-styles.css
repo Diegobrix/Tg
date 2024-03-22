@@ -381,7 +381,7 @@ main {
       display: flex;
       justify-content: space-evenly;
       gap: 0 1rem;
-      padding-right: 4rem;
+      padding-inline: 1rem;
       
       & li:hover {
          color: var(--neutral-100);
@@ -389,53 +389,10 @@ main {
       }
    }
 
-   .btn_menu_add {
-      position: absolute;
-      top: 25%;
-      right: -9px;
-
-      width: 3.5rem;
-      aspect-ratio: 1;
-      border: 3px solid var(--primary-500);
-      border-radius: 50%;
-      background: url("../../../../assets/icons/plus.svg") no-repeat center center;
-      background-size: 60%;
-      background-color: var(--neutral-100);
-      transform: translate(0, -42%);
-      z-index: 11;
-   }
-
    .desktop-menu {
       position: relative;
    }
-
-   .dropdown_menu[aria-hidden="true"] {
-      visibility: hidden;
-   }
-
-   .dropdown_menu ul {
-      --animStart: 2rem;
-      position: absolute;
-      top: var(--animStart);
-      right: -2rem;
-      display: flex;
-      flex-direction: column;
-      width: fit-content;
-      padding: .5rem;
-      text-wrap: nowrap;
-      z-index: 10;
-
-      background: var(--neutral-200);
-      border-radius: 5px;
-      box-shadow: 2px 3px 4px hsl(0 0% 0% / .4);
-      color: var(--primary-700);
-      animation: showDropDownMenu .4s ease-in-out forwards;
-   }
-
-   .dropdown_menu li:hover {
-      color: #000;
-   }
-
+   
    .logout {
       position: absolute;
       top: 50%;
@@ -459,6 +416,7 @@ main {
       gap: 0 1rem;
   
       height: min-content;
+      padding: 0;
    }
 
    .recipes_overview--wrapper {

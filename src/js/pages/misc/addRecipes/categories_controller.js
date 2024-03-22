@@ -31,3 +31,17 @@ function showCategories(state)
 ADD_CATEGORY_MODAL_HANDLER.addEventListener("click", () => {
    ADD_CATEGORY_MODAL.showModal();
 });
+
+const ADD_CATEGORY_SENDER = document.getElementById("add_category_sender");
+const ADD_CATEGORY_INPUT = document.getElementById("add_category_input");
+
+ADD_CATEGORY_SENDER.addEventListener("click", () => {
+   let val = ADD_CATEGORY_INPUT.value;
+   let pattern = /\S/g;
+   
+   if(val.match(pattern))
+   {
+      //Caso o usuário digite algo (sem contar espaços)
+      
+   }
+});

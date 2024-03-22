@@ -7,7 +7,7 @@
    
    if($_SERVER['REQUEST_METHOD'] == "POST")
    {
-      require_once("./verifyContent/verifyContentExists.php");
+      require_once("./addContent.php");
       require_once(__DIR__."/../../../../../conf/defineSourcePath.php");
 
       $rawData = file_get_contents("php://input");
@@ -17,18 +17,14 @@
       {
          if(!verifyIfExists($conn, "categoria", $data['category_title'], "descricaoCategoria"))
          {
-            $stmt = $conn -> prepare("INSERT INTO `categoria`(descricaoCategoria) VALUES(:content);");
-            $stmt -> bindParam(":content", $data['category_title']);
-            $stmt -> execute();
-
-            if($stmt -> rowCount() > 0)
+            if(addContent($conn, "categoria", $data['category_title'], "descricaoCategoria"))
             {
-               //Cadastrou com sucesso
                $response['status'] = "success";
+               $response['data'] = ["id" => $conn->lastInsertId(), "category" => $data['category_title']];
             }
             else
             {
-               //Erro ao cadastrar
+               finishHim($response, "Erro ao cadastrar a categoria no banco de dados");
             }
          }
          else
