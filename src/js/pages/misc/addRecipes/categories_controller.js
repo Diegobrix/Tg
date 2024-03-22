@@ -41,7 +41,44 @@ ADD_CATEGORY_SENDER.addEventListener("click", () => {
    
    if(val.match(pattern))
    {
-      //Caso o usuário digite algo (sem contar espaços)
-      
+      insertItem(val);
    }
 });
+
+function insertItem(data)
+{
+   let category = {"category_title":data};
+   let response = addCategory(category)
+   .then(resp => {
+      console.log(resp); 
+   });
+
+   closeAddModal();
+}
+
+async function addCategory(categoryTitle)
+{
+   let requestOptions = {
+      method: "POST",
+      Headers: {
+         "Content-type": "application/json"
+      },
+      body: JSON.stringify(categoryTitle)
+   };
+
+   try
+   {
+      const response = await fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addCategoryDB.php", requestOptions);
+      return await response.json();
+   }
+   catch(e)
+   {
+      console.log(e);
+   }
+}
+
+function closeAddModal()
+{
+   ADD_CATEGORY_INPUT.value = "";
+   ADD_CATEGORY_MODAL.close();
+}

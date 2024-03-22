@@ -13,11 +13,15 @@
       $rawData = file_get_contents("php://input");
       $data = json_decode($rawData, true);
 
+      $response['data'] = $data;
+
       if($data != null)
       {
-         if(!verifyIfExists($conn, "categoria", $data['category_title'], "descricaoCategoria"))
+         $category = strtolower($data['category_title']);
+
+         if(!verifyIfExists($conn, "categoria", $category, "descricaoCategoria"))
          {
-            if(addContent($conn, "categoria", $data['category_title'], "descricaoCategoria"))
+            if(addContent($conn, "categoria", $category, "descricaoCategoria"))
             {
                $response['status'] = "success";
                $response['data'] = ["id" => $conn->lastInsertId(), "category" => $data['category_title']];
