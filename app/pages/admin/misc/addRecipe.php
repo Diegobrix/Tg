@@ -13,7 +13,7 @@
       <!-- JS -->
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
+      <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
    </head>
@@ -63,7 +63,7 @@
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="true">
+            <section class="form_step" data-step="1" data-current="false">
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
                   <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
@@ -115,7 +115,7 @@
                   <button type="button" id="add_category_sender">Finalizar</button>
                </dialog>
             </section>
-            <section class="form_step" data-step="2" data-current="false">
+            <section class="form_step" data-step="2" data-current="true">
                <h2>Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>

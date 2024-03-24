@@ -23,6 +23,7 @@
                if(addContent($conn, "ingrediente", $ingredient, "descricaoIngrediente"))
                {
                   $response['status'] = "success";
+                  $response['ingredient'] = ["id" => $conn->lastInsertId(), "ingredient"=> $ingredient, "amount"=>$data['ingredient_amount'], "unit"=>$data['unit_id']];
                }
             }
             else

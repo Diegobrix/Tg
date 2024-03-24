@@ -71,8 +71,6 @@ function addOption(serverResponse)
    let id = "category-"+ data.id;
    const CATEGORY_WRAPPER = OPTION_TEMPLATE.content.cloneNode(true).children[0];
 
-   console.log(data);
-
    const CATEGORY_INPUT = CATEGORY_WRAPPER.querySelector(".category");
    CATEGORY_INPUT.value = data.id;
    CATEGORY_INPUT.id = id;

@@ -1,3 +1,5 @@
+import sendData from "../../../bd_conn/addRecipe/sendData.js";
+
 const MODAL = document.getElementById("add_ingredient-modal");
 const MODAL_HANDLER = document.querySelector(".add_ingredient");
 const MODAL_CONTENT_CONTROLLER = document.getElementById("add_ingredient_modal_controller");
@@ -73,25 +75,18 @@ function finishRegistration()
 {
    MODAL_CONTENT_CONTROLLER.dataset.currentAction = "next";
 
-   const ingredientRequestBody = {
+   const body = {
       "ingredient_title": INGREDIENT_TITLE_INPUT.value.toLowerCase(),
       "ingredient_amount": INGREDIENT_AMOUNT_INPUT.value,
-      "amount_unit": UNIT_SELECTOR.value
+      "unit_id": UNIT_SELECTOR.value
    };
 
-   const INGREDIENT_TEMPLATE = document.getElementById("ingredient_template");
-   const INGREDIENTS_CONTAINER = document.querySelector(".ingredients");
-   let response = sendData(ingredientRequestBody)
-   .then(r => {
-      console.log(r);
-      if(r.status == "success")
+   let response = sendData("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addIngredientDB.php", body)
+   .then(resp => {
+      if(resp.status == "success")
       {
-         let ingredientWrapper = INGREDIENT_TEMPLATE.content.cloneNode(true).children[0];
-         const ingredientInput = ingredientWrapper.querySelector("input[type='hidden']");
-
-         /* Trazer os dados */
-
-         INGREDIENTS_CONTAINER.append(ingredientWrapper);
+         addIngredientElement(resp.ingredient);
+         closeIngredientModal();
       }
    });
 }
@@ -101,23 +96,12 @@ function showMessage(msg)
    window.alert(msg);
 }
 
-async function sendData(data)
+function closeIngredientModal()
 {
-   let requestOptions = {
-      method: "POST",
-      Headers: {
-         "Content-type": "application/json"
-      },
-      body: JSON.stringify(data)
-   };
+   MODAL.close();
+}
 
-   try
-   {
-      const response = await fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addIngredientDB.php", requestOptions);
-      return await response.json();
-   }
-   catch(e)
-   {
-      console.log(e);
-   }
+function addIngredientElement(ingredient)
+{
+
 }
