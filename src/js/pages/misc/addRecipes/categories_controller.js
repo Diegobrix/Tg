@@ -52,7 +52,7 @@ function insertItem(data)
    let category = {"category_title":data};
    let response = sendData("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addCategoryDB.php", category)
    .then(resp => {
-      console.log(resp);
+      addOption(resp);
    });
 
    closeAddModal();
@@ -62,4 +62,28 @@ function closeAddModal()
 {
    ADD_CATEGORY_INPUT.value = "";
    ADD_CATEGORY_MODAL.close();
+}
+
+const OPTION_TEMPLATE = document.querySelector(".category_template");
+function addOption(serverResponse)
+{
+   let data = serverResponse.data;
+   let id = "category-"+ data.id;
+   const CATEGORY_WRAPPER = OPTION_TEMPLATE.content.cloneNode(true).children[0];
+
+   console.log(data);
+
+   const CATEGORY_INPUT = CATEGORY_WRAPPER.querySelector(".category");
+   CATEGORY_INPUT.value = data.id;
+   CATEGORY_INPUT.id = id;
+   CATEGORY_INPUT.dataset.label = data.category;
+   CATEGORY_INPUT.checked = true;
+
+   SELECT_DISPLAYER.innerText = data.category;
+
+   const CATEGORY_LABEL = CATEGORY_WRAPPER.querySelector("label");
+   CATEGORY_LABEL.setAttribute("for", id);
+   CATEGORY_LABEL.textContent = data.category;
+
+   OPTIONS_CONTAINER.append(CATEGORY_WRAPPER);
 }

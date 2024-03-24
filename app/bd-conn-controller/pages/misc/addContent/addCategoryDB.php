@@ -24,7 +24,7 @@
             if(addContent($conn, "categoria", $category, "descricaoCategoria"))
             {
                $response['status'] = "success";
-               $response['data'] = ["id" => $conn->lastInsertId(), "category" => $data['category_title']];
+               $response['data'] = ["id" => $conn->lastInsertId(), "category" => $category];
             }
             else
             {

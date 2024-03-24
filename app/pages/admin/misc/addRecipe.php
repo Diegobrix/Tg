@@ -87,6 +87,12 @@
                            </div>
                         </label>
                         <ul id="categoryOptionsContainer" class="options" aria-hidden="true">
+                           <template class="category_template">
+                              <li>
+                                 <input class="category" type="radio" name="category" data-label="">
+                                 <label for=""></label>
+                              </li>
+                           </template>
                            <?php
                               foreach($categories as $category)
                               {
