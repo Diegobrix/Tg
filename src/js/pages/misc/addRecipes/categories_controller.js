@@ -1,3 +1,5 @@
+import sendData from "../../../bd_conn/addRecipe/sendData.js";
+
 const CATEGORIES_SELECT_HANDLER = document.getElementById("categorySelectHandler");
 const OPTIONS_CONTAINER = document.getElementById("categoryOptionsContainer");
 const SELECT_DISPLAYER = document.getElementById("selectedCategory");
@@ -48,33 +50,12 @@ ADD_CATEGORY_SENDER.addEventListener("click", () => {
 function insertItem(data)
 {
    let category = {"category_title":data};
-   let response = addCategory(category)
+   let response = sendData("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addCategoryDB.php", category)
    .then(resp => {
-      console.log(resp); 
+      console.log(resp);
    });
 
    closeAddModal();
-}
-
-async function addCategory(categoryTitle)
-{
-   let requestOptions = {
-      method: "POST",
-      Headers: {
-         "Content-type": "application/json"
-      },
-      body: JSON.stringify(categoryTitle)
-   };
-
-   try
-   {
-      const response = await fetch("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addCategoryDB.php", requestOptions);
-      return await response.json();
-   }
-   catch(e)
-   {
-      console.log(e);
-   }
 }
 
 function closeAddModal()
