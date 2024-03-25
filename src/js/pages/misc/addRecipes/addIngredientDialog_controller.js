@@ -101,7 +101,15 @@ function closeIngredientModal()
    MODAL.close();
 }
 
-function addIngredientElement(ingredient)
+const INGREDIENTS_CONTAINER = document.querySelector(".ingredients");
+const INGREDIENTS_TEMPLATE = INGREDIENTS_CONTAINER.querySelector("#ingredient_template");
+function addIngredientElement(data)
 {
+   const INGREDIENT = INGREDIENTS_TEMPLATE.content.cloneNode(true).children[0];
+   INGREDIENT.id = "ingredient-" + data.id;
+   
+   let ingredientTitle = INGREDIENT.querySelector(".ingredient_title");
+   ingredientTitle.innerText = data.ingredient;
 
+   INGREDIENTS_CONTAINER.append(INGREDIENT);
 }

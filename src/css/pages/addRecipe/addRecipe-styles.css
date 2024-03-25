@@ -2,6 +2,7 @@
 @import url("../../partials/misc/dialog-styles.css");
 @import url("../../partials/misc/addRecipes/suggestions_list-styles.css");
 @import url("../../partials/misc/addRecipes/custom_select-styles.css");
+@import url("../../partials/misc/addRecipes/ingredient_details-styles.css");
 @import url("../../animations/misc/addRecipe_anim-styles.css");
 
 body {
@@ -226,6 +227,20 @@ select {
    transition: all .2s;
 }
 
+.ingredients {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+
+   margin-top: 1rem;
+   max-height: 50vh;
+   max-height: 50dvh;
+   overflow-y: auto;
+   overflow-x: hidden;
+}
+
+
+
 .form_footer {
    position: absolute;
    bottom: 0;
@@ -253,4 +268,15 @@ select {
 
 .steps-wrapper {
    display: none;
+}
+
+@supports selector(::-webkit-scrollbar) and selector(::-webkit-scrollbar-thumb) {
+   ::-webkit-scrollbar {
+      width: 5px;
+      background: var(--neutral-300);
+   }
+   
+   ::-webkit-scrollbar-thumb {
+      background: var(--primary-500);
+   }
 }

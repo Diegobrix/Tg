@@ -95,12 +95,12 @@ button {
 }
 
 @supports selector(::-webkit-scrollbar) and selector(::-webkit-scrollbar-thumb) {
-   body::-webkit-scrollbar {
+   ::-webkit-scrollbar {
       width: 10px;
       background: var(--neutral-300);
    }
    
-   body::-webkit-scrollbar-thumb {
+   ::-webkit-scrollbar-thumb {
       background: var(--neutral-500);
    }
 }

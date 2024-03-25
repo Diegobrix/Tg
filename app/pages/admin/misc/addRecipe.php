@@ -136,16 +136,242 @@
                </nav>
                <h3>Ingredientes</h3>
                <div class="ingredients">
-                  <template id="ingredient_template">
-                     <div class="ingredient">
-                        <input class="ingredient_input" type="hidden">
-                        <p class="ingredient_name"></p>
-                        <button class="btn_edit_ingredient"></button>
-                        <div class="ingredient_details" aria-expanded="false">
-                           <input type="text" name="" id="" class="ingredient_amount" disabled>
-                        </div>
+                  <!-- <template id="ingredient_template">
+                     <button class="ingredient">
+                        <span class="ingredient_title"></span>
+                     </button>
+                  </template> -->
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
                      </div>
-                  </template>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="ingredient_details" aria-hidden="false">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
                </div>
                <dialog id="add_ingredient-modal">
                   <h2>Crie um<br> novo ingrediente</h2>

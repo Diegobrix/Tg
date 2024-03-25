@@ -16,6 +16,10 @@
    z-index: 3;
 }
 
+.unit_select .chevron {
+   width: 1rem;
+}
+
 .select_face h4 {
    font-size: .9rem;
 }
