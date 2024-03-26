@@ -39,6 +39,21 @@ button.ingredient {
    border: 0;
 }
 
-.ingredient_details {
+.ingredient_details[aria-hidden="true"] {
    display: none;
+}
+
+.btn_remove[aria-hidden="true"] {
+   display: none;
+}
+
+.btn_remove[aria-hidden="false"] {
+   position: absolute;
+   top: -.5rem;
+   right: -.5rem;
+   background-color: red;
+   width: 1.5rem;
+   aspect-ratio: 1;
+   border-radius: 50%;
+   z-index: 2;
 }
