@@ -54,19 +54,3 @@ button.ingredient {
    
    z-index: 2;
 }
-
-.ingredient_details {
-   position: absolute;
-   left: 0; 
-
-   padding: .5rem;
-   background: red;
-}
-
-.ingredient_details input {
-   border: 0;
-}
-
-.ingredient_details[aria-hidden="true"] {
-   display: none;
-}

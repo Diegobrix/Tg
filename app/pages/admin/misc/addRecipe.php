@@ -145,22 +145,17 @@
                   </template> -->
                   <button class="ingredient" id="7">
                      <span class="ingredient_title">novo</span>
-                     <input type="hidden" name="ingredient">
+                     <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
+                     <input type="hidden" name="ingredient" value="7/novo/100/1">
                      <div class="btn_remove" aria-hidden="true"></div>
-                     <div class="ingredient_details" aria-hidden="true">
-                        <input type="text" name="ingredient_amount">
-                     </div>
                   </button>
                   <button class="ingredient" id="8">
-                     <span class="ingredient_title">sal</span>
-                     <input type="hidden" name="ingredient">
+                     <span class="ingredient_title">ovo</span>
+                     <input type="hidden" name="ingredient" value="8/ovo/6/2">
                      <div class="btn_remove" aria-hidden="true"></div>
-                     <div class="ingredient_details" aria-hidden="true">
-                        <input type="text" name="ingredient_amount">
-                     </div>
                   </button>
                </div>
-               <dialog id="add_ingredient-modal">
+               <dialog id="ingredient-modal">
                   <h2>Crie um<br> novo ingrediente</h2>
                   <input type="text" name="ingredient_name" id="txtIngredient">
                   <div class="amount-wrapper" aria-hidden="true">

@@ -1,6 +1,6 @@
 import sendData from "../../../bd_conn/addRecipe/sendData.js";
 
-const MODAL = document.getElementById("add_ingredient-modal");
+const MODAL = document.getElementById("ingredient-modal");
 const MODAL_HANDLER = document.querySelector(".add_ingredient");
 const MODAL_CONTENT_CONTROLLER = document.getElementById("add_ingredient_modal_controller");
 const MODAL_CONTENT = MODAL.querySelector(".amount-wrapper");
@@ -49,7 +49,7 @@ function modalContentStateHandler(currentAction)
    {
       openHiddenFields();
    }
-   else 
+   else if(currentAction == "finish")
    {
       let pattern = /[0-9]+/g;      
 

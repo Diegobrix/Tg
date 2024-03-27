@@ -238,10 +238,8 @@ select {
    padding-top: calc(var(--spacing) + .2rem);
    padding-inline-end: var(--spacing);
    
-   max-height: 50vh;
-   max-height: 50dvh;
-   overflow-y: scroll;
    overflow-x: hidden;
+   overflow-y: visible;
 }
 
 .form_footer {
