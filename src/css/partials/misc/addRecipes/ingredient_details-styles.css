@@ -48,12 +48,19 @@ button.ingredient {
 }
 
 .btn_remove[aria-hidden="false"] {
+   --initial-position: -.5rem;
    position: absolute;
-   top: -.5rem;
-   right: -.5rem;
-   background-color: red;
-   width: 1.5rem;
+   top: var(--initial-position);
+   right: var(--initial-position);
+   background-color: var(--neutral-300);
+   width: 1.4rem;
    aspect-ratio: 1;
    border-radius: 50%;
+   box-shadow: 2px 2px 3px 0 hsl(0 0% 0% / .2),
+   -2px -1px 5px 0 hsl(0 0% 100% / .5),
+   inset 1px 2px 3px hsl(0 0% 95% / .6),
+   inset -1px -1px 4px hsl(0 0% 15% / .2);
+   animation: removeItemShake 4.5s ease infinite;
+   
    z-index: 2;
 }

@@ -235,7 +235,7 @@ select {
    gap: 10px;
 
    margin-top: var(--spacing);
-   padding-top: var(--spacing);
+   padding-top: calc(var(--spacing) + .2rem);
    padding-inline-end: var(--spacing);
    
    max-height: 50vh;

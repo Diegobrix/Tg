@@ -16,11 +16,29 @@
    }
 }
 
-@keyframes suggestion_list_disappear {
+@keyframes removeItemShake {
    from {
-      top: 0;
+      transform:translate(0, 0);
+   }
+   1.8% {
+      transform:translate(5px, 0);
+   }
+   3.6% {
+      transform:translate(0, 0);
+   }
+   5.35% {
+      transform:translate(5px,0);
+   }
+   7.14% {
+      transform:translate(0,0);
+   }
+   8.93% {
+      transform:translate(5px,0);
+   }
+   10.71% {
+      transform:translate(0,0);
    }
    to {
-      top: -1.6rem;
+      transform:translate(0,0);
    }
 }
