@@ -17,6 +17,7 @@
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
    </head>
    <body>
       <header>
@@ -145,7 +146,15 @@
                   <button class="ingredient" id="7">
                      <span class="ingredient_title">novo</span>
                      <input type="hidden" name="ingredient">
-                     <div class="btn_remove" aria-hidden="false"></div>
+                     <div class="btn_remove" aria-hidden="true"></div>
+                     <div class="ingredient_details" aria-hidden="true">
+                        <input type="text" name="ingredient_amount">
+                     </div>
+                  </button>
+                  <button class="ingredient" id="7">
+                     <span class="ingredient_title">novo</span>
+                     <input type="hidden" name="ingredient">
+                     <div class="btn_remove" aria-hidden="true"></div>
                      <div class="ingredient_details" aria-hidden="true">
                         <input type="text" name="ingredient_amount">
                      </div>

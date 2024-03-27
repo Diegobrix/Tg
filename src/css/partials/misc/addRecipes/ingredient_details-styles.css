@@ -52,9 +52,14 @@ button.ingredient {
    position: absolute;
    top: var(--initial-position);
    right: var(--initial-position);
+   
+   background: url("../../../../../assets/icons/remove.svg") no-repeat center center;
+   background-size: cover;
    background-color: var(--neutral-300);
+   
    width: 1.4rem;
    aspect-ratio: 1;
+   
    border-radius: 50%;
    box-shadow: 2px 2px 3px 0 hsl(0 0% 0% / .2),
    -2px -1px 5px 0 hsl(0 0% 100% / .5),
