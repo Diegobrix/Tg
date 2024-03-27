@@ -9,7 +9,15 @@ EDIT_INGREDIENTS.addEventListener("click", () => {
 });
 
 BTNS_REMOVE_INGREDIENT.forEach(btn => {
-   btn.addEventListener("click", () => {
-      window.alert("Oops");
+   btn.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      let parent = btn.parentElement;
+      let ingredientTitle = parent.querySelector(".ingredient_title").innerText;
+
+      if(confirm(`Deseja mesmo remover o ingrediente "${ingredientTitle}" da receita?`))
+      {
+         parent.remove();
+      }
    });
 });

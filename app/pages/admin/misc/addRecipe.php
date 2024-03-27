@@ -151,8 +151,8 @@
                         <input type="text" name="ingredient_amount">
                      </div>
                   </button>
-                  <button class="ingredient" id="7">
-                     <span class="ingredient_title">novo</span>
+                  <button class="ingredient" id="8">
+                     <span class="ingredient_title">sal</span>
                      <input type="hidden" name="ingredient">
                      <div class="btn_remove" aria-hidden="true"></div>
                      <div class="ingredient_details" aria-hidden="true">
