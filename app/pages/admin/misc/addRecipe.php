@@ -138,22 +138,14 @@
                </nav>
                <h3>Ingredientes</h3>
                <div class="ingredients">
-                  <!-- <template id="ingredient_template">
+                  <template id="ingredient_template">
                      <button class="ingredient">
                         <span class="ingredient_title"></span>
+                        <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
+                        <input type="hidden" name="ingredient">
+                        <div class="btn_remove" aria-hidden="true"></div>
                      </button>
-                  </template> -->
-                  <button class="ingredient" id="7">
-                     <span class="ingredient_title">novo</span>
-                     <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
-                     <input type="hidden" name="ingredient" value="7/novo/100/1">
-                     <div class="btn_remove" aria-hidden="true"></div>
-                  </button>
-                  <button class="ingredient" id="8">
-                     <span class="ingredient_title">ovo</span>
-                     <input type="hidden" name="ingredient" value="8/ovo/6/2">
-                     <div class="btn_remove" aria-hidden="true"></div>
-                  </button>
+                  </template>
                </div>
                <dialog id="ingredient-modal">
                   <h2>Crie um<br> novo ingrediente</h2>
