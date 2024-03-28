@@ -16,7 +16,6 @@
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
    </head>
    <body>

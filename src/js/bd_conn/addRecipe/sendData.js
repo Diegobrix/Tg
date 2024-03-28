@@ -1,4 +1,4 @@
-export default async function sendData(endpoint, data)
+export default async function sendData(endpoint, data = {})
 {
    let requestOptions = {
       method: "POST",
