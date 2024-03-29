@@ -1,4 +1,5 @@
 import sendData from "../../../bd_conn/addRecipe/sendData.js";
+import { clearModal } from "./search_ingredients.js";
 
 const MODAL = document.getElementById("ingredient-modal");
 const MODAL_HANDLER = document.querySelector(".add_ingredient");
@@ -87,6 +88,8 @@ function finishRegistration()
       {
          addIngredientElement(resp.ingredient);
          closeIngredientModal();
+
+         clearModal("next");
       }
    });
 }
@@ -103,7 +106,7 @@ function closeIngredientModal()
 
 const INGREDIENTS_CONTAINER = document.querySelector(".ingredients");
 const INGREDIENTS_TEMPLATE = INGREDIENTS_CONTAINER.querySelector("#ingredient_template");
-function addIngredientElement(data)
+export function addIngredientElement(data)
 {
    const INGREDIENT = INGREDIENTS_TEMPLATE.content.cloneNode(true).children[0];
    INGREDIENT.id = "ingredient-" + data.id;

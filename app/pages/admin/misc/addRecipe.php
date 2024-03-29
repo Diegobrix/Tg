@@ -11,12 +11,12 @@
       <link rel="stylesheet" type="text/css" href="../../../../src/css/pages/addRecipe/addRecipe-styles.css" />
 
       <!-- JS -->
-      <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
+      <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
+      <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
    </head>
    <body>
       <header>
@@ -145,6 +145,7 @@
                   </template>
                </div>
                <dialog id="ingredient-modal">
+                  <input type="hidden" id="ingredient_id" id="ingredient_id">
                   <h2>Crie um<br> novo ingrediente</h2>
                   <input type="text" name="ingredient_name" id="txtIngredient">
                   <div class="amount-wrapper" aria-hidden="true">
