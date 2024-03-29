@@ -19,7 +19,7 @@
    z-index: -1;
 }
 
-.search_bar:has(input:focus) .ingredient_suggestions-container {
+.search_bar[aria-hidden="false"] .ingredient_suggestions-container {
    visibility: visible;
    animation: suggestion_list_appear .5s ease-in-out forwards;
 }

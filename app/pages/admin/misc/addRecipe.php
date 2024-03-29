@@ -120,15 +120,13 @@
                <h2>Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>
-                  <div class="search_bar">
+                  <div class="search_bar" aria-hidden="true">
                      <i></i>
                      <input type="text" name ="ingredientName" id="txtSearchIngredient">
                      <div class="ingredient_suggestions-container">
                         <template data-template>
                            <div class="suggestion hide">
-                              <div class="ingredient">
-
-                              </div>
+                              <div class="ingredient"></div>
                            </div>
                         </template>
                      </div>
