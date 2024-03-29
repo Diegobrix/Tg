@@ -10,17 +10,36 @@ STEP_HANDLER.forEach(handler => {
       let action = handler.dataset.action;
       if(action != "finish")
       {
-         stepHandler(action);
+         stepHandler(action, event);
          event.preventDefault();
       }
    });
 });
 
-function stepHandler(trigger)
+function stepHandler(trigger, event)
 {
    let currentStep = parseInt(getCurrentStep());
    if(trigger == "next")
    {
+      if(currentStep > 0)
+      {
+         let categoryOptions = document.querySelectorAll('#categoryOptionsContainer .category');
+         let isSelected = false;
+
+         for (var i = 0; i < categoryOptions.length; i++) {
+            if (categoryOptions[i].checked) {
+               isSelected = true;
+               break;
+            }
+         }
+
+         if (!isSelected) {
+            event.preventDefault();
+            alert('Por favor, selecione uma categoria.');
+            return;
+         }
+      }
+      
       if(checkFields(currentStep))
       {
          return nextStep(currentStep);
