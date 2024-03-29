@@ -10,18 +10,13 @@
 
    width: 100%;
 
-   padding: .5rem;
+   padding-block: .5rem;
+
    border-radius: 5px;
    background: var(--neutral-200); 
    border: 2px solid var(--neutral-300);
    box-shadow: 2px 2px 10px hsl(0 0% 0% / .2);
    z-index: -1;
-   /*
-   
-   &:has( .hide) {
-      display: none;
-   }
-   */
 }
 
 .search_bar:has(input:focus) .ingredient_suggestions-container {
@@ -30,12 +25,19 @@
 }
 
 .suggestion {
+   display: block;
    position: relative;
-   background: inherit;
+   padding: .2rem;
+   padding-left: .5rem;
    z-index: 10;
+   cursor: pointer;
 
    &.hide {
+      display: none;
       z-index: 9;
-      /* animation: suggestion_list_disappear .5s ease-in-out forwards; */
    }
+}
+
+.suggestion:hover {
+   background: var(--neutral-300);
 }
