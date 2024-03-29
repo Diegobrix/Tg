@@ -10,4 +10,5 @@ export function clearHeadSteps()
 export function headerChangeStep(currentStep)
 {
    HEADER_STEPS[currentStep].dataset.current = "true";
+   HEADER_STEPS[currentStep + 3].dataset.current = "true";
 }

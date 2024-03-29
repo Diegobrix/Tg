@@ -4,6 +4,7 @@
 @import url("../../partials/misc/addRecipes/custom_select-styles.css");
 @import url("../../partials/misc/addRecipes/ingredient_details-styles.css");
 @import url("../../animations/misc/addRecipe_anim-styles.css");
+@import url("../../animations/admin_homePage/admin_homePage-animations.css");
 
 body {
    --bg-color: hsl(273, 26%, 93%);
@@ -21,8 +22,35 @@ body {
    }
 }
 
-header .header_head,
-.steps_descriptions .step_description--wrapper {
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 0 1rem;
+
+   padding-inline: 1rem;
+}
+
+.header_head {
+   display: inherit;
+   align-items: center;
+}
+
+
+.header_head #mobile_menu--handler {
+   width: 2rem;
+   aspect-ratio: 1;
+   background: url("../../../../assets/icons/hamburger-menu.svg") no-repeat center center;
+   background-color: var(--primary-600);
+   background-size: 70%;
+   border-radius: 50%;
+}
+
+h1 {
+   font-size: 1.1rem;
+}
+
+header > .steps_descriptions .step_description--wrapper {
    display: none;
 }
 
@@ -41,9 +69,84 @@ header .header_head,
    font-style: normal;
 }
 
-.steps_descriptions li[data-current="true"] .step-icon {
+.steps_descriptions li[data-current="true"] .step-icon,
+.mobile-menu .step_display[data-current="true"] {
    background: var(--primary-700);
    color: var(--neutral-100);
+}
+.mobile-menu[aria-expanded="false"] {
+   display: none;
+}
+
+.mobile-menu[aria-expanded="true"] {
+   --origin-width: 60%;
+   
+   position: fixed;
+   inset: 0;
+   display: flex;
+   align-items: center;
+   left: calc(var(--origin-width) * -1);
+
+   width: var(--origin-width);
+   height: 100%;
+   background: var(--primary-700);
+   z-index: 200;
+   animation: openMenu .2s ease-in-out forwards;
+} 
+
+.mobile-menu .menu-controller {
+   position: absolute;
+   top: 1rem;
+   display: flex;
+   justify-content: space-between;
+
+   width: 100%;
+   height: fit-content;
+
+   padding-inline: 1rem;
+}
+
+.menu-controller button {
+   width: 2.5rem;
+   aspect-ratio: 1;
+   background: var(--icon) no-repeat center center;
+}
+
+#btn_exit {
+   --icon: url("../../../../assets/icons/page_exit.svg");
+}
+
+#btn_close {
+   --icon: url("../../../../assets/icons/close.svg");
+   background-size: 65%;
+}
+
+.mobile-menu[aria-expanded="true"] ul {
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem;
+   margin-inline-start: 1rem;
+}
+
+.mobile-menu .step-icon {
+   border: 3px solid currentColor;
+
+   background: #0000;
+   color: #000;
+}
+
+header:has(.mobile-menu[aria-expanded="false"]) .backdrop {
+   display: none;
+}
+
+.backdrop {
+   display: block;
+   position: fixed;
+   inset: 0;
+   margin: auto;
+   background: var(--transparent-400);
+   backdrop-filter: blur(2px);
+   z-index: 100;
 }
 
 form > section {
@@ -239,7 +342,7 @@ select {
    padding-inline-end: var(--spacing);
    
    overflow-x: hidden;
-   overflow-y: visible;
+   overflow-y: auto;
 }
 
 .form_footer {

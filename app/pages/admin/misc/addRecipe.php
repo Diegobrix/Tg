@@ -13,6 +13,7 @@
       <!-- JS -->
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
+      <script defer src="../../../../src/js/pages/hamburger-menu.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
@@ -21,6 +22,7 @@
    <body>
       <header>
          <div class="header_head">
+            <button id="mobile_menu--handler"></button>
             <button class="btn_back"></button>
             <h1>Adicionar Receita</h1>
          </div>
@@ -47,6 +49,37 @@
                </div>
             </li>
          </ul>
+
+         <aside class="mobile-menu" aria-expanded="false">
+            <div class="menu-controller">
+               <button id="btn_exit" aria-label="Sair da Página"></button>
+               <button id="btn_close" aria-label="Fechar Menu"></button>
+            </div>
+            <ul class="steps_descriptions">
+            <li class="step_display" data-step="0" data-current="true">
+               <i class="step-icon">1</i>
+               <div class="step_description--wrapper">
+                  <span>Passo 1</span>
+                  <p>Informações Básicas</p>
+               </div>
+            </li>
+            <li class="step_display" data-step="1" data-current="false">
+               <i class="step-icon">2</i>
+               <div class="step_description--wrapper">
+                  <span>Passo 2</span>
+                  <p>Benefícios e Categoria</p>
+               </div>
+            </li>
+            <li class="step_display" data-step="2" data-current="false">
+               <i class="step-icon">3</i>
+               <div class="step_description--wrapper">
+                  <span>Passo 3</span>
+                  <p>Adicionar Ingredientes</p>
+               </div>
+            </li>
+         </ul>
+         </aside>
+         <div class="backdrop"></div>
       </header>
       <main>
          <form action="#" method="GET" enctype="multipart/form-data">
@@ -54,7 +87,7 @@
                require_once("../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php");
                $categories = getCategories($conn);
             ?>
-            <section class="form_step" data-step="0" data-current="false">
+            <section class="form_step" data-step="0" data-current="true">
                <div class="input-group">
                   <label for="txtTitle">Título</label>
                   <input required type="text" name="recipe_title" id="txtTitle">
@@ -116,7 +149,7 @@
                   <button type="button" id="add_category_sender">Finalizar</button>
                </dialog>
             </section>
-            <section class="form_step" data-step="2" data-current="true">
+            <section class="form_step" data-step="2" data-current="false">
                <h2>Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>

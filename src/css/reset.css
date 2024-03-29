@@ -94,6 +94,12 @@ button {
    outline-color: var(--ring-color);
 }
 
+@supports selector(:has( *)) {
+   :root:has(.mobile-menu[aria-expanded="true"]) {
+      overflow: hidden;
+   }
+}
+
 @supports selector(::-webkit-scrollbar) and selector(::-webkit-scrollbar-thumb) {
    ::-webkit-scrollbar {
       width: 10px;
