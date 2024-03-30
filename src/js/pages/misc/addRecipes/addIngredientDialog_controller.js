@@ -114,7 +114,7 @@ export function addIngredientElement(data)
    let ingredientTitle = INGREDIENT.querySelector(".ingredient_title");
    ingredientTitle.innerText = data.ingredient;
 
-   let ingredientData = INGREDIENT.querySelector("input[name='ingredient']");
+   let ingredientData = INGREDIENT.querySelector("input[name='ingredient[]']");
    ingredientData.value = data.id+"/"+data.ingredient.toLowerCase()+"/"+data.amount+"/"+data.unit;
    INGREDIENTS_CONTAINER.append(INGREDIENT);
 }

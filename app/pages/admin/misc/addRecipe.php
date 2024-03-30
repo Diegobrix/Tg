@@ -14,6 +14,7 @@
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/editIngredient.js"></script>
       <script defer src="../../../../src/js/pages/hamburger-menu.js"></script>
+      <script defer src="../../../../src/js/pages/exitPage.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/step-controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
@@ -82,9 +83,10 @@
          <div class="backdrop"></div>
       </header>
       <main>
-         <form action="#" method="GET" enctype="multipart/form-data">
+         <form action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="author_id" value="<?=$_SESSION['id']?>">
             <?php
-               require_once("../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php");
+               require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
             ?>
             <section class="form_step" data-step="0" data-current="true">
@@ -95,6 +97,10 @@
                <div class="input-group">
                   <label for="txtDescription">Descrição</label>
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
+               </div>
+               <div class="input-group">
+                  <label for="txtDescription">Modo de Preparo</label>
+                  <textarea required name="recipe_wayToDo" id="txtWayToDo"></textarea>
                </div>
             </section>
             <section class="form_step" data-step="1" data-current="false">
@@ -172,7 +178,7 @@
                      <button class="ingredient">
                         <span class="ingredient_title"></span>
                         <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
-                        <input type="hidden" name="ingredient">
+                        <input type="hidden" name="ingredient[]">
                         <div class="btn_remove" aria-hidden="true"></div>
                      </button>
                   </template>
