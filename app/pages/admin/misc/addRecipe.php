@@ -1,3 +1,12 @@
+<?php
+   session_start();
+   if((!isset($_SESSION['admin_id'])) || ($_SESSION['admin_id'] == false))
+   {
+      session_unset();
+      session_destroy();
+		header("location: ../../credentials.php");
+   }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
    <head>
@@ -84,7 +93,7 @@
       </header>
       <main>
          <form action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="author_id" value="<?=$_SESSION['id']?>">
+            <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);

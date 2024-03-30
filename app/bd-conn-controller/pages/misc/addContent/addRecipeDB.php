@@ -12,15 +12,14 @@
 
       require_once(__DIR__."/addRecipeImage.php");
 
-      $recipeThumb = filter_input(INPUT_POST, "recipe_thumb", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $photo = "no_image.php";
       if(isset($_FILES['recipe_thumb']))
       {
-         $photo = saveImage($recipeThumb);
+         $photo = saveImage($_FILES['recipe_thumb']);
       }
 
-      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(tituloReceita, beneficiosReceita, modoDePreparoReceita, fotoReceita, categoriaReceita, autor), VALUES(:tit, :benefits, :way, :photo, :category, :author);");
-      $stmt -> execute(array(
+      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :benefits, :way, :photo, :category, :author);");
+      $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
          ":benefits" => $recipeBenefits,
          ":way" => $recipeWayToDo,
@@ -29,7 +28,7 @@
          ":author" => $recipeAuthor
       ));
 
-      if($stmt -> rowCount() > 0)
+      if($stmtRecipe -> rowCount() > 0)
       {
          $id = $conn -> lastInsertId();
          
