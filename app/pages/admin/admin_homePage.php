@@ -72,6 +72,11 @@
                   <h2>Receitas</h2>
                   <p class="recipes_amount-display"><?=$content[0]['recipes_amount']?></p>
                   <button class="options-handler"></button>
+
+                  <div class="extra_options" aria-hidden="false">
+                     <a href="./misc/addRecipe.php" class="option">Add. Receita</a>
+                     <a href="" class="option">Todas receitas</a>
+                  </div>
                </div>
                <div class="popular_category--wrapper">
                   <h2>Categoria Preferida</h2>
