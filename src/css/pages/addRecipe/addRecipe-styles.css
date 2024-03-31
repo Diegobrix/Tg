@@ -373,6 +373,13 @@ select {
    display: none;
 }
 
+@media screen and (min-width: 1440px) {
+   #mobile_menu--handler {
+      display: none;
+   }
+}
+
+
 @supports selector(::-webkit-scrollbar) and selector(::-webkit-scrollbar-thumb) {
    ::-webkit-scrollbar {
       width: 5px;
