@@ -4,7 +4,7 @@
    {
       session_unset();
       session_destroy();
-		header("location: ../../credentials.php");
+		//header("location: ../../credentials.php");
    }
 ?>
 <!DOCTYPE html>
@@ -219,6 +219,11 @@
                   <button type="button" data-current-action="next" id="add_ingredient_modal_controller">Próximo</button>
                </dialog>
             </section>
+            <dialog id="video_modal">
+               <button class="add_video">
+               </button>
+            </dialog>
+            
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
                <button class="step-handler btn_next" data-action="next">Próximo ></button>
