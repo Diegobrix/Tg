@@ -1,5 +1,6 @@
 import {clearHeadSteps, headerChangeStep} from "./header_step.js";
 import {clearFormSteps, formChangeStep} from "./form_step.js";
+import {addVideo} from "./addVideo.js";
 
 const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
@@ -46,6 +47,9 @@ function stepHandler(trigger, event)
       }
       return;
    }   
+   if(trigger == "finish")
+   {
+   }
    return previousStep(currentStep);
 }
 

@@ -34,18 +34,22 @@
          
          $ingredients = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS)["ingredient"];
          $recipeIngredients = array();
-         foreach($ingredients as $ingredient)
+         if($ingredients != null)
          {
-            $tmpIngredient = explode("/", $ingredient);
-            $recipeIngredients[] = "(".$id.", ".$tmpIngredient[0].", ".$tmpIngredient[2].", ".$tmpIngredient[3].")";
+            foreach($ingredients as $ingredient)
+            {
+               $tmpIngredient = explode("/", $ingredient);
+               $recipeIngredients[] = "(".$id.", ".$tmpIngredient[0].", ".$tmpIngredient[2].", ".$tmpIngredient[3].")";
+            }
+            
+            $stmtIngredientRecipe = $conn -> prepare("INSERT INTO `ingredienteReceita` VALUES ".implode(", ", $recipeIngredients));
+            $stmtIngredientRecipe -> execute();
+   
+            if($stmtIngredientRecipe -> rowCount() > 0)
+            {
+               header("location: ../../../../pages/admin/admin_homePage.php");
+            }
          }
 
-         $stmtIngredientRecipe = $conn -> prepare("INSERT INTO `ingredienteReceita` VALUES ".implode(", ", $recipeIngredients));
-         $stmtIngredientRecipe -> execute();
-
-         if($stmtIngredientRecipe -> rowCount() > 0)
-         {
-            header("location: ../../../../pages/admin/admin_homePage.php");
-         }
       }
    }

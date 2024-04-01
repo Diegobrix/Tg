@@ -4,7 +4,7 @@
    {
       session_unset();
       session_destroy();
-		//header("location: ../../credentials.php");
+		header("location: ../../credentials.php");
    }
 ?>
 <!DOCTYPE html>
@@ -223,7 +223,7 @@
                <button class="add_video">
                </button>
             </dialog>
-            
+
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
                <button class="step-handler btn_next" data-action="next">Próximo ></button>
