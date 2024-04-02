@@ -220,14 +220,13 @@
                </dialog>
             </section>
             <dialog id="video_modal">
-               <button class="add_video">
-               </button>
+               <button class="add_video">Add Vídeo</button>
             </dialog>
 
             <div class="form_footer">
                <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
                <button class="step-handler btn_next" data-action="next">Próximo ></button>
-               <button type="submit" class="step-handler btn_finish" data-action="finish">Finalizar</button>
+               <button class="step-handler btn_finish" data-action="finish">Finalizar</button>
             </div>
          </form>
          <div class="steps-wrapper">

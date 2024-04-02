@@ -14,6 +14,11 @@ STEP_HANDLER.forEach(handler => {
          stepHandler(action, event);
          event.preventDefault();
       }
+      else
+      {
+         event.preventDefault();
+         addVideo();
+      }
    });
 });
 
@@ -47,9 +52,8 @@ function stepHandler(trigger, event)
       }
       return;
    }   
-   if(trigger == "finish")
-   {
-   }
+   
+
    return previousStep(currentStep);
 }
 
