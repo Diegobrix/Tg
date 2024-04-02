@@ -92,7 +92,8 @@
          <div class="backdrop"></div>
       </header>
       <main>
-         <form action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
+         <!-- Url Correto: ../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php -->
+         <form action="./teste.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
@@ -220,7 +221,12 @@
                </dialog>
             </section>
             <dialog id="video_modal">
-               <button class="add_video">Add Vídeo</button>
+               <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
+               <input type="file" id="flVideo" accept="video/*" name="recipe_video">
+               <div class="dialog_controller">
+                  <button id="btn_video_cancel">Não quero</button>
+                  <label for="flVideo">Add Vídeo</label>
+               </div>
             </dialog>
 
             <div class="form_footer">

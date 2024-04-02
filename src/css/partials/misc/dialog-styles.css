@@ -52,3 +52,38 @@ dialog button {
    color: var(--neutral-100);
    background: var(--primary-700);
 }
+
+#video_modal {
+   margin-inline: 3rem;
+   border: 2px solid hsl(273 70% 74%);
+   box-shadow: 4px 3px 4px hsl(273 70% 24% / .1);
+}
+
+#video_modal .dialog_controller {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 2rem;
+}
+
+.dialog_controller button {
+   padding: .5rem 1rem;
+   font-size: 1rem;
+
+   background: inherit;
+   color: #000;
+}
+
+#video_modal input[type='file'] {
+   display: none;
+}
+
+#video_modal label {
+   padding: .5rem 1rem;
+   border-radius: 7px;
+   font-size: 1rem;
+
+   background: var(--primary-700);
+   color: var(--neutral-100);
+   float: right;
+}

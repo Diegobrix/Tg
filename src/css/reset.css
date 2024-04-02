@@ -94,6 +94,10 @@ button {
    outline-color: var(--ring-color);
 }
 
+label {
+   cursor: pointer;
+}
+
 @supports selector(:has( *)) {
    :root:has(.mobile-menu[aria-expanded="true"]) {
       overflow: hidden;
