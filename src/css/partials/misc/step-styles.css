@@ -1,5 +1,6 @@
 /* Form Steps */
-form .form_step[data-current="false"] {
+form .form_step[data-current="false"] ,
+.btn_finish {
    display: none;
 }
 textarea {
@@ -15,7 +16,6 @@ form:has(.form_step[data-step="2"][data-current="true"]) .btn_next {
 }
 form:has(.form_step[data-step="2"][data-current="true"]) .btn_finish {
    display: block;
-   visibility: visible;
 }
 
 form:has(.form_step[data-step="0"][data-current="true"]) .form_footer {

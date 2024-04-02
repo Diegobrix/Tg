@@ -1,6 +1,7 @@
 import {clearHeadSteps, headerChangeStep} from "./header_step.js";
 import {clearFormSteps, formChangeStep} from "./form_step.js";
 import {addVideo} from "./addVideo.js";
+import {verifyIngredients} from "./finishRecipe.js";
 
 const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
@@ -17,7 +18,15 @@ STEP_HANDLER.forEach(handler => {
       else
       {
          event.preventDefault();
-         addVideo();
+         event.stopPropagation();
+
+         let ingredients = document.querySelectorAll(".ingredients .ingredient");
+         
+         if(verifyIngredients(ingredients))
+         {
+            return addVideo();
+         }
+         return alert('Pelo menos 1 ingrediente DEVE ser selecionado .');
       }
    });
 });
