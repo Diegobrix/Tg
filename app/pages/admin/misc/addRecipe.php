@@ -93,7 +93,7 @@
       </header>
       <main>
          <!-- Url Correto: ../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php -->
-         <form action="./teste.php" method="POST" enctype="multipart/form-data">
+         <form id="form" action="./teste.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
@@ -224,7 +224,7 @@
                <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
                <input type="file" id="flVideo" accept="video/*" name="recipe_video">
                <div class="dialog_controller">
-                  <button id="btn_video_cancel">Não quero</button>
+                  <button type="button" id="btn_video_cancel">Não quero</button>
                   <label for="flVideo">Add Vídeo</label>
                </div>
             </dialog>

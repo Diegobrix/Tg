@@ -1,13 +1,10 @@
 import {clearHeadSteps, headerChangeStep} from "./header_step.js";
 import {clearFormSteps, formChangeStep} from "./form_step.js";
-import {addVideo} from "./addVideo.js";
-import {verifyIngredients} from "./finishRecipe.js";
+import {verifyIngredients, addVideo} from "./addVideo.js";
 
 const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
 const STEPS_AMOUNT = FORM_STEPS.length;
-
-document.getElementById("video_modal").showModal();
 
 STEP_HANDLER.forEach(handler => {
    handler.addEventListener("click", (event) => {
@@ -28,6 +25,7 @@ STEP_HANDLER.forEach(handler => {
          {
             return addVideo();
          }
+
          return alert('Pelo menos 1 ingrediente DEVE ser selecionado .');
       }
    });
