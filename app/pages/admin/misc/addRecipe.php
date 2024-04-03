@@ -221,12 +221,22 @@
                </dialog>
             </section>
             <dialog id="video_modal">
-               <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
-               <input type="file" id="flVideo" accept="video/*" name="recipe_video">
-               <div class="dialog_controller">
-                  <button type="button" id="btn_video_cancel">Não quero</button>
-                  <label for="flVideo">Add Vídeo</label>
+               <div class="video_modal_steps_display-container">
+                  <i class="step_display" data-current="false" data-step="0"></i>
+                  <i class="step_display" data-current="true" data-step="1"></i>
                </div>
+               <section class="video_modal-step" data-current="false" data-step="0">
+                  <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
+                  <input type="file" id="flVideo" accept="video/*" name="recipe_video">
+                  <div class="dialog_controller">
+                     <button type="button" id="btn_video_cancel">Não quero</button>
+                     <label for="flVideo">Add Vídeo</label>
+                  </div>
+               </section>
+               <section class="video_modal-step" data-current="true" data-step="1">
+                  <label for="txtVideoTitle">Título</label>
+                  <input required type="text" name="video_title" id="txtVideoTitle">
+               </section>
             </dialog>
 
             <div class="form_footer">

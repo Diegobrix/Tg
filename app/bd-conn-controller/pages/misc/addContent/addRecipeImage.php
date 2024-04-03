@@ -1,9 +1,15 @@
 <?php
-   function saveImage($imgInput)
+   function saveImage($imgInput, $type = "image")
    {
       $tmp = $imgInput["tmp_name"];
       $img = $imgInput["name"];
-      $targetDir = __DIR__."/../../../../../assets/images/recipes/";
+      
+      $baseDir = __DIR__."/../../../../../assets/images/recipes/".$img."/";
+      $targetDir = $baseDir;
+      if($type == "video")
+      {
+        $targetDir = $baseDir."video/";
+      }
 
       if (!file_exists($targetDir)) {
           mkdir($targetDir, 0777, true);

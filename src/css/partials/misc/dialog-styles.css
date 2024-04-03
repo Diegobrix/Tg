@@ -54,9 +54,39 @@ dialog button {
 }
 
 #video_modal {
-   margin-inline: 3rem;
+   margin: auto 3rem;
    border: 2px solid hsl(273 70% 74%);
    box-shadow: 4px 3px 4px hsl(273 70% 24% / .1);
+}
+
+.video_modal_steps_display-container {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+
+   gap: 0 3px;
+}
+
+.video_modal_steps_display-container .step_display {
+   --display-color: var(--neutral-300);
+
+   width: .7rem;
+   aspect-ratio: 1;
+   border-radius: 50%;
+
+   background: var(--display-color);
+
+   &[data-current="true"] {
+      --display-color: var(--primary-700);
+   }
+}
+
+#video_modal section[data-current="false"] {
+   display: none;
+}
+
+#video_modal section[data-current="true"] {
+   display: block;
 }
 
 #video_modal .dialog_controller {
@@ -87,3 +117,13 @@ dialog button {
    color: var(--neutral-100);
    float: right;
 }
+
+#video_modal .video_modal-step[data-step="1"] label {
+   background: inherit;
+   color: var(--neutral-700);
+
+   float: left;
+   padding: 0;
+
+   margin-bottom: .5rem;
+} 

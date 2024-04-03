@@ -31,6 +31,11 @@
       if($stmtRecipe -> rowCount() > 0)
       {
          $id = $conn -> lastInsertId();
+
+         if(isset($_FILES['recipe_video']))
+         {
+            $video = saveImage($_FILES['recipe_video'], "video"); 
+         }
          
          $ingredients = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS)["ingredient"];
          $recipeIngredients = array();
