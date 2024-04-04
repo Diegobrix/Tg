@@ -222,8 +222,8 @@
             </section>
             <dialog id="video_modal">
                <div class="video_modal_steps_display-container">
-                  <i class="step_display" data-current="false" data-step="0"></i>
-                  <i class="step_display" data-current="true" data-step="1"></i>
+                  <i class="step_display" data-current="true" data-step="0"></i>
+                  <i class="step_display" data-current="false" data-step="1"></i>
                </div>
                <section class="video_modal-step" data-current="true" data-step="0">
                   <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>

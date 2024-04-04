@@ -59,6 +59,10 @@ dialog button {
    box-shadow: 4px 3px 4px hsl(273 70% 24% / .1);
 }
 
+#video_modal h2 {
+   margin-top: 1rem;
+}
+
 .video_modal_steps_display-container {
    display: flex;
    justify-content: flex-end;
