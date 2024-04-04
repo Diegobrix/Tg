@@ -47,5 +47,5 @@ form:has(.form_step[data-step="0"][data-current="true"]) .form_footer {
 
 .step[data-current="true"] + .step,
 .step[data-current="true"] + .step ~ .step {
-   border-color: var(--neutral-700);
+   border-color: var(--neutral-800);
 }

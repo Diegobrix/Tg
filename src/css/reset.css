@@ -111,6 +111,6 @@ label {
    }
    
    ::-webkit-scrollbar-thumb {
-      background: var(--neutral-500);
+      background: var(--neutral-600);
    }
 }

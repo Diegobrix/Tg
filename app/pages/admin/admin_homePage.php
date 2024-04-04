@@ -143,7 +143,7 @@
                            foreach($suggestionsJson as $json)
                            {
                   ?>
-                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-500)'?>;" aria-current="<?=$i == 1?'true':'false'?>">
+                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-600)'?>;" aria-current="<?=$i == 1?'true':'false'?>">
                                  <p class="suggestion_title"><?=$json[1]?></p>
                               </div>
                   <?php

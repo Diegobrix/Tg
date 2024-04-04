@@ -357,7 +357,7 @@ select {
    padding: 1rem .5rem;
 
    & .step-handler {
-      color: var(--neutral-600);
+      color: var(--neutral-700);
    }
 
    & .btn_next,

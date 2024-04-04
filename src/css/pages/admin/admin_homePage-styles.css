@@ -72,18 +72,18 @@ div[class$="--wrapper"] .extra_options[aria-hidden="false"] {
 
    background: var(--neutral-200);
    padding: .5rem .7rem;
-   border: 1px solid var(--neutral-500);
+   border: 1px solid var(--neutral-600);
    border-radius: 10px;
    box-shadow: 2px 2px 2px 0 hsl(273 70% 37% / .4),
    -2px -2px 2px 0 hsl(273 70% 84% / .2),
    inset 1q 1q 3px 0 hsl(273 70% 74% / .7),
    inset -1q -1q 4px 0 hsl(273 70% 14% / .4);
-   color: var(--neutral-600);
+   color: var(--neutral-700);
    z-index: 10;
 }
 
 .extra_options .option:hover {
-   color: var(--neutral-700);
+   color: var(--neutral-800);
 }
 
 #btn_close {

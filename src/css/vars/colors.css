@@ -10,10 +10,11 @@
    --neutral-100:hsl(0 0% 100%);
    --neutral-200:hsl(210 33% 95%);
    --neutral-300:hsl(253 80% 85%);
-   --neutral-400:hsl(196 64% 71%);
-   --neutral-500:hsl(254 84% 69%);
-   --neutral-600:hsl(0 0% 45%);
-   --neutral-700:hsl(0 0% 0%);
+   --neutral-400:hsl(0 100% 73%);
+   --neutral-500:hsl(196 64% 71%);
+   --neutral-600:hsl(254 84% 69%);
+   --neutral-700:hsl(0 0% 45%);
+   --neutral-800:hsl(0 0% 0%);
    
    --transparent:#0000;
    --transparent-100:hsl(0 0% 100% / .2);

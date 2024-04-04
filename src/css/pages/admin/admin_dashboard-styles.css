@@ -165,7 +165,7 @@ input {
 
    width: 25vw;
    width: 25dvw;
-   border: 1px solid var(--neutral-600);
+   border: 1px solid var(--neutral-700);
    border-radius: var(--radius);
 }
 

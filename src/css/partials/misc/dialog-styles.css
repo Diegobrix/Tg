@@ -89,14 +89,14 @@ dialog button {
    display: block;
 }
 
-#video_modal .dialog_controller {
+#video_modal .section_controller {
    display: flex;
    justify-content: space-between;
    align-items: center;
    margin-top: 2rem;
 }
 
-.dialog_controller button {
+.section_controller button {
    padding: .5rem 1rem;
    font-size: 1rem;
 
@@ -120,7 +120,7 @@ dialog button {
 
 #video_modal .video_modal-step[data-step="1"] label {
    background: inherit;
-   color: var(--neutral-700);
+   color: var(--neutral-800);
 
    float: left;
    padding: 0;
@@ -130,4 +130,13 @@ dialog button {
 
 #video_modal textarea {
    resize: none;
+}
+
+.section_controller .btn_cancel_video {
+   color: var(--neutral-400);
+}
+
+.section_controller #btn_send_video {
+   background: var(--primary-700);
+   color: var(--neutral-100);
 }
