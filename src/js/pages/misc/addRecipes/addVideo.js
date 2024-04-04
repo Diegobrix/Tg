@@ -21,6 +21,7 @@ export function addVideo()
 CANCEL_VIDEO.forEach(btn => {
    btn.addEventListener("click", () => {
       VIDEO_MODAL.close();
+      FORM.submit();
    });
 });
 

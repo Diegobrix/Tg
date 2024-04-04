@@ -6,8 +6,6 @@ const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
 const STEPS_AMOUNT = FORM_STEPS.length;
 
-addVideo();
-
 STEP_HANDLER.forEach(handler => {
    handler.addEventListener("click", (event) => {
       let action = handler.dataset.action;

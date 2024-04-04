@@ -18,7 +18,7 @@
       $finalName = uniqid() . '_' . $img;
 
       if (move_uploaded_file($tmp, $targetDir . $finalName)) {
-          return $finalName;
+          return [$finalName, $targetDir.$finalName];
       }
       
       return "no_image.php";

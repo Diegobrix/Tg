@@ -23,7 +23,7 @@
          ":tit" => $recipeTitle,
          ":benefits" => $recipeBenefits,
          ":way" => $recipeWayToDo,
-         ":photo" => $photo,
+         ":photo" => $photo[0],
          ":category" => $recipeCategory,
          ":author" => $recipeAuthor
       ));
@@ -34,7 +34,30 @@
 
          if(isset($_FILES['recipe_video']))
          {
+            $videoTitle = filter_input(INPUT_POST, "video_title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $videoDescription = filter_input(INPUT_POST, "video_description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
             $video = saveImage($_FILES['recipe_video'], "video"); 
+            $stmtVideo = $conn -> prepare("INSERT INTO `video`(`titVideo`, `descricaoVideo`, `urlVideo`) VALUES(:videoTitle, :videoDescription, :videoUrl);");
+            $stmtVideo -> execute(array(
+               ":videoTitle" => $videoTitle,
+               ":videoDescription" => $videoDescription,
+               ":videoUrl" => $video[1]
+            ));
+
+            if($stmtVideo -> rowCount() > 0)
+            {
+               $stmtVideoRecipe = $conn -> prepare("INSERT INTO `videoreceita` VALUES (:idReceita, :idVideo);");
+               $stmtVideoRecipe -> execute(array(
+                  ":idReceita" => $id,
+                  ":idVideo" => $conn->lastInsertId
+               ));
+
+               if($stmtVideoRecipe -> rowCount() <= 0)
+               {
+                  die("Erro ao Cadastrar o Vídeo");
+               }
+            }
          }
          
          $ingredients = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS)["ingredient"];

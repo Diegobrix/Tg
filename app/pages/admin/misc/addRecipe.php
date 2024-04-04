@@ -92,8 +92,7 @@
          <div class="backdrop"></div>
       </header>
       <main>
-         <!-- Url Correto: ../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php -->
-         <form id="form" action="./teste.php" method="POST" enctype="multipart/form-data">
+         <form id="form" action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
