@@ -229,7 +229,7 @@
                   <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
                   <input type="file" id="flVideo" accept="video/*" name="recipe_video">
                   <div class="section_controller">
-                     <button type="button" id="btn_video_cancel">Não quero</button>
+                     <button type="button" class="btn_video_cancel">Não quero</button>
                      <label for="flVideo">Add Vídeo</label>
                   </div>
                </section>
@@ -239,7 +239,7 @@
                   <label for="txtVideoDescription">Descrição</label>
                   <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="10"></textarea>
                   <div class="section_controller">
-                     <button type="button"class="btn_cancel_video">Perder o vídeo</button>
+                     <button type="button" class="btn_video_cancel">Perder o vídeo</button>
                      <button type="submit" id="btn_send_video">Finalizar</button>
                   </div>
                </section>

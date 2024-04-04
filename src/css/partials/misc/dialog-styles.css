@@ -136,7 +136,7 @@ dialog button {
    resize: none;
 }
 
-.section_controller .btn_cancel_video {
+.section_controller .btn_video_cancel {
    color: var(--neutral-400);
 }
 

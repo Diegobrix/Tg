@@ -1,6 +1,6 @@
 const FORM = document.getElementById("form");
 const VIDEO_MODAL = document.getElementById("video_modal");
-const CANCEL_VIDEO = document.getElementById("btn_video_cancel");
+const CANCEL_VIDEO = VIDEO_MODAL.querySelectorAll(".btn_video_cancel");
 const VIDEO_INPUT = document.getElementById("flVideo");
 const VIDEO_MODAL_STEPS = document.querySelectorAll(".video_modal-step");
 const MODAL_STEPS_DISPLAYS = VIDEO_MODAL.querySelectorAll(".step_display");
@@ -18,8 +18,10 @@ export function addVideo()
    });
 }
 
-CANCEL_VIDEO.addEventListener("click", () => {
-   VIDEO_MODAL.close();
+CANCEL_VIDEO.forEach(btn => {
+   btn.addEventListener("click", () => {
+      VIDEO_MODAL.close();
+   });
 });
 
 function handlerSteps()
