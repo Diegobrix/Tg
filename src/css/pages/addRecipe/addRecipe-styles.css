@@ -174,7 +174,8 @@ form > section {
 .input-group input,
 .input-group textarea,
 select,
-dialog input {
+dialog input,
+dialog textarea {
    --input-color: var(--bg-color);
    border: 3px solid hsl(273, 26%, 93%);
    border-radius: 5px;

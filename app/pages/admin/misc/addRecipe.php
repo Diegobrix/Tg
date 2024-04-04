@@ -236,6 +236,8 @@
                <section class="video_modal-step" data-current="true" data-step="1">
                   <label for="txtVideoTitle">Título</label>
                   <input required type="text" name="video_title" id="txtVideoTitle">
+                  <label for="txtVideoDescription">Descrição</label>
+                  <textarea name="video_description" id="txtVideoDescription" cols="30" rows="10"></textarea>
                </section>
             </dialog>
 

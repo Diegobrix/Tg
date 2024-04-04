@@ -127,3 +127,7 @@ dialog button {
 
    margin-bottom: .5rem;
 } 
+
+#video_modal textarea {
+   resize: none;
+}
