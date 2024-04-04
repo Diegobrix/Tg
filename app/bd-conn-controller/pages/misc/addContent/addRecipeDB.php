@@ -13,9 +13,9 @@
       require_once(__DIR__."/addRecipeImage.php");
 
       $photo = "no_image.php";
-      if(isset($_FILES['recipe_thumb']))
+      if((isset($_FILES['recipe_thumb'])) && (!empty($_FILES['recipe_thumb'])))
       {
-         $photo = saveImage($_FILES['recipe_thumb']);
+         $photo = saveImage($recipeTitle, $_FILES['recipe_thumb']);
       }
 
       $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :benefits, :way, :photo, :category, :author);");
@@ -27,17 +27,16 @@
          ":category" => $recipeCategory,
          ":author" => $recipeAuthor
       ));
-
+   
       if($stmtRecipe -> rowCount() > 0)
       {
          $id = $conn -> lastInsertId();
-
          if(isset($_FILES['recipe_video']))
          {
             $videoTitle = filter_input(INPUT_POST, "video_title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $videoDescription = filter_input(INPUT_POST, "video_description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $video = saveImage($_FILES['recipe_video'], "video"); 
+            $video = saveImage($recipeTitle, $_FILES['recipe_video'], "video"); 
             $stmtVideo = $conn -> prepare("INSERT INTO `video`(`titVideo`, `descricaoVideo`, `urlVideo`) VALUES(:videoTitle, :videoDescription, :videoUrl);");
             $stmtVideo -> execute(array(
                ":videoTitle" => $videoTitle,
@@ -45,12 +44,15 @@
                ":videoUrl" => $video[1]
             ));
 
+            //echo $video[1];
+
             if($stmtVideo -> rowCount() > 0)
             {
+               $videoId = $conn->lastInsertId();
                $stmtVideoRecipe = $conn -> prepare("INSERT INTO `videoreceita` VALUES (:idReceita, :idVideo);");
                $stmtVideoRecipe -> execute(array(
                   ":idReceita" => $id,
-                  ":idVideo" => $conn->lastInsertId
+                  ":idVideo" => $videoId
                ));
 
                if($stmtVideoRecipe -> rowCount() <= 0)
@@ -78,6 +80,6 @@
                header("location: ../../../../pages/admin/admin_homePage.php");
             }
          }
-
+         
       }
    }
