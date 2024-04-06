@@ -92,13 +92,14 @@
          <div class="backdrop"></div>
       </header>
       <main>
-         <form id="form" action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
+         <!-- Correct URL: ../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php -->
+         <form id="form" action="./teste.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
             ?>
-            <section class="form_step" data-step="0" data-current="false">
+            <section class="form_step" data-step="0" data-current="true">
                <div class="input-group">
                   <label for="txtTitle">Título</label>
                   <input required type="text" name="recipe_title" id="txtTitle">
@@ -164,7 +165,7 @@
                   <button type="button" id="add_category_sender">Finalizar</button>
                </dialog>
             </section>
-            <section class="form_step" data-step="2" data-current="true">
+            <section class="form_step" data-step="2" data-current="false">
                <h2>Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>

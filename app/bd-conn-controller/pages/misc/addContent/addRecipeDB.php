@@ -10,14 +10,15 @@
       $recipeCategory = filter_input(INPUT_POST, "category", FILTER_SANITIZE_NUMBER_INT);
       $recipeAuthor = filter_input(INPUT_POST, "author_id", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-      require_once(__DIR__."/addRecipeImage.php");
+      require_once(__DIR__."/MediaSaver.php");
+      //$mSaver = new MediaSaver();
 
       $photo = "no_image.php";
-      if((isset($_FILES['recipe_thumb'])) && (!empty($_FILES['recipe_thumb'])))
+      if(isset($_FILES['recipe_thumb']))
       {
-         $photo = saveImage($recipeTitle, $_FILES['recipe_thumb']);
+         $photo = $mSaver->saveMedia($recipeTitle, $_FILES['recipe_thumb']);
       }
-
+      /*
       $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :benefits, :way, :photo, :category, :author);");
       $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
@@ -82,4 +83,5 @@
          }
          
       }
+   */
    }
