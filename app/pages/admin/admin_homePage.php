@@ -90,7 +90,7 @@
                   <h2>Última Receita Adicionada</h2>
                   <p class="most_recent_recipe-display"><?=$lastRecipeTitle?></p>
                   <figure>
-                     <img src="../../../assets/images/recipes/<?=$lastRecipeThumb?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/recipes/<?=htmlspecialchars($lastRecipeThumb)?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
