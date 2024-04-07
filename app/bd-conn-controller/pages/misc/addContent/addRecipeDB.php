@@ -11,20 +11,22 @@
       $recipeAuthor = filter_input(INPUT_POST, "author_id", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
       require_once(__DIR__."/MediaSaver.php");
-      //$mSaver = new MediaSaver();
+      $mSaver = new MediaSaver($recipeTitle);
 
-      $photo = "no_image.php";
-      if(isset($_FILES['recipe_thumb']))
+      if((isset($_FILES['recipe_thumb'])) && ($_FILES['recipe_thumb']['name'] != ""))
       {
-         $photo = $mSaver->saveMedia($recipeTitle, $_FILES['recipe_thumb']);
+         $photo = $mSaver->saveMedia($_FILES['recipe_thumb']);
       }
-      /*
+      else {
+         $photo = $mSaver->saveMedia("no_image.png");
+      }
+
       $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :benefits, :way, :photo, :category, :author);");
       $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
          ":benefits" => $recipeBenefits,
          ":way" => $recipeWayToDo,
-         ":photo" => $photo[0],
+         ":photo" => $photo,
          ":category" => $recipeCategory,
          ":author" => $recipeAuthor
       ));
@@ -37,28 +39,34 @@
             $videoTitle = filter_input(INPUT_POST, "video_title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $videoDescription = filter_input(INPUT_POST, "video_description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $video = saveImage($recipeTitle, $_FILES['recipe_video'], "video"); 
-            $stmtVideo = $conn -> prepare("INSERT INTO `video`(`titVideo`, `descricaoVideo`, `urlVideo`) VALUES(:videoTitle, :videoDescription, :videoUrl);");
-            $stmtVideo -> execute(array(
-               ":videoTitle" => $videoTitle,
-               ":videoDescription" => $videoDescription,
-               ":videoUrl" => $video[1]
-            ));
-
-            //echo $video[1];
-
-            if($stmtVideo -> rowCount() > 0)
+            $video = null;
+            if((isset($_FILES['recipe_video'])) && ($_FILES['recipe_video']['name'] != ""))
             {
-               $videoId = $conn->lastInsertId();
-               $stmtVideoRecipe = $conn -> prepare("INSERT INTO `videoreceita` VALUES (:idReceita, :idVideo);");
-               $stmtVideoRecipe -> execute(array(
-                  ":idReceita" => $id,
-                  ":idVideo" => $videoId
+               $video = $mSaver->saveMedia($_FILES['recipe_video'], "video");
+            }
+            
+            if($video != null)
+            {
+               $stmtVideo = $conn -> prepare("INSERT INTO `video`(`titVideo`, `descricaoVideo`, `urlVideo`) VALUES(:videoTitle, :videoDescription, :videoUrl);");
+               $stmtVideo -> execute(array(
+                  ":videoTitle" => $videoTitle,
+                  ":videoDescription" => $videoDescription,
+                  ":videoUrl" => $video
                ));
 
-               if($stmtVideoRecipe -> rowCount() <= 0)
+               if($stmtVideo -> rowCount() > 0)
                {
-                  die("Erro ao Cadastrar o Vídeo");
+                  $videoId = $conn->lastInsertId();
+                  $stmtVideoRecipe = $conn -> prepare("INSERT INTO `videoreceita` VALUES (:idReceita, :idVideo);");
+                  $stmtVideoRecipe -> execute(array(
+                     ":idReceita" => $id,
+                     ":idVideo" => $videoId
+                  ));
+
+                  if($stmtVideoRecipe -> rowCount() <= 0)
+                  {
+                     die("Erro ao Cadastrar o Vídeo");
+                  }
                }
             }
          }
@@ -80,8 +88,6 @@
             {
                header("location: ../../../../pages/admin/admin_homePage.php");
             }
-         }
-         
+         }  
       }
-   */
    }

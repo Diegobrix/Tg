@@ -68,7 +68,8 @@
       $tmpName = $file['tmp_name'];
 
       $finalName = uniqid()."_".$img;
-      if(move_uploaded_file($tmpName, $targetDir."/".$finalName))
+      $dirname = iconv("UTF-8","Windows-1256",$targetDir);
+      if(move_uploaded_file($tmpName, $dirname."/".$finalName))
       {
         return $this->dirTitle."/".$finalName;
       }
