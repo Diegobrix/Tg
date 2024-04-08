@@ -62,10 +62,9 @@
    //endregion
 
    //region Recipes
-   function getRecipes($lastId, $conn)
+   function getRecipes($conn)
    {
-      $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita AS title, fotoReceita AS recipeThumb, categoriaReceita, autor FROM `receita` WHERE idReceita >= :lastId LIMIT 100;");
-      $stmtRecipes->bindParam(":lastId", $lastId);
+      $stmtRecipes = $conn->prepare("SELECT idReceita, tituloReceita AS title, fotoReceita AS recipeThumb, categoriaReceita, autor FROM `receita` LIMIT 100;");
       $stmtRecipes->execute();
 
       if($stmtRecipes->rowCount() > 0)

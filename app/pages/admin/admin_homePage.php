@@ -101,6 +101,7 @@
                <div class="categories-container">
                   <button class="options-handler"></button>
                   <?php
+                     $categoriesArr = $contentData[1];
                      for($i = 0; $i < count($categories); $i++)
                      {
                         $currentAmount = $contentData[1][$i]['amount'];
@@ -130,31 +131,14 @@
                <span>Sugestões do Dia</span>
                <div class="suggestions--wrapper">
                   <?php
-                     require_once("./data/daySuggestionsController.php");
-                     $suggestions = __DIR__."/data/temp_data/day_suggestions.json";
+                     require_once("./data/daySuggestions.php");
 
-                     if(file_exists($suggestions))
-                     {
-                        try
-                        {
-                           $suggestionsJson = json_decode(file_get_contents($suggestions), true);
-                           $i = 1;
-
-                           foreach($suggestionsJson as $json)
-                           {
-                  ?>
-                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: <?=$json[2] != null ?'url(../../../../assets/images/recipes/'.$json[2].')':'var(--neutral-600)'?>;" aria-current="<?=$i == 1?'true':'false'?>">
-                                 <p class="suggestion_title"><?=$json[1]?></p>
-                              </div>
-                  <?php
-                              $i+= 1;
-                           }
-                        }
-                        catch(ValueError $e)
-                        {
-                           header("Refresh:0");
-                        }
-                     }
+                     print_r($dateAssign);
+                     /*
+                        <div class="suggestion" data-current_step="" style="--thumb:" aria-current="">
+                           <p class="suggestion_title"></p>
+                        </div>
+                     */
                   ?>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
