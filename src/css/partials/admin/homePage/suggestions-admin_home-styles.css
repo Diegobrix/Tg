@@ -42,23 +42,6 @@
    display: none;
 }
 
-.suggestion:hover .suggestion_title {
-   position: absolute;
-   bottom: 0;
-   display: block;
-   background: var(--transparent-500);
-   color: var(--neutral-800);
-   text-align: center;
-   width: 100%;
-   padding: .5rem 0;
-   backdrop-filter: blur(3px);
-   z-index: 3;
-}
-
-.suggestions--wrapper:hover .btn-handler {
-   visibility: visible;
-}
-
 .suggestion_handler {
    --handler-margin: 5px;
    position: absolute;
@@ -86,7 +69,8 @@
 .suggestion_handler.last,
 .suggestion_handler.first {
    color: var(--neutral-300);
-   pointer-events: none;
+   cursor: default;
+   pointer-events: visible;
 }
 
 .recipe_details-handler {

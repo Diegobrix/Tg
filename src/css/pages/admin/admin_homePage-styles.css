@@ -525,8 +525,21 @@ main {
          overflow: hidden;
       }
    }
+   
+   .suggestion:hover .suggestion_title {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      background: var(--transparent-500);
+      color: var(--neutral-800);
+      text-align: center;
+      width: 100%;
+      padding: .5rem 0;
+      backdrop-filter: blur(3px);
+      z-index: 3;
+   }   
 
-   .btn-handler {
+   .suggestion_handler {
       display: none;
    }
 }
