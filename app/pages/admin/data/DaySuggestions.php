@@ -61,7 +61,7 @@
             $recipes[$i]['titleSuggestion'] = $raw['tituloReceita'];
             $recipes[$i]['thumbSuggestion'] = $raw['fotoReceita'];
             $i += 1;
-         
+         }
 
          $suggestions = randomizeSuggestions($recipes);
          return $suggestions;
@@ -70,7 +70,7 @@
 
    function randomizeSuggestions($recipes, $randomizedIndexes = array(), $randomic = array(), $i = 0)
    { 
-      if(($i < sizeof($recipes)) && ($i < 5))
+      if(($i < sizeof($recipes)) && ($i < 6))
       {
          $random = rand(0, sizeof($recipes) - 1);
          if(in_array($random, $randomizedIndexes))

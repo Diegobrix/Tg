@@ -335,6 +335,7 @@ main {
       width: 100%;
       aspect-ratio: 1;
       background: var(--thumb) no-repeat center center;
+      background-color: var(--neutral-200);
       background-size: cover;
    }
 
@@ -351,7 +352,8 @@ main {
    position: absolute;
    bottom: 0;
    display: block;
-   background: var(--transparent-250);
+   background: var(--transparent-500);
+   color: var(--neutral-800);
    text-align: center;
    width: 100%;
    padding: .5rem 0;

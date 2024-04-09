@@ -142,14 +142,27 @@
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/daySuggestions.php");
-                     require_once("../../_conn/conn.php");
+                     $suggestionsFilePath = "./data/temp_data/day_suggestions.json";
 
-                     print("<pre>".print_r(getData($conn), true)."</pre>");
-                     /*
-                        <div class="suggestion" data-current_step="" style="--thumb:" aria-current="">
-                           <p class="suggestion_title"></p>
-                        </div>
-                     */
+                     if(file_exists($suggestionsFilePath) && (is_readable($suggestionsFilePath)))
+                     {
+                        $jsonSuggestionsData = json_decode(file_get_contents("./data/temp_data/day_suggestions.json"), true);
+                        
+                        if(sizeof($jsonSuggestionsData[1]) > 0)
+                        {
+                           $suggestions = $jsonSuggestionsData[1];
+                           $i = 0;
+                           foreach($suggestions as $suggestion)
+                           {
+                  ?>
+                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../assets/images/recipes/<?=htmlspecialchars($suggestion['thumbSuggestion'])?>);" aria-current="<?=$i==0?'true':'else'?>">
+                                 <p class="suggestion_title"><?=$suggestion['titleSuggestion']?></p>
+                              </div>
+                  <?php
+                              $i += 1;
+                           }
+                        }
+                     }
                   ?>
                   <button class="btn-handler btn-prev"><</button>
                   <button class="btn-handler btn-next">></button>
