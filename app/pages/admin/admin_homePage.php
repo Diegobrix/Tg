@@ -132,8 +132,7 @@
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/daySuggestions.php");
-
-                     print_r($dateAssign);
+                     require_once("../../_conn/conn.php");
                      /*
                         <div class="suggestion" data-current_step="" style="--thumb:" aria-current="">
                            <p class="suggestion_title"></p>

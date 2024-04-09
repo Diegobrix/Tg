@@ -7,7 +7,7 @@
    if(!file_exists(__DIR__.'/temp_data/day_suggestions.json'))
    {
       $dateAssign = date('m/d/Y h:i:s a', time());   
-      $data = [['DateAssign' => $dateAssign], ['True' => 'false']];
+      $data = [['DateAssign' => $dateAssign], getData($conn)];
 
       createSuggestionsFile($file, $data);
    }
@@ -42,4 +42,27 @@
    function createSuggestionsFile($file, $data)
    {
       file_put_contents($file, json_encode($data));
+   }
+
+   function getData($conn)
+   {
+      $stmtRecipes = $conn -> prepare("SELECT * FROM `receita` LIMIT 50;");
+      $stmtRecipes -> execute();
+
+      if($stmtRecipes -> rowCount() > 0)
+      {
+         $recipesRaw = $stmtRecipes->fetchAll(PDO::FETCH_ASSOC);
+         $suggestions = [];
+         $i = 0;
+
+         foreach($recipesRaw as $raw)
+         {
+            $suggestions[$i]['idSuggestion'] = $raw['idReceita'];
+            $suggestions[$i]['titleSuggestion'] = $raw['tituloReceita'];
+            $suggestions[$i]['thumbSuggestion'] = $raw['fotoReceita'];
+            $i = 0;
+         }
+
+         return $suggestions;
+      }
    }
