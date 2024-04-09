@@ -1,0 +1,97 @@
+.suggestions_container {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+
+   gap: 0 1rem;
+   margin-block: 1.5rem;
+
+   & > * {
+      width: 50%;
+   } 
+   
+   & span {
+      order: 2;
+      font-size: var(--fs-300);
+      color: var(--primary-700);
+   }
+}
+
+.suggestions--wrapper {
+   display: flex;
+   position: relative;
+   order: 1;
+   aspect-ratio: 1;
+   scroll-behavior: smooth;
+
+   border: 7px dashed var(--primary-700);
+   border-radius: 20px;
+   overflow: hidden;
+
+   & .suggestion {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--thumb) no-repeat center center;
+      background-color: var(--neutral-200);
+      background-size: cover;
+   }
+}
+
+.suggestion .suggestion_title {
+   display: none;
+}
+
+.suggestion:hover .suggestion_title {
+   position: absolute;
+   bottom: 0;
+   display: block;
+   background: var(--transparent-500);
+   color: var(--neutral-800);
+   text-align: center;
+   width: 100%;
+   padding: .5rem 0;
+   backdrop-filter: blur(3px);
+   z-index: 3;
+}
+
+.suggestions--wrapper:hover .btn-handler {
+   visibility: visible;
+}
+
+.suggestion_handler {
+   --handler-margin: 5px;
+   position: absolute;
+   top: 50%;
+   transform: translate(0, -50%);
+
+   display: grid;
+   place-items: center;
+
+   width: 15%;
+   height: 100%;
+
+   background: var(--transparent-300);
+   z-index: 2;
+}
+
+.suggestion_handler-next {
+   right: 0;
+}
+
+.suggestion_handler-prev {
+   left: 0;
+}
+
+.suggestion_handler.last,
+.suggestion_handler.first {
+   color: var(--neutral-300);
+   pointer-events: none;
+}
+
+.recipe_details-handler {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: 0;
+}

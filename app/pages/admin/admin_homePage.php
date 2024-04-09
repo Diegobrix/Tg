@@ -32,8 +32,6 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_homePage-styles.css"/>
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
-      <script defer src="../../../src/js/pages/admin/admin_homePage/widget-details-handler.js"></script>
-      <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
       <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
    </head>
@@ -99,7 +97,7 @@
                   <h2>Top Categorias</h2>
                </div>
                <div class="categories-container">
-                  <button class="options-handler"></button>
+                  <button id="top_categories-extra_options-handler" class="options-handler" popovertarget="top_categories-extra_options"></button>
                   <?php
                      $categoriesArr = $contentData[1];
                      for($i = 0; $i < count($categories); $i++)
@@ -113,6 +111,9 @@
                   <?php
                      }
                   ?>
+                  <div popover anchor="top_categories-extra_options-handler" id="top_categories-extra_options" class="extra_options">
+                     <a href="">Todas categorias</a>
+                  </div>
                </div>
             </section>
          </section>
@@ -155,8 +156,12 @@
                            foreach($suggestions as $suggestion)
                            {
                   ?>
-                              <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../assets/images/recipes/<?=htmlspecialchars($suggestion['thumbSuggestion'])?>);" aria-current="<?=$i==0?'true':'else'?>">
+                              <div id="suggestion_<?=$i?>" class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../../assets/images/recipes/<?=htmlspecialchars($suggestion['thumbSuggestion'])?>);">
+                                 <a class="suggestion_handler-prev suggestion_handler <?=$i==0?'first':''?>" href="#suggestion_<?=$i-1?>"><</a>
+                                 <!-- Adicionar o caminho para a tela da receita -->
+                                 <a class="recipe_details-handler" href=""></a>
                                  <p class="suggestion_title"><?=$suggestion['titleSuggestion']?></p>
+                                 <a class="suggestion_handler-next suggestion_handler <?=$i>=sizeof($suggestions)-1?'last':''?>" href="#suggestion_<?=$i+1?>">></a>
                               </div>
                   <?php
                               $i += 1;
@@ -164,8 +169,6 @@
                         }
                      }
                   ?>
-                  <button class="btn-handler btn-prev"><</button>
-                  <button class="btn-handler btn-next">></button>
                </div>
             </div>
          </section>

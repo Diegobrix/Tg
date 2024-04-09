@@ -1,5 +1,6 @@
 @import url("../../animations/admin_homePage/admin_homePage-animations.css");
 @import url("../../partials/admin/homePage/admin_homePage-styles.css");
+@import url("../../partials/admin/homePage/suggestions-admin_home-styles.css");
 
 body {
    --page-margin: 1rem;
@@ -301,90 +302,6 @@ main {
    & p {
       font-size: var(--fs-300);
    }
-}
-
-.suggestions_container {
-   display: flex;
-   justify-content: space-between;
-   align-items: flex-end;
-
-   gap: 0 1rem;
-   margin-block: 1.5rem;
-
-   & > * {
-      width: 50%;
-   } 
-   
-   & span {
-      order: 2;
-      font-size: var(--fs-300);
-      color: var(--primary-700);
-   }
-}
-
-.suggestions--wrapper {
-   position: relative;
-   order: 1;
-   aspect-ratio: 1;
-
-   border: 7px dashed var(--primary-700);
-   border-radius: 20px;
-   overflow: hidden;
-
-   & .suggestion {
-      width: 100%;
-      aspect-ratio: 1;
-      background: var(--thumb) no-repeat center center;
-      background-color: var(--neutral-200);
-      background-size: cover;
-   }
-
-   & [aria-current="false"] {
-      display: none;
-   }
-}
-
-.suggestion .suggestion_title {
-   display: none;
-}
-
-.suggestion:hover .suggestion_title {
-   position: absolute;
-   bottom: 0;
-   display: block;
-   background: var(--transparent-500);
-   color: var(--neutral-800);
-   text-align: center;
-   width: 100%;
-   padding: .5rem 0;
-   backdrop-filter: blur(3px);
-   z-index: 2;
-}
-
-.suggestions--wrapper:hover .btn-handler {
-   visibility: visible;
-}
-
-.btn-handler {
-   position: absolute;
-   top: 0;
-   width: 1.5rem;
-   height: 100%;
-
-   font-size: 20px;
-   visibility: hidden;
-
-   color: #000;
-   background: hsl(210 33% 95% / .5);
-   z-index: 1;
-}
-
-.btn-next {
-   right: 0;
-}
-
-.btn-prev {
-   left: 0;
 }
 
 @media screen and (min-width: 1440px) {
