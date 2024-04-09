@@ -58,21 +58,19 @@ header [aria-hidden="true"] {
    box-shadow: 1px 2px 2px 0 hsl(0 0% 0% / .3);
 }
 
-.extra_options[aria-hidden="true"] {
-   display: none;
-}
-
-div[class$="--wrapper"] .extra_options[aria-hidden="false"] {
+div .extra_options:popover-open {
    position: absolute;
-   top: 2.5rem;
-   right: -7rem;
+   inset: unset;
+
+   top: anchor(bottom);
+   left: calc(anchor(right) - 1.5rem); 
 
    display: flex;
    flex-direction: column;
 
    background: var(--neutral-200);
    padding: .5rem .7rem;
-   border: 1px solid var(--neutral-600);
+   border: 1px solid var(--neutral-300);
    border-radius: 10px;
    box-shadow: 2px 2px 2px 0 hsl(273 70% 37% / .4),
    -2px -2px 2px 0 hsl(273 70% 84% / .2),

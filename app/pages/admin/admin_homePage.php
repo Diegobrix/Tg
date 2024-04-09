@@ -71,9 +71,9 @@
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
                   <p class="recipes_amount-display"><?=$content[0]['recipes_amount']?></p>
-                  <button class="options-handler"></button>
+                  <button id="recipes-extra_options-handler" class="options-handler" popovertarget="recipes-extra_options"></button>
 
-                  <div class="extra_options" aria-hidden="false">
+                  <div popover anchor="recipes-extra_options-handler" id="recipes-extra_options" class="extra_options">
                      <a href="./misc/addRecipe.php" class="option">Add. Receita</a>
                      <a href="" class="option">Todas receitas</a>
                   </div>
@@ -120,12 +120,22 @@
             <div class="videos-widget">
                <h2>Vídeos</h2>
                <p class="videos_amount"><?=$videosAmount?></p>
-               <button class="options-handler"></button>
+               <button id="videos-extra_options-handler" class="options-handler" popovertarget="videos-extra_options"></button>
+
+               <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
+                  <a href="" class="option">Add. Vídeo</a>
+                  <a href="" class="option">Todos vídeos</a>
+               </div>
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
                <p class="categories_amount"><?=$categoriesAmount?></p>
-               <button class="options-handler"></button>
+               <button id="categories-extra_options-handler" class="options-handler" popovertarget="category-extra_options"></button>
+
+               <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
+                  <a href="" class="option">Add. Categoria</a>
+                  <a href="" class="option">Todas categorias</a>
+               </div>
             </div>
             <div class="suggestions_container">
                <span>Sugestões do Dia</span>
