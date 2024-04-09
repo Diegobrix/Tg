@@ -143,6 +143,8 @@
                   <?php
                      require_once("./data/daySuggestions.php");
                      require_once("../../_conn/conn.php");
+
+                     print("<pre>".print_r(getData($conn), true)."</pre>");
                      /*
                         <div class="suggestion" data-current_step="" style="--thumb:" aria-current="">
                            <p class="suggestion_title"></p>

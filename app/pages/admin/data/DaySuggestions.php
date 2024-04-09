@@ -52,17 +52,37 @@
       if($stmtRecipes -> rowCount() > 0)
       {
          $recipesRaw = $stmtRecipes->fetchAll(PDO::FETCH_ASSOC);
-         $suggestions = [];
+         $recipes = [];
          $i = 0;
 
          foreach($recipesRaw as $raw)
          {
-            $suggestions[$i]['idSuggestion'] = $raw['idReceita'];
-            $suggestions[$i]['titleSuggestion'] = $raw['tituloReceita'];
-            $suggestions[$i]['thumbSuggestion'] = $raw['fotoReceita'];
-            $i = 0;
-         }
+            $recipes[$i]['idSuggestion'] = $raw['idReceita'];
+            $recipes[$i]['titleSuggestion'] = $raw['tituloReceita'];
+            $recipes[$i]['thumbSuggestion'] = $raw['fotoReceita'];
+            $i += 1;
+         
 
+         $suggestions = randomizeSuggestions($recipes);
          return $suggestions;
       }
+   }
+
+   function randomizeSuggestions($recipes, $randomizedIndexes = array(), $randomic = array(), $i = 0)
+   { 
+      if(($i < sizeof($recipes)) && ($i < 5))
+      {
+         $random = rand(0, sizeof($recipes) - 1);
+         if(in_array($random, $randomizedIndexes))
+         {
+            return randomizeSuggestions($recipes, $randomizedIndexes, $randomic, $i);
+         }
+         
+         array_push($randomizedIndexes, $random);
+         array_push($randomic, $recipes[$random]);
+         $i += 1;
+         return randomizeSuggestions($recipes, $randomizedIndexes, $randomic, $i);
+      }
+
+      return $randomic;
    }
