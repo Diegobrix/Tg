@@ -33,72 +33,26 @@
    <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_dashboard-styles.css" />
 
    <!-- JS -->
-   <script defer src="../../../src/js/pages/admin/admin_dashboard/generateStats.js"></script>
-   <script defer src="../../../src/js/pages/admin/admin_dashboard/generateList.js"></script>
-   <script defer src="../../../src/js/pages/admin/menu-controller.js"></script>
-   
-   <script defer src="../../../src/js/sessionController.js"></script>
+   <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
 </head>
 <body>
-</body>
    <header>
-      <nav>
-         <div class="header-controller">
-            <button class="btn-back"></button>
-            <h2>olá, <span class="username"><?=$user['username']?></span></h2>
-         </div>
-         <ul aria-expanded="true">
-            <li data-current="true" data-link="recipes">Receitas</li>
-            <li data-current="false" data-link="categories">Categorias</li>
-            <li data-current="false" data-link="videos">Vídeos</li>
-            <li data-current="false" data-link="ingredients">Ingredientes</li>
-         </ul>
-         <div class="stats-wrapper">
-            <div class="stats">
-               <div class="stat_bar" data-legend="recipes"></div>
-               <div class="stat_bar" data-legend="categories"></div>
-               <div class="stat_bar" data-legend="videos"></div>
-               <div class="stat_bar" data-legend="ingredients"></div>
-            </div>
-            <div class="stats_legends">
-               <div class="legend-wrapper legend_recipe">
-                  <span></span>
-                  <p>Receitas</p>
-               </div>
-               <div class="legend-wrapper legend_category">
-                  <span></span>
-                  <p>Categorias</p>
-               </div>
-               <div class="legend-wrapper legend_video">
-                  <span></span>
-                  <p>Vídeos</p>
-               </div>
-               <div class="legend-wrapper legend_ingredient">
-                  <span></span>
-                  <p>Ingredientes</p>
-               </div>
-            </div>
-         </div>
+      <section class="mobile_header-container">
+         <button class="btn_exit"></button>
+         <h1 class="current_data_show-display">Receitas</h1>
          <button id="mobile_menu--handler"></button>
-      </nav>
-   </header>
-   <section>
-      <nav class="search_navigation--wrapper">
-         <div>
-            <span></span>
-            <input type="text" name="search" id="txtDashboardSearch" placeholder="Pesquisar">
-         </div>
-         <div class="add-container">
-            <button class="btn_menu_add"></button>
-            <ul class="dropdown_menu" aria-hidden="true">
-               <li>Nova receita</li>
-               <li>Nova categoria</li>
+
+         <nav class="mobile-menu" aria-hidden="true">
+            <button id="btn_close"></button>
+            <ul>
+               <li class="nav_item" data-current="true" data-item-index="1">Receitas</li>
+               <li class="nav_item" data-current="false" data-item-index="2">Ingredientes</li>
+               <li class="nav_item" data-current="false" data-item-index="3">Categorias</li>
+               <li class="nav_item" data-current="false" data-item-index="4">Vídeos</li>
             </ul>
-         </div>
-      </nav>
-      <main>
-         <div id="result--wrapper">
-         </div>
-      </main>
-   </section>
+         </nav>
+      </section>
+      <section></section>
+   </header>
+</body>
 </html>

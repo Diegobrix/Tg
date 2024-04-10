@@ -1,4 +1,5 @@
-@import url("vars/vars.css");
+@import url("./vars/typography.css");
+@import url("./vars/colors.css");
 
 * {
    box-sizing: inherit;
