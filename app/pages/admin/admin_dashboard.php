@@ -20,6 +20,8 @@
    }
 
    $content = $pageConstructor->getContentData("content_data");
+   $choosedType= filter_input(INPUT_GET, 'content-type', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+   $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -38,21 +40,56 @@
 <body>
    <header>
       <section class="mobile_header-container">
-         <button class="btn_exit"></button>
-         <h1 class="current_data_show-display">Receitas</h1>
          <button id="mobile_menu--handler"></button>
+         <h1 class="current_data_show-display"><?=$choosedType?></h1>
+         <button class="btn_exit"></button>
 
-         <nav class="mobile-menu" aria-hidden="true">
+         <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
             <ul>
-               <li class="nav_item" data-current="true" data-item-index="1">Receitas</li>
-               <li class="nav_item" data-current="false" data-item-index="2">Ingredientes</li>
-               <li class="nav_item" data-current="false" data-item-index="3">Categorias</li>
-               <li class="nav_item" data-current="false" data-item-index="4">Vídeos</li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1">Receitas</li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2">Ingredientes</li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3">Categorias</li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4">Vídeos</li>
             </ul>
          </nav>
+         <div class="bg"></div>
       </section>
-      <section></section>
+      <section class="desktop_menu">
+         <button class="btn_exit"></button>
+         <h2 class="username-display"><?=$user['username']?></h2>
+         <ul>
+            <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1">Receitas</li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2">Ingredientes</li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3">Categorias</li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4">Vídeos</li>
+         </ul>
+      </section>
    </header>
+   <main>
+      <section id="searchbar-container">
+         <div class="searchbar" aria-expanded="false">
+            <label for="txtSearchRecipe">
+               <i></i>
+            </label>
+            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar">
+         </div>
+         <div>
+            <select name="" id="">
+               <option selected disabled>Filtrar</option>
+            </select>
+         </div>
+      </section>
+      <article anchor="searchbar-container" class="content-container">
+         <div class="content">
+            <figure>
+               <img src="../../../assets/images/teste.jpg" alt="">
+            </figure>
+            <h3 class="content_title">Calma lá paizão</h3>
+            <span class="content_category">Ao mosso</span>
+            <button class="extra_content-handler"></button>
+         </div>
+      </article>
+   </main>
 </body>
 </html>
