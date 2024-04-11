@@ -80,7 +80,15 @@
             </select>
          </div>
       </section>
-      <article anchor="searchbar-container" class="content-container">
+      <article class="content-container">
+         <div class="content">
+            <figure>
+               <img src="../../../assets/images/teste.jpg" alt="">
+            </figure>
+            <h3 class="content_title">Calma lá paizão</h3>
+            <span class="content_category">Ao mosso</span>
+            <button class="extra_content-handler"></button>
+         </div>
          <div class="content">
             <figure>
                <img src="../../../assets/images/teste.jpg" alt="">
