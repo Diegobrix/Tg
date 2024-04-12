@@ -32,7 +32,7 @@
         copy($this->baseUrl."no_image.png", $targetDir."/"."no_image.png");
         return $this->dirTitle."/no_image.png";
       }
-
+      
       $file = $this->moveFile($content, $targetDir);
       return $file;
     }
@@ -67,7 +67,9 @@
       $img = $file['name'];
       $tmpName = $file['tmp_name'];
 
-      $finalName = uniqid()."_".$img;
+      $imgTitle = explode(' ', $img);
+
+      $finalName = uniqid()."_".implode('_', $imgTitle);
       $dirname = iconv("UTF-8","Windows-1256",$targetDir);
       if(move_uploaded_file($tmpName, $dirname."/".$finalName))
       {

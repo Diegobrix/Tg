@@ -33,7 +33,7 @@
       width: 100%;
       aspect-ratio: 1;
       background: var(--thumb) no-repeat center center;
-      background-color: var(--neutral-200);
+      background-color: var(--neutral-70x0);
       background-size: cover;
    }
 }

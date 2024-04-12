@@ -146,7 +146,7 @@ main,
 
 #searchbar-container .searchbar {
    position: relative;
-   width: 3.5rem;
+   height: 3.5rem;
    aspect-ratio: 1;
 
    & input {
@@ -158,6 +158,16 @@ main,
 
    & input::placeholder {
       visibility: hidden;
+   }
+}
+
+#searchbar-container .searchbar:has(input:focus),
+#searchbar-container .searchbar[aria-expanded = "true"] {
+   height: 3.5rem;
+   aspect-ratio: unset;
+
+   & i {
+      width: 2.5rem;
    }
 }
 
@@ -173,6 +183,10 @@ main,
       background: url("../../../../assets/icons/search.svg") no-repeat center center;
       background-size: 67%;
    }
+}
+
+.searchbar input {
+   padding-left: 2.5rem;
 }
 
 #searchbar-container > div + div {

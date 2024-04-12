@@ -147,7 +147,7 @@
                      if(file_exists($suggestionsFilePath) && (is_readable($suggestionsFilePath)))
                      {
                         $jsonSuggestionsData = json_decode(file_get_contents("./data/temp_data/day_suggestions.json"), true);
-                        if(($jsonSuggestionsData[1] == null) || (!is_readable($jsonSuggestionsData[1])))
+                        if($jsonSuggestionsData[1] == null)
                         {
                            unlink($suggestionsFilePath);
                            die("Erro ao gerar as sugestões, por favor recarregue a página e tente novamente!");
