@@ -90,7 +90,11 @@
             </figure>
             <h3 class="content_title">Calma lá paizão</h3>
             <span class="content_category">Ao mosso</span>
-            <button class="extra_content-handler"></button>
+            <button id="recipe-7" class="extra_content-handler" popovertarget="recipe_7_extra_options"></button>
+            <div popover anchor="recipe-7" class="recipe_extra_options" id="recipe_7_extra_options">
+               <a href="">Ver Receita</a>
+               <a href="">Editar Receita</a>
+            </div>
          </div>
          <div class="content">
             <figure>
@@ -98,7 +102,11 @@
             </figure>
             <h3 class="content_title">Calma lá paizão</h3>
             <span class="content_category">Ao mosso</span>
-            <button class="extra_content-handler"></button> 
+            <button id="recipe-8" class="extra_content-handler" popovertarget="recipe_8_extra_options"></button> 
+            <div popover anchor="recipe-8" class="recipe_extra_options" id="recipe_8_extra_options">
+               <a href="">Ver Receita</a>
+               <a href="">Editar Receita</a>
+            </div>
          </div>
       </article>
    </main>

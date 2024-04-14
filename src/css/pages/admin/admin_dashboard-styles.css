@@ -203,6 +203,7 @@ main,
 .content-container {
    --items_offset: 1rem;
 
+   position: relative;
    display: flex;
    flex-direction: column;
    gap: var(--items_offset) 0;
@@ -245,8 +246,8 @@ figure img {
 }
 
 .content .content_title {
-   width: clamp(10ch, 30%, 200px);
-   background: red;
+   --max-width: 300px;
+   width: clamp(10ch, 30%, var(--max-width));
 }
 
 .content .content_category {
@@ -262,6 +263,31 @@ figure img {
    width: 1.5rem;
    aspect-ratio: 1;
    background: url('../../../../assets/icons/details.svg') no-repeat center center;
+}
+
+.recipe_extra_options:popover-open {
+   position: absolute;
+   inset: unset;
+
+   top: anchor(bottom);
+   right: calc(anchor(end) - 2rem);
+
+   display: flex;
+   flex-direction: column;
+
+   border: 0;
+   border-radius: 5px;
+
+   padding: .5rem;
+
+   & > a {
+      color: var(--primary-700);
+      transition: all .3s;
+   }
+
+   & > a:hover {
+      color: #000;
+   }
 }
 
 @media screen and (min-width:1440px) {
