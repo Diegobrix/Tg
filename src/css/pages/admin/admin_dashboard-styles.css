@@ -161,8 +161,8 @@ main,
    }
 }
 
-#searchbar-container .searchbar:has(input:focus),
-#searchbar-container .searchbar[aria-expanded = "true"] {
+#searchbar-container .searchbar:focus-within, 
+#searchbar-container .searchbar:has(input:not(:placeholder-shown)) {
    height: 3.5rem;
    aspect-ratio: unset;
 
@@ -244,11 +244,24 @@ figure img {
    object-fit: cover;
 }
 
+.content .content_title {
+   width: clamp(10ch, 30%, 200px);
+   background: red;
+}
+
 .content .content_category {
    padding: 5px 10px;
    color: var(--neutral-100);
    border: 2px solid currentColor;
    border-radius: 7px;
+
+   font-size: 1rem;
+}
+
+.content .extra_content-handler {
+   width: 1.5rem;
+   aspect-ratio: 1;
+   background: url('../../../../assets/icons/details.svg') no-repeat center center;
 }
 
 @media screen and (min-width:1440px) {

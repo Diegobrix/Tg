@@ -68,17 +68,20 @@
    </header>
    <main>
       <section id="searchbar-container">
-         <div class="searchbar" aria-expanded="false">
+         <div class="searchbar">
             <label for="txtSearchRecipe">
                <i></i>
             </label>
-            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar">
+            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar...">
          </div>
          <div>
             <select name="" id="">
                <option selected disabled>Filtrar</option>
             </select>
          </div>
+      </section>
+      <section class="filters_applied-container">
+         
       </section>
       <article class="content-container">
          <div class="content">
@@ -95,7 +98,7 @@
             </figure>
             <h3 class="content_title">Calma lá paizão</h3>
             <span class="content_category">Ao mosso</span>
-            <button class="extra_content-handler"></button>
+            <button class="extra_content-handler"></button> 
          </div>
       </article>
    </main>
