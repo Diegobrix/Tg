@@ -21,7 +21,7 @@
 
    $content = $pageConstructor->getContentData("content_data");
    $choosedType= filter_input(INPUT_GET, 'content-type', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-   $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+   $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_NUMBER_INT);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -47,10 +47,10 @@
          <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
             <ul>
-               <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1">Receitas</li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2">Ingredientes</li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3">Categorias</li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4">Vídeos</li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1"><a href="?content-type=Receitas&content-type-id=0">Receitas</a></li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2"><a href="?content-type=Ingredientes&content-type-id=1">Ingredientes</a></li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3"><a href="?content-type=Categorias&content-type-id=2">Categorias</a></li>
+               <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4"><a href="?content-type=Vídeos&content-type-id=3">Vídeos</a></li>
             </ul>
          </nav>
          <div class="bg"></div>
@@ -59,10 +59,10 @@
          <button class="btn_exit"></button>
          <h2 class="username-display"><?=$user['username']?></h2>
          <ul>
-            <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1">Receitas</li>
-            <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2">Ingredientes</li>
-            <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3">Categorias</li>
-            <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4">Vídeos</li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1"><a href="?content-type=Receitas&content-type-id=0">Receitas</a></li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2"><a href="?content-type=Ingredientes&content-type-id=1">Ingredientes</a></li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3"><a href="?content-type=Categorias&content-type-id=2">Categorias</a></li>
+            <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4"><a href="?content-type=Vídeos&content-type-id=3">Vídeos</a></li>
          </ul>
       </section>
    </header>
