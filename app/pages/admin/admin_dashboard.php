@@ -22,6 +22,8 @@
    $content = $pageConstructor->getContentData("content_data");
    $choosedType= filter_input(INPUT_GET, 'content-type', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
    $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_NUMBER_INT);
+
+   require_once("../../bd-conn-controller/pages/admin/admin_dashboard-content-controller.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -39,6 +41,10 @@
 </head>
 <body>
    <header>
+      <?php
+         $content = new ContentController();
+         $contentType = $content->defineContentType($choosedTypeId);
+      ?>
       <section class="mobile_header-container">
          <button id="mobile_menu--handler"></button>
          <h1 class="current_data_show-display"><?=$choosedType?></h1>
@@ -81,33 +87,30 @@
          </div>
       </section>
       <section class="filters_applied-container">
-         
       </section>
       <article class="content-container">
-         <div class="content">
-            <figure>
-               <img src="../../../assets/images/teste.jpg" alt="">
-            </figure>
-            <h3 class="content_title">Calma lá paizão</h3>
-            <span class="content_category">Ao mosso</span>
-            <button id="recipe-7" class="extra_content-handler" popovertarget="recipe_7_extra_options"></button>
-            <div popover anchor="recipe-7" class="recipe_extra_options" id="recipe_7_extra_options">
-               <a href="">Ver Receita</a>
-               <a href="">Editar Receita</a>
+         <?php
+         if($contentType != null)
+         {
+            foreach($contentType as $data)
+            {
+         ?>
+            <div class="content">
+               <figure>
+                  <img src="" alt="">
+               </figure>
+               <h3 class="content_title"></h3>
+               <span class="content_category"></span>
+               <button class="extra_content-handler"></button>
+               <div popover class="extra_content-wrapper">
+                  <a href="">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
+                  <a href="">Editar</a>
+               </div>
             </div>
-         </div>
-         <div class="content">
-            <figure>
-               <img src="../../../assets/images/teste.jpg" alt="">
-            </figure>
-            <h3 class="content_title">Calma lá paizão</h3>
-            <span class="content_category">Ao mosso</span>
-            <button id="recipe-8" class="extra_content-handler" popovertarget="recipe_8_extra_options"></button> 
-            <div popover anchor="recipe-8" class="recipe_extra_options" id="recipe_8_extra_options">
-               <a href="">Ver Receita</a>
-               <a href="">Editar Receita</a>
-            </div>
-         </div>
+         <?php
+            }
+         }
+         ?>
       </article>
    </main>
 </body>

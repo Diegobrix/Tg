@@ -265,7 +265,7 @@ figure img {
    background: url('../../../../assets/icons/details.svg') no-repeat center center;
 }
 
-.recipe_extra_options:popover-open {
+.extra_content-wrapper:popover-open {
    position: absolute;
    inset: unset;
 
