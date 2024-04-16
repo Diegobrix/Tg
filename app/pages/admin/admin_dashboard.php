@@ -84,7 +84,7 @@
             <label for="txtSearchRecipe">
                <i></i>
             </label>
-            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar...">
+            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar <?=strtolower($choosedType)?>...">
          </div>
          <div>
             <select name="" id="">
@@ -98,7 +98,6 @@
          <?php
          if($contentType != null)
          {
-            print_r($contentType);
             $typeLabel = strtolower(substr($choosedType, 0, -1));
             foreach($contentType as $data)
             { 
@@ -125,14 +124,20 @@
                <?php
                   }
                ?>
-               <button class="extra_content-handler"></button>
-               <div id="<>" popover class="extra_content-wrapper">
+               <button id="<?=$data['id'].'-extra_content-handler'?>" class="extra_content-handler" popovertarget="<?=$data['id'].'-extra_content'?>"></button>
+               <div id="<?=$data['id'].'-extra_content'?>" anchor="<?=$data['id'].'-extra_content-handler'?>" popover class="extra_content-wrapper">
                   <a href="">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
                   <a href="">Editar</a>
                </div>
             </div>
          <?php
             }
+         }
+         else
+         {
+         ?>
+            <span class="empty_msg">Desculpe<br>Não há registros no momento!</span>
+         <?php
          }
          ?>
       </article>

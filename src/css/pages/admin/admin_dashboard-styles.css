@@ -169,6 +169,10 @@ main,
    & i {
       width: 2.5rem;
    }
+
+   & input::placeholder {
+      visibility: visible;
+   }
 }
 
 .searchbar label {
@@ -290,6 +294,17 @@ figure img {
    & > a:hover {
       color: #000;
    }
+}
+
+.empty_msg {
+   position: absolute;
+   top: 50%;
+   left: 0;
+
+   width: 100%;
+   text-align: center;
+   color: var(--neutral-100);
+   transform: translate(0, -50%);
 }
 
 @media screen and (min-width:1440px) {
