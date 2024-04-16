@@ -218,6 +218,8 @@ main,
 .content {
    position: relative;
    display: flex;
+
+   justify-content: space-between;
    align-items: center;
    gap: .5rem;
 
@@ -245,18 +247,18 @@ figure img {
    object-fit: cover;
 }
 
-.content .content_title {
-   --max-width: 300px;
-   width: clamp(10ch, 30%, var(--max-width));
+.content .content_title-wrapper {
+   display: inherit;
+   align-items: center;
+   gap: 10px;
 }
 
 .content .content_category {
-   padding: 5px 10px;
-   color: var(--neutral-100);
-   border: 2px solid currentColor;
-   border-radius: 7px;
+   display: none;
+}
 
-   font-size: 1rem;
+.content .content_title {
+   color: var(--neutral-100);
 }
 
 .content .extra_content-handler {

@@ -23,6 +23,7 @@
    $choosedType= filter_input(INPUT_GET, 'content-type', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
    $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_NUMBER_INT);
 
+   require_once("./data/dashboard_data/dashboardHelper.php");
    require_once("../../bd-conn-controller/pages/admin/admin_dashboard-content-controller.php");
 ?>
 <!DOCTYPE html>
@@ -43,7 +44,12 @@
    <header>
       <?php
          $content = new ContentController();
-         $contentType = $content->defineContentType($choosedTypeId);
+         
+         $contentType = null;
+         if((isset($choosedTypeId)) && ($choosedTypeId != null))
+         {
+            $contentType = $content->defineContentType($choosedTypeId);
+         }
       ?>
       <section class="mobile_header-container">
          <button id="mobile_menu--handler"></button>
@@ -92,17 +98,35 @@
          <?php
          if($contentType != null)
          {
+            print_r($contentType);
+            $typeLabel = strtolower(substr($choosedType, 0, -1));
             foreach($contentType as $data)
-            {
+            { 
          ?>
-            <div class="content">
-               <figure>
-                  <img src="" alt="">
-               </figure>
-               <h3 class="content_title"></h3>
-               <span class="content_category"></span>
+            <div class="content" id="<?=$typeLabel.'_'.$data['id']?>">
+               <div class="content_title-wrapper">
+                  <?php
+                     if(($choosedTypeId == 0) || ($choosedTypeId == 3))
+                     {
+                  ?>
+                        <figure>
+                           <img src="../../../assets/images/recipes/<?=$choosedTypeId == 3?'video/'.$data['thumb']:$data['thumb']?>" alt="">
+                        </figure>
+                  <?php
+                     }
+                  ?>
+                  <h3 class="content_title"><?=$data['titulo']?></h3>
+               </div>
+               <?php
+                  if($choosedTypeId == 0)
+                  {
+               ?>
+                  <span class="content_category"><?=$data['categoria']?></span>
+               <?php
+                  }
+               ?>
                <button class="extra_content-handler"></button>
-               <div popover class="extra_content-wrapper">
+               <div id="<>" popover class="extra_content-wrapper">
                   <a href="">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
                   <a href="">Editar</a>
                </div>
