@@ -533,7 +533,7 @@ main {
       bottom: 0;
       display: block;
       background: var(--transparent-500);
-      color: var(--neutral-800);
+      color: var(--neutral-100);
       text-align: center;
       width: 100%;
       padding: .5rem 0;

@@ -321,15 +321,21 @@ figure img {
 }
 
 @media screen and (min-width:1440px) {
-   
+   :root {
+      overflow: hidden;
+   }
+
    body {
       justify-content: center;
       flex-direction: row;
 
       gap: 2rem;
+      max-height: 100vh;
    }
 
    header {
+      width: fit-content;
+      min-height: 100vh;
       flex-direction: column;
    }
 
@@ -439,7 +445,11 @@ figure img {
    }
 
    main {
-      --main_width: 65vw;
+      --main_width: 70vw;
+   }
+
+   .content-container {
+      overflow: hidden auto;
    }
 
    #searchbar-container {

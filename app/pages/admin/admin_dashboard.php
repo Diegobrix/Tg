@@ -42,13 +42,19 @@
 </head>
 <body>
    <?php
-      $content = new ContentController();
-      
+      $content = new ContentController();      
       $contentType = null;
       if((isset($choosedTypeId)) && ($choosedTypeId != null))
       {
-         $contentType = $content->defineContentType($choosedTypeId);
+         $choosedId = $choosedTypeId;
       }
+      else
+      {
+         $choosedType = "Receitas";
+         $choosedId = 0;
+      }
+
+      $contentType = $content->defineContentType($choosedId);
    ?>
    <header>
       <section class="mobile_header-container">
