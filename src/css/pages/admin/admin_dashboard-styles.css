@@ -288,8 +288,8 @@ figure img {
    position: absolute;
    inset: unset;
 
-   top: anchor(bottom);
-   right: calc(anchor(end) - 2rem);
+   top: calc(anchor(bottom) + .4rem);
+   right: anchor(end);
 
    display: flex;
    flex-direction: column;
@@ -344,6 +344,8 @@ figure img {
    }
 
    .desktop_menu {
+      --header-inline_padding: 1.5rem;
+
       position: relative;
       display: flex;
       flex-direction: column;
@@ -351,13 +353,33 @@ figure img {
 
       background: var(--primary-700);
 
-      padding: .5rem 1.5rem;
+      padding: .5rem var(--header-inline_padding);
    
       & ul {
          display: flex;
          flex-direction: column;
          gap: .5rem;
       }
+   }
+
+   .header_head-wrapper {
+      position: absolute;
+      top: 1rem;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+
+      width: calc(100% - var(--header-inline_padding));
+
+      & h2 {
+         color: var(--neutral-100);
+      }
+   }
+
+   .header_head-wrapper .btn_exit {
+      width: 3rem;
+      aspect-ratio: 1;
+      background: url("../../../../assets/icons/page_exit.svg") no-repeat center center;
    }
 
    .desktop_menu ul li:hover {

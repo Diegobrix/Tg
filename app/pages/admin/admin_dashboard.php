@@ -74,8 +74,10 @@
          <div class="bg"></div>
       </section>
       <section class="desktop_menu">
-         <button class="btn_exit"></button>
-         <h2 class="username-display"><?=$user['username']?></h2>
+         <div class="header_head-wrapper">
+            <button class="btn_exit"></button>
+            <h2 class="username-display"><?=$user['username']?></h2>
+         </div>
          <ul>
             <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1"><a href="?content-type=Receitas&content-type-id=0">Receitas</a></li>
             <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2"><a href="?content-type=Ingredientes&content-type-id=1">Ingredientes</a></li>
