@@ -55,17 +55,20 @@ header > .steps_descriptions .step_description--wrapper {
 }
 
 .step-icon {
+   --step_icon-colour: var(--primary-700);
+   --icon-width: 2rem;
+
    display: grid;
    place-items: center;
 
-   width: 2rem;
-   aspect-ratio: 1;
+   width: var(--icon-width);
+   height: var(--icon-width);
    
    border-radius: 50%;
-   border: 3px solid var(--primary-700);
+   border: 3px solid var(--step_icon-colour);
 
    background: #0000;
-   color: var(--primary-700);
+   color: var(--step_icon-colour);
    font-style: normal;
 }
 
@@ -375,6 +378,58 @@ select {
 }
 
 @media screen and (min-width: 1440px) {
+   body {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+   }
+
+   header {
+      position: relative;
+      flex-direction: column;
+      justify-content: center;
+
+      min-height: 100vh;
+      min-height: 100dvh;
+
+      background: var(--primary-700);
+   }
+
+   header .header_head {
+      position: absolute;
+      top: 1rem;
+      width: 100%;
+   }
+
+   header > .steps_descriptions {
+      flex-direction: column;
+      gap: 1rem;
+
+      & li[data-current="false"] .step-icon {
+         --step_icon-colour: var(--transparent-350);
+      }
+
+      & li[data-current="true"] .step-icon {
+         background: var(--neutral-100);
+         color: var(--neutral-800);
+         border-color: var(--neutral-300);
+      }
+   }
+
+   .steps_descriptions li {
+      display: inherit;
+      gap: 0 .5rem;
+      color: var(--neutral-100);
+   
+      &[data-current="false"] {
+         color: var(--transparent-350);
+      }
+   }
+
+   header > .steps_descriptions .step_description--wrapper {
+      display: block;
+   }
+   
    #mobile_menu--handler {
       display: none;
    }
