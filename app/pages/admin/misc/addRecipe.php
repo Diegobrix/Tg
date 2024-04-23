@@ -98,7 +98,8 @@
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
             ?>
-            <section class="form_step" data-step="0" data-current="true">
+            <section class="form_step" data-step="0" data-current="false">
+               <h2 class="section_title">Adicionar Receita</h2>
                <div class="input-group">
                   <label for="txtTitle">Título</label>
                   <input required type="text" name="recipe_title" id="txtTitle">
@@ -112,7 +113,8 @@
                   <textarea required name="recipe_wayToDo" id="txtWayToDo"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="false">
+            <section class="form_step" data-step="1" data-current="true">
+               <h2 class="section_title">Add Receita</h2>
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
                   <textarea required name="recipe_benefits" id="txtBenefits"></textarea>
@@ -243,18 +245,19 @@
                   </div>
                </section>
             </dialog>
-
-            <div class="form_footer">
-               <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
-               <button class="step-handler btn_next" data-action="next">Próximo ></button>
-               <button class="step-handler btn_finish" data-action="finish">Finalizar</button>
+            <div class="form_footer-container">
+               <div class="steps-wrapper">
+                  <div class="step" data-step="0" data-current="true" data-already="false"></div>
+                  <div class="step" data-step="1" data-current="false" data-already="false"></div>
+                  <div class="step" data-step="2" data-current="false" data-already="false"></div>
+               </div>
+               <div class="form_footer">
+                  <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
+                  <button class="step-handler btn_next" data-action="next">Próximo ></button>
+                  <button class="step-handler btn_finish" data-action="finish">Finalizar</button>
+               </div>
             </div>
          </form>
-         <div class="steps-wrapper">
-            <div class="step" data-step="0" data-current="true" data-already="false"></div>
-            <div class="step" data-step="1" data-current="false" data-already="false"></div>
-            <div class="step" data-step="2" data-current="false" data-already="false"></div>
-         </div>
       </main>
    </body>
 </html>
