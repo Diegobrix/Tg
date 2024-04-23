@@ -359,19 +359,31 @@ select {
    transition: all .2s;
 }
 
+.form_step[data-step="2"] {
+   flex-direction: column;
+   max-height: 80vh;
+
+   padding-top: 1rem;
+}
+
+div:has(.ingredients) {
+   flex: 1 1 auto;
+   overflow: hidden auto;
+}
+
 .ingredients {
+   --grid-structure: repeat(3, 1fr);
    --spacing: .5rem;
 
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-columns: var(--grid-structure);
    gap: 10px;
 
    margin-top: var(--spacing);
    padding-top: calc(var(--spacing) + .2rem);
    padding-inline-end: var(--spacing);
    
-   overflow-x: hidden;
-   overflow-y: auto;
+   overflow: hidden auto;
 }
 
 .form_footer-container {
@@ -435,7 +447,28 @@ select {
    header .header_head {
       position: absolute;
       top: 1rem;
-      width: 100%;
+      left: 1rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      width: 70%;
+      color: var(--neutral-100);
+   
+      & h1 {
+         font-size: 1.5rem;
+      }
+
+      & .btn_back {
+         width: 3rem;
+         height: 3rem;
+
+         margin-bottom: .5rem;
+
+         background: url("../../../../assets/icons/page_exit.svg") no-repeat center;
+      }
    }
 
    header > .steps_descriptions {
@@ -498,7 +531,7 @@ select {
 
       box-shadow: initial;
       margin: 0;
-      height: 100%;
+      height: 90%;
       
       & .section_title {
          position: absolute;
@@ -518,7 +551,7 @@ select {
 
       & > * {
          width: 45%;
-         height: 85%;
+         height: 100%;
          margin: 0;
       }
    }
@@ -582,6 +615,32 @@ select {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+   }
+
+   .form_step[data-step="2"] {
+      flex-direction: column;
+      padding-top: 10%;
+   }
+
+   div:has(.ingredients) {
+      flex: 1 1 auto;
+      overflow: hidden;
+   }
+   
+   .ingredients {
+      --grid-structure: repeat(6, 1fr);
+      justify-content: center;
+
+      height: calc(100% - 2rem);
+      background: var(--neutral-200);
+      border-radius: 10px;
+      padding: .7em;
+      overflow: hidden auto;
+   }
+
+   .ingredients .ingredient {
+      max-height: 3rem;
+      border-radius: 7px;
    }
 
 

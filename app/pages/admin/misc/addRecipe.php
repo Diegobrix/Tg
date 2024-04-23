@@ -98,7 +98,7 @@
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
             ?>
-            <section class="form_step" data-step="0" data-current="false">
+            <section class="form_step" data-step="0" data-current="true">
                <h2 class="section_title">Adicionar Receita</h2>
                <div class="input-group">
                   <label for="txtTitle">Título</label>
@@ -113,7 +113,7 @@
                   <textarea required name="recipe_wayToDo" id="txtWayToDo"></textarea>
                </div>
             </section>
-            <section class="form_step" data-step="1" data-current="true">
+            <section class="form_step" data-step="1" data-current="false">
                <h2 class="section_title">Add Receita</h2>
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
@@ -173,7 +173,7 @@
                </dialog>
             </section>
             <section class="form_step" data-step="2" data-current="false">
-               <h2>Adicionar<br>Ingredientes</h2>
+               <h2 class="section_title">Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>
                   <div class="search_bar" aria-hidden="true">
@@ -189,16 +189,18 @@
                   </div>
                   <button type="button" class="ingredients_edit"></button>
                </nav>
-               <h3>Ingredientes</h3>
-               <div class="ingredients">
-                  <template id="ingredient_template">
-                     <button type="button" class="ingredient">
-                        <span class="ingredient_title"></span>
-                        <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
-                        <input type="hidden" name="ingredient[]">
-                        <div class="btn_remove" aria-hidden="true"></div>
-                     </button>
-                  </template>
+               <div>
+                  <h3>Ingredientes</h3>
+                  <div class="ingredients">
+                     <template id="ingredient_template">
+                        <button type="button" class="ingredient">
+                           <span class="ingredient_title"></span>
+                           <!-- Explicação - value=(<id do ingrediente>/<titulo do ingrediente>/<amount>/<id da medida>) -->
+                           <input type="hidden" name="ingredient[]">
+                           <div class="btn_remove" aria-hidden="true"></div>
+                        </button>
+                     </template>
+                  </div>
                </div>
                <dialog id="ingredient-modal">
                   <input type="hidden" id="ingredient_id" id="ingredient_id">
