@@ -200,6 +200,10 @@ form textarea {
    width: auto;
 }
 
+.form_step[data-step="1"] .thumb_label {
+   display: none;
+}
+
 form .form_step[data-step="1"] textarea {
    aspect-ratio: 1/.5;
 }
@@ -231,6 +235,24 @@ form .form_step[data-step="1"] textarea {
 
    &[data-empty="true"] img {
       display: none;
+   }
+}
+
+#add_category-modal {
+   & .decoration-container {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+
+      & .decoration {
+         position: absolute;
+         width: .8rem;
+         height: .8rem;
+         border-radius: 50%;
+         background: var(--primary-700);
+
+         cursor: pointer;
+      }
    }
 }
 
@@ -500,6 +522,13 @@ select {
          margin: 0;
       }
    }
+
+   .form_step[data-step="1"] .thumb_label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      display: block;
+   }
    
    textarea {
       max-height: 10rem;
@@ -515,20 +544,44 @@ select {
    }
 
    .input-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem 0;
+
       border-radius: 15px;
       border: 7px dashed var(--primary-700);
-      background: var(--neutral-300);
+      background: var(--neutral-200);
    }
 
-   /* Tirar Despois */
+   .input-wrapper .category_select_group {
+      padding: 0 1rem;
+   }
+
    .img_thumb {
       aspect-ratio: 1;
-      width: 5rem;
+      width: 15rem;
    }
-
 
    .input-group {
       height: fit-content;
+   }
+
+   #add_category-modal[open] {
+      position: relative;
+   
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+   
+      width: 33%;
+      height: fit-content;
+      padding: 1.5rem;
+      aspect-ratio: 16/9;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
    }
 
 

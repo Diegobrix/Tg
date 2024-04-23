@@ -121,12 +121,13 @@
                </div>
                <div class="input-wrapper">
                   <div class="input-group">
+                     <h2 class="thumb_label">Add. Imagem</h2>
                      <figure class="img_thumb" data-empty="true">
                         <input type="file" name="recipe_thumb" id="recipeThumb" accept="image/*">
                         <img id="thumb_preview" src="" alt="empty">
                      </figure>
                   </div>
-                  <div class="input-group">
+                  <div class="input-group category_select_group">
                      <h3>Categoria</h3>
                      <div class="custom_select" id="category_custom_select">
                         <label class="select_face" for="categorySelectHandler">
@@ -162,8 +163,13 @@
                </div>
                <dialog id="add_category-modal">
                   <h2>Crie uma<br> nova categoria</h2>
-                  <input type="text" name="category_title" id="add_category_input">
-                  <button type="button" id="add_category_sender">Finalizar</button>
+                  <div class="decoration-container">
+                     <i class="decoration" id="category_modal-decoration"></i>
+                  </div>
+                  <div>
+                     <input type="text" name="category_title" id="add_category_input">
+                     <button type="button" id="add_category_sender">Finalizar</button>
+                  </div>
                </dialog>
             </section>
             <section class="form_step" data-step="2" data-current="false">
