@@ -208,6 +208,29 @@ form .form_step[data-step="1"] textarea {
    aspect-ratio: 1/.5;
 }
 
+.form_step[data-step="0"] .add_waytodo {
+   position: relative;
+   display: flex;
+   align-items: center;
+
+   background: var(--primary-700);
+   color: var(--neutral-100);
+
+   width: fit-content;
+
+   padding: .5rem;
+   border-radius: 10px;
+
+   & i {
+      display: block;
+      width:  1.1rem;
+      height: 1.1rem;
+      margin-right: .5rem;
+
+      background: url("../../../../assets/icons/plus_light.svg") no-repeat center;
+   }
+} 
+
 .input-wrapper {
    margin-top: 1rem;
 }

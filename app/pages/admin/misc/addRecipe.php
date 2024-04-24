@@ -110,7 +110,7 @@
                </div>
                <div class="input-group">
                   <label for="txtDescription">Modo de Preparo</label>
-                  <textarea required name="recipe_wayToDo" id="txtWayToDo"></textarea>
+                  <button class="add_waytodo"><i></i>Add. Etapa</button>
                </div>
             </section>
             <section class="form_step" data-step="1" data-current="false">
