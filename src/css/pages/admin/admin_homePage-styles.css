@@ -63,6 +63,9 @@ div .extra_options:popover-open {
    position: absolute;
    inset: unset;
 
+   top: calc(anchor(bottom) + .5rem);
+   right: calc(anchor(left) - 1.5rem);
+
    display: flex;
    flex-direction: column;
 
