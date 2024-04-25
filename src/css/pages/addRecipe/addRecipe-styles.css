@@ -231,6 +231,52 @@ form .form_step[data-step="1"] textarea {
    }
 }
 
+.ways_to_do-container {
+   display: grid;
+   gap: .3rem;
+
+   max-height: 20vh;
+   border-radius: 10px;
+   overflow: hidden auto;
+   background: var(--neutral-200);
+}
+
+.waytodo {
+   position: relative;
+   padding: 1rem;
+   padding-left: 3.5rem;
+   cursor: pointer;
+
+   &:nth-child(even) {
+      background: hsl(253 80% 95%);
+   }
+   &:nth-child(odd) {
+      background: hsl(253 80% 93%);
+   }
+}
+
+.waytodo h3::after {
+   --decoration-offset: 2.5rem;
+
+   content: attr(data-sequence);
+   position: absolute;
+   top: 50%;
+   left: .5rem;
+
+   display: grid;
+   place-items: center;
+
+   font-size: 1.5rem;
+
+   width: var(--decoration-offset);
+   height: var(--decoration-offset);
+   border-radius: 50%;
+
+   color: var(--neutral-100);
+   background: var(--primary-700);
+   transform: translate(0, -50%);
+}
+
 #way_to_do-modal {
    box-shadow: 2px 2px 4px 0 hsl(253 80% 85% / .5);
    & textarea {
