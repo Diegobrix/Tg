@@ -598,7 +598,6 @@ div:has(.ingredients) {
          left: 1rem;
 
          display: block;
-
          font-size: 2rem;
       }
    }
@@ -612,7 +611,7 @@ div:has(.ingredients) {
       justify-content: space-between;
       gap: 0 1rem;
 
-      & > * {
+      & > *:not(.section_title) {
          width: 45%;
          height: 100%;
          margin: 0;
