@@ -16,6 +16,7 @@ TODO_SUBMIT.addEventListener("click", () => {
    if((description.match(pattern)) && (description.length > 0))
    {
       addTodo(description);
+      TODO_DESCRIPTION.value = "";
       TODO_MODAL.close();
    }
 });
@@ -27,7 +28,7 @@ function addTodo(content)
    const CONTENT_INPUT = WAYTODO.querySelector(".waytodo_input");
    const CONTENT_DISPLAY = WAYTODO.querySelector(".waytodo_content");
 
-   CONTENT_INPUT.value = currentWayToDo + "@" + content;
+   CONTENT_INPUT.value = currentWayToDo + "@" + content +"|";
    CONTENT_DISPLAY.innerHTML = content;
    CONTENT_DISPLAY.dataset.sequence = currentWayToDo;
    
