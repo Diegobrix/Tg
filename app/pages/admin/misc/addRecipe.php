@@ -114,7 +114,8 @@
                   <div class="ways_to_do-container">
                      <template id="todo-template">
                         <div class="waytodo">
-                           <input type="hidden" name="waytodo[]">
+                           <input type="hidden" name="waytodo[]" class="waytodo_input" value="">
+                           <h3 class="waytodo_content"></h3>
                         </div>
                      </template>
                   </div>
