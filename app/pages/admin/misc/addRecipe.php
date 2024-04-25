@@ -28,6 +28,7 @@
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/addIngredientDialog_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/categories_controller.js"></script>
       <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/search_ingredients.js"></script>
+      <script defer type="module" src="../../../../src/js/pages/misc/addRecipes/toDoModal_controller.js"></script>
    </head>
    <body>
       <header>
@@ -109,9 +110,26 @@
                   <textarea required name="recipe_description" id="txtDescription"></textarea>
                </div>
                <div class="input-group">
-                  <label for="txtDescription">Modo de Preparo</label>
-                  <button class="add_waytodo"><i></i>Add. Etapa</button>
+                  <p>Modo de Preparo</p>
+                  <div class="ways_to_do-container">
+                     <template id="todo-template">
+                        <div class="waytodo">
+                           <input type="hidden" name="waytodo[]">
+                        </div>
+                     </template>
+                  </div>
+                  <button type="button" class="add_waytodo" id="todo-handler">
+                     <i></i>
+                     Add. Etapa</button>
                </div>
+               <dialog id="way_to_do-modal">
+                  <h2>Add. Etapa</h2>
+                  <div class="decoration-container">
+                     <i class="decoration" id="category_modal-decoration"></i>
+                  </div>
+                  <textarea name="step_description" id="todo_content" cols="30" rows="10"></textarea>
+                  <button type="button" id="btn-set_step">Concluir</button>
+               </dialog>
             </section>
             <section class="form_step" data-step="1" data-current="false">
                <h2 class="section_title">Add Receita</h2>
