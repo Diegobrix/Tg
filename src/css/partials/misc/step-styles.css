@@ -34,18 +34,15 @@ form:has(.form_step[data-step="0"][data-current="true"]) .form_footer {
    width: 1.5rem;
    aspect-ratio: 1;
    border-radius: 50%; 
-   border: 7px solid;
+   border: 7px solid var(--neutral-300);
 
    &[data-already="true"] {
-      border-color: green;
+      border-color: var(--primary-500);
+      background: var(--primary-500);
    }
 
    &[data-current="true"] {
-      border-color: red;
+      border-color: var(--primary-700);
+      background: #0000;
    }
-}
-
-.step[data-current="true"] + .step,
-.step[data-current="true"] + .step ~ .step {
-   border-color: var(--neutral-800);
 }

@@ -1,6 +1,7 @@
 import {clearHeadSteps, headerChangeStep} from "./header_step.js";
 import {clearFormSteps, formChangeStep} from "./form_step.js";
 import {verifyIngredients, addVideo} from "./addVideo.js";
+import {desktopChangeStep} from "./desktop_step.js";
 
 const FORM_STEPS = document.querySelectorAll(".form_step");
 const STEP_HANDLER = document.querySelectorAll(".step-handler");
@@ -76,6 +77,7 @@ function nextStep(currentStep)
 
    formChangeStep(currentStep);
    headerChangeStep(currentStep);
+   desktopChangeStep(currentStep);
 }
 
 function previousStep(currentStep)
@@ -88,6 +90,7 @@ function previousStep(currentStep)
 
    formChangeStep(currentStep);
    headerChangeStep(currentStep);
+   desktopChangeStep(currentStep);
 }
 
 function getCurrentStep()

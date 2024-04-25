@@ -603,6 +603,10 @@ div:has(.ingredients) {
       }
    }
 
+   .form_step[data-step="0"] {
+      padding-top: 5rem;
+   }
+
    .form_step[data-step="1"] {
       flex-direction: row;
       justify-content: space-between;
