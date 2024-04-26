@@ -368,6 +368,8 @@ main {
    div .extra_options:popover-open {
       top: anchor(bottom);
       left: calc(anchor(right) - 1.5rem); 
+
+      width: max-content;
    }
 
    .extra_options .option:hover {

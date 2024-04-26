@@ -72,7 +72,7 @@
 
                   <div popover anchor="recipes-extra_options-handler" id="recipes-extra_options" class="extra_options">
                      <a href="./misc/addRecipe.php" class="option">Add. Receita</a>
-                     <a href="" class="option">Todas receitas</a>
+                     <a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0" class="option">Todas receitas</a>
                   </div>
                </div>
                <div class="popular_category--wrapper">
@@ -111,7 +111,7 @@
                      }
                   ?>
                   <div popover anchor="top_categories-extra_options-handler" id="top_categories-extra_options" class="extra_options">
-                     <a href="">Todas categorias</a>
+                     <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Todas categorias</a>
                   </div>
                </div>
             </section>
@@ -134,7 +134,7 @@
 
                <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
                   <a href="" class="option">Add. Categoria</a>
-                  <a href="" class="option">Todas categorias</a>
+                  <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2" class="option">Todas categorias</a>
                </div>
             </div>
             <div class="suggestions_container">
