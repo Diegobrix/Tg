@@ -1,17 +1,5 @@
+@import url("../logo-style.css");
+
 header {
    padding: .5rem;
-}
-
-.logo {
-   font-family: var(--ff-200);
-   font-size: 1.2rem;
-   line-height: 1.2rem;
-   font-weight: 700;
-
-   & span {
-      font-family: unset;
-      letter-spacing: 2px;
-
-      color: #008ed4;
-   }
 }

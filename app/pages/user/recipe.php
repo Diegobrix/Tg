@@ -15,27 +15,32 @@
          <hr>
       </header>
       <main>
-         <aside>
-            <figure class="recipe_thumb">
-               <img src="../../../assets/images/recipes/">
+         <section aria-label="Resumo da receita">
+            <figure class="img_thumb">
+               <img src="" alt="">
             </figure>
-            <section aria-label="Ingredientes da receita">
-               <h2>Ingredientes</h2>
-               <div class="ingredients-container">
-                  <template id="ingredients-template"></template>
-               </div>
-            </section>
-         </aside>
-         <section aria-label="Dados da receita">
-            <section aria-label="Resumo da receita">
-               <h1 class="recipe_title"></h1>
+            <div class="abstract_content-container">
+               <h1 class="recipe-title"></h1>
                <p class="recipe_description"></p>
-            </section>
-            <section aria-label="Modo de preparo da receita">
-               <h2>Modo de Preparo</h2>
-               <div class="waytodo-container">
-                  <template id="waytodo-template"></template>
+               <span class="recipe_category"></span>
+            </div>
+         </section>
+         <section aria-label="Ingredientes e modo de preparo">
+            <section aria-labelledby="ingredients_section-title" class="ingredients_section">
+               <h2 id="ingredients_section-title">Ingredientes</h2>
+               <div class="ingredients-container">
+                  <template id="ingredients-template">
+
+                  </template>
                </div>
+               <section aria-labelledby="waytodo_section-title">
+                  <h2 id="waytodo_section-title">Modo de Preparo</h2>
+                  <div class="waytodo-container">
+                     <template id="waytodo-template">
+                        
+                     </template>
+                  </div>
+               </section>
             </section>
          </section>
       </main>
