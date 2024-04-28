@@ -1,5 +1,7 @@
-@import url("./vars/typography.css");
-@import url("./vars/colors.css");
+@import url("./vars/typography.css") layer(utilities.typography);
+@import url("./vars/colors.css") layer(utilities.colours);
+
+@layer reset, utilities;
 
 @layer reset {
    * {

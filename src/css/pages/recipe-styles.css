@@ -21,3 +21,57 @@ header .header_head-wrapper {
       margin-left: 1rem;
    }
 }
+
+main {
+   margin-top: 2em;
+}
+
+main section:first-child > * {
+   margin-inline: 2rem;
+}
+
+figure {
+   width: auto;
+   aspect-ratio: 16/18;
+
+   background: red;
+   overflow: hidden;
+
+   border-radius: 10px;
+
+   & img {
+      object-fit: cover;
+   }
+}
+
+.abstract_content-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1rem ;
+
+   margin-block: 1rem;
+}
+
+.recipe-title,
+.recipe-description {
+   width: auto;
+   text-align: center;
+}
+
+.recipe-title {
+   font-size: var(--fs-300);
+}
+
+.recipe-description {
+   font-family: var(--ff-300);
+   font-weight: var(--fw-100);
+}
+
+.recipe-category {
+   padding: .5rem 1rem;
+   border: 2px solid var(--primary-700 );
+   border-radius: 10px;
+
+   color: var(--primary-700);
+}

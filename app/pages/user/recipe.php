@@ -36,9 +36,9 @@
             </figure>
             <div class="abstract_content-container">
                <h1 class="recipe-title">Macarrrrão</h1>
-               <p class="recipe_description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam quia vel. Provident natus officia, odit quam facilis recusandae quas molestiae aperiam magnam numquam ullam perferendis, eum, in reprehenderit tempore.
+               <p class="recipe-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam quia vel. Provident natus officia, odit quam facilis recusandae quas molestiae aperiam magnam numquam ullam perferendis, eum, in reprehenderit tempore.
                Reiciendis vel earum commodi quidem ipsa saepe eos maxime exercitationem repellendus veniam aspernatur dignissimos voluptas sit id libero voluptates alias dolores, inventore nihil quis autem officiis. Libero autem minima ullam?</p>
-               <span class="recipe_category">Massas</span>
+               <span class="recipe-category">Massas</span>
             </div>
          </section>
       </main>
