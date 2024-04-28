@@ -157,3 +157,43 @@ figure {
       }
    }
 }
+
+.waytodo-container {
+   display: flex;
+   flex-direction: column;
+
+   background: hsl(253 80% 95%);
+   
+   & li {
+      display: inherit;
+      align-items: center;
+      gap: .5rem;
+
+      padding: 1rem 2rem;
+   
+      &:nth-child(even) {
+         background: var(--neutral-100);
+      }
+   }
+}
+
+.waytodo-container li .sequence-index {
+   display: grid;
+   place-content: center;
+
+   font-family: var(--ff-200);
+   font-weight: var(--fw-400);
+   font-size: var(--fs-400);
+
+   height: calc(var(--fs-400) + 10px);
+   aspect-ratio: 1;
+
+   color: var(--primary-700);
+
+   border: 3px solid var(--primary-700);
+   border-radius: 50%;
+}
+
+.waytodo-container li .waytodo-description {
+   font-family: var(--ff-300);
+}

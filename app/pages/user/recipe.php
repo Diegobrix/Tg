@@ -26,7 +26,7 @@
                <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4"><a href="?content-type=Vídeos&content-type-id=3">Vídeos</a></li>
             </ul>
          </nav>
-         <div class="b"></div>
+         <div class="bg"></div>
          <hr>
       </header>
       <main>
@@ -93,6 +93,22 @@
                            <span class="waytodo-description"></span>
                         </li>
                      </template>
+                     <li>
+                        <span class="sequence-index">1</span>
+                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
+                     </li>
+                     <li>
+                        <span class="sequence-index">2</span>
+                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
+                     </li>
+                     <li>
+                        <span class="sequence-index">3</span>
+                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
+                     </li>
+                     <li>
+                        <span class="sequence-index">4</span>
+                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
+                     </li>
                   </ul>
                </div>
             </section>
