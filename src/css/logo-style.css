@@ -8,6 +8,6 @@
       font-family: unset;
       letter-spacing: 2px;
 
-      color: #008ed4;
+      color: var(--logo-blue);
    }
 }

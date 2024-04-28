@@ -26,7 +26,7 @@ main {
    margin-top: 2em;
 }
 
-main section:first-child > * {
+main > section:first-child > * {
    margin-inline: 2rem;
 }
 
@@ -54,13 +54,19 @@ figure {
 }
 
 .recipe-title,
-.recipe-description {
+.recipe-description,
+[id$="_section-title"] {
    width: auto;
    text-align: center;
 }
 
-.recipe-title {
+.recipe-title,
+[id$="_section-title"] {
    font-size: var(--fs-300);
+}
+
+[id$="_section-title"] {
+   margin-block: 1rem;
 }
 
 .recipe-description {
@@ -74,4 +80,80 @@ figure {
    border-radius: 10px;
 
    color: var(--primary-700);
+}
+
+.ingredients_section {
+   display: flex;
+   flex-direction: column;
+
+   padding-bottom: 1rem;
+   background: hsl(200 100% 42% / .4);
+   
+   & .amount_controller-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      margin-top: 1rem;
+      padding: 0 2rem;
+
+      & .amount-display {
+         position: relative;
+         font-family: var(--ff-200);
+         font-size: var(--fs-200);
+         font-weight: var(--fw-300);
+
+         margin: 0 .5rem;
+      }
+   }
+}
+
+.amount_controller-wrapper .amount-display::after {
+   content: attr(data-amount);
+}
+
+.amount_controller-wrapper .amount-handler {
+   --icon: url("../../../assets/icons/minus.svg");
+   --icon-size: cover;
+   
+   width: 1.3rem;
+   aspect-ratio: 1;
+
+   border: 2px solid var(--primary-700);
+   border-radius: 50%;
+
+   background: var(--icon) no-repeat center center;
+   background-size: var(--icon-size);
+
+   &[data-action="plus"] {
+      --icon: url("../../../assets/icons/plus_black.svg");
+      --icon-size: 90%;
+      margin-left: .5rem;
+   }
+}
+
+.amount_controller-wrapper:has(> [data-amount="1"]) .amount-handler[data-action="minus"] {
+   opacity: .2;
+   pointer-events: none;
+}
+
+
+.ingredients-container {
+   display: flex;
+   flex-direction: column;
+
+   & li {
+      display: inherit;
+      justify-content: space-between;
+      padding: .5rem 2rem;
+
+      & .ingredient-amount,
+      & .ingredient-amount > * {
+         font-family: var(--ff-300);
+      }
+   
+      &:nth-child(even) {
+         background: var(--neutral-500);
+      }
+   }
 }

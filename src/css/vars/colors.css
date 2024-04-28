@@ -25,6 +25,8 @@
    --transparent-400:hsl(273 70% 74% / .2);
    --transparent-500: hsl(273 98% 46% / .2);
 
+   --logo-blue: hsl(200, 100%, 42%);
+
    --legend-100: hsl(143 98% 46%);
    --legend-200: hsl(37 98% 46%);
    --legend-300: hsl(0 0% 20%);
