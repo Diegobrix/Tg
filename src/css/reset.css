@@ -1,120 +1,122 @@
 @import url("./vars/typography.css");
 @import url("./vars/colors.css");
 
-* {
-   box-sizing: inherit;
-   font-family: var(--ff-100);
-}
-
-body,
-html {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-
-   min-height: 100vh;
-   min-height: 100dvh;
-   overflow-x: hidden;
-}
-
-a {
-   color: inherit;
-   text-decoration: none;
-   cursor: pointer;
-}
-
-ul {
-   padding: 0;
-   list-style-type: none;
-}
-
-button,
-input[type="submit"] {
-   outline-color: transparent;
-   background: var(--transparent);
-   border: 0;
-   cursor: pointer;
-}
-
-h1,
-h2,
-h3,
-h4,
-blockquote,
-p,
-header,
-li {
-   margin: 0;
-}
-
-figure,
-img,
-object,
-svg {
-   width: 100%;
-   height: 100%;
-
-   padding: 0;
-   margin: 0;
-}
-
-figure img,
-img {
-   width: 100%;
-   height: 100%;
-   object-fit: contain;
-}
-
-.greetings-wrapper h1 {
-   display: flex;
-   align-items: center;
-   gap: 0 1px;
-}
-
-.username {
-   display: block;
-   max-width: var(--max-width);
-   text-wrap: nowrap;
-   text-overflow: ellipsis;
-   overflow: hidden;
-}
-
-li:not(:has(ul)) {
-   transition: all .2s;
-   cursor: pointer;
-}
-
-textarea {
-   resize: none;
-}
-
-input,
-textarea,
-button {
-   --ring-color: transparent;
-   outline-color: var(--ring-color);
-}
-
-#mobile_menu--handler {
-   --icon: url("../../assets/icons/hamburger-menu.svg");
-   --handler-size: 2rem;
-   --icon-size: 70%;
-
-   width: var(--handler-size);
-   aspect-ratio: 1;
-   background: var(--icon) no-repeat center center;
-   background-color: var(--primary-700);
-   background-size: var(--icon-size);
-   border-radius: 50%;
-}
-
-.mobile-menu[aria-expanded="false"],
-.mobile-menu[aria-expanded="false"] + .bg {
-   display: none;
-}
-
-label {
-   cursor: pointer;
+@layer reset {
+   * {
+      box-sizing: inherit;
+      font-family: var(--ff-100);
+   }
+   
+   body,
+   html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+   
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow-x: hidden;
+   }
+   
+   a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+   }
+   
+   ul {
+      padding: 0;
+      list-style-type: none;
+   }
+   
+   button,
+   input[type="submit"] {
+      outline-color: transparent;
+      background: var(--transparent);
+      border: 0;
+      cursor: pointer;
+   }
+   
+   h1,
+   h2,
+   h3,
+   h4,
+   blockquote,
+   p,
+   header,
+   li {
+      margin: 0;
+   }
+   
+   figure,
+   img,
+   object,
+   svg {
+      width: 100%;
+      height: 100%;
+   
+      padding: 0;
+      margin: 0;
+   }
+   
+   figure img,
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+   }
+   
+   .greetings-wrapper h1 {
+      display: flex;
+      align-items: center;
+      gap: 0 1px;
+   }
+   
+   .username {
+      display: block;
+      max-width: var(--max-width);
+      text-wrap: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+   }
+   
+   li:not(:has(ul)) {
+      transition: all .2s;
+      cursor: pointer;
+   }
+   
+   textarea {
+      resize: none;
+   }
+   
+   input,
+   textarea,
+   button {
+      --ring-color: transparent;
+      outline-color: var(--ring-color);
+   }
+   
+   #mobile_menu--handler {
+      --icon: url("../../assets/icons/hamburger-menu.svg");
+      --handler-size: 2rem;
+      --icon-size: 70%;
+   
+      width: var(--handler-size);
+      aspect-ratio: 1;
+      background: var(--icon) no-repeat center center;
+      background-color: var(--primary-700);
+      background-size: var(--icon-size);
+      border-radius: 50%;
+   }
+   
+   .mobile-menu[aria-expanded="false"],
+   .mobile-menu[aria-expanded="false"] + .bg {
+      display: none;
+   }
+   
+   label {
+      cursor: pointer;
+   }
 }
 
 @supports selector(:has( *)) {
