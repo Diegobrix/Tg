@@ -1,5 +1,17 @@
 @import url("../logo-style.css");
 
 header {
+   position: sticky;
+   top: 0;
+
    padding: .5rem;
+}
+
+header .header_head-wrapper {
+   display: flex;
+   align-items: center;
+   
+   & .logo {
+      margin-left: 1rem;
+   }
 }

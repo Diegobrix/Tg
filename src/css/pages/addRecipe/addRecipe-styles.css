@@ -36,16 +36,6 @@ header {
    align-items: center;
 }
 
-
-.header_head #mobile_menu--handler {
-   width: 2rem;
-   aspect-ratio: 1;
-   background: url("../../../../assets/icons/hamburger-menu.svg") no-repeat center center;
-   background-color: var(--primary-700);
-   background-size: 70%;
-   border-radius: 50%;
-}
-
 h1 {
    font-size: 1.1rem;
 }
