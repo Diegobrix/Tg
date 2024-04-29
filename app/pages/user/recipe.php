@@ -44,17 +44,17 @@
       <main>
          <section aria-label="Resumo da receita">
             <figure class="img_thumb">
-               <img src="../../../assets/images/recipes/" alt="">
+               <img src="../../../assets/images/recipes/<?=$recipe['pic']?>" alt="">
             </figure>
             <div class="abstract_content-container">
-               <h1 class="recipe-title"></h1>
-               <p>por <span class="recipeAuthor"></span></p>
+               <h1 class="recipe-title"><?=$recipe['title']?></h1>
+               <p>por <span class="recipeAuthor"><?=$recipe['author']?></span></p>
                <div class="divider-wrapper">
                   <div class="horizontal-divider"></div>
                   <div class="vertical-divider"></div>
                   <div class="horizontal-divider"></div>
                </div>
-               <p class="recipe-description"></p>
+               <p class="recipe-description"><?=$recipe['description']?></p>
                <span class="recipe-category"></span>
             </div>
          </section>

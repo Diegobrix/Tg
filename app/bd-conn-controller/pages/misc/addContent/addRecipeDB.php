@@ -27,9 +27,10 @@
          $photo = $mSaver->saveMedia("no_image.png");
       }
 
-      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :benefits, :way, :photo, :category, :author);");
+      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `descricaoReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :recipeDesc, :benefits, :way, :photo, :category, :author);");
       $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
+         ":recipeDesc" => $recipeDescription,
          ":benefits" => $recipeBenefits,
          ":way" => $recipeWayToDo,
          ":photo" => $photo,

@@ -7,11 +7,13 @@
       $recipe = $r->getRecipe();
 
       //Voltar despois
-      // if($recipe != null)
-      // {
-      //    $r->addToTemp($recipe);
-      //    return $recipe;
-      // }
+      if($recipe != null)
+      {
+         $r->addToTemp($recipe);
+         return $recipe;
+      }
+
+      
    }
 
    function getConn()

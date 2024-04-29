@@ -23,6 +23,7 @@
             $recipe = array();
             $recipe['id'] = $result['idReceita'];
             $recipe['title'] = $result['tituloReceita'];
+            $recipe['description'] = $result['descricaoReceita'];
             $recipe['benefits'] = $result['beneficiosReceita'];
             $recipe['waytodo'] = $result['modoDePreparoReceita'];
             $recipe['pic'] = $result['fotoReceita'];
