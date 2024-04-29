@@ -162,7 +162,7 @@
                ?>
                <button id="<?=$data['id'].'-extra_content-handler'?>" class="extra_content-handler" popovertarget="<?=$data['id'].'-extra_content'?>"></button>
                <div id="<?=$data['id'].'-extra_content'?>" anchor="<?=$data['id'].'-extra_content-handler'?>" popover class="extra_content-wrapper">
-                  <a href="">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
+                  <a href="../user/recipe.php?id=37">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
                   <a href="">Editar</a>
                </div>
             </div>

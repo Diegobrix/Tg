@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/recipe-styles.css"/>
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
+      <script defer src="../../../src/js/pages/user/recipe/ingredients_amount_controller.js"></script>
    </head>
    <body>
       <?php
@@ -47,15 +48,19 @@
                <img src="../../../assets/images/recipes/<?=$recipe['pic']?>" alt="">
             </figure>
             <div class="abstract_content-container">
-               <h1 class="recipe-title"><?=$recipe['title']?></h1>
-               <p>por <span class="recipeAuthor"><?=$recipe['author']?></span></p>
-               <div class="divider-wrapper">
-                  <div class="horizontal-divider"></div>
-                  <div class="vertical-divider"></div>
-                  <div class="horizontal-divider"></div>
+               <div class="title-container">
+                  <h1 class="recipe-title"><?=$recipe['title']?></h1>
+                  <p>por <span class="recipeAuthor"><?=$recipe['author']?></span></p>
+                  <div class="divider-wrapper">
+                     <div class="horizontal-divider"></div>
+                     <div class="vertical-divider"></div>
+                     <div class="horizontal-divider"></div>
+                  </div>
                </div>
-               <p class="recipe-description"><?=$recipe['description']?></p>
-               <span class="recipe-category"><?=$recipe['category']?></span>
+               <div class="description-container">
+                  <p class="recipe-description"><?=$recipe['description']?></p>
+                  <span class="recipe-category"><?=$recipe['category']?></span>
+               </div>
             </div>
          </section>
          <section aria-label="Ingredientes e modo de preparo">
@@ -81,7 +86,7 @@
                   <div class="amount_controller-wrapper">
                      <span>É o suficiente?</span>
                      <button class="amount-handler" data-action="plus"></button>
-                     <span class="amount-display" data-amount="1"></span>
+                     <span class="amount-display" data-amount="0.5"></span>
                      <button class="amount-handler" data-action="minus"></button>
                   </div>     
                </div>
