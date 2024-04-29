@@ -77,7 +77,7 @@
                      ?>
                            <li>
                               <span class="ingredient-title"><?=$ingredient[0]?></span>
-                              <span class="ingredient-amount"><?=$amountDetails[0]?><span class="amount-unit"><?=$amountDetails[1]?></span></span>
+                              <span class="ingredient-amount"><span class="amount"><?=$amountDetails[0]?></span><span class="amount-unit"><?=$amountDetails[1]?></span></span>
                            </li>
                      <?php
                         }
@@ -86,7 +86,7 @@
                   <div class="amount_controller-wrapper">
                      <span>É o suficiente?</span>
                      <button class="amount-handler" data-action="plus"></button>
-                     <span class="amount-display" data-amount="0.5"></span>
+                     <span class="amount-display" data-amount="1"></span>
                      <button class="amount-handler" data-action="minus"></button>
                   </div>     
                </div>
