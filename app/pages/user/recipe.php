@@ -54,6 +54,7 @@
                   <div class="divider-wrapper">
                      <div class="horizontal-divider"></div>
                      <div class="vertical-divider"></div>
+                     <div class="vertical-divider"></div>
                      <div class="horizontal-divider"></div>
                   </div>
                </div>

@@ -8,7 +8,6 @@
       //Voltar despois
 
       return $recipe;
-
    }
 
    function fitData($data)

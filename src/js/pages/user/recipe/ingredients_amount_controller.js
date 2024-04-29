@@ -74,7 +74,7 @@ function changeIngredientsAmount(newAmount)
       if((newValue >= 1000) && (unit.innerHTML != 'un'))
       {
          ingredientAmount.innerText = (newValue / 1000);
-         unit.innerHTML = newUnits[unit.innerHTML];
+         unit.innerHTML = newUnits[originalIngredientsUnit[i]];
          continue;         
       }
       
