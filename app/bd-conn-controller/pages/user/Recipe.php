@@ -61,7 +61,7 @@
       {
          if($current < sizeof($data))
          {
-            $ingredients[$current] = $this->getIngredientName($data[$current]['idIngrediente']).'@'.$data[$current]['qtdeIngrediente'].$this->getIngredientUnit($data[$current]['medida']).'|';
+            $ingredients[$current] = $this->getIngredientName($data[$current]['idIngrediente']).'@'.$data[$current]['qtdeIngrediente'].'~'.$this->getIngredientUnit($data[$current]['medida']).'|';
             $current += 1;
             return $this->getIngredientsFromDB($data, $current, $ingredients);
          }
@@ -171,5 +171,11 @@
       public function addToTemp($recipe)
       {
          return false;
+      }
+
+      function __destruct()
+      {
+         $this->conn = null;
+         $this->id = null;
       }
    }

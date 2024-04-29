@@ -16,6 +16,25 @@
       
    }
 
+   function fitData($data)
+   {
+      $data = rtrim($data, '|');
+      $finalData = formatAdjustedData(explode('|', $data));
+
+      return $finalData;
+   }
+
+   function formatAdjustedData($arr, $current = 0, $data = array())
+   {  
+      if($current < sizeof($arr))
+      {
+         $data[$current] = explode('@', $arr[$current]);
+         $current += 1;
+         return formatAdjustedData($arr, $current, $data);
+      }
+      return $data;
+   }
+
    function getConn()
    {
       require_once(__DIR__."/../../../_conn/conn.php");

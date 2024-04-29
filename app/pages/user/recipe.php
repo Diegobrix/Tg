@@ -55,7 +55,7 @@
                   <div class="horizontal-divider"></div>
                </div>
                <p class="recipe-description"><?=$recipe['description']?></p>
-               <span class="recipe-category"></span>
+               <span class="recipe-category"><?=$recipe['category']?></span>
             </div>
          </section>
          <section aria-label="Ingredientes e modo de preparo">
@@ -63,14 +63,20 @@
                <h2 id="ingredients_section-title">Ingredientes</h2>
                <div>
                   <ul class="ingredients-container">
-                     <template id="ingredients-template">
-                        <li>
-                           <span class="ingredient-title"></span>
-                           <span class="ingredient-amount">
-                              <span class="amount-unit"></span>
-                           </span>
-                        </li>
-                     </template>
+                     <?php
+                        $ingredients = fitData($recipe['ingredients']);
+
+                        foreach($ingredients as $ingredient)
+                        {
+                           $amountDetails = explode('~', $ingredient[1]);
+                     ?>
+                           <li>
+                              <span class="ingredient-title"><?=$ingredient[0]?></span>
+                              <span class="ingredient-amount"><?=$amountDetails[0]?><span class="amount-unit"><?=$amountDetails[1]?></span></span>
+                           </li>
+                     <?php
+                        }
+                     ?>
                   </ul> 
                   <div class="amount_controller-wrapper">
                      <span>É o suficiente?</span>
@@ -84,12 +90,19 @@
                <h2 id="waytodo_section-title">Modo de Preparo</h2>
                <div>
                   <ul class="waytodo-container">
-                     <template id="waytodo-template">
-                        <li>
-                           <span class="sequence-index"></span>
-                           <span class="waytodo-description"></span>
-                        </li>
-                     </template>
+                     <?php
+                        $waytodos = fitData($recipe['waytodo']);
+
+                        foreach($waytodos as $waytodo)
+                        {
+                     ?>
+                           <li>
+                              <span class="sequence-index"><?=$waytodo[0]?></span>
+                              <span class="waytodo-description"><?=$waytodo[1]?></span>
+                           </li>
+                     <?php
+                        }
+                     ?>
                   </ul>
                </div>
             </section>
