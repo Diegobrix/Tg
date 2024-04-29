@@ -12,6 +12,18 @@
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
    </head>
    <body>
+      <?php
+         $recipeId = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+         if($recipeId == null)
+         {
+            //Redirecionar Usuario a tela principal...
+            //header();
+         }
+
+         require_once("../../bd-conn-controller/pages/user/getRecipeDB.php");
+         $recipe = getRecipe($recipeId);
+      ?>
       <header>
          <div class="header_head-wrapper">
             <button id="mobile_menu--handler"></button>
@@ -32,13 +44,18 @@
       <main>
          <section aria-label="Resumo da receita">
             <figure class="img_thumb">
-               <img src="../../../assets/images/teste_receita.jpg" alt="">
+               <img src="../../../assets/images/recipes/" alt="">
             </figure>
             <div class="abstract_content-container">
-               <h1 class="recipe-title">Macarrão</h1>
-               <p class="recipe-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo quibusdam quia vel. Provident natus officia, odit quam facilis recusandae quas molestiae aperiam magnam numquam ullam perferendis, eum, in reprehenderit tempore.
-               Reiciendis vel earum commodi quidem ipsa saepe eos maxime exercitationem repellendus veniam aspernatur dignissimos voluptas sit id libero voluptates alias dolores, inventore nihil quis autem officiis. Libero autem minima ullam?</p>
-               <span class="recipe-category">Massas</span>
+               <h1 class="recipe-title"></h1>
+               <p>por <span class="recipeAuthor"></span></p>
+               <div class="divider-wrapper">
+                  <div class="horizontal-divider"></div>
+                  <div class="vertical-divider"></div>
+                  <div class="horizontal-divider"></div>
+               </div>
+               <p class="recipe-description"></p>
+               <span class="recipe-category"></span>
             </div>
          </section>
          <section aria-label="Ingredientes e modo de preparo">
@@ -54,26 +71,6 @@
                            </span>
                         </li>
                      </template>
-                     <li>
-                        <span class="ingredient-title">Ovo</span>
-                        <span class="ingredient-amount">6<span class="amount-unit">un</span></span>
-                     </li>
-                     <li>
-                        <span class="ingredient-title">Farinha</span>
-                        <span class="ingredient-amount">100<span class="amount-unit">g</span></span>
-                     </li>
-                     <li>
-                        <span class="ingredient-title">Leite</span>
-                        <span class="ingredient-amount">50<span class="amount-unit">ml</span></span>
-                     </li>
-                     <li>
-                        <span class="ingredient-title">Fermento</span>
-                        <span class="ingredient-amount">8<span class="amount-unit">g</span></span>
-                     </li>
-                     <li>
-                        <span class="ingredient-title">Açúcar</span>
-                        <span class="ingredient-amount">520<span class="amount-unit">g</span></span>
-                     </li>
                   </ul> 
                   <div class="amount_controller-wrapper">
                      <span>É o suficiente?</span>
@@ -93,22 +90,6 @@
                            <span class="waytodo-description"></span>
                         </li>
                      </template>
-                     <li>
-                        <span class="sequence-index">1</span>
-                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
-                     </li>
-                     <li>
-                        <span class="sequence-index">2</span>
-                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
-                     </li>
-                     <li>
-                        <span class="sequence-index">3</span>
-                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
-                     </li>
-                     <li>
-                        <span class="sequence-index">4</span>
-                        <span class="waytodo-description">Aqueça uma frigideira em fogo médio</span>
-                     </li>
                   </ul>
                </div>
             </section>

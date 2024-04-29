@@ -33,8 +33,6 @@ main > section:first-child > * {
 figure {
    width: auto;
    aspect-ratio: 16/18;
-
-   background: red;
    overflow: hidden;
 
    border-radius: 10px;
