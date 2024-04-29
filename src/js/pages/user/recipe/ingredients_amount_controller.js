@@ -58,11 +58,24 @@ INGREDIENTS_AMOUNT.forEach((ingredient) => {
    originalIngredientsAmount.push(amount);
 });
 
+
 function changeIngredientsAmount(newAmount)
 {
+   let newUnits = {'g':"kg", 'ml':"l", 'kg':"kg"};
+   
    for(let i = 0; i < INGREDIENTS_AMOUNT.length; i++)
    {
       let ingredientAmount = INGREDIENTS_AMOUNT[i].querySelector('.amount');
-      ingredientAmount.innerText = (originalIngredientsAmount[i] * newAmount);
+      let unit = INGREDIENTS_AMOUNT[i].querySelector('.amount-unit');
+      let newValue = (originalIngredientsAmount[i] * newAmount);
+
+      if((newValue >= 1000) && (unit.innerHTML != 'un'))
+      {
+         ingredientAmount.innerText = (newValue / 1000);
+         unit.innerHTML = newUnits[unit.innerHTML];
+         continue;         
+      }
+      
+      ingredientAmount.innerText = newValue;
    }
 }
