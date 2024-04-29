@@ -5,15 +5,10 @@
    {
       $r = new Recipe($recipeId, getConn());
       $recipe = $r->getRecipe();
-
       //Voltar despois
-      if($recipe != null)
-      {
-         $r->addToTemp($recipe);
-         return $recipe;
-      }
 
-      
+      return $recipe;
+
    }
 
    function fitData($data)

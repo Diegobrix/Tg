@@ -45,7 +45,7 @@
       <main>
          <section aria-label="Resumo da receita">
             <figure class="img_thumb">
-               <img src="../../../assets/images/recipes/<?=$recipe['pic']?>" alt="">
+               <img src="../../../assets/images/recipes/<?=htmlspecialchars($recipe['pic'])?>" alt="">
             </figure>
             <div class="abstract_content-container">
                <div class="title-container">

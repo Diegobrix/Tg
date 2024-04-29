@@ -66,7 +66,7 @@
             return $this->getIngredientsFromDB($data, $current, $ingredients);
          }
 
-         return implode("|", $ingredients);
+         return implode('', $ingredients);
       }
 
       private function getIngredientUnit($unitId)
