@@ -132,6 +132,7 @@
                <span>Sugestões do Dia</span>
                <div class="suggestions--wrapper">
                   <?php
+                     require_once("./data/datasetsGenerator.php");
                      require_once("./data/daySuggestions.php");
                      $suggestions = getSuggestions();
 

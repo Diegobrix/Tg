@@ -1,7 +1,7 @@
 <?php
    class ContentController
    {
-      private $basePath = __DIR__."/../../../pages/admin/data/dashboard_data/datasets/";
+      private $basePath = __DIR__."/../../../pages/admin/data/datasets/";
       private $content = [];
 
       
