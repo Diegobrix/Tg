@@ -30,14 +30,8 @@
             <button id="mobile_menu--handler"></button>
             <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
-         <nav class="mobile-menu" aria-expanded="false">
+         <nav class="mobile-menu" aria-expanded="true">
             <button id="btn_close"></button>
-            <ul>
-               <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1"><a href="?content-type=Receitas&content-type-id=0">Receitas</a></li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==1?'true':'false'?>" data-item-index="2"><a href="?content-type=Ingredientes&content-type-id=1">Ingredientes</a></li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==2?'true':'false'?>" data-item-index="3"><a href="?content-type=Categorias&content-type-id=2">Categorias</a></li>
-               <li class="nav_item" data-current="<?=$choosedTypeId==3?'true':'false'?>" data-item-index="4"><a href="?content-type=Vídeos&content-type-id=3">Vídeos</a></li>
-            </ul>
          </nav>
          <div class="bg"></div>
          <hr>

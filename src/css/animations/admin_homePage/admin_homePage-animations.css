@@ -1,9 +1,3 @@
-@keyframes openMenu {
-   to {
-      left: 0;
-   }
-}
-
 @keyframes showDropDownMenu {
    from {
       top: var(--animStart);

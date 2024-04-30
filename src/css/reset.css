@@ -1,7 +1,8 @@
 @import url("./vars/typography.css") layer(utilities.typography);
 @import url("./vars/colors.css") layer(utilities.colours);
+@import url("./animations/general-anim.css") layer(animations);
 
-@layer reset, utilities;
+@layer reset, utilities, animations;
 
 @layer reset {
    * {

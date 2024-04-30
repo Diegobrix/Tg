@@ -22,6 +22,45 @@ header .header_head-wrapper {
    }
 }
 
+.mobile-menu[aria-expanded="true"],
+.mobile-menu[aria-expanded="true"] + .bg {
+   --element-width: 60vw;
+   --bg: var(--primary-600);
+
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+
+   width: var(--element-width);
+   margin: auto;
+   background: var(--bg);
+   z-index: 100;
+}
+
+.mobile-menu[aria-expanded="true"] {
+   left: calc(var(--element-width) * -1);
+   animation: openMenu .2s ease-in forwards;
+}
+
+.mobile-menu[aria-expanded="true"] + .bg {
+   --element-width: 100vw;
+   --bg: var(--transparent-500);
+
+   backdrop-filter: blur(2px);
+   z-index: 99;
+}
+
+.mobile-menu #btn_close {
+   position: absolute;
+   top: 1rem;
+   left: 1rem;
+
+   width: 2rem;
+   aspect-ratio: 1;
+   background: url("../../../assets/icons/close.svg");
+}
+ 
 main {
    margin-top: 1.5rem;
 }
@@ -63,7 +102,7 @@ figure {
 }
 
 .abstract_content-container .title-container .divider-wrapper {
-   --size: 3px;
+   --size: 3.5px;
 
    display: flex;
    justify-content: space-between;
@@ -73,6 +112,7 @@ figure {
    width: 100%;
    height: var(--size);
    margin-block: 1rem;
+   z-index: -1;
 
    & div {
       border-radius: 50vw;
