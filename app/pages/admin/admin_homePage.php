@@ -37,7 +37,7 @@
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
-         require_once("./data/getDataFromDB.php");
+         //require_once("./data/getDataFromDB.php");
       ?>
       <header>
          <div class="greetings-wrapper">
@@ -67,7 +67,7 @@
             <div class="recipes_overview--wrapper">
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
-                  <p class="recipes_amount-display"><?=$content[0]['recipes_amount']?></p>
+                  <p class="recipes_amount-display">10</p>
                   <button id="recipes-extra_options-handler" class="options-handler" popovertarget="recipes-extra_options"></button>
 
                   <div popover anchor="recipes-extra_options-handler" id="recipes-extra_options" class="extra_options">
@@ -77,17 +77,17 @@
                </div>
                <div class="popular_category--wrapper">
                   <h2>Categoria Preferida</h2>
-                  <p class="popular_category-display"><?=$popularCategory?></p>
+                  <p class="popular_category-display">Ao mosso</p>
                   <div>
-                     <p class="popular_category_amount-display"><?=$popularCategoryAmount?></p>
+                     <p class="popular_category_amount-display">2000</p>
                      <span>Receitas</span>
                   </div>
                </div>
                <div class="most_recent_recipe--wrapper">
                   <h2>Última Receita Adicionada</h2>
-                  <p class="most_recent_recipe-display"><?=$lastRecipeTitle?></p>
+                  <p class="most_recent_recipe-display">Teu u</p>
                   <figure>
-                     <img src="../../../assets/images/recipes/<?=htmlspecialchars($lastRecipeThumb)?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/teste_receita.jpg" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
@@ -97,19 +97,10 @@
                </div>
                <div class="categories-container">
                   <button id="top_categories-extra_options-handler" class="options-handler" popovertarget="top_categories-extra_options"></button>
-                  <?php
-                     $categoriesArr = $contentData[1];
-                     for($i = 0; $i < count($categories); $i++)
-                     {
-                        $currentAmount = $contentData[1][$i]['amount'];
-                  ?>
                      <div class="category">
-                        <div class="bar <?=$currentAmount/$popularCategoryAmount==1?'bigger':''?>" style="--bar-size: <?=number_format((float)$currentAmount/$popularCategoryAmount, 2, '.')?>;" data-recipes-amount="<?=$currentAmount?>"></div>
-                        <p class="category-title"><?=implode($categories[$i])?></p>
+                        <div class="bar bigger style="--bar-size: 1;" data-recipes-amount="<?=$currentAmount?>"></div>
+                        <p class="category-title">Ao mosso</p>
                      </div>
-                  <?php
-                     }
-                  ?>
                   <div popover anchor="top_categories-extra_options-handler" id="top_categories-extra_options" class="extra_options">
                      <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Todas categorias</a>
                   </div>
@@ -119,7 +110,7 @@
          <section class="other_options-wrapper">
             <div class="videos-widget">
                <h2>Vídeos</h2>
-               <p class="videos_amount"><?=$videosAmount?></p>
+               <p class="videos_amount">0</p>
                <button id="videos-extra_options-handler" class="options-handler" popovertarget="videos-extra_options"></button>
 
                <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
@@ -129,7 +120,7 @@
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
-               <p class="categories_amount"><?=$categoriesAmount?></p>
+               <p class="categories_amount">1</p>
                <button id="categories-extra_options-handler" class="options-handler" popovertarget="category-extra_options"></button>
 
                <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
@@ -142,36 +133,9 @@
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/daySuggestions.php");
-                     $suggestionsFilePath = "./data/temp_data/day_suggestions.json";
+                     $suggestions = getSuggestions();
 
-                     if(file_exists($suggestionsFilePath) && (is_readable($suggestionsFilePath)))
-                     {
-                        $jsonSuggestionsData = json_decode(file_get_contents("./data/temp_data/day_suggestions.json"), true);
-                        if($jsonSuggestionsData[1] == null)
-                        {
-                           unlink($suggestionsFilePath);
-                           die("Erro ao gerar as sugestões, por favor recarregue a página e tente novamente!");
-                        }
-
-                        if(sizeof($jsonSuggestionsData[1]) > 0)
-                        {
-                           $suggestions = $jsonSuggestionsData[1];
-                           $i = 0;
-                           foreach($suggestions as $suggestion)
-                           {
-                  ?>
-                              <div id="suggestion_<?=$i?>" class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../../assets/images/recipes/<?=htmlspecialchars($suggestion['thumbSuggestion'])?>);">
-                                 <a class="suggestion_handler-prev suggestion_handler <?=$i==0?'first':''?>" href="#suggestion_<?=$i-1?>"><</a>
-                                 <!-- Adicionar o caminho para a tela da receita -->
-                                 <a class="recipe_details-handler" href=""></a>
-                                 <p class="suggestion_title"><?=$suggestion['titleSuggestion']?></p>
-                                 <a class="suggestion_handler-next suggestion_handler <?=$i>=sizeof($suggestions)-1?'last':''?>" href="#suggestion_<?=$i+1?>">></a>
-                              </div>
-                  <?php
-                              $i += 1;
-                           }
-                        }
-                     }
+                     print("<pre>".print_r($suggestions, true)."</pre>");
                   ?>
                </div>
             </div>

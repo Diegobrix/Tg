@@ -30,7 +30,7 @@
             <button id="mobile_menu--handler"></button>
             <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
-         <nav class="mobile-menu" aria-expanded="true">
+         <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
          </nav>
          <div class="bg"></div>
