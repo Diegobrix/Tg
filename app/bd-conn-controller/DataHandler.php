@@ -1,15 +1,15 @@
 <?php
-   class DashboardData
+   class DataHandler
    {
       private $filename;
-      function __construct($filename)
+      public function __construct($filename)
       {
          $this->filename = $filename;
       }
 
       public function generateDataset($data)
       {
-         $path = __DIR__."/datasets/";
+         $path = __DIR__."/../pages/admin/data/datasets/";
          if(file_exists($path.$this->filename))
          {
             unlink($path.$this->filename);
