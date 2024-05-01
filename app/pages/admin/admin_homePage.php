@@ -33,12 +33,6 @@
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
-
-      <style>
-         :root {
-            overflow: visible;
-         }
-      </style>
    </head>
    <body>
       <?php 
@@ -120,10 +114,24 @@
                </div>
                <div class="categories-container">
                   <button id="top_categories-extra_options-handler" class="options-handler" popovertarget="top_categories-extra_options"></button>
-                     <div class="category">
-                        <div class="bar bigger style="--bar-size: 1;" data-recipes-amount="<?=$currentAmount?>"></div>
-                        <p class="category-title">Ao mosso</p>
-                     </div>
+                     <?php
+                        $topCategoriesId = array();
+                        for($i = 0; $i < sizeof($categoriesSectionContent); $i++)
+                        {
+                           $topCategoriesId[$i] = $categoriesSectionContent[$i]['category'];
+                        }
+
+                        $topCategories = fetchCategory($conn, $topCategoriesId);
+                        foreach($topCategories as $category)
+                        {            
+                     ?>
+                           <div class="category">
+                              <div class="bar <?=$category['amount']/$mostPopularCategory['amount']==1?'bigger':''?>" style="--bar-size: <?=number_format((float)$category['amount']/$mostPopularCategory['amount'], 2, '.');?>" data-recipes-amount="<?=$category['amount']?>"></div>
+                              <p class="category-title">Ao mosso</p>
+                           </div>
+                     <?php
+                        }
+                     ?>
                   <div popover anchor="top_categories-extra_options-handler" id="top_categories-extra_options" class="extra_options">
                      <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Todas categorias</a>
                   </div>
@@ -132,18 +140,31 @@
          </section>
          <section class="other_options-wrapper">
             <div class="videos-widget">
+               <?php
+                  $videos = json_decode(file_get_contents("./data/datasets/videos.json"), true);
+                  $categories = json_decode(file_get_contents("./data/datasets/categories.json"), true);
+                  
+                  if($videos != null)
+                  {
+                     $videosAmount = sizeof($videos);
+                  }
+                  if($categories != null)
+                  {
+                     $categoriesAmount = sizeof($categories);
+                  }
+               ?>
                <h2>Vídeos</h2>
-               <p class="videos_amount"></p>
+               <p class="videos_amount"><?=$videos != null?$videosAmount:0?></p>
                <button id="videos-extra_options-handler" class="options-handler" popovertarget="videos-extra_options"></button>
 
                <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
                   <a href="" class="option">Add. Vídeo</a>
-                  <a href="" class="option">Todos vídeos</a>
+                  <a href="./admin_dashboard.php?content-type=Videos&content-type-id=3" class="option">Todos vídeos</a>
                </div>
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
-               <p class="categories_amount">1</p>
+               <p class="categories_amount"><?=$categories != null?$categoriesAmount:0?></p>
                <button id="categories-extra_options-handler" class="options-handler" popovertarget="category-extra_options"></button>
 
                <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
