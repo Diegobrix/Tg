@@ -33,11 +33,34 @@
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
+
+      <style>
+         :root {
+            overflow: visible;
+         }
+      </style>
    </head>
    <body>
       <?php 
          require_once("../../bd-conn-controller/pages/admin/admin_homePage_bd.php");
-         //require_once("./data/getDataFromDB.php");
+         require_once("../../bd-conn-controller/pages/admin/admin_homePage_content.php");
+
+         $content = json_decode(file_get_contents('../../bd-conn-controller/temp_data/data/content_data.json'), true);
+         if($content != null)
+         {
+            $recipeSectionContent = $content[0];
+            $categoriesSectionContent = $content[1];
+
+            $categories = fetchCategory($conn, $recipeSectionContent['most_popular_category']);
+            $mostPopularCategory = $categories[0];
+
+            $recipes = fetchRecipe($conn, $recipeSectionContent['last_recipe']);
+            $lastRecipe = $recipes[0]; 
+         }
+         else
+         {
+            //Recarregar a página
+         }
       ?>
       <header>
          <div class="greetings-wrapper">
@@ -67,7 +90,7 @@
             <div class="recipes_overview--wrapper">
                <div class="recipes--wrapper">
                   <h2>Receitas</h2>
-                  <p class="recipes_amount-display">10</p>
+                  <p class="recipes_amount-display"><?=$content != null?$recipeSectionContent['recipes_amount']:0?></p>
                   <button id="recipes-extra_options-handler" class="options-handler" popovertarget="recipes-extra_options"></button>
 
                   <div popover anchor="recipes-extra_options-handler" id="recipes-extra_options" class="extra_options">
@@ -77,17 +100,17 @@
                </div>
                <div class="popular_category--wrapper">
                   <h2>Categoria Preferida</h2>
-                  <p class="popular_category-display">Ao mosso</p>
+                  <p class="popular_category-display"><?=$mostPopularCategory['title']?></p>
                   <div>
-                     <p class="popular_category_amount-display">2000</p>
+                     <p class="popular_category_amount-display"><?=$mostPopularCategory['amount']?></p>
                      <span>Receitas</span>
                   </div>
                </div>
                <div class="most_recent_recipe--wrapper">
                   <h2>Última Receita Adicionada</h2>
-                  <p class="most_recent_recipe-display">Teu u</p>
+                  <p class="most_recent_recipe-display"><?=$lastRecipe['title']?></p>
                   <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
+                     <img src="../../../assets/images/recipes/<?=htmlspecialchars($lastRecipe['thumb'])?>" alt="Foto da última receita adicionada" class="last_recipe_thumb-display">
                   </figure>
                </div>
             </div>
@@ -110,7 +133,7 @@
          <section class="other_options-wrapper">
             <div class="videos-widget">
                <h2>Vídeos</h2>
-               <p class="videos_amount">0</p>
+               <p class="videos_amount"></p>
                <button id="videos-extra_options-handler" class="options-handler" popovertarget="videos-extra_options"></button>
 
                <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
