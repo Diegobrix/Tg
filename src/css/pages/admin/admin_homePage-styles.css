@@ -227,7 +227,7 @@ main {
 }
 
 .categories--wrapper {
-   margin-block: 2rem;
+   margin: 2rem 0 2rem 0;
 }
 
 .categories-container {
@@ -301,9 +301,6 @@ main {
 }
 
 @media screen and (min-width: 1440px) {
-   :root {
-      overflow-y: hidden;
-   }
 
    body > * {
       margin-inline: 10%;
@@ -421,6 +418,10 @@ main {
       & .btn-handler {
          display: none;
       } 
+   }
+
+   .categories--wrapper {
+      margin: 2rem 0 0 0;
    }
 
    .categories-container {

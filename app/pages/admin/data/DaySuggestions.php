@@ -5,18 +5,22 @@
 
    if(!file_exists($path))
    {
-      $recipeSuggestion = new RecipeSuggestion();
-      $suggestions = $recipeSuggestion->getRandomizedRecipes();
-      createSuggestionsFile($suggestions, $path);
+      createSuggestionsFile($path);
    }
    else
    {
-      verifyTimeElapsed($path);
+      if(verifyTimeElapsed($path))
+      { 
+         createSuggestionsFile($path);
+      }
    }
 
    #region Create File
-   function createSuggestionsFile($data, $path)
+   function createSuggestionsFile($path)
    {      
+      $recipeSuggestion = new RecipeSuggestion();
+      $suggestions = $recipeSuggestion->getRandomizedRecipes();
+
       if(file_exists($path))
       {
          unlink($path);
@@ -24,15 +28,14 @@
       
       $creationTime = new DateTime();
 
-      array_push($data, $creationTime->format('Y-m-d H:i:s'));
-      return file_put_contents($path, json_encode($data));
+      array_push($suggestions, $creationTime->format('Y-m-d H:i:s'));
+      return file_put_contents($path, json_encode($suggestions));
    }
    #endregion
    #region Verify if Time Elapsed
    function verifyTimeElapsed($suggestionsJson)
    {
       $json = json_decode(file_get_contents($suggestionsJson), true);
-      print("<pre>".print_r($json, true)."</pre>");
 
       $originalTime = new DateTime($json[sizeof($json) -1]);
       $now = new DateTime();

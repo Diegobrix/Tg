@@ -45,7 +45,10 @@
         return null;
       }
 
-      $file = $this->moveFile($content, $targetDir);
+      $originalFilename = explode(' ', $content);
+      $finalFilename = implode('_', $originalFilename);
+
+      $file = $this->moveFile($finalFilename, $targetDir);
       return $file;
     }
 

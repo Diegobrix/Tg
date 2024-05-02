@@ -127,7 +127,7 @@
                      ?>
                            <div class="category">
                               <div class="bar <?=$category['amount']/$mostPopularCategory['amount']==1?'bigger':''?>" style="--bar-size: <?=number_format((float)$category['amount']/$mostPopularCategory['amount'], 2, '.');?>" data-recipes-amount="<?=$category['amount']?>"></div>
-                              <p class="category-title">Ao mosso</p>
+                              <p class="category-title"><?=$category['title']?></p>
                            </div>
                      <?php
                         }
@@ -177,9 +177,17 @@
                <div class="suggestions--wrapper">
                   <?php
                      require_once("./data/datasetsGenerator.php");
-                     require_once("./data/daySuggestions.php");
+                     require("./data/daySuggestions.php");
                      
-                     //print("<pre>".print_r($suggestions, true)."</pre>");
+                     $daySuggestions = json_decode(file_get_contents("./data/datasets/temp_data/day_suggestions.json"), true);
+                     for($i = 0; $i < sizeof($daySuggestions) -1; $i++)
+                     {
+                  ?>
+                        <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../../assets/images/recipes/<?=htmlspecialchars($daySuggestions[$i]['thumb'])?>);" aria-current="<?=$i==0?'true':'else'?>">
+                           <p class="suggestion_title"><?=$daySuggestions[$i]['title']?></p>
+                        </div>
+                  <?php
+                     }
                   ?>
                </div>
             </div>
