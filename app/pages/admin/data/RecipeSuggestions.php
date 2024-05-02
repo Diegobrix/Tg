@@ -5,13 +5,10 @@
       {
       }
 
-      public function getDaySuggestions($file)
+      public function getRandomizedRecipes()
       {
-      }
-
-      private function getRecipes()
-      {
-         
+         $recipes = json_decode(file_get_contents(__DIR__."/./datasets/recipes.json"), true);
+         return $this->randomizeRecipes($recipes, 6);
       }
 
       private function randomizeRecipes($recipes, $amount, $current = 0, $indexes = array(), $randomized = array())

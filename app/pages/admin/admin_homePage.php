@@ -178,9 +178,8 @@
                   <?php
                      require_once("./data/datasetsGenerator.php");
                      require_once("./data/daySuggestions.php");
-                     $suggestions = getSuggestions();
-
-                     print("<pre>".print_r($suggestions, true)."</pre>");
+                     
+                     //print("<pre>".print_r($suggestions, true)."</pre>");
                   ?>
                </div>
             </div>
