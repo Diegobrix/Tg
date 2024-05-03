@@ -39,6 +39,7 @@
    <!-- JS -->
    <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/modalController.js"></script>
+   <script defer src="../../../src/js/pages/admin/admin_dashboard/pageController.js"></script>
 </head>
 <body>
    <?php
