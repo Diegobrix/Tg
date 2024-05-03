@@ -39,6 +39,10 @@ header {
    --icon-size: 65%;
 }
 
+.mobile-menu[aria-expanded="false"] {
+   display: none;
+}
+
 .mobile-menu[aria-expanded="true"],
 .mobile-menu[aria-expanded="true"] + .bg {
    --menu-width: 70%;
@@ -299,6 +303,11 @@ figure img {
    & > a:hover {
       color: #000;
    }
+}
+
+.content:last-of-type .extra_content-wrapper:popover-open {
+   top: calc(anchor(bottom) - 2rem);
+   right: calc(anchor(right) + 1.5rem);
 }
 
 .empty_msg {

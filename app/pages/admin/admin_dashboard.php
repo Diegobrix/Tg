@@ -23,7 +23,6 @@
    $choosedType= filter_input(INPUT_GET, 'content-type', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
    $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_NUMBER_INT);
 
-   require_once("./data/dashboard_data/dashboardHelper.php");
    require_once("../../bd-conn-controller/pages/admin/admin_dashboard-content-controller.php");
 ?>
 <!DOCTYPE html>
@@ -150,7 +149,7 @@
                   <?php
                      }
                   ?>
-                  <h3 class="content_title"><?=$data['titulo']?></h3>
+                  <h3 class="content_title"><?=$data['title']?></h3>
                </div>
                <?php
                   if($choosedTypeId == 0)
@@ -162,7 +161,14 @@
                ?>
                <button id="<?=$data['id'].'-extra_content-handler'?>" class="extra_content-handler" popovertarget="<?=$data['id'].'-extra_content'?>"></button>
                <div id="<?=$data['id'].'-extra_content'?>" anchor="<?=$data['id'].'-extra_content-handler'?>" popover class="extra_content-wrapper">
-                  <a href="../user/recipe.php?id=37">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
+                  <?php
+                     if($choosedTypeId == 0)
+                     {
+                  ?>
+                        <a href="../user/recipe.php?id=<?=$data['id']?>">Ver <?=strtolower(substr($choosedType, 0, -1))?></a>
+                  <?php
+                     }
+                  ?>   
                   <a href="">Editar</a>
                </div>
             </div>
