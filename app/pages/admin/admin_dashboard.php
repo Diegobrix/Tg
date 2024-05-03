@@ -39,7 +39,7 @@
    <!-- JS -->
    <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/modalController.js"></script>
-   <script defer src="../../../src/js/pages/admin/admin_dashboard/pageController.js"></script>
+   <script defer src="../../../src/js/pages/exitPage.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/contentVisibilityController.js"></script>
 </head>
 <body>
@@ -62,7 +62,7 @@
       <section class="mobile_header-container">
          <button id="mobile_menu--handler"></button>
          <h1 class="current_data_show-display"><?=$choosedType?></h1>
-         <button class="btn_exit"></button>
+         <button class="btn_back"></button>
 
          <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
@@ -77,7 +77,7 @@
       </section>
       <section class="desktop_menu">
          <div class="header_head-wrapper">
-            <button class="btn_exit"></button>
+            <button class="btn_back"></button>
             <h2 class="username-display"><?=$user['username']?></h2>
          </div>
          <ul>

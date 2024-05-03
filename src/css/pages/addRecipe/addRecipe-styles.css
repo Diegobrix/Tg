@@ -105,7 +105,7 @@ header > .steps_descriptions .step_description--wrapper {
    background: var(--icon) no-repeat center center;
 }
 
-#btn_exit {
+.mobile-menu .menu-controller .btn_back {
    --icon: url("../../../../assets/icons/page_exit.svg");
 }
 

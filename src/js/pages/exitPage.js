@@ -1,5 +1,7 @@
-const BTN_EXIT_PAGE = document.getElementById("btn_exit");
+const BTNS_EXIT_PAGE = document.querySelectorAll(".btn_back");
 
-BTN_EXIT_PAGE.addEventListener("click", () => {
-   history.back();
-});
+BTNS_EXIT_PAGE.forEach(btn => {
+   btn.addEventListener("click", () => {
+      history.back();
+   });
+})

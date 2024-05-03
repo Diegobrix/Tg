@@ -25,7 +25,7 @@ header {
    padding: .5rem 1rem;
 }
 
-.mobile_header-container .btn_exit {
+.mobile_header-container .btn_back {
    width: 2.5rem;
    aspect-ratio: 1;
    
@@ -433,7 +433,7 @@ figure video {
       }
    }
 
-   .header_head-wrapper .btn_exit {
+   .header_head-wrapper .btn_back {
       width: 3rem;
       aspect-ratio: 1;
       background: url("../../../../assets/icons/page_exit.svg") no-repeat center center;

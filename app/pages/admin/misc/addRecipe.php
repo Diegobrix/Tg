@@ -63,7 +63,7 @@
 
          <aside class="mobile-menu" aria-expanded="false">
             <div class="menu-controller">
-               <button id="btn_exit" aria-label="Sair da Página"></button>
+               <button class="btn_back" aria-label="Sair da Página"></button>
                <button id="btn_close" aria-label="Fechar Menu"></button>
             </div>
             <ul class="steps_descriptions">
@@ -99,7 +99,7 @@
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
             ?>
-            <section class="form_step" data-step="0" data-current="false">
+            <section class="form_step" data-step="0" data-current="true">
                <h2 class="section_title">Adicionar Receita</h2>
                <div class="input-group">
                   <label for="txtTitle">Título</label>
@@ -191,7 +191,7 @@
                   </div>
                </dialog>
             </section>
-            <section class="form_step" data-step="2" data-current="true">
+            <section class="form_step" data-step="2" data-current="false">
                <h2 class="section_title">Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>
