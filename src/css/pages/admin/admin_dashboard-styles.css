@@ -228,6 +228,10 @@ main,
    background: var(--primary-700);
 }
 
+.content-container::-webkit-scrollbar {
+   width: 0;
+}
+
 .content {
    position: relative;
    display: flex;

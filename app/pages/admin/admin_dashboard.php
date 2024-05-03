@@ -85,10 +85,27 @@
          </ul>
          <div class="stats-container">
             <div class="bar">
-               <div style="--stat_amount: .11;" class="stat stat_recipes"></div>
-               <div style="--stat_amount: .3;" class="stat stat_ingredients"></div>
-               <div style="--stat_amount: .2;" class="stat stat_categories"></div>
-               <div style="--stat_amount: .9;" class="stat stat_videos"></div>
+               <?php
+                  $recipesAmount = sizeof($content->defineContentType(0));
+                  $ingredientsAmount = sizeof($content->defineContentType(1));
+                  $categoriesAmount = sizeof($content->defineContentType(2));
+                  $videosAmount = sizeof($content->defineContentType(3));
+
+                  $amounts = [$recipesAmount, $ingredientsAmount, $categoriesAmount, $videosAmount];
+
+                  $bigger = $recipesAmount;
+                  for($i = 0; $i < 4; $i++)
+                  {
+                     if($amounts[$i] > $bigger)
+                     {
+                        $bigger = $amounts[$i];
+                     }
+                  }
+               ?>
+               <div aria-amount="<?=$recipesAmount?>" style="--stat_amount: <?=number_format((float)$recipesAmount/$bigger, 2, '.');?>;" class="stat stat_recipes"></div>
+               <div aria-amount="<?=$ingredientsAmount?>" style="--stat_amount: <?=number_format((float)$ingredientsAmount/$bigger, 2, '.');?>;" class="stat stat_ingredients"></div>
+               <div aria-amount="<?=$categoriesAmount?>" style="--stat_amount: <?=number_format((float)$categoriesAmount/$bigger, 2, '.');?>;" class="stat stat_categories"></div>
+               <div aria-amount="<?=$videosAmount?>" style="--stat_amount: <?=number_format((float)$videosAmount/$bigger, 2, '.');?>;" class="stat stat_videos"></div>
             </div>
             <div class="stats_legend-container">
                <div class="stat_legend-wrapper">
