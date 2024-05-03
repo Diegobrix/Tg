@@ -64,8 +64,8 @@
          </div>
          <div class="desktop-menu" aria-hidden="false">
             <ul>
-               <li>Receitas</li>
-               <li>Categorias</li>
+               <li><a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0">Receitas</a></li>
+               <li><a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Categorias</a></li>
             </ul>
          </div>
          <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
@@ -73,8 +73,8 @@
       <aside class="mobile-menu" aria-expanded="false">
          <button id="btn_close"></button>
          <ul>
-            <li>Receitas</li>
-            <li>Categorias </li>
+            <li><a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0">Receitas</a></li>
+            <li><a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Categorias</a></li>
          </ul>
          <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
       </aside>
