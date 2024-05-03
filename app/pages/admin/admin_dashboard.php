@@ -40,6 +40,7 @@
    <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/modalController.js"></script>
    <script defer src="../../../src/js/pages/admin/admin_dashboard/pageController.js"></script>
+   <script defer src="../../../src/js/pages/admin/admin_dashboard/contentVisibilityController.js"></script>
 </head>
 <body>
    <?php
@@ -155,7 +156,7 @@
             foreach($contentType as $data)
             { 
          ?>
-            <div class="content" id="<?=$typeLabel.'_'.$data['id']?>">
+            <div class="content" id="<?=$typeLabel.'_'.$data['id']?>" aria-hidden="false">
                <div class="content_title-wrapper">
                   <?php
                      if(($choosedTypeId == 0) || ($choosedTypeId == 3))

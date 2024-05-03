@@ -232,6 +232,10 @@ main,
    width: 0;
 }
 
+.content[aria-hidden="true"] {
+   display: none;
+}
+
 .content {
    position: relative;
    display: flex;
