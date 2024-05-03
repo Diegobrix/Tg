@@ -137,10 +137,10 @@
             <label for="txtSearchRecipe">
                <i></i>
             </label>
-            <input type="text" name="" id="txtSearchRecipe" placeholder="Buscar <?=strtolower($choosedType)?>...">
+            <input type="text" id="txtSearchRecipe" placeholder="Buscar <?=strtolower($choosedType)?>...">
          </div>
          <div>
-            <select name="" id="">
+            <select id="">
                <option selected disabled>Filtrar</option>
             </select>
          </div>

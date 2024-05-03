@@ -52,5 +52,5 @@ button.ingredient {
    inset -1px -1px 4px hsl(0 0% 15% / .3);
    animation: removeItemShake 4.5s ease infinite;
    
-   z-index: 2;
+   z-index: 4;
 }

@@ -180,11 +180,13 @@
                      require("./data/daySuggestions.php");
                      
                      $daySuggestions = json_decode(file_get_contents("./data/datasets/temp_data/day_suggestions.json"), true);
-                     for($i = 0; $i < sizeof($daySuggestions) -1; $i++)
+                     for($i = 0; $i < sizeof($daySuggestions); $i++)
                      {
                   ?>
-                        <div class="suggestion" data-current_step="<?=$i?>" style="--thumb: url(../../../../../assets/images/recipes/<?=htmlspecialchars($daySuggestions[$i]['thumb'])?>);" aria-current="<?=$i==0?'true':'else'?>">
+                        <div class="suggestion" data-current_step="<?=$i?>" id="suggestion_<?=$i?>" style="--thumb: url(../../../../../assets/images/recipes/<?=htmlspecialchars($daySuggestions[$i]['thumb'])?>);" aria-current="<?=$i==0?'true':'else'?>">
+                           <a class="suggestion_handler-prev suggestion_handler<?=$i==0?' first':''?>" href="#suggestion_<?=$i-1?>"><</a>
                            <p class="suggestion_title"><?=$daySuggestions[$i]['title']?></p>
+                           <a class="suggestion_handler-next suggestion_handler<?=$i>=sizeof($daySuggestions)-1?' last':''?>" href="#suggestion_<?=$i+1?>">></a>
                         </div>
                   <?php
                      }
