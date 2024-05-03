@@ -38,6 +38,7 @@
 
    <!-- JS -->
    <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
+   <script defer src="../../../src/js/pages/admin/admin_dashboard/modalController.js"></script>
 </head>
 <body>
    <?php
@@ -158,10 +159,27 @@
                   <?php
                      if(($choosedTypeId == 0) || ($choosedTypeId == 3))
                      {
-                        $thumb = htmlspecialchars($data['thumb']);
+                  ?>    <figure>
+                  <?php
+                        if($choosedTypeId == 3)
+                        {
+                           $video = explode('/', $data['url']);
+                           $videoUrl = implode('/video/', $video);
                   ?>
-                        <figure>
-                           <img src="../../../assets/images/recipes/<?=$choosedTypeId == 3?'video/'.$thumb:$thumb?>" alt="">
+                           <video>
+                              <source src="../../../assets/images/recipes/<?=htmlspecialchars($videoUrl)?>" type="video/mp4">
+                              Seu navegador não suporta o elemento de vídeo.
+                           </video>
+                  <?php
+                        }
+                        else
+                        {
+                           $thumb = $data['thumb'];
+                  ?>
+                           <img src="../../../assets/images/recipes/<?=htmlspecialchars($thumb)?>" alt="">
+                  <?php
+                        }
+                  ?>
                         </figure>
                   <?php
                      }
@@ -175,8 +193,27 @@
                   <span class="content_category"><?=$data['categoria']?></span>
                <?php
                   }
+                  if($choosedTypeId == 3)
+                  {
                ?>
-               <button id="<?=$data['id'].'-extra_content-handler'?>" class="extra_content-handler" popovertarget="<?=$data['id'].'-extra_content'?>"></button>
+                     <dialog id="video-modal">
+                        <h2 class="video_title"><?=$data['title']?></h2>
+                        <div class="decoration-container">
+                           <i class="decoration"></i>
+                        </div>
+                        <video controls>
+                           <source src="../../../assets/images/recipes/<?=htmlspecialchars($videoUrl)?>" type="video/mp4">
+                        </video>
+                     </dialog>
+               <?php
+                  }
+                  else
+                  {
+               ?>
+                     <button id="<?=$data['id'].'-extra_content-handler'?>" class="extra_content-handler" popovertarget="<?=$data['id'].'-extra_content'?>"></button>
+               <?php
+                  }
+               ?>
                <div id="<?=$data['id'].'-extra_content'?>" anchor="<?=$data['id'].'-extra_content-handler'?>" popover class="extra_content-wrapper">
                   <?php
                      if($choosedTypeId == 0)
