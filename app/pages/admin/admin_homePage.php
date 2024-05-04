@@ -1,25 +1,6 @@
 <?php
    session_start();
-   if((!isset($_SESSION['admin_id'])) || ($_SESSION['admin_id'] == false))
-   {
-      session_unset();
-      session_destroy();
-		header("location: ../credentials.php");
-   }
 
-   require_once("AdminPagesConstructor.php");
-   $pageConstructor = new AdminPagesConstructor($_SESSION['admin_token']);
-   $user = $pageConstructor->getAdminData();
-
-   if($user == null)
-   {
-      session_unset();
-      session_destroy();
-
-      die();
-   }
-
-   $content = $pageConstructor->getContentData("content_data");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -73,8 +54,8 @@
       <aside class="mobile-menu" aria-expanded="false">
          <button id="btn_close"></button>
          <ul>
-            <li><a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0">Receitas</a></li>
-            <li><a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Categorias</a></li>
+            <li><a href="./admin_dashboard.php?content-type-id=0">Receitas</a></li>
+            <li><a href="./admin_dashboard.php?content-type-id=2">Categorias</a></li>
          </ul>
          <button class="logout"><a href="../../../conf/logout.php">Sair</a></button>
       </aside>
@@ -89,7 +70,7 @@
 
                   <div popover anchor="recipes-extra_options-handler" id="recipes-extra_options" class="extra_options">
                      <a href="./misc/addRecipe.php" class="option">Add. Receita</a>
-                     <a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0" class="option">Todas receitas</a>
+                     <a href="./admin_dashboard.php?content-type-id=0" class="option">Todas receitas</a>
                   </div>
                </div>
                <div class="popular_category--wrapper">
@@ -133,7 +114,7 @@
                         }
                      ?>
                   <div popover anchor="top_categories-extra_options-handler" id="top_categories-extra_options" class="extra_options">
-                     <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Todas categorias</a>
+                     <a href="./admin_dashboard.php?content-type-id=2">Todas categorias</a>
                   </div>
                </div>
             </section>
@@ -159,7 +140,7 @@
 
                <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
                   <a href="" class="option">Add. Vídeo</a>
-                  <a href="./admin_dashboard.php?content-type=Videos&content-type-id=3" class="option">Todos vídeos</a>
+                  <a href="./admin_dashboard.php?content-type-id=3" class="option">Todos vídeos</a>
                </div>
             </div>
             <div class="categories-widget">
@@ -169,7 +150,7 @@
 
                <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
                   <a href="" class="option">Add. Categoria</a>
-                  <a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2" class="option">Todas categorias</a>
+                  <a href="./admin_dashboard.php?content-type-id=2" class="option">Todas categorias</a>
                </div>
             </div>
             <div class="suggestions_container">
