@@ -16,11 +16,12 @@
       <?php
          $status_msg = ["Usuário não Encontrado", "Senha incorreta"];
 
-         $msg = null;
-         $page = null;
-         if($msg == null)
+         $status = filter_input(INPUT_GET, 'e_msg', FILTER_SANITIZE_NUMBER_INT);
+         $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT);
+
+         if($status == null)
          {
-            $status = "";
+            $status = '';
          }
       ?>
       <canvas id="background-elements-canvas">
