@@ -16,17 +16,17 @@
 
          if(password_verify($password, $result['senhaUsuario']))
          {
-            header(__DIR__."/../../pages/admin/admin_homePage.php");
+            header("location: ../../pages/admin/admin_homePage.php");
          }
          else
          {
             //e_msg = 1 - Senha incorreta
-            header(__DIR__."/../../pages/credentials.php?page=1&e_msg=1");
+            header("location: ../../pages/credentials.php?e_msg=1");
          }
       }
       else
       {
          //e_msg = 0 - Usuário não encontrado
-         header(__DIR__."/../../pages/credentials.php?page=1&e_msg=0");
+         header("location: ../../pages/credentials.php?e_msg=0");
       }
    }

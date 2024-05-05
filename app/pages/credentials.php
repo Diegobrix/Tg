@@ -17,7 +17,6 @@
          $status_msg = ["Usuário não Encontrado", "Senha incorreta"];
 
          $status = filter_input(INPUT_GET, 'e_msg', FILTER_SANITIZE_NUMBER_INT);
-         $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_NUMBER_INT);
 
          if($status == null)
          {
@@ -27,6 +26,9 @@
       <canvas id="background-elements-canvas">
       </canvas>
       <main>
+         <div class="status_msg-container" aria-hidden="<?=$status==''?'true':'false'?>">   
+            <p><?=$status_msg[$status]?></p>
+         </div>
          <section class="form--container" id="signup" aria-labelledby="signup-title">
             <form class="form" action="../bd-conn-controller/user-credentials/register.php" method="POST">
                <h2 id="signup-title">Cadastre-se</h2>
@@ -42,16 +44,6 @@
                <div class="form-group">
                   <input required type="password" pattern=".{3,}" id="txt-register-password-confirm" name="password-confirm" placeholder="Confirmar Senha..." autocomplete="on">
                </div>
-               <div class="error_display-wrapper">
-                  <?php
-                     if($page == 0)
-                     {
-                  ?>
-                        <p><?=$status?></p>
-                  <?php
-                     }
-                  ?>
-               </div>
                <input type="submit" id="signup_form_submit" class="form_submit" value="Criar Conta"/>
             </form>
          </section>
@@ -62,17 +54,9 @@
                   <input required type="email" id="txt-login-email" name="email" placeholder="John@john.com">
                </div>
                <div class="form-group">
-                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha..." autocomplete="on">
+                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha...">
                </div>
                <div class="error_display-wrapper">
-                  <?php
-                     if($page == 1)
-                     {
-                  ?>
-                        <p><?=$status?></p>
-                  <?php
-                     }
-                  ?>
                </div>
                <input type="submit" id="signin_form_submit" class="form_submit" value="Entrar"/>
             </form>
