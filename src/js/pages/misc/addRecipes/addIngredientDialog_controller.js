@@ -1,4 +1,4 @@
-import sendData from "../../../bd_conn/addRecipe/sendData.js";
+import sendData from "../../../bd_conn/sendData.js";
 import { clearModal } from "./search_ingredients.js";
 
 const MODAL = document.getElementById("ingredient-modal");

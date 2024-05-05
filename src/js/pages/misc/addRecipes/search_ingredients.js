@@ -1,4 +1,4 @@
-import sendData from "../../../bd_conn/addRecipe/sendData.js";
+import sendData from "../../../bd_conn/sendData.js";
 import { addIngredientElement } from "./addIngredientDialog_controller.js";
 
 const SEARCHBAR_CONTAINER = document.querySelector(".search_bar");

@@ -13,11 +13,21 @@
       <script defer src="../../src/js/pages/credentials/credentials-controller.js"></script>
    </head>
    <body>
+      <?php
+         $status_msg = ["Usuário não Encontrado", "Senha incorreta"];
+
+         $msg = null;
+         $page = null;
+         if($msg == null)
+         {
+            $status = "";
+         }
+      ?>
       <canvas id="background-elements-canvas">
       </canvas>
       <main>
          <section class="form--container" id="signup" aria-labelledby="signup-title">
-            <form action="../bd-conn-controller/user-credentials/user_register.php" method="POST">
+            <form class="form" action="../bd-conn-controller/user-credentials/register.php" method="POST">
                <h2 id="signup-title">Cadastre-se</h2>
                <div class="form-group">
                   <input required type="text" id="txt-register-name" name="name" placeholder="John Doe">
@@ -26,24 +36,44 @@
                   <input required type="email" id="txt-register-email" name="email" placeholder="John@john.com">
                </div>
                <div class="form-group">
-                  <input required type="password" pattern=".{3,}" id="txt-register-password" name="password" placeholder="Senha...">
+                  <input required type="password" pattern=".{3,}" id="txt-register-password" name="password" placeholder="Senha..." autocomplete="on">
                </div>
                <div class="form-group">
-                  <input required type="password" pattern=".{3,}" id="txt-register-password-confirm" name="password-confirm" placeholder="Confirmar Senha...">
+                  <input required type="password" pattern=".{3,}" id="txt-register-password-confirm" name="password-confirm" placeholder="Confirmar Senha..." autocomplete="on">
                </div>
-               <input type="submit" value="Criar Conta">
+               <div class="error_display-wrapper">
+                  <?php
+                     if($page == 0)
+                     {
+                  ?>
+                        <p><?=$status?></p>
+                  <?php
+                     }
+                  ?>
+               </div>
+               <input type="submit" id="signup_form_submit" class="form_submit" value="Criar Conta"/>
             </form>
          </section>
          <section class="form--container" id="signin" aria-labelledby="signin-title">
-            <form action="../bd-conn-controller/user-credentials/user_login.php" method="POST">
+            <form action="../bd-conn-controller/user-credentials/login.php" method="POST" id="signin-form" class="form">
                <h2 id="signin-title">Entrar</h2>
                <div class="form-group">
                   <input required type="email" id="txt-login-email" name="email" placeholder="John@john.com">
                </div>
                <div class="form-group">
-                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha...">
+                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha..." autocomplete="on">
                </div>
-               <input type="submit" value="Entrar">
+               <div class="error_display-wrapper">
+                  <?php
+                     if($page == 1)
+                     {
+                  ?>
+                        <p><?=$status?></p>
+                  <?php
+                     }
+                  ?>
+               </div>
+               <input type="submit" id="signin_form_submit" class="form_submit" value="Entrar"/>
             </form>
          </section>
          <section class="advice-wrapper" data-state="signup">

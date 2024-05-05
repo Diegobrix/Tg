@@ -1,4 +1,4 @@
-import sendData from "../../../bd_conn/addRecipe/sendData.js";
+import sendData from "../../../bd_conn/sendData.js";
 
 const CATEGORIES_SELECT_HANDLER = document.getElementById("categorySelectHandler");
 const OPTIONS_CONTAINER = document.getElementById("categoryOptionsContainer");

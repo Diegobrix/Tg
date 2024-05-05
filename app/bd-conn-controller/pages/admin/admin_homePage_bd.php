@@ -9,7 +9,7 @@
       $data = $stmt -> fetch(PDO::FETCH_ASSOC);
 
       require_once(__DIR__."/../../temp_data/TemporaryData.php");
-      $temp = new TemporaryData("content_data");
+      //$temp = new TemporaryData("content_data");
       $content = array();
       
       $content[0] = $data;
