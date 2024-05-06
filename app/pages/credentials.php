@@ -11,12 +11,13 @@
       <!-- JS -->
       <script defer src="../../src/js/pages/credentials/credentials-canvas-controller.js"></script>
       <script defer src="../../src/js/pages/credentials/credentials-controller.js"></script>
+      <script defer src="../../src/js/pages/credentials/formRegisterValidator.js"></script>
    </head>
    <body>
       <?php
-         $status_msg = ["Usuário não Encontrado", "Senha incorreta"];
+         $status_msg = ["Usuário não Encontrado", "Senha incorreta", "Usuário já cadastrado no sistema!", "Cadastro realizado com sucesso"];
 
-         $status = filter_input(INPUT_GET, 'e_msg', FILTER_SANITIZE_NUMBER_INT);
+         $status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_NUMBER_INT);
 
          if($status == null)
          {
@@ -26,11 +27,11 @@
       <canvas id="background-elements-canvas">
       </canvas>
       <main>
-         <div class="status_msg-container" aria-hidden="<?=$status==''?'true':'false'?>">   
-            <p><?=$status_msg[$status]?></p>
+         <div class="status_msg-container <?=$status == 3?'success':'error'?>" aria-hidden="<?=$status==''?'true':'false'?>">   
+            <p class="status-displayer"><?=$status_msg[$status]?></p>
          </div>
          <section class="form--container" id="signup" aria-labelledby="signup-title">
-            <form class="form" action="../bd-conn-controller/user-credentials/register.php" method="POST">
+            <form class="form" id="signupForm" action="../bd-conn-controller/user-credentials/register.php" method="POST">
                <h2 id="signup-title">Cadastre-se</h2>
                <div class="form-group">
                   <input required type="text" id="txt-register-name" name="name" placeholder="John Doe">
@@ -44,7 +45,7 @@
                <div class="form-group">
                   <input required type="password" pattern=".{3,}" id="txt-register-password-confirm" name="password-confirm" placeholder="Confirmar Senha..." autocomplete="on">
                </div>
-               <input type="submit" id="signup_form_submit" class="form_submit" value="Criar Conta"/>
+               <button type="button" id="signup_form_submit" class="form_submit">Criar Conta</button>
             </form>
          </section>
          <section class="form--container" id="signin" aria-labelledby="signin-title">
@@ -54,7 +55,7 @@
                   <input required type="email" id="txt-login-email" name="email" placeholder="John@john.com">
                </div>
                <div class="form-group">
-                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha...">
+                  <input required type="password" pattern=".{3,}" id="txt-login-password" name="password" placeholder="Senha..." autocomplete="on">
                </div>
                <div class="error_display-wrapper">
                </div>

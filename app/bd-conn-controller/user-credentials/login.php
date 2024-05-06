@@ -20,13 +20,13 @@
          }
          else
          {
-            //e_msg = 1 - Senha incorreta
-            header("location: ../../pages/credentials.php?e_msg=1");
+            //status = 1 - Senha incorreta
+            header("location: ../../pages/credentials.php?status=1");
          }
       }
       else
       {
-         //e_msg = 0 - Usuário não encontrado
-         header("location: ../../pages/credentials.php?e_msg=0");
+         //status = 0 - Usuário não encontrado
+         header("location: ../../pages/credentials.php?status=0");
       }
    }
