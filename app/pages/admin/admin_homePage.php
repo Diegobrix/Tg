@@ -1,12 +1,15 @@
 <?php
    session_start();
 
-   if((!isset($_SESSION['id'])) || ($_SESSION['id'] == ''))
+   if((!isset($_SESSION['id'])) || (is_null($_SESSION['id'])))
    {
       header("location: ../credentials.php");
    }
 
+   require_once("../AdminPageConstructor.php");
+   $pageConstructor = new AdminPageConstructor();
 
+   $admin = $pageConstructor->getAdminData($_SESSION['token']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -47,7 +50,7 @@
          <div class="greetings-wrapper">
             <button id="mobile_menu--handler">
             </button>
-            <h1>Olá, <span class="username"><?=$user['username']?></span></h1>
+            <h1>Olá, <span class="username"><?=$admin['username']?></span></h1>
          </div>
          <div class="desktop-menu" aria-hidden="false">
             <ul>
