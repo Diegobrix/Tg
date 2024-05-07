@@ -1,6 +1,29 @@
 <?php
    session_start();
+   if((!isset($_SESSION['id'])) || (is_null($_SESSION['id'])))
+   {
+      header("location: ../credentials.php");
+   }
+
+   require_once("../AdminPageConstructor.php");
+   $pageConstructor = new AdminPageConstructor();
+
+   $admin = $pageConstructor->getAdminData($_SESSION['token']);
    $choosedTypeId= filter_input(INPUT_GET, 'content-type-id', FILTER_SANITIZE_NUMBER_INT);
+
+   if($admin == null)
+   {
+      header("location: ../credentials.php");
+   }
+
+   if((isset($choosedTypeId)) && ($choosedTypeId != null))
+   {
+      $choosedId = $choosedTypeId;
+   }
+   else
+   {
+      $choosedId = 0;
+   }
 
    require_once("../../bd-conn-controller/pages/admin/admin_dashboard-content-controller.php");
 ?>
@@ -24,26 +47,21 @@
 <body>
    <?php
       $pageTitle = ['Receitas', 'Ingredientes', 'Categorias', 'Videos'];
-      $choosedType = $pageTitle[$choosedTypeId];
+      $choosedType = $pageTitle[$choosedId];
 
       $content = new ContentController();      
       $contentType = null;
-      if((isset($choosedTypeId)) && ($choosedTypeId != null))
-      {
-         $choosedId = $choosedTypeId;
-      }
-      else
-      {
-         $choosedId = 0;
-      }
-
+   
       $contentType = $content->defineContentType($choosedId);
    ?>
    <header>
       <section class="mobile_header-container">
          <button id="mobile_menu--handler"></button>
          <h1 class="current_data_show-display"><?=$choosedType?></h1>
-         <button class="btn_back"></button>
+         <?php
+            $exitUrl = "./admin_homePage.php";
+         ?>
+         <button class="btn_exit" onclick="goTo('<?=$exitUrl?>')"></button>
 
          <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
@@ -58,8 +76,8 @@
       </section>
       <section class="desktop_menu">
          <div class="header_head-wrapper">
-            <button class="btn_back"></button>
-            <h2 class="username-display"><?=$user['username']?></h2>
+         <button class="btn_exit" onclick="goTo('<?=$exitUrl?>')"></button>
+            <h2 class="username-display"><?=$admin['username']?></h2>
          </div>
          <ul>
             <li class="nav_item" data-current="<?=$choosedTypeId==0?'true':'false'?>" data-item-index="1"><a href="?content-type-id=0">Receitas</a></li>

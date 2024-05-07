@@ -5,3 +5,8 @@ BTNS_EXIT_PAGE.forEach(btn => {
       history.back();
    });
 })
+
+function goTo(page)
+{
+   document.location.href = page;
+}

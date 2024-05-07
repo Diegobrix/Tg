@@ -10,6 +10,11 @@
    $pageConstructor = new AdminPageConstructor();
 
    $admin = $pageConstructor->getAdminData($_SESSION['token']);
+
+   if($admin == null)
+   {
+      header("location: ../credentials.php");
+   }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -52,7 +57,7 @@
             </button>
             <h1>Olá, <span class="username"><?=$admin['username']?></span></h1>
          </div>
-         <div class="desktop-menu" aria-hidden="false">
+         <div class="desktop-menu">
             <ul>
                <li><a href="./admin_dashboard.php?content-type=Receitas&content-type-id=0">Receitas</a></li>
                <li><a href="./admin_dashboard.php?content-type=Categorias&content-type-id=2">Categorias</a></li>
