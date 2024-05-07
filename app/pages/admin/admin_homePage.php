@@ -1,6 +1,12 @@
 <?php
    session_start();
 
+   if((!isset($_SESSION['id'])) || ($_SESSION['id'] == ''))
+   {
+      header("location: ../credentials.php");
+   }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -34,7 +40,7 @@
          }
          else
          {
-            //Recarregar a página
+            header("Refresh: 0");
          }
       ?>
       <header>

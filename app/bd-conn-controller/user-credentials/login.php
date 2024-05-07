@@ -16,6 +16,22 @@
 
          if(password_verify($password, $result['senhaUsuario']))
          {
+            require_once(__DIR__."/../temp_data/random_token.php");
+            require_once(__DIR__."/../temp_data/CredentialsGenerator.php");
+
+            session_start();
+            $_SESSION['token'] = getRandomToken(4);
+            $_SESSION['id'] = $result['idUsuario'];
+
+            $data = array();
+            $data['id'] = $result['idUsuario'];
+            $data['username'] = $result['nomeUsuario'];
+            $data['email'] = $result['emailUsuario'];
+
+            $filepath = $_SESSION['token'].".json";
+
+            $credentials = new CredentialsGenerator(__DIR__);
+            $file = $credentials->generateCredentialsFile($filepath, $data);
             header("location: ../../pages/admin/admin_homePage.php");
          }
          else
