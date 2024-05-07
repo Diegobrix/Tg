@@ -1,10 +1,20 @@
 <?php
    session_start();
-   if((!isset($_SESSION['admin_id'])) || ($_SESSION['admin_id'] == false))
+   if((!isset($_SESSION['id'])) || ($_SESSION['id'] == null))
    {
       session_unset();
       session_destroy();
 		header("location: ../../credentials.php");
+   }
+
+   require_once("../../AdminPageConstructor.php");
+   $pageConstructor = new AdminPageConstructor();
+
+   $admin = $pageConstructor->getAdminData($_SESSION['token']);
+
+   if($admin == null)
+   {
+      header("location: ../../credentials.php");
    }
 ?>
 <!DOCTYPE html>
@@ -94,7 +104,7 @@
       </header>
       <main>
          <form id="form" action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="author_id" value="<?=$_SESSION['admin_id']?>">
+            <input type="hidden" name="author_id" value="<?=$_SESSION['id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);

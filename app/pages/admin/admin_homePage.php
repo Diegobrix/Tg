@@ -3,6 +3,8 @@
 
    if((!isset($_SESSION['id'])) || (is_null($_SESSION['id'])))
    {
+      session_destroy();
+      session_unset();
       header("location: ../credentials.php");
    }
 
