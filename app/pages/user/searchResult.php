@@ -46,10 +46,11 @@
                   </div>
                </div>
                <div class="results-container">
+
                </div>
                <div class="display_mode-container">
-                  <button class="display_mode list-display"></button>
-                  <button class="display_mode grid-display"></button>
+                  <button class="display_mode list-display" aria-selected="true"></button>
+                  <button class="display_mode grid-display" aria-selected="false"></button>
                </div>
             </div>
          </section>
