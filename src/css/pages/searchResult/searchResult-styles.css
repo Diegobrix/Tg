@@ -1,0 +1,105 @@
+body {
+   display: flex;
+   flex-direction: column;
+}
+
+header {
+   padding: 1rem;
+   padding-bottom: 0;
+}
+
+header .header_head-wrapper {
+   display: flex;
+   align-items: center;
+
+   gap: 1rem;
+}
+
+header .desktop-menu {
+   display: none;
+}
+
+#mobile_menu--handler {
+   display: block;
+}
+
+header hr {
+   margin-bottom: 0;
+}
+
+main {
+   flex: 1 1 auto;
+   background: green;
+}
+
+.searchbar-wrapper {
+   position: relative;
+   display: flex;
+
+   width: fit-content;
+   margin: auto;
+}
+
+.searchbar-wrapper i {
+   position: absolute;
+   top: 50%;
+   width: 2rem;
+   height: 2rem;
+   background: var(--icon) no-repeat center center;
+   transform: translate(0, -50%);
+}
+
+.searchbar-icon {
+   --icon: url("../../../../assets/icons/search.svg");
+   left: .5em;
+}
+
+input {
+   width: calc(100vw - 4rem);
+   margin-block: 1rem;
+   
+   font-size: 1.2rem;
+
+   border: 2px solid hsl(0 0% 80%);
+   border-radius: 5px;
+   padding: .7rem 1rem;
+   padding-left: 3rem;
+   box-shadow: 2px 2px 5px 0 hsl(0 0% 50% / .3),
+   -2px -2px 5px 0 hsl(0 0% 90% / .3);
+}
+
+.search-container h1 {
+   text-align: center;
+   font-size: 2rem;
+}
+
+select {
+   border: 0;
+   border-radius: 5px;
+   padding-block: .5em;
+   padding-left: 2rem;
+}
+
+.filter_add-wrapper {
+   position: relative;
+   width: fit-content;
+   height: fit-content;
+
+   &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: .25rem;
+      width: 1.5rem;
+      height: 1.5rem;
+
+      background: url('../../../../assets/icons/filter.svg') no-repeat center center;
+      transform: translate(0, -50%);
+   }
+}
+
+@media screen and (min-width: 1440px) {
+   header .desktop-menu {
+      display: block;
+   }
+}
