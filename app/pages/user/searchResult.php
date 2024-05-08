@@ -8,6 +8,8 @@
 
       <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css"/>
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/searchResult/searchResult-styles.css"/>
+
+      <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
    </head>
    <body>
       <header>
@@ -49,8 +51,8 @@
 
                </div>
                <div class="display_mode-container">
-                  <button class="display_mode list-display" aria-selected="true"></button>
-                  <button class="display_mode grid-display" aria-selected="false"></button>
+                  <button class="display_mode list-display" data-mode="list" aria-selected="true"></button>
+                  <button class="display_mode grid-display" data-mode="grid" aria-selected="false"></button>
                </div>
             </div>
          </section>

@@ -98,10 +98,13 @@ input {
    background-color: hsl(0 0% 90%);
    border: 2px solid hsl(0 0% 95%);
    border-radius: 5px;
+   pointer-events: initial;
 
    &[aria-selected="true"] {
       background-color: hsl(0 0% 70%);
       border-color: hsl(0 0% 90%);
+
+      pointer-events: none;
    }
 }
 
