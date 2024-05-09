@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/searchResult-styles.css"/>
 
       <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
+      <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
    </head>
    <body>
       <header>
@@ -17,7 +18,8 @@
             <button id="mobile_menu--handler"></button>
             <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
-         <nav class="mobile-menu" aria-expanded="false">
+         <nav class="mobile-menu" aria-expanded="true">
+            <button id="btn_close" aria-label="Fechar Menu"></button>
             <ul>
                <li>Voltar ao Inicio</li>
             </ul>
@@ -65,7 +67,7 @@
                </div>
                <div class="result">
                   <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                     <img src="../../../assets/images/teste.jpg" alt="">
                   </figure>
                   <div class="result-details">
                      <h2 class="result-title">Macarrão</h2>
