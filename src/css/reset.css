@@ -1,6 +1,5 @@
 @import url("./vars/typography.css") layer(utilities.typography);
 @import url("./vars/colors.css") layer(utilities.colours);
-@import url("./logo-style.css");
 @import url("./animations/general-anim.css") layer(animations);
 
 @layer reset, utilities, animations;
@@ -13,6 +12,7 @@
    
    body,
    html {
+      display: initial;
       margin: 0;
       padding: 0;
       box-sizing: border-box;

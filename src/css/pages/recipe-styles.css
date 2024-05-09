@@ -1,10 +1,7 @@
 @import url("../logo-style.css");
 
-body {
-   display: initial;
-}
-
 header {
+   position: -webkit-sticky;
    position: sticky;
    top: 0;
 

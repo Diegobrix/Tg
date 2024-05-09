@@ -7,7 +7,7 @@
       <title>Resultado da Pesquisa</title>
 
       <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css"/>
-      <link rel="stylesheet" type="text/css" href="../../../src/css/pages/searchResult/searchResult-styles.css"/>
+      <link rel="stylesheet" type="text/css" href="../../../src/css/pages/searchResult-styles.css"/>
 
       <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
    </head>
@@ -40,19 +40,68 @@
          </section>
          <section class="results-container">
             <div class="options-container">
-               <div class="filters-container">
-                  <div class="filter_add-wrapper">
-                     <select name="" id="" class="filter-select">
-                        <option selected disabled value="#">Filtros</option>
-                     </select>
-                  </div>
-               </div>
-               <div class="results-container">
-
+               <div class="filter_add-wrapper">
+                  <select name="" id="" class="filter-select">
+                     <option selected disabled value="#">Filtros</option>
+                  </select>
                </div>
                <div class="display_mode-container">
                   <button class="display_mode list-display" data-mode="list" aria-selected="true"></button>
                   <button class="display_mode grid-display" data-mode="grid" aria-selected="false"></button>
+               </div>
+            </div>
+            <div class="filters-container">
+            </div>
+            <div class="results_display-container">
+               <div class="result">
+                  <figure>
+                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                  </figure>
+                  <div class="result-details">
+                     <h2 class="result-title">Macarrão</h2>
+                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
+                     <a href="">Ver receita ></a>
+                  </div>
+               </div>
+               <div class="result">
+                  <figure>
+                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                  </figure>
+                  <div class="result-details">
+                     <h2 class="result-title">Macarrão</h2>
+                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
+                     <a href="">Ver receita ></a>
+                  </div>
+               </div>
+               <div class="result">
+                  <figure>
+                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                  </figure>
+                  <div class="result-details">
+                     <h2 class="result-title">Macarrão</h2>
+                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
+                     <a href="">Ver receita ></a>
+                  </div>
+               </div>
+               <div class="result">
+                  <figure>
+                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                  </figure>
+                  <div class="result-details">
+                     <h2 class="result-title">Macarrão</h2>
+                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
+                     <a href="">Ver receita ></a>
+                  </div>
+               </div>
+               <div class="result">
+                  <figure>
+                     <img src="../../../assets/images/teste_receita.jpg" alt="">
+                  </figure>
+                  <div class="result-details">
+                     <h2 class="result-title">Macarrão</h2>
+                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
+                     <a href="">Ver receita ></a>
+                  </div>
                </div>
             </div>
          </section>

@@ -1,11 +1,14 @@
-body {
-   display: flex;
-   flex-direction: column;
-}
+@import url("../logo-style.css");
 
 header {
+   position: -webkit-sticky;
+   position: sticky;
+   top: 0;
+
    padding: 1rem;
    padding-bottom: 0;
+   background: var(--neutral-100);
+   z-index: 5;
 }
 
 header .header_head-wrapper {
@@ -15,7 +18,7 @@ header .header_head-wrapper {
    gap: 1rem;
 }
 
-header .desktop-menu {
+header .desktop-menu[aria-expanded="false"] {
    display: none;
 }
 
@@ -28,7 +31,6 @@ header hr {
 }
 
 main {
-   flex: 1 1 auto;
    display: flex;
    flex-direction: column;
    gap: 1rem 0;
@@ -52,7 +54,7 @@ main {
 }
 
 .searchbar-icon {
-   --icon: url("../../../../assets/icons/search.svg");
+   --icon: url("../../../assets/icons/search.svg");
    left: .5em;
 }
 
@@ -77,11 +79,14 @@ input {
 
 .results-container {
    flex: 1 1 auto;
+   display: flex;
+   flex-direction: column;
    padding: 1rem;
 }
 
 .options-container {
    display: flex;
+   justify-content: space-between;
    align-items: center;
 
    & .display_mode-container {
@@ -109,11 +114,11 @@ input {
 }
 
 .list-display {
-   --icon: url("../../../../assets/icons/list.svg");
+   --icon: url("../../../assets/icons/list.svg");
 }
 
 .grid-display {
-   --icon: url("../../../../assets/icons/grid.svg");
+   --icon: url("../../../assets/icons/grid.svg");
    rotate: 90deg;
 }
 
@@ -138,9 +143,61 @@ select {
       width: 1.5rem;
       height: 1.5rem;
 
-      background: url('../../../../assets/icons/filter.svg') no-repeat center center;
+      background: url('../../../assets/icons/filter.svg') no-repeat center center;
       transform: translate(0, -50%);
    }
+}
+
+.results_display-container {
+   margin-top: 1rem;
+   flex: 1 1 auto;
+
+   display: flex;
+   flex-direction: column;
+   gap: 1rem 0;
+
+   background: var(--neutral-200);
+   border-radius: 15px;
+} 
+
+.result {
+   display: grid;
+}
+
+.options-container:has(.list-display[aria-selected="true"]) ~ .results_display-container .result {
+   grid-auto-flow: column;
+   align-items: center;
+
+   gap: 0 .5rem;
+   padding: .5rem;
+   height: fit-content;
+
+   & .result-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding-block: .5rem;
+      height: 100%;
+   }
+}
+
+.result figure {
+   border-radius: 10px;
+   overflow: hidden;
+
+   & img {
+      object-fit: cover;
+   }
+}
+
+.result-details .result-description {
+   font-family: var(--ff-300);
+   color: var(--neutral-700);
+
+   max-width: 70ch;
+   max-height: 10ch;
+   overflow: hidden;
 }
 
 @media screen and (min-width: 1440px) {
