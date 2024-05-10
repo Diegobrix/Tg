@@ -1,3 +1,11 @@
+<?php
+   $searchedTerm = filter_input(INPUT_GET, 'searchTerm', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+   if((!isset($searchedTerm)) || ($searchedTerm == ''))
+   {
+      //Voltar para home
+   }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
    <head>
@@ -18,11 +26,9 @@
             <button id="mobile_menu--handler"></button>
             <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
-         <nav class="mobile-menu" aria-expanded="true">
+         <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close" aria-label="Fechar Menu"></button>
-            <ul>
-               <li>Voltar ao Inicio</li>
-            </ul>
+            <button class="btn_exit">Voltar ao início</button>
          </nav>
          <div class="bg"></div>
          <nav class="desktop-menu" aria-expanded="false">
@@ -55,6 +61,9 @@
             <div class="filters-container">
             </div>
             <div class="results_display-container">
+               <?php
+                  require_once('../../bd-conn-controller/pages/recipeSearch/idealSearch.php');
+               ?>
                <div class="result">
                   <figure>
                      <img src="../../../assets/images/teste_receita.jpg" alt="">
@@ -65,47 +74,12 @@
                      <a href="">Ver receita ></a>
                   </div>
                </div>
-               <div class="result">
-                  <figure>
-                     <img src="../../../assets/images/teste.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão</h2>
-                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
-                     <a href="">Ver receita ></a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão</h2>
-                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
-                     <a href="">Ver receita ></a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão</h2>
-                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
-                     <a href="">Ver receita ></a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão</h2>
-                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
-                     <a href="">Ver receita ></a>
-                  </div>
-               </div>
+               <?php
+               ?>
             </div>
+            <?php
+               print("<pre>".print_r(getSearchedRecipes(''), true)."</pre>");
+            ?>
          </section>
       </main>
    </body>

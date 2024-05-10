@@ -27,6 +27,27 @@ header .desktop-menu[aria-expanded="false"] {
    display: block;
 }
 
+.mobile-menu ul {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   height: 100%;
+   margin: 0;
+   padding-left: 1rem;
+}
+
+.btn_exit {
+   position: absolute;
+}
+
+.mobile-menu .btn_exit {
+   bottom: 1rem;
+   right: 1rem;
+
+   font-size: 1rem;
+}
+
 header hr {
    margin-bottom: 0;
 }
@@ -156,7 +177,7 @@ select {
 
    display: flex;
    flex-direction: column;
-   padding-block: .5rem;
+   padding: 1rem;
    gap: var(--results_spacing) 0;
 
    background: var(--neutral-200);
@@ -174,7 +195,6 @@ select {
    align-items: center;
 
    gap: 0 .5rem;
-   padding: .5rem;
    height: fit-content;
 
    & .result-details {
