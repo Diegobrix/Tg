@@ -5,17 +5,15 @@
       public function __construct($recipesFile)
       {
          $this->jsonData = json_decode(file_get_contents($recipesFile), true, 512, JSON_UNESCAPED_UNICODE); 
-         foreach($this->jsonData as $d)
-         {
-            print(mb_detect_encoding($d['title'])."<br>");
-         }
       }
 
       public function getRecipes($searchTerm)
       {
          $recipes = $this->fitData($this->jsonData);
          $similarities = $this->calculateSimilarity($recipes, $searchTerm);
-         return $similarities;
+
+         $searchResult = $this->getSearchResult($similarities);
+         return $searchResult;
       }
 
       private function fitData($data, $current = 0, $recipes = array())
@@ -47,5 +45,21 @@
          }
 
          return $similarities;
+      }
+
+      private function getSearchResult($similarities)
+      {
+         $results = array();
+         $i = 0;
+         foreach($similarities as $sim)
+         {
+            if((float) $sim['similarity'] >= 50)
+            {
+               $results[$i] = $sim;
+            }
+            $i += 1;
+         }
+
+         return $results;
       }
    }
