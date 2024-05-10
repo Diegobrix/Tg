@@ -7,7 +7,7 @@
       if(json_validate(file_get_contents($filePath)))
       {
          $search = new SearchRecipe($filePath);
-         $result = $search->getRecipes('');
+         $result = $search->getRecipes('Macarrão');
 
          return $result;
       }

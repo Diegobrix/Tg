@@ -4,13 +4,17 @@
       private $jsonData;
       public function __construct($recipesFile)
       {
-         $this->jsonData = json_decode(file_get_contents($recipesFile), true); 
+         $this->jsonData = json_decode(file_get_contents($recipesFile), true, 512, JSON_UNESCAPED_UNICODE); 
+         foreach($this->jsonData as $d)
+         {
+            print(mb_detect_encoding($d['title'])."<br>");
+         }
       }
 
       public function getRecipes($searchTerm)
       {
          $recipes = $this->fitData($this->jsonData);
-         $similarities = $this->calculateSimilarity($recipes, 'Bafo');
+         $similarities = $this->calculateSimilarity($recipes, $searchTerm);
          return $similarities;
       }
 
@@ -32,8 +36,12 @@
       {
          if($current < sizeof($recipes))
          {
-            similar_text($searchedTerm, $recipes[$current]['title'], $percent);
-            $similarities[$current] = $percent;
+            similar_text($searchedTerm, html_entity_decode($recipes[$current]['title'], ENT_QUOTES, 'UTF-8'), $percent);
+            $similarities[$current]['similarity'] = number_format($percent);
+            $similarities[$current]['id'] = $recipes[$current]['id'];
+            $similarities[$current]['title'] = $recipes[$current]['title'];
+
+
             $current += 1;
             return $this->calculateSimilarity($recipes, $searchedTerm, $current, $similarities);
          }
