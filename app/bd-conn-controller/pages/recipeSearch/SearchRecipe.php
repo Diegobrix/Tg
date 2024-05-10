@@ -34,7 +34,7 @@
       {
          if($current < sizeof($recipes))
          {
-            similar_text($searchedTerm, html_entity_decode($recipes[$current]['title'], ENT_QUOTES, 'UTF-8'), $percent);
+            similar_text(strtolower($searchedTerm), html_entity_decode(strtolower($recipes[$current]['title']), ENT_QUOTES, 'UTF-8'), $percent);
             $similarities[$current]['similarity'] = number_format($percent);
             $similarities[$current]['id'] = $recipes[$current]['id'];
             $similarities[$current]['title'] = $recipes[$current]['title'];
@@ -53,7 +53,7 @@
          $i = 0;
          foreach($similarities as $sim)
          {
-            if((float) $sim['similarity'] >= 50)
+            if((float) $sim['similarity'] >= 35)
             {
                $results[$i] = $sim;
             }
@@ -61,5 +61,12 @@
          }
 
          return $results;
+      }
+
+      public function json_validate($json)
+      {
+         json_decode($json);
+
+         return json_last_error() === JSON_ERROR_NONE;
       }
    }

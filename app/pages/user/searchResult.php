@@ -61,9 +61,6 @@
             <div class="filters-container">
             </div>
             <div class="results_display-container">
-               <?php
-                  require_once('../../bd-conn-controller/pages/recipeSearch/idealSearch.php');
-               ?>
                <div class="result">
                   <figure>
                      <img src="../../../assets/images/teste_receita.jpg" alt="">
@@ -77,9 +74,6 @@
                <?php
                ?>
             </div>
-            <?php
-               print("<pre>".print_r(getSearchedRecipes(''), true)."</pre>");
-            ?>
          </section>
       </main>
    </body>
