@@ -1,9 +1,9 @@
 <?php
-   $searchedTerm = filter_input(INPUT_GET, 'searchTerm', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+   $searchedTerm = filter_input(INPUT_GET, 'searchedTerm', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-   if((!isset($searchedTerm)) || ($searchedTerm == ''))
+   if((!isset($searchedTerm)) || ($searchedTerm == null))
    {
-      //Voltar para home
+      $searchedTerm = '';
    }
 ?>
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
 
       <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
+      <script defer src="../../../src/js/pages/user/searchResults/searchDisplay.js"></script>
    </head>
    <body>
       <header>
@@ -42,9 +43,9 @@
          <section class="search-container">
             <div class="searchbar-wrapper">
                <i class="searchbar-icon"></i>
-               <input type="text" name="" id="searchbar" placeholder="Macarrão">
+               <input type="text" name="searchbar" id="searchbar" placeholder="<?=$searchedTerm?>">
             </div>
-            <h1>Resultados para "Macarrão"</h1>
+            <h1>Resultados para "<?=$searchedTerm?>"</h1>
          </section>
          <section class="results-container">
             <div class="options-container">
@@ -61,18 +62,18 @@
             <div class="filters-container">
             </div>
             <div class="results_display-container">
-               <div class="result">
-                  <figure>
-                     <img src="../../../assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão</h2>
-                     <span class="result-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt, cumque. Quaerat praesentium suscipit alias hic?</span>
-                     <a href="">Ver receita ></a>
+               <template id="result-template">
+                  <div class="result">
+                     <figure>
+                        <img class="recipe-thumb" src="" alt="">
+                     </figure>
+                     <div class="result-details">
+                        <h2 class="result-title"></h2>
+                        <span class="result-description"></span>
+                        <a href="">Ver receita ></a>
+                     </div>
                   </div>
-               </div>
-               <?php
-               ?>
+               </template>
             </div>
          </section>
       </main>
