@@ -58,6 +58,9 @@ function generateSearchElement(recipes)
          
          let RESULT_DESCRIPTION = RESULT.querySelector('.result-description');
          RESULT_DESCRIPTION.innerHTML = searchedRecipes[i].description;
+
+         let RESULT_LINK = RESULT.querySelector('.recipe-link');
+         RESULT_LINK.href = './recipe.php?id=' + searchedRecipes[i].id;
       
          RESULTS_FRAGMENT.append(RESULT);
       }

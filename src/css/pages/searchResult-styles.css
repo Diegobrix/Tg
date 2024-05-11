@@ -171,7 +171,7 @@ select {
 }
 
 .options-container:has(.list-display[aria-selected="true"]) ~ .results_display-container {
-   --results_spacing: 1rem;
+   --results_spacing: 2rem;
    margin-top: 1rem;
    flex: 1 1 auto;
 

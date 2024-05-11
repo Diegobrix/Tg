@@ -6,6 +6,8 @@ body {
    --page-margin: 1rem;
    --fs-100: 16px;
 
+   display: block;
+
    font-size: var(--fs-100);
    padding: var(--page-margin);
 }

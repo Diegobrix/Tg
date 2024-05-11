@@ -70,7 +70,7 @@
                      <div class="result-details">
                         <h2 class="result-title"></h2>
                         <span class="result-description"></span>
-                        <a href="">Ver receita ></a>
+                        <a class="recipe-link" href="">Ver receita ></a>
                      </div>
                   </div>
                </template>
