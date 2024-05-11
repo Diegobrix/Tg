@@ -53,7 +53,7 @@
          $i = 0;
          foreach($similarities as $sim)
          {
-            if((float) $sim['similarity'] >= 35)
+            if((float) $sim['similarity'] >= 40)
             {
                $results[$i] = $sim;
             }

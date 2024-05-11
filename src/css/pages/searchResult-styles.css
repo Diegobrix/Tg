@@ -177,11 +177,22 @@ select {
 
    display: flex;
    flex-direction: column;
-   padding: 1rem;
    gap: var(--results_spacing) 0;
 
    background: var(--neutral-200);
    border-radius: 15px;
+
+   & .result:first-of-type {
+      margin-top: 1rem;
+   }
+
+   & .result:last-child {
+      margin-bottom: 1rem;
+   }
+
+   & .result {
+      margin-inline: 1rem;
+   }
 } 
 
 .result {

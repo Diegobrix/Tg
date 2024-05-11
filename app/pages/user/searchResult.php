@@ -19,7 +19,7 @@
 
       <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
-      <script defer src="../../../src/js/pages/user/searchResults/searchDisplay.js"></script>
+      <script type="module" defer src="../../../src/js/pages/user/searchResults/searchDisplay.js"></script>
    </head>
    <body>
       <header>
