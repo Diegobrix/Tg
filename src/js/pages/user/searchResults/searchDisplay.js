@@ -12,7 +12,7 @@ SEARCHBAR.addEventListener("keydown", (event) => {
 
          if((searchedTerm.length > 0) && (searchedTerm.match(PATTERN)))
          {
-            console.log("Redirecionando... para " + searchedTerm);
+            window.location.href = "./searchResult.php?searchedTerm=" + searchedTerm;
          }
       }, 0);
    }
@@ -42,8 +42,8 @@ const RESULTS_FRAGMENT = document.createDocumentFragment();
 function generateSearchElement(recipes)
 {
    let searchedRecipes = getRecipes(recipes);
-   console.log(searchedRecipes);
-
+   searchedRecipes.sort(sortRecipes);
+   
    if(searchedRecipes.length > 0)
    {
       for(let i = 0; i < searchedRecipes.length; i++)
@@ -85,4 +85,18 @@ function getRecipes(recipes, current = 0, result = [])
    }
 
    return result;
+}
+
+function sortRecipes(x, y)
+{
+   if(x.similarity < y.similarity)
+   {
+      return -1;
+   }
+   if(x.similarity > y.similarity)
+   {
+      return 1;
+   }
+
+   return 0;
 }
