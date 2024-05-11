@@ -18,6 +18,7 @@
                $data[$i]['id'] = $recipe['idReceita'];
                $data[$i]['title'] = $recipe['tituloReceita'];
                $data[$i]['thumb'] = $recipe['fotoReceita'];
+               $data[$i]['description'] = $recipe['descricaoReceita'];
                $data[$i]['category'] = $this->getCategory($recipe['categoriaReceita']);
                $data[$i]['author'] = $recipe['autor'];
 

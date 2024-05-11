@@ -54,7 +54,10 @@ function generateSearchElement(recipes)
          RESULT_THUMB.src = "../../../assets/images/recipes/" + searchedRecipes[i].thumb;
          
          let RESULT_TITLE = RESULT.querySelector('.result-title');
-         RESULT_TITLE.innerText = searchedRecipes[i].title;
+         RESULT_TITLE.innerHTML = searchedRecipes[i].title;
+         
+         let RESULT_DESCRIPTION = RESULT.querySelector('.result-description');
+         RESULT_DESCRIPTION.innerHTML = searchedRecipes[i].description;
       
          RESULTS_FRAGMENT.append(RESULT);
       }
