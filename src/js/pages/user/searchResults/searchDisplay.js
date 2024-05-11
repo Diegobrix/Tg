@@ -43,7 +43,7 @@ function generateSearchElement(recipes)
 {
    let searchedRecipes = getRecipes(recipes);
    searchedRecipes.sort(sortRecipes);
-   
+
    if(searchedRecipes.length > 0)
    {
       for(let i = 0; i < searchedRecipes.length; i++)
@@ -67,6 +67,11 @@ function generateSearchElement(recipes)
 
       console.log(RESULTS_FRAGMENT);
       RESULTS_CONTAINER.append(RESULTS_FRAGMENT);
+   }
+   else
+   {
+      const NO_RESULTS_TEMPLATE = document.getElementById('no_results-template');
+      RESULTS_CONTAINER.append(NO_RESULTS_TEMPLATE.content.children[0]);
    }
 }
 

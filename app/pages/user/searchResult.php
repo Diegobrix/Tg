@@ -74,6 +74,13 @@
                      </div>
                   </div>
                </template>
+               <template id="no_results-template">
+                  <div class="no_result">
+                     <i class="icon"></i>
+                     <h2>Desculpe, nenhum registro encontrado para "<?=$searchedTerm?>"</h2>
+                     <p>Você pode tentar um termo diferente!</p>
+                  </div>
+               </template>
             </div>
          </section>
       </main>
