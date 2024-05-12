@@ -49,17 +49,10 @@
          </section>
          <section class="results-container">
             <div class="options-container">
-               <div class="filter_add-wrapper">
-                  <select name="" id="" class="filter-select">
-                     <option selected disabled value="#">Filtros</option>
-                  </select>
-               </div>
                <div class="display_mode-container">
-                  <button class="display_mode list-display" data-mode="list" aria-selected="true"></button>
-                  <button class="display_mode grid-display" data-mode="grid" aria-selected="false"></button>
+                  <button class="display_mode list-display" data-mode="list" aria-selected="false"></button>
+                  <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
                </div>
-            </div>
-            <div class="filters-container">
             </div>
             <div class="results_display-container">
                <template id="result-template">
