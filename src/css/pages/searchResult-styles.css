@@ -1,6 +1,12 @@
 @import url("../logo-style.css");
 @import url("../partials/menu/mobile_menu-styles.css");
 
+body {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+}
+
 header {
    position: -webkit-sticky;
    position: sticky;
@@ -53,6 +59,7 @@ header hr {
 }
 
 main {
+   flex: 1 1 auto;
    display: flex;
    flex-direction: column;
    gap: 1rem 0;
@@ -173,7 +180,6 @@ select {
 .options-container:has(.list-display[aria-selected="true"]) ~ .results_display-container {
    --results_spacing: 2rem;
    margin-top: 1rem;
-   flex: 1 1 auto;
 
    display: flex;
    flex-direction: column;
@@ -198,6 +204,42 @@ select {
 .result {
    position: relative;
    display: grid;
+}
+
+.results-container .results_display-container {
+   flex: 1 1 auto;
+   height: auto;
+}
+
+.results-container .results_display-container:has(> .no_result) {
+   place-content: center;
+   padding: 1rem;
+
+   & .no_result {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+
+      align-items: center;
+      text-align: center;
+   }
+}
+
+.no_result i {
+   width: calc(100% - 13rem);
+   aspect-ratio: 1;
+
+   background: url('../../../assets/icons/not_found.svg') no-repeat center center;
+}
+
+.no_result .no_result-description {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+
+   & p {
+      color: hsl(0 0% 40%);
+   }
 }
 
 .options-container:has(.list-display[aria-selected="true"]) ~ .results_display-container .result {
