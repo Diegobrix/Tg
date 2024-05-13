@@ -47,13 +47,15 @@
             </div>
             <h1>Resultados para "<?=$searchedTerm?>"</h1>
          </section>
-         <section class="results-container">
-            <div class="options-container">
-               <div class="display_mode-container">
-                  <button class="display_mode list-display" data-mode="list" aria-selected="false"></button>
-                  <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
-               </div>
+         <section class="filters-container">
+         </section>
+         <div class="options-container">
+            <div class="display_mode-container">
+               <button class="display_mode list-display" data-mode="list" aria-selected="true"></button>
+               <button class="display_mode grid-display" data-mode="grid" aria-selected="false"></button>
             </div>
+         </div>
+         <section class="results-container">
             <div class="results_display-container">
                <template id="result-template">
                   <div class="result">
