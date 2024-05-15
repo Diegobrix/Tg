@@ -19,8 +19,7 @@ function adjustResponsiveContent(currentState)
    {
       DISPLAY_HANDLERS[0].ariaSelected = 'true';
       DISPLAY_HANDLERS[1].ariaSelected = 'false';
+   
       return;
    }
-   DISPLAY_HANDLERS[0].ariaSelected = 'false';
-   DISPLAY_HANDLERS[1].ariaSelected = 'true';
 }

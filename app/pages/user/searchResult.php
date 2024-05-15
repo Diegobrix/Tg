@@ -19,6 +19,7 @@
 
       <script defer src="../../../src/js/pages/user/searchResults/contentDisplayController.js"></script>
       <script defer src="../../../src/js/pages/user/searchResults/responsiveContentController.js"></script>
+      <script defer src="../../../src/js/pages/user/searchResults/filtersController.js"></script>
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
       <script type="module" defer src="../../../src/js/pages/user/searchResults/searchDisplay.js"></script>
    </head>
@@ -55,8 +56,11 @@
                <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
             </div>
          </div>
+         <div class="filters_setting-container" aria-hidden="false">
+
+         </div>
          <section class="results-container">
-            <section class="filters-container">
+            <section class="filters-container" aria-expanded="true">
             </section>
             <div class="results_display-container">
                <template id="result-template">
@@ -80,46 +84,6 @@
                      </div>
                   </div>
                </template>
-               <div class="result">
-                  <figure>
-                     <img class="recipe-thumb" src="../../../assets/images/recipes/66300ebb307fcMacarr&amp;atilde;o_de_teste/66300ebb30e98_teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão de teste</h2>
-                     <span class="result-description">Testando uma receita de macarrão</span>
-                     <a class="recipe-link" href="./recipe.php?id=38">Ver receita &gt;</a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img class="recipe-thumb" src="../../../assets/images/recipes/66300ebb307fcMacarr&amp;atilde;o_de_teste/66300ebb30e98_teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão de teste</h2>
-                     <span class="result-description">Testando uma receita de macarrão</span>
-                     <a class="recipe-link" href="./recipe.php?id=38">Ver receita &gt;</a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img class="recipe-thumb" src="../../../assets/images/recipes/66300ebb307fcMacarr&amp;atilde;o_de_teste/66300ebb30e98_teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão de teste</h2>
-                     <span class="result-description">Testando uma receita de macarrão</span>
-                     <a class="recipe-link" href="./recipe.php?id=38">Ver receita &gt;</a>
-                  </div>
-               </div>
-               <div class="result">
-                  <figure>
-                     <img class="recipe-thumb" src="../../../assets/images/recipes/66300ebb307fcMacarr&amp;atilde;o_de_teste/66300ebb30e98_teste_receita.jpg" alt="">
-                  </figure>
-                  <div class="result-details">
-                     <h2 class="result-title">Macarrão de teste</h2>
-                     <span class="result-description">Testando uma receita de macarrão</span>
-                     <a class="recipe-link" href="./recipe.php?id=38">Ver receita &gt;</a>
-                  </div>
-               </div>
             </div>
          </section>
       </main>

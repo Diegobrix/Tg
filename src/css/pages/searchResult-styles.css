@@ -110,6 +110,17 @@ h1 {
    display: none;
 }
 
+.filters_setting-container[aria-hidden="true"] {
+   display: none;
+}
+
+.filters_setting-container[aria-hidden="false"] {
+   display: block;
+   height: 50px;
+   margin-bottom: 1rem;
+   background: red;
+}
+
 .results-container {
    flex: 1 1 auto;
 
@@ -121,7 +132,7 @@ h1 {
 }
 
 .results_display-container {
-
+   flex: 1 1 auto;
    background: var(--neutral-200);
    border-radius: 15px;
 }
