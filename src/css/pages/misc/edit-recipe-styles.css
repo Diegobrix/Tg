@@ -1,0 +1,79 @@
+@import url('../recipe-styles.css') layer(page_content);
+
+h1 {
+   margin-left: 1rem;
+   margin-block: 1rem;
+}
+
+header {
+   z-index: 5;
+}
+
+.form-controller {
+   display: flex;
+   justify-content: center;
+
+   width: 100%;
+   padding: 0;
+   margin-top: 2rem;
+   margin-bottom: 1rem;
+}
+
+button[type="submit"] {
+   font-size: 1.5rem;
+
+   border: 3px solid var(--primary-700);
+   border-radius: 10px;
+   padding: .3rem .8rem;
+
+   background: var(--neutral-100);
+   color: var(--primary-700);
+}
+
+figure.img_thumb {
+   position: relative;
+}
+
+input[type="file"] {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+
+   opacity: 0;
+   cursor: pointer;
+}
+
+figure .bg {
+   --bg-size: 4rem; 
+   position: absolute;
+   width: 100%;
+   height: 100%;
+}
+
+figure:hover .bg {
+   background: url('../../../../assets/icons/edit.svg') no-repeat center center;
+   background-color: hsl(0 0% 100% / .2);
+   backdrop-filter: blur(5px);
+   background-size: var(--bg-size);
+}
+
+#recipeTitle {
+   all: unset;
+   font-size: 2.5rem;
+}
+
+#recipeTitle:focus {
+   border: 2px solid red;
+}
+
+@media screen and (min-width: 1440px) {
+   .form-controller {
+      justify-content: flex-end;
+      padding-inline: 1rem;
+      margin-top: 0;
+   }
+
+   figure:hover .bg {
+      --bg-size: 6rem;
+   }
+}
