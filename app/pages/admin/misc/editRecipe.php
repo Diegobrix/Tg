@@ -40,8 +40,8 @@
          <hr>
       </header>
       <main>
-         <form action="" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="recipeId" value="<?=$recipeId?>">
+         <form action="../../../bd-conn-controller/pages/misc/addContent/editRecipeDB.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?=$recipeId?>">
             <section aria-label="Resumo da receita">
                <figure class="img_thumb">
                   <div class="bg"></div>
@@ -50,7 +50,7 @@
                </figure>
                <div class="abstract_content-container">
                   <div class="title-container">
-                     <input type="text" name="recipe-title" id="recipeTitle" value="<?=$recipe['title']?>" placeholder="<?=$recipe['title']?>">
+                     <input type="text" required pattern="\w{1, }" name="recipe-title" id="recipeTitle" value="<?=$recipe['title']?>" placeholder="Insira um novo título...">
                      <div class="divider-wrapper">
                         <div class="horizontal-divider"></div>
                         <div class="vertical-divider"></div>
@@ -59,7 +59,7 @@
                      </div>
                   </div>
                   <div class="description-container">
-                     <textarea class="recipe-description" placeholder="<?=$recipe['description']?>"><?=$recipe['description']?></textarea>
+                     <textarea class="recipe-description" name="recipe-description" required pattern="\w{1, }" placeholder="Insira uma nova descrição..."><?=$recipe['description']?></textarea>
                      <span class="recipe-category"><?=$recipe['category']?></span>
                   </div>
                </div>
