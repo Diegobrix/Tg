@@ -12,7 +12,7 @@
       <script defer src="../../../../src/js/pages/hamburger-menu.js"></script>
       <script defer src="../../../../src/js/pages/user/recipe/ingredients_amount_controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
-      <script defer src="../../../../src/js/pages/misc/addRecipes/form_editHandler.js"></script>
+      <script defer src="../../../../src/js/pages/misc/editRecipe/form_editHandler.js"></script>
    </head>
    <body>
       <?php
@@ -50,8 +50,7 @@
                </figure>
                <div class="abstract_content-container">
                   <div class="title-container">
-                     <input type="text" name="recipe-title" id="recipeTitle" value="<?=$recipe['title']?>">
-                     <p>por <span class="recipeAuthor"><?=$recipe['author']?></span></p>
+                     <input type="text" name="recipe-title" id="recipeTitle" value="<?=$recipe['title']?>" placeholder="<?=$recipe['title']?>">
                      <div class="divider-wrapper">
                         <div class="horizontal-divider"></div>
                         <div class="vertical-divider"></div>
@@ -60,7 +59,7 @@
                      </div>
                   </div>
                   <div class="description-container">
-                     <p class="recipe-description"><?=$recipe['description']?></p>
+                     <textarea class="recipe-description" placeholder="<?=$recipe['description']?>"><?=$recipe['description']?></textarea>
                      <span class="recipe-category"><?=$recipe['category']?></span>
                   </div>
                </div>

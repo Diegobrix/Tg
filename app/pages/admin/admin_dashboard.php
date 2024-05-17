@@ -226,7 +226,7 @@
                   <?php
                      }
                   ?>   
-                  <a href="">Editar</a>
+                  <a href="../admin/misc/editRecipe.php?id=<?=$data['id']?>">Editar</a>
                </div>
             </div>
          <?php
