@@ -377,6 +377,46 @@ figure video {
    }
 }
 
+dialog {
+   border: 0;
+   border-radius: 10px;
+   padding: 2rem;
+
+   & h2 {
+      text-align: center;
+      margin-block: 2rem;
+   }
+
+   & .dialog_controller-container {
+      display: flex;
+      justify-content: center;
+      gap: 0 5px;
+
+      flex-wrap: wrap;
+      min-width: fit-content;
+   }
+}
+
+dialog .dialog_controller-container > button {
+   border-radius: 5px; 
+   padding: .5rem 1rem;
+   font-size: 1.1rem;
+   transition: all .3s;
+
+   &:hover {
+      background: var(--neutral-300);
+   }
+
+   &:last-child {
+      background: red;
+      color: var(--neutral-100);
+      
+      &:hover {
+         background: hsl(0 100% 40%);
+      }
+   }
+}
+
 @media screen and (min-width:1440px) {
    :root {
       overflow: hidden;

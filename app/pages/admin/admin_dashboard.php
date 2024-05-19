@@ -228,7 +228,7 @@
                      }
                   ?>   
                   <a href="../admin/misc/editRecipe.php?id=<?=$data['id']?>">Editar</a>
-                  <button class="btn_remove" data-item="<?=$data['id']?>" data-item-name="<?=$data['title']?>">Remover <?=strtolower(substr($choosedType, 0, -1))?></button>
+                  <button class="btn_remove" data-item="<?=$data['id']?>" data-item-name="<?=$data['title']?>" data-content-type="<?=$choosedTypeId?>">Remover <?=strtolower(substr($choosedType, 0, -1))?></button>
                </div>
             </div>
          <?php
@@ -243,7 +243,10 @@
          ?>
       </article>
       <dialog id="remove_item-dialog">
-         <h2 class="alert_msg">Deseja realmente remover "<span class="item-title"></span>"</h2>
+         <div class="decoration-container">
+            <i class="decoration" id="category_modal-decoration"></i>
+         </div>
+         <h2 class="alert_msg">Deseja realmente remover "<span class="item-title">Paçoca</span>"</h2>
          <div class="dialog_controller-container">
             <button id="btnCancel">Cancelar</button>
             <button id="btnRemove">Desejo Perde-lo</button>
