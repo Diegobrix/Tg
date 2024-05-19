@@ -13,6 +13,7 @@
       <script defer src="../../../../src/js/pages/user/recipe/ingredients_amount_controller.js"></script>
       <script defer src="../../../../src/js/pages/misc/addRecipes/thumb_handler.js"></script>
       <script defer src="../../../../src/js/pages/misc/editRecipe/form_editHandler.js"></script>
+      <script defer src="../../../../src/js/pages/misc/editRecipe/dialogController.js"></script>
    </head>
    <body>
       <?php
@@ -26,7 +27,6 @@
 
          require_once("../../../bd-conn-controller/pages/user/getRecipeDB.php");
          $recipe = getRecipe($recipeId);
-         print_r($recipe);
       ?>
       <header>
          <div class="header_head-wrapper">
@@ -89,6 +89,7 @@
                </section>
                <section aria-labelledby="waytodo_section-title">
                   <h2 id="waytodo_section-title">Modo de Preparo</h2>
+                  <button type="button" id="waytodo_edit-handler"></button>
                   <div>
                      <ul class="waytodo-container">
                         <?php
@@ -107,6 +108,23 @@
                   </div>
                </section>
             </section>
+            <dialog id="waytodo-dialog">
+               <div class="waytodo-container">
+                  <?php
+                     $waytodos = fitData($recipe['waytodo']);
+                     foreach($waytodos as $waytodo)
+                     {
+                  ?>
+                        <li>
+                           <span class="sequence-index"><?=$waytodo[0]?></span>
+                           <input type="text" name="todo[]" class="waytodo-description" value="<?=$waytodo[1]?>"/>
+                        </li>
+                  <?php
+                     }
+                  ?>
+               </div>
+               <button type="button" class="add_waytodo">Add. Etapa</button>
+            </dialog>
             <div class="form-controller">
                <button type="submit">Salvar Receita</button>
             </div>
