@@ -5,6 +5,10 @@
 @layer reset, utilities, animations;
 
 @layer reset {
+   :root:has(dialog[open]) {
+      overflow: hidden;
+   }
+
    * {
       box-sizing: inherit;
       font-family: var(--ff-100);

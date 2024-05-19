@@ -109,6 +109,10 @@
                </section>
             </section>
             <dialog id="waytodo-dialog">
+               <div class="decoration-container">
+                  <i class="decoration" id="category_modal-decoration"></i>
+               </div>
+               <h2>Editar Modo de Preparo</h2>
                <div class="waytodo-container">
                   <?php
                      $waytodos = fitData($recipe['waytodo']);

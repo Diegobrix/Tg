@@ -26,5 +26,3 @@ DIALOG_BTN_CANCEL.addEventListener('click', () => {
 CLOSE_DIALOG.addEventListener('click', () => {
    REMOVE_DIALOG.close();
 });
-
-REMOVE_DIALOG.showModal();

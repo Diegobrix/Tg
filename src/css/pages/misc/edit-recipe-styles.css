@@ -99,3 +99,42 @@ textarea {
       }
    }
 }
+
+dialog[open] {
+   border-radius: 10px;
+   border: 0 solid #0000;
+   padding: 2rem 0 1rem 0;
+
+   & .decoration-container {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+
+      & .decoration {
+         position: absolute;
+         width: .8rem;
+         height: .8rem;
+         border-radius: 50%;
+         background: var(--primary-700);
+
+         cursor: pointer;
+      }
+   }
+
+   & .waytodo-container {
+      background: #0000;
+      
+      & > li {
+         background: var(--neutral-300);
+         padding: 1rem 2rem;
+      }
+
+      & > :nth-child(even) {
+         background: var(--neutral-100);
+      }
+   }
+}
+
+dialog h2 {
+   margin: 0 0 1rem 1rem;
+}
