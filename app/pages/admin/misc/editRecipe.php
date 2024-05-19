@@ -26,6 +26,7 @@
 
          require_once("../../../bd-conn-controller/pages/user/getRecipeDB.php");
          $recipe = getRecipe($recipeId);
+         print_r($recipe);
       ?>
       <header>
          <div class="header_head-wrapper">
@@ -42,6 +43,7 @@
       <main>
          <form action="../../../bd-conn-controller/pages/misc/addContent/editRecipeDB.php" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?=$recipeId?>">
+            <input type="hidden" name="originalImg" value="<?=htmlspecialchars($recipe['pic'])?>">
             <section aria-label="Resumo da receita">
                <figure class="img_thumb">
                   <div class="bg"></div>

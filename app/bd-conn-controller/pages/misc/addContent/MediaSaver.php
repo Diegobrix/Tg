@@ -6,23 +6,33 @@
     function __construct($dirTitle)
     {
       $title = explode(' ', $dirTitle);
-      $this->dirTitle = uniqid().implode("_", $title);
+      $this->dirTitle = uniqid().'@'.implode("_", $title);
     }
 
-    public function saveMedia($content, $type = "image")
+    public function getNewDirName()
+    {
+      return $this->dirTitle;
+    }
+
+    public function saveMedia($content, $type = "image", $dirName = null)
     {
       if($type == "video")
       {
         return $this->saveVideo($content);
       }
 
-      return $this->saveImage($content);
+      return $this->saveImage($content, $dirName);
     }
 
-    private function saveImage($content)
+    private function saveImage($content, $dirname = null)
     {
       $targetDir = $this->baseUrl.$this->dirTitle;
-      if(!$this->createDir($targetDir))
+      if($dirname != null)
+      {
+        $targetDir = $dirname;
+      }
+
+      if(!$this->createDir($dirname!=null?$this->baseUrl.$targetDir:$targetDir))
       {
         return null;
       }
@@ -33,7 +43,7 @@
         return $this->dirTitle."/no_image.png";
       }
       
-      $file = $this->moveFile($content, $targetDir);
+      $file = $this->moveFile($content, $targetDir, $dirname!=null);
       return $file;
     }
     
@@ -63,20 +73,23 @@
 
         return false;
       }
+
+      return true;
     }
 
-    private function moveFile($file, $targetDir)
+    private function moveFile($file, $targetDir, $relativePath = false)
     {
       $img = $file['name'];
       $tmpName = $file['tmp_name'];
 
       $imgTitle = explode(' ', $img);
 
+
       $finalName = uniqid()."_".implode('_', $imgTitle);
       $dirname = iconv("UTF-8","Windows-1256",$targetDir);
-      if(move_uploaded_file($tmpName, $dirname."/".$finalName))
+      if(move_uploaded_file($tmpName, $relativePath?$this->baseUrl.$dirname."/".$finalName:$dirname."/".$finalName))
       {
-        return $this->dirTitle."/".$finalName;
+        return $dirname."/".$finalName;
       }
 
       return null;
