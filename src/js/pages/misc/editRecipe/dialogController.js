@@ -25,5 +25,3 @@ MODAL_CLOSE_HANDLERS.forEach(handler => {
       return WAYTODO_MODAL.close();
    });
 });
-
-INGREDIENTS_MODAL.showModal();

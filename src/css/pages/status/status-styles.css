@@ -1,0 +1,64 @@
+body {
+   display: grid;
+   place-items: center;
+}
+
+main {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   gap: .5em 0;
+}
+
+figure {
+   width: 5rem;
+   aspect-ratio: 1;
+
+   & i {
+      display: block;
+      height: 100%;
+
+      background: var(--icon) no-repeat center center;
+      
+      &.success {
+         --icon: url('../../../../assets/icons/success.svg');
+      }
+      &.failure {
+         --icon: url('../../../../assets/icons/failure.svg');
+      }
+   }
+}
+
+.status-container {
+   text-align: center;
+
+   & p {
+      color: var(--neutral-700);
+   }
+}
+
+.redirect {
+   position: fixed;
+   bottom: 2rem;
+   transition: all .3s;
+   opacity: 0;
+   pointer-events: none;
+   animation: redirectMsg 5s ease-in-out forwards;
+
+   &:hover {
+      color: var(--primary-700);
+   }
+}
+
+@keyframes redirectMsg {
+   from,
+   99% {
+      opacity: 0;
+      pointer-events: none;
+   }
+   to {
+      opacity: 1;
+      pointer-events: initial;
+   }
+}
