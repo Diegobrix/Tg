@@ -13,64 +13,66 @@
       
       $originalTitle = $originalTitleWithCrypto[1];
 
-      require_once(__DIR__.'/./MediaSaver.php');
-      $mSaver = new MediaSaver($title);
-      $newTitle = $mSaver->getNewDirName();
+      
 
-      $recipesBasePath = __DIR__.'/../../../../../assets/images/recipes/';
-      $changeImg = false;
+      // require_once(__DIR__.'/./MediaSaver.php');
+      // $mSaver = new MediaSaver($title);
+      // $newTitle = $mSaver->getNewDirName();
 
-      $tit = $originalLocalData[0];
+      // $recipesBasePath = __DIR__.'/../../../../../assets/images/recipes/';
+      // $changeImg = false;
 
-      if($originalTitle != $title)
-      {
-         echo 'deferentes';
-         if(file_exists($recipesBasePath.$title))
-         {
-            rename($recipesBasePath.$title, $recipesBasePath.$newTitle);
-            $tit = $newTitle;
-            $changeImg = true;
-         }
-      }
+      // $tit = $originalLocalData[0];
 
-      $photo = $recipesBasePath.$tit.'/'.$originalLocalData[1];
-      if((isset($_FILES['recipe_thumb'])) && ($_FILES['recipe_thumb']['name'] != ""))
-      {
-         if(file_exists($recipesBasePath.$tit.'/'.$originalLocalData[1]))
-         {
-            unlink($recipesBasePath.$tit.'/'.$originalLocalData[1]);
-         }
+      // if($originalTitle != $title)
+      // {
+      //    echo 'deferentes';
+      //    if(file_exists($recipesBasePath.$title))
+      //    {
+      //       rename($recipesBasePath.$title, $recipesBasePath.$newTitle);
+      //       $tit = $newTitle;
+      //       $changeImg = true;
+      //    }
+      // }
 
-         $photo = $mSaver->saveMedia($_FILES['recipe_thumb'], "image", $tit);
-         $changeImg = true;
-      }
+      // $photo = $recipesBasePath.$tit.'/'.$originalLocalData[1];
+      // if((isset($_FILES['recipe_thumb'])) && ($_FILES['recipe_thumb']['name'] != ""))
+      // {
+      //    if(file_exists($recipesBasePath.$tit.'/'.$originalLocalData[1]))
+      //    {
+      //       unlink($recipesBasePath.$tit.'/'.$originalLocalData[1]);
+      //    }
 
-      $query = 'UPDATE `receita` SET tituloReceita = :tit, descricaoReceita = :descript WHERE idReceita = :id;';
-      $data = array(
-         ':tit' => $title,
-         ':descript' => $description,
-         ':id' => $id
-      );
-      if($changeImg)
-      {
-         $query = 'UPDATE `receita` SET tituloReceita = :tit, descricaoReceita = :descript, fotoReceita = :img WHERE idReceita = :id;';
-         $data = array(
-            ':tit' => $title,
-            ':descript' => $description,
-            ':img' => $photo,
-            ':id' => $id
-         );
-      }
+      //    $photo = $mSaver->saveMedia($_FILES['recipe_thumb'], "image", $tit);
+      //    $changeImg = true;
+      // }
 
-      $stmt = $conn->prepare($query);
-      $stmt->execute($data);
+      // $query = 'UPDATE `receita` SET tituloReceita = :tit, descricaoReceita = :descript WHERE idReceita = :id;';
+      // $data = array(
+      //    ':tit' => $title,
+      //    ':descript' => $description,
+      //    ':id' => $id
+      // );
+      // if($changeImg)
+      // {
+      //    $query = 'UPDATE `receita` SET tituloReceita = :tit, descricaoReceita = :descript, fotoReceita = :img WHERE idReceita = :id;';
+      //    $data = array(
+      //       ':tit' => $title,
+      //       ':descript' => $description,
+      //       ':img' => $photo,
+      //       ':id' => $id
+      //    );
+      // }
 
-      if($stmt->rowCount() > 0)
-      {
-         echo 'Sucersso';
-      }
-      else
-      {
-         echo 'Error';
-      }
+      // $stmt = $conn->prepare($query);
+      // $stmt->execute($data);
+
+      // if($stmt->rowCount() > 0)
+      // {
+      //    echo 'Sucersso';
+      // }
+      // else
+      // {
+      //    echo 'Error';
+      // }
    }
