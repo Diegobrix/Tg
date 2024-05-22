@@ -51,6 +51,12 @@ figure {
    }
 }
 
+@media screen and (min-width: 1440px) {
+   .redirect {
+      bottom: 5rem;
+   }   
+}
+
 @keyframes redirectMsg {
    from,
    99% {

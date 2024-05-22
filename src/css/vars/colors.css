@@ -24,6 +24,7 @@
    --transparent-350:hsl(210 33% 95% / .5);
    --transparent-400:hsl(273 70% 74% / .2);
    --transparent-500: hsl(273 98% 46% / .2);
+   --transparent-600:hsl(0 0% 0% / .2);
 
    --logo-blue: hsl(200, 100%, 42%);
 
