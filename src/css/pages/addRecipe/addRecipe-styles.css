@@ -194,6 +194,10 @@ form textarea {
    width: auto;
 }
 
+.form_step[data-step="1"] {
+   overflow: visible;
+}
+
 .form_step[data-step="1"] .thumb_label {
    display: none;
 }
@@ -414,6 +418,7 @@ select {
 
 .form_step[data-step="2"] {
    flex-direction: column;
+   overflow: visible;
    max-height: 80vh;
 
    padding-top: 1rem;

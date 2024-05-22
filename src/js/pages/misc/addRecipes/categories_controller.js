@@ -6,7 +6,7 @@ const SELECT_DISPLAYER = document.getElementById("selectedCategory");
 const CATEGORIES = document.querySelectorAll(".category");
 const ADD_CATEGORY_MODAL_HANDLER = document.querySelector(".btn_add_category");
 const ADD_CATEGORY_MODAL = document.getElementById("add_category-modal");
-const CLOSE_CATEGORY_MODAL = document.getElementById("category_modal-decoration");
+const CLOSE_CATEGORY_MODAL = ADD_CATEGORY_MODAL.querySelector("#category_modal-decoration");
 
 CATEGORIES_SELECT_HANDLER.addEventListener("change", () => {
    showCategories(CATEGORIES_SELECT_HANDLER.checked);
@@ -35,8 +35,9 @@ ADD_CATEGORY_MODAL_HANDLER.addEventListener("click", () => {
    ADD_CATEGORY_MODAL.showModal();
 });
 
+console.log(CLOSE_CATEGORY_MODAL);
 CLOSE_CATEGORY_MODAL.addEventListener("click", () => {
-   ADD_CATEGORY_MODAL.close();
+   closeAddModal();
 });
 
 const ADD_CATEGORY_SENDER = document.getElementById("add_category_sender");
