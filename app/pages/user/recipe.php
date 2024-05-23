@@ -7,6 +7,7 @@
       <title>Receita</title>
 
       <link rel="stylesheet" type="text/css" href="../../../src/css/reset.css"/>
+      <link rel="stylesheet" type="text/css" href="../../../src/css/pages/advice-styles.css"/>
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/recipe-styles.css"/>
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
@@ -37,6 +38,9 @@
          <hr>
       </header>
       <main>
+         <?php
+            include_once('./clinical_advice.php');
+         ?>
          <section aria-label="Resumo da receita">
             <figure class="img_thumb">
                <img src="../../../assets/images/recipes/<?=htmlspecialchars($recipe['pic'])?>" alt="">

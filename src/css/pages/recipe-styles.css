@@ -24,7 +24,7 @@ main {
    margin-top: 1.5rem;
 }
 
-main > section:first-child > *,
+main > section:first-of-type > *,
 main form > section:first-of-type > * {
    margin-inline: 2rem;
 }
