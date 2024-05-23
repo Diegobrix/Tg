@@ -1,5 +1,9 @@
-.advice {
-   margin: 1rem;
+.advice-wrapper {
+   background: var(--neutral-500);
+   margin-inline: 1rem;
+   margin-bottom: 1rem;
+   padding: 1.5rem 1rem; 
    text-align: center;
-   color: var(--primary-700);
+   border: 3px dashed var(--logo-blue);
+   border-radius: 10px;
 }

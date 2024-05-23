@@ -19,10 +19,6 @@ header .header_head-wrapper {
       margin-left: 1rem;
    }
 }
- 
-main {
-   margin-top: 1.5rem;
-}
 
 main > section:first-of-type > *,
 main form > section:first-of-type > * {
@@ -111,6 +107,13 @@ figure {
 .recipe-description {
    font-family: var(--ff-300);
    font-weight: var(--fw-100);
+}
+
+.categories-container {
+   display: flex;
+   gap: 0 1rem;
+
+   margin-block: 1rem;
 }
 
 .recipe-category {

@@ -58,7 +58,10 @@
                </div>
                <div class="description-container">
                   <p class="recipe-description"><?=$recipe['description']?></p>
-                  <span class="recipe-category"><?=$recipe['category']?></span>
+                  <div class="categories-container">
+                     <span class="recipe-category">Pré-Diabetes</span>
+                     <span class="recipe-category"><?=$recipe['category']?></span>
+                  </div>
                </div>
             </div>
          </section>
