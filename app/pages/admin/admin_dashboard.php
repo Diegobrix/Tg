@@ -141,11 +141,6 @@
             </label>
             <input type="text" id="txtSearchRecipe" placeholder="Buscar <?=strtolower($choosedType)?>...">
          </div>
-         <div>
-            <select id="">
-               <option selected disabled>Filtrar</option>
-            </select>
-         </div>
       </section>
       <section class="filters_applied-container">
       </section>

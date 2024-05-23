@@ -139,11 +139,6 @@ main,
 }
 
 #searchbar-container {
-   display: flex;
-   justify-content: flex-start;
-   align-items: center;
-   gap: 0 .5rem;
-
    padding: .5rem 1rem;
 }
 
