@@ -48,7 +48,7 @@
             <h1>Adicionar Receita</h1>
          </div>
          <ul class="steps_descriptions">
-            <li class="step_display" data-step="0" data-current="true">
+         <li class="step_display" data-step="0" data-current="true">
                <i class="step-icon">1</i>
                <div class="step_description--wrapper">
                   <span>Passo 1</span>
@@ -59,13 +59,20 @@
                <i class="step-icon">2</i>
                <div class="step_description--wrapper">
                   <span>Passo 2</span>
-                  <p>Benefícios e Categoria</p>
+                  <p>Autor e Fonte</p>
                </div>
             </li>
             <li class="step_display" data-step="2" data-current="false">
                <i class="step-icon">3</i>
                <div class="step_description--wrapper">
                   <span>Passo 3</span>
+                  <p>Benefícios e Categoria</p>
+               </div>
+            </li>
+            <li class="step_display" data-step="3" data-current="false">
+               <i class="step-icon">4</i>
+               <div class="step_description--wrapper">
+                  <span>Passo 4</span>
                   <p>Adicionar Ingredientes</p>
                </div>
             </li>
@@ -77,28 +84,35 @@
                <button id="btn_close" aria-label="Fechar Menu"></button>
             </div>
             <ul class="steps_descriptions">
-            <li class="step_display" data-step="0" data-current="true">
-               <i class="step-icon">1</i>
-               <div class="step_description--wrapper">
-                  <span>Passo 1</span>
-                  <p>Informações Básicas</p>
-               </div>
-            </li>
-            <li class="step_display" data-step="1" data-current="false">
-               <i class="step-icon">2</i>
-               <div class="step_description--wrapper">
-                  <span>Passo 2</span>
-                  <p>Benefícios e Categoria</p>
-               </div>
-            </li>
-            <li class="step_display" data-step="2" data-current="false">
-               <i class="step-icon">3</i>
-               <div class="step_description--wrapper">
-                  <span>Passo 3</span>
-                  <p>Adicionar Ingredientes</p>
-               </div>
-            </li>
-         </ul>
+               <li class="step_display" data-step="0" data-current="true">
+                  <i class="step-icon">1</i>
+                  <div class="step_description--wrapper">
+                     <span>Passo 1</span>
+                     <p>Informações Básicas</p>
+                  </div>
+               </li>
+               <li class="step_display" data-step="1" data-current="false">
+                  <i class="step-icon">2</i>
+                  <div class="step_description--wrapper">
+                     <span>Passo 2</span>
+                     <p>Autor e Fonte</p>
+                  </div>
+               </li>
+               <li class="step_display" data-step="2" data-current="false">
+                  <i class="step-icon">3</i>
+                  <div class="step_description--wrapper">
+                     <span>Passo 3</span>
+                     <p>Benefícios e Categoria</p>
+                  </div>
+               </li>
+               <li class="step_display" data-step="3" data-current="false">
+                  <i class="step-icon">4</i>
+                  <div class="step_description--wrapper">
+                     <span>Passo 4</span>
+                     <p>Adicionar Ingredientes</p>
+                  </div>
+               </li>
+            </ul>
          </aside>
          <div class="backdrop"></div>
       </header>

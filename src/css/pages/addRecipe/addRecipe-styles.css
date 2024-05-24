@@ -119,6 +119,10 @@ header > .steps_descriptions .step_description--wrapper {
    align-items: center;
    gap: 1rem;
    margin-inline-start: 1rem;
+
+   & li {
+      min-width: 100%;
+   }
 }
 
 .mobile-menu .step-icon {
