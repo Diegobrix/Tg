@@ -8,65 +8,33 @@ const STEP_HANDLER = document.querySelectorAll(".step-handler");
 const STEPS_AMOUNT = FORM_STEPS.length;
 
 STEP_HANDLER.forEach(handler => {
-   handler.addEventListener("click", (event) => {
+   handler.addEventListener('click', (event) => {
       let action = handler.dataset.action;
-      if(action != "finish")
+      if(action != 'finish')
       {
-         stepHandler(action, event);
-         event.preventDefault();
-      }
-      else
-      {
-         event.preventDefault();
-         event.stopPropagation();
-
-         let ingredients = document.querySelectorAll(".ingredients .ingredient");
-         
-         if(verifyIngredients(ingredients))
-         {
-            return addVideo();
-         }
-
-         return alert('Pelo menos 1 ingrediente DEVE ser selecionado .');
+         let currentStep = parseInt(getCurrentStep());
+         stepHandler(action, event, currentStep);
       }
    });
 });
 
-function stepHandler(trigger, event)
+function stepHandler(action, trigger, currentStep)
 {
-   let currentStep = parseInt(getCurrentStep());
-   if(trigger == "next")
+   if(action == 'next')
    {
-      if(currentStep > 0)
-      {
-         let categoryOptions = document.querySelectorAll('#categoryOptionsContainer .category');
-         let isSelected = false;
-
-         for (var i = 0; i < categoryOptions.length; i++) {
-            if (categoryOptions[i].checked) {
-               isSelected = true;
-               break;
-            }
-         }
-
-         if (!isSelected) {
-            event.preventDefault();
-            alert('Por favor, selecione uma categoria.');
-            return;
-         }
-      }
-      
-      if(checkFields(currentStep))
+      let actionVerifyResult = actionVerify(currentStep);
+      if(actionVerifyResult == true)
       {
          return nextStep(currentStep);
       }
-      return;
-   }   
-   
 
-   return previousStep(currentStep);
+      return actionVerifyResult!=null?window.alert(actionVerifyResult):'';
+   }
+
+   return prevStep(currentStep);
 }
 
+//#region Step Actions
 function nextStep(currentStep)
 {
    if(currentStep < (STEPS_AMOUNT - 1))
@@ -75,19 +43,29 @@ function nextStep(currentStep)
       currentStep += 1;
    }
 
-   formChangeStep(currentStep);
-   headerChangeStep(currentStep);
-   desktopChangeStep(currentStep);
+   updateStep(currentStep);
 }
 
-function previousStep(currentStep)
+function prevStep(currentStep)
 {
    if(currentStep > 0)
    {
       clearSteps();
       currentStep -= 1;
    }
+   
+   updateStep(currentStep);
+}
+//#endregion
+//#region Step Controller
+function clearSteps()
+{
+   clearHeadSteps();
+   clearFormSteps();
+}
 
+function updateStep(currentStep)
+{
    formChangeStep(currentStep);
    headerChangeStep(currentStep);
    desktopChangeStep(currentStep);
@@ -105,17 +83,79 @@ function getCurrentStep()
 
    return current;
 }
+//#endregion
 
-function clearSteps()
+function actionVerify(currentStep)
 {
-   clearHeadSteps();
-   clearFormSteps();
+   let current = currentStep.toString();
+   let verifies = {0:verifyWayToDoStep, 1:verifyStep, 2:verifyCategoryStep, 3:verifyIngredientsStep};
+   return Object.keys(verifies).includes(current)?verifies[current](current):null;
 }
 
-function checkFields(currentStep)
+//#region Step Verify
+function verifyWayToDoStep(currentStep)
+{
+   if(checkStepFields(currentStep))
+   {
+      let wayToDoContainer = document.querySelector('.ways_to_do-container'); 
+
+      if((wayToDoContainer.childElementCount - 2) > 0)
+      {
+         return true;
+      }
+
+      return 'O modo de preparo da receita DEVE possuir ao menos 1 etapa!';
+   }
+
+   return null;
+}
+
+function verifyCategoryStep(currentStep)
+{
+   if(verifyStep(currentStep))
+   {
+      let categoryOptions = document.querySelectorAll('#categoryOptionsContainer .category');
+      let isSelected = false;
+
+      for (var i = 0; i < categoryOptions.length; i++) {
+         if (categoryOptions[i].checked) {
+            isSelected = true;
+            break;
+         }
+      }
+
+      if(!isSelected)
+      {
+         return 'Por favor, selecione uma categoria.';
+      }
+
+      return true;
+   }
+
+   return null;
+}
+
+function verifyIngredientsStep(currentStep)
+{
+   let ingredients = document.querySelectorAll(".ingredients .ingredient");
+   if(verifyIngredients(ingredients))
+   {
+      return addVideo();
+   }
+
+   return 'Pelo menos 1 ingrediente DEVE ser selecionado.';
+}
+
+function verifyStep(currentStep)
+{
+   return checkStepFields(currentStep);
+}
+
+function checkStepFields(currentStep)
 {
    let groups = [...FORM_STEPS[currentStep].querySelectorAll(".input-group *:required")];
    let inputsValid = groups.every(input => input.reportValidity());
 
    return inputsValid?true:false;
 }
+//#endregion

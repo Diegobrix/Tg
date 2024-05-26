@@ -145,7 +145,8 @@
                   </div>
                   <button type="button" class="add_waytodo" id="todo-handler">
                      <i></i>
-                     Add. Etapa</button>
+                     Add. Etapa
+                  </button>
                </div>
                <dialog id="way_to_do-modal">
                   <h2>Add. Etapa</h2>
@@ -157,6 +158,16 @@
                </dialog>
             </section>
             <section class="form_step" data-step="1" data-current="false">
+               <div class="input-group">
+                  <label for="txtAuthor">Autor</label>
+                  <input required type="text" name="recipe_author" id="txtAuthor">
+               </div>
+               <div class="input-group">
+                  <label for="txtSource">Fonte para a Receita</label>
+                  <input type="text" name="recipe_source" id="txtSource" placeholder="e. url de um site">
+               </div>
+            </section>
+            <section class="form_step" data-step="2" data-current="false">
                <h2 class="section_title">Add Receita</h2>
                <div class="input-group">
                   <label for="txtBenefits">Benefícios</label>
@@ -215,7 +226,7 @@
                   </div>
                </dialog>
             </section>
-            <section class="form_step" data-step="2" data-current="false">
+            <section class="form_step" data-step="3" data-current="false">
                <h2 class="section_title">Adicionar<br>Ingredientes</h2>
                <nav class="ingredients-controller">
                   <button type="button" class="add_ingredient"></button>
@@ -301,10 +312,11 @@
                   <div class="step" data-step="0" data-current="true" data-already="false"></div>
                   <div class="step" data-step="1" data-current="false" data-already="false"></div>
                   <div class="step" data-step="2" data-current="false" data-already="false"></div>
+                  <div class="step" data-step="3" data-current="false" data-already="false"></div>
                </div>
                <div class="form_footer">
-                  <button class="step-handler btn_prev" data-action="prev">< Anterior</button>
-                  <button class="step-handler btn_next" data-action="next">Próximo ></button>
+                  <button type="button" class="step-handler btn_prev" data-action="prev">< Anterior</button>
+                  <button type="button" class="step-handler btn_next" data-action="next">Próximo ></button>
                   <button class="step-handler btn_finish" data-action="finish">Finalizar</button>
                </div>
             </div>

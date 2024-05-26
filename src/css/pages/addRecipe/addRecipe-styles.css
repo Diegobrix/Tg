@@ -198,15 +198,15 @@ form textarea {
    width: auto;
 }
 
-.form_step[data-step="1"] {
+.form_step[data-step="2"] {
    overflow: visible;
 }
 
-.form_step[data-step="1"] .thumb_label {
+.form_step[data-step="2"] .thumb_label {
    display: none;
 }
 
-form .form_step[data-step="1"] textarea {
+form .form_step[data-step="2"] textarea {
    aspect-ratio: 1/.5;
 }
 
@@ -420,7 +420,7 @@ select {
    transition: all .2s;
 }
 
-.form_step[data-step="2"] {
+.form_step[data-step="3"] {
    flex-direction: column;
    overflow: visible;
    max-height: 80vh;
@@ -620,7 +620,7 @@ div:has(.ingredients) {
       padding-top: 5rem;
    }
 
-   .form_step[data-step="1"] {
+   .form_step[data-step="2"] {
       flex-direction: row;
       justify-content: space-between;
       gap: 0 1rem;
@@ -632,7 +632,7 @@ div:has(.ingredients) {
       }
    }
 
-   .form_step[data-step="1"] .thumb_label {
+   .form_step[data-step="2"] .thumb_label {
       position: absolute;
       top: 1rem;
       left: 1rem;
@@ -643,7 +643,7 @@ div:has(.ingredients) {
       max-height: 10rem;
    }
 
-   .form_step[data-step="1"] > .input-group {
+   .form_step[data-step="2"] > .input-group {
       justify-content: flex-end;
 
       & textarea {
@@ -693,7 +693,7 @@ div:has(.ingredients) {
       transform: translate(-50%, -50%);
    }
 
-   .form_step[data-step="2"] {
+   .form_step[data-step="3"] {
       flex-direction: column;
       padding-top: 10%;
    }
