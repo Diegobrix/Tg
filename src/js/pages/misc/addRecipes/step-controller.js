@@ -99,7 +99,7 @@ function verifyWayToDoStep(currentStep)
    {
       let wayToDoContainer = document.querySelector('.ways_to_do-container'); 
 
-      if((wayToDoContainer.childElementCount - 2) > 0)
+      if((wayToDoContainer.childElementCount - 1) > 0)
       {
          return true;
       }
