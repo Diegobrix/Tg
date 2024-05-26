@@ -148,7 +148,7 @@ function verifyIngredientsStep(currentStep)
 
 function verifyStep(currentStep)
 {
-   return checkStepFields(currentStep);
+   return checkStepFields(currentStep)?true:null;
 }
 
 function checkStepFields(currentStep)
