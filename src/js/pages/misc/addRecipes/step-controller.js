@@ -13,8 +13,10 @@ STEP_HANDLER.forEach(handler => {
       if(action != 'finish')
       {
          let currentStep = parseInt(getCurrentStep());
-         stepHandler(action, event, currentStep);
+         return stepHandler(action, event, currentStep);
       }
+
+      return verifyIngredientsStep();
    });
 });
 
@@ -30,8 +32,6 @@ function stepHandler(action, trigger, currentStep)
 
       return actionVerifyResult!=null?window.alert(actionVerifyResult):'';
    }
-
-   return prevStep(currentStep);
 }
 
 //#region Step Actions
@@ -88,7 +88,7 @@ function getCurrentStep()
 function actionVerify(currentStep)
 {
    let current = currentStep.toString();
-   let verifies = {0:verifyWayToDoStep, 1:verifyStep, 2:verifyCategoryStep, 3:verifyIngredientsStep};
+   let verifies = {0:verifyWayToDoStep, 1:verifyStep, 2:verifyCategoryStep};
    return Object.keys(verifies).includes(current)?verifies[current](current):null;
 }
 
@@ -135,7 +135,7 @@ function verifyCategoryStep(currentStep)
    return null;
 }
 
-function verifyIngredientsStep(currentStep)
+function verifyIngredientsStep()
 {
    let ingredients = document.querySelectorAll(".ingredients .ingredient");
    if(verifyIngredients(ingredients))
