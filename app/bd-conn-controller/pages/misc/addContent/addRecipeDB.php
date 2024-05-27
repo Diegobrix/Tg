@@ -7,7 +7,9 @@
       $recipeDescription = filter_input(INPUT_POST, "recipe_description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $recipeBenefits = filter_input(INPUT_POST, "recipe_benefits", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $recipeCategory = filter_input(INPUT_POST, "category", FILTER_SANITIZE_NUMBER_INT);
-      $recipeAuthor = filter_input(INPUT_POST, "author_id", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $recipeAuthor = filter_input(INPUT_POST, "recipe_author", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $recipeSource = filter_input(INPUT_POST, "recipe_source", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $recipeEditor = filter_input(INPUT_POST, "recipe_editor", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
       $waysToDo = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS)["waytodo"];
       $recipeWayToDo = "";
@@ -27,7 +29,9 @@
          $photo = $mSaver->saveMedia("no_image.png");
       }
 
-      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `descricaoReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `autor`) VALUES(:tit, :recipeDesc, :benefits, :way, :photo, :category, :author);");
+      $recipeDate = date('Y-m-d');
+
+      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `descricaoReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `editor`, `autor`, `fonte`, `dataReceita`) VALUES(:tit, :recipeDesc, :benefits, :way, :photo, :category, :editor, :author, :source, :recipeDate);");
       $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
          ":recipeDesc" => $recipeDescription,
@@ -35,7 +39,10 @@
          ":way" => $recipeWayToDo,
          ":photo" => $photo,
          ":category" => $recipeCategory,
-         ":author" => $recipeAuthor
+         ":editor" => $recipeEditor,
+         ":author" => $recipeAuthor,
+         ":source" => $recipeSource,
+         ":recipeDate" => $recipeDate
       ));
    
       if($stmtRecipe -> rowCount() > 0)

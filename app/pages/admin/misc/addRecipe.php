@@ -118,7 +118,7 @@
       </header>
       <main>
          <form id="form" action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="author_id" value="<?=$_SESSION['id']?>">
+            <input type="hidden" name="recipe_editor" value="<?=$_SESSION['id']?>">
             <?php
                require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
                $categories = getCategories($conn);
