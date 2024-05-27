@@ -89,7 +89,8 @@
       $dirname = iconv("UTF-8","Windows-1256",$targetDir);
       if(move_uploaded_file($tmpName, $relativePath?$this->baseUrl.$dirname."/".$finalName:$dirname."/".$finalName))
       {
-        return $dirname."/".$finalName;
+
+        return $this->getNewDirName()."/".$finalName;
       }
 
       return null;

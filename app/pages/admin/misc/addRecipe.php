@@ -4,7 +4,7 @@
    {
       session_unset();
       session_destroy();
-		header("location: ../../credentials.php");
+      header("location: ../../credentials.php");
    }
 
    require_once("../../AdminPageConstructor.php");
@@ -20,9 +20,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
    <head>
-      <meta charset="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <title>Admin - Adicionar Receita</title>
 
       <!-- CSS -->
@@ -48,7 +48,7 @@
             <h1>Adicionar Receita</h1>
          </div>
          <ul class="steps_descriptions">
-         <li class="step_display" data-step="0" data-current="true">
+            <li class="step_display" data-step="0" data-current="true">
                <i class="step-icon">1</i>
                <div class="step_description--wrapper">
                   <span>Passo 1</span>
@@ -118,10 +118,10 @@
       </header>
       <main>
          <form id="form" action="../../../bd-conn-controller/pages/misc/addContent/addRecipeDB.php" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="recipe_editor" value="<?=$_SESSION['id']?>">
+            <input type="hidden" name="recipe_editor" value="<?= $_SESSION['id'] ?>">
             <?php
-               require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
-               $categories = getCategories($conn);
+            require_once("../../../bd-conn-controller/pages/misc/getContent/getRecipeData.php");
+            $categories = getCategories($conn);
             ?>
             <section class="form_step" data-step="0" data-current="true">
                <h2 class="section_title">Adicionar Receita</h2>
@@ -200,15 +200,14 @@
                               </li>
                            </template>
                            <?php
-                              foreach($categories as $category)
-                              {
+                           foreach ($categories as $category) {
                            ?>
                               <li>
-                                 <input class="category" type="radio" name="category" value="<?=$category['id']?>" id="category-<?=$category['id']?>" data-label="<?=$category['category']?>">
-                                 <label for="category-<?=$category['id']?>"><?=$category['category']?></label>
+                                 <input class="category" type="radio" name="category" value="<?= $category['id'] ?>" id="category-<?= $category['id'] ?>" data-label="<?= $category['category'] ?>">
+                                 <label for="category-<?= $category['id'] ?>"><?= $category['category'] ?></label>
                               </li>
                            <?php
-                              }
+                           }
                            ?>
                         </ul>
                      </div>
@@ -225,6 +224,7 @@
                      <button type="button" id="add_category_sender">Finalizar</button>
                   </div>
                </dialog>
+               <input type="submit" value="Enviar">
             </section>
             <section class="form_step" data-step="3" data-current="false">
                <h2 class="section_title">Adicionar<br>Ingredientes</h2>
@@ -323,4 +323,5 @@
          </form>
       </main>
    </body>
+
 </html>

@@ -19,7 +19,8 @@
       }
 
       require_once(__DIR__."/MediaSaver.php");
-      $mSaver = new MediaSaver($recipeTitle);
+      // $mSaver = new MediaSaver($recipeTitle);
+      $mSaver = new MediaSaver('Teste');
 
       if((isset($_FILES['recipe_thumb'])) && ($_FILES['recipe_thumb']['name'] != ""))
       {
