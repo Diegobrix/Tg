@@ -165,7 +165,6 @@
                <button id="categories-extra_options-handler" class="options-handler" popovertarget="category-extra_options"></button>
 
                <div popover anchor="categories-extra_options-handler" id="category-extra_options" class="extra_options">
-                  <a href="" class="option">Add. Categoria</a>
                   <a href="./admin_dashboard.php?content-type-id=2" class="option">Todas categorias</a>
                </div>
             </div>

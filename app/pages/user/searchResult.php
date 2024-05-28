@@ -56,12 +56,32 @@
                <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
             </div>
          </div>
-         <div class="filters_setting-container" aria-hidden="false">
-
-         </div>
+         <div class="filters-container"></div>
          <section class="results-container">
-            <section class="filters-container" aria-expanded="true">
-            </section>
+            <div class="filters_setting-container" aria-hidden="false">
+               <h2>Filtros</h2>
+               <hr>
+               <div class="filter_setting">
+                  <div class="setting-thumb">
+                     <h3>Categoria</h3>
+                     <i class="chevron close"></i>
+                  </div>
+               </div>
+               <hr>
+               <div class="filter_setting">
+                  <div class="setting-thumb">
+                     <h3>Possui Vídeo</h3>
+                     <i class="chevron close"></i>
+                  </div>
+               </div>
+               <hr>
+               <div class="filter_setting">
+                  <div class="setting-thumb">
+                     <h3>Condição Atual</h3>
+                     <i class="chevron close"></i>
+                  </div>
+               </div>
+            </div>
             <div class="results_display-container">
                <template id="result-template">
                   <div class="result">

@@ -114,11 +114,57 @@ h1 {
    display: none;
 }
 
-.filters_setting-container[aria-hidden="false"] {
+.filters-container {
    display: block;
    height: 50px;
    margin-bottom: 1rem;
-   background: red;
+
+   border: 2px solid red ;
+}
+
+.filters_setting-container[aria-hidden="true"] {
+   display: none;
+}
+
+.filters_setting-container {
+   display: block;
+   margin-block: 1rem;
+   padding: 1rem;
+   border-radius: 15px;
+   background: var(--neutral-200);
+
+   & hr {
+      background: var(--neutral-700);
+      border: 0px;
+      border-radius: 25vw;
+      height: .1em;
+      box-sizing: border-box;
+   
+      &:first-of-type {
+         margin-bottom: 1.5rem;
+      }
+   }
+}
+
+.filters_setting-container .setting-thumb {
+   display: flex;
+   gap: 0 .5rem;
+
+   & .chevron {
+      display: block;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      background: var(--icon) no-repeat center center;
+   }
+}
+
+.chevron {
+   &.close {
+      --icon: url('../.././../assets/icons/chevron_down_icon.svg');
+   }
+   &.open {
+      --icon: url('../.././../assets/icons/chevron_up_icon.svg');
+   }
 }
 
 .results-container {
@@ -129,6 +175,10 @@ h1 {
 
    padding: 1rem;
    padding-top: 0;
+}
+
+.desktop_filters_setting-container {
+   display: none;
 }
 
 .results_display-container {
