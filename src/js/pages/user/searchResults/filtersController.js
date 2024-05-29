@@ -59,3 +59,25 @@ HEALTH_CONDITION_OPTIONS.forEach(healthOption => {
    });
 });
 //#endregion
+
+const FILTERS_SETTINGS_THUMBS = document.querySelectorAll('.filters_setting-container .setting-thumb');
+
+FILTERS_SETTINGS_THUMBS.forEach(thumb => {
+   thumb.addEventListener('click', () => {
+      let parent = thumb.parentNode;
+      let filterContainer = parent.querySelector('.options-container');
+      let chevron = parent.querySelector('.chevron');
+
+      if(chevron.classList.contains('close'))
+      {
+         chevron.classList.replace('close', 'open');
+      }
+      else
+      {
+         chevron.classList.replace('open', 'close');
+      }
+
+      let currentState = filterContainer.ariaExpanded;
+      return filterContainer.ariaExpanded = currentState == 'false'?'true':'false';
+   });
+});

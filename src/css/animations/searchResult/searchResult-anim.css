@@ -3,6 +3,7 @@
       top: -25em;
    }
    to {
+      position: static;
       top: 0;
    }
 }

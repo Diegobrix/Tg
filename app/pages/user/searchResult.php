@@ -58,7 +58,7 @@
          </div>
          <div class="filters-container"></div>
          <section class="results-container">
-            <div class="filters_setting-container" data-mobile="true" aria-hidden="true">
+            <div class="filters_setting-container" data-mobile="true" aria-hidden="false">
                <h2>Filtros</h2>
                <hr>
                <div class="filter_setting">
@@ -67,7 +67,10 @@
                      <i class="chevron close"></i>
                   </div>
                   <div class="options-container" aria-expanded="false">
-
+                     <label>
+                        <input type="checkbox" name="category_option" id="category_all" checked>
+                        Todas
+                     </label>
                   </div>
                </div>
                <hr>
@@ -76,7 +79,7 @@
                      <h3>Possui Vídeo</h3>
                      <i class="chevron close"></i>
                   </div>
-                  <div class="options-container" aria-expanded="true">
+                  <div class="options-container" aria-expanded="false">
                      <label>
                         <input type="checkbox" name="video_option" id="video_yes">
                         Sim
@@ -97,7 +100,7 @@
                      <h3>Condição Atual</h3>
                      <i class="chevron close"></i>
                   </div>
-                  <div class="options-container" aria-expanded="true">
+                  <div class="options-container" aria-expanded="false">
                      <label>
                         <input type="checkbox" name="heath_condition_option" id="pre_diabetes">
                         Pré-diabetes
