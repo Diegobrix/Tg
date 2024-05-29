@@ -50,7 +50,7 @@
             <h1>Resultados para "<?=$searchedTerm?>"</h1>
          </section>
          <div class="options-container">
-            <button class="filter-controller">Filtros</button>
+            <button class="filter_controller-handler">Filtros</button>
             <div class="display_mode-container">
                <button class="display_mode list-display" data-mode="list" aria-selected="false"></button>
                <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
@@ -58,7 +58,7 @@
          </div>
          <div class="filters-container"></div>
          <section class="results-container">
-            <div class="filters_setting-container" aria-hidden="false">
+            <div class="filters_setting-container" data-mobile="true" aria-hidden="true">
                <h2>Filtros</h2>
                <hr>
                <div class="filter_setting">
