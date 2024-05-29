@@ -66,6 +66,9 @@
                      <h3>Categoria</h3>
                      <i class="chevron close"></i>
                   </div>
+                  <div class="options-container" aria-expanded="false">
+
+                  </div>
                </div>
                <hr>
                <div class="filter_setting">
@@ -73,12 +76,40 @@
                      <h3>Possui Vídeo</h3>
                      <i class="chevron close"></i>
                   </div>
+                  <div class="options-container" aria-expanded="true">
+                     <label>
+                        <input type="checkbox" name="video_option" id="video_yes">
+                        Sim
+                     </label>
+                     <label>
+                        <input type="checkbox" name="video_option" id="video_no">
+                        Não
+                     </label>
+                     <label>
+                        <input type="checkbox" name="video_option" id="video_all" checked>
+                        Tanto faz
+                     </label>
+                  </div>
                </div>
                <hr>
                <div class="filter_setting">
                   <div class="setting-thumb">
                      <h3>Condição Atual</h3>
                      <i class="chevron close"></i>
+                  </div>
+                  <div class="options-container" aria-expanded="true">
+                     <label>
+                        <input type="checkbox" name="heath_condition_option" id="pre_diabetes">
+                        Pré-diabetes
+                     </label>
+                     <label>
+                        <input type="checkbox" name="heath_condition_option" id="diabetes">
+                        Diabetes
+                     </label>
+                     <label>
+                        <input type="checkbox" name="heath_condition_option" id="all_conditions" checked>
+                        Nenhuma
+                     </label>
                   </div>
                </div>
             </div>

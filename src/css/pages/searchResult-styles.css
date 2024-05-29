@@ -167,6 +167,23 @@ h1 {
    }
 }
 
+.filters_setting-container .options-container[aria-expanded="false"] {
+   display: none;
+}
+
+.filters_setting-container .options-container {
+   display: flex;
+   flex-direction: column;
+   gap: .25em 0;
+
+   margin-block: .5em;
+   padding: 0;
+
+   & input {
+      cursor: pointer   ;
+   }
+}
+
 .results-container {
    flex: 1 1 auto;
 
