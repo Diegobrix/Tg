@@ -67,6 +67,12 @@
                      <i class="chevron close"></i>
                   </div>
                   <div class="options-container" aria-expanded="false">
+                     <template id="categories-template">
+                        <label>
+                           <input type="checkbox" name="category_option">
+
+                        </label>
+                     </template>
                      <label>
                         <input type="checkbox" name="category_option" id="category_all" checked>
                         Todas

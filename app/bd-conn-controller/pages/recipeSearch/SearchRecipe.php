@@ -22,6 +22,8 @@
          {
             $recipes[$current]['id'] = $data[$current]['id'];
             $recipes[$current]['title'] = $data[$current]['title'];
+            $recipes[$current]['category'] = $data[$current]['category'];
+            $recipes[$current]['author'] = $data[$current]['author'];
 
             $current += 1;
             return $this->fitData($data, $current, $recipes);
@@ -38,7 +40,8 @@
             $similarities[$current]['similarity'] = number_format($percent);
             $similarities[$current]['id'] = $recipes[$current]['id'];
             $similarities[$current]['title'] = $recipes[$current]['title'];
-
+            $similarities[$current]['category'] = $recipes[$current]['category'];
+            $similarities[$current]['author'] = $recipes[$current]['author'];
 
             $current += 1;
             return $this->calculateSimilarity($recipes, $searchedTerm, $current, $similarities);

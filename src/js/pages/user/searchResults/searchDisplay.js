@@ -1,4 +1,5 @@
 import sendData from "../../../bd_conn/sendData.js";
+import { recipesDefinition } from "./filterDefinition.js";
 import recipesJson from "../../../../../app/pages/admin/data/datasets/recipes.json" with {"type":"json"};
 
 const SEARCHBAR = document.getElementById("searchbar");
@@ -37,6 +38,8 @@ function getSearchedRecipes(term)
    });
 }
 
+
+
 const SEARCH_ELEMENT_TEMPLATE = document.getElementById('result-template');
 const RESULTS_FRAGMENT = document.createDocumentFragment();
 function generateSearchElement(recipes)
@@ -46,6 +49,9 @@ function generateSearchElement(recipes)
 
    if(searchedRecipes.length > 0)
    {
+      let recipes = [];
+      let categories = [];
+      let authors = [];
       for(let i = 0; i < searchedRecipes.length; i++)
       {
          const RESULT = SEARCH_ELEMENT_TEMPLATE.content.cloneNode(true).children[0];
@@ -63,10 +69,16 @@ function generateSearchElement(recipes)
          RESULT_LINK.href = './recipe.php?id=' + searchedRecipes[i].id;
       
          RESULTS_FRAGMENT.append(RESULT);
+         
+         recipes.push(searchedRecipes[i]);
+         categories.push(searchedRecipes[i].categories);
+         authors.push(searchedRecipes[i].author);
       }
 
       console.log(RESULTS_FRAGMENT);
       RESULTS_CONTAINER.append(RESULTS_FRAGMENT);
+
+      recipesDefinition(recipes);
    }
    else
    {
