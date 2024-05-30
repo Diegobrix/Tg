@@ -66,11 +66,10 @@
                      <h3>Categoria</h3>
                      <i class="chevron close"></i>
                   </div>
-                  <div class="options-container" aria-expanded="false">
+                  <div class="options-container categories_option-container" aria-expanded="false">
                      <template id="categories-template">
                         <label>
                            <input type="checkbox" name="category_option">
-
                         </label>
                      </template>
                      <label>

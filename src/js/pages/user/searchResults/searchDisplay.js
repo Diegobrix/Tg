@@ -71,14 +71,15 @@ function generateSearchElement(recipes)
          RESULTS_FRAGMENT.append(RESULT);
          
          recipes.push(searchedRecipes[i]);
-         categories.push(searchedRecipes[i].categories);
+         categories.push(searchedRecipes[i].category);
          authors.push(searchedRecipes[i].author);
       }
 
       console.log(RESULTS_FRAGMENT);
       RESULTS_CONTAINER.append(RESULTS_FRAGMENT);
 
-      recipesDefinition(recipes);
+      recipesDefinition(recipes, categories, authors);
+      generateCategoriesFilter();
    }
    else
    {
@@ -87,6 +88,29 @@ function generateSearchElement(recipes)
    }
 }
 
+//#region Filter Configurations
+const CATEGORY_FILTER_TEMPLATE = document.getElementById('categories-template');
+const CATEGORIES_FILTER_FRAGMENT = document.createDocumentFragment();
+const CATEGORIES_FILTER_SETTING_CONTAINER = document.querySelector('.categories_option-container');
+function generateCategoriesFilter()
+{
+   let categories = JSON.parse(localStorage.getItem('categories'));
+   for(let i = 0; i < categories.length; i++)
+   {
+      const CATEGORY_FILTER = CATEGORY_FILTER_TEMPLATE.content.cloneNode(true).children[0];
+      const INPUT = CATEGORY_FILTER.querySelector('input[type="checkbox"]');
+      INPUT.id = 'category_'+categories[i].toLowerCase().split(' ').join('_');
+
+      CATEGORY_FILTER.append(categories[i]);
+      CATEGORIES_FILTER_FRAGMENT.appendChild(CATEGORY_FILTER);
+   }
+
+   let children = CATEGORIES_FILTER_SETTING_CONTAINER.querySelector('label');
+   CATEGORIES_FILTER_SETTING_CONTAINER.insertBefore(CATEGORIES_FILTER_FRAGMENT, children);
+}
+//#endregion
+
+//#region Recipe Configurations
 function getRecipes(recipes, current = 0, result = [])
 {
    if(current < recipes.length)
@@ -117,3 +141,4 @@ function sortRecipes(x, y)
 
    return 0;
 }
+//#endregion
