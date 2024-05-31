@@ -111,6 +111,71 @@ function selectRecipes(type)
    let filterType = filter[0];
 
    filter.shift();
-   return filterTypes[filterType](filter.join(' '));
+   let filterAdjusted = filter.join(' ');
+
+   if(filterAdjusted != 'all')
+   {
+      displayFilter(filterType, filterAdjusted);
+   }
+
+   return filterTypes[filterType](filterAdjusted);
 }
+//#endregion
+
+//#region Applied Filter Display
+const FILTERS_CONTAINER = document.querySelector('.filters');
+const FILTER_TEMPLATE = document.getElementById('filter-template');
+function displayFilter(type, filter)
+{
+   let filtersApplied = FILTERS_CONTAINER.childNodes;
+   
+   if(filtersApplied.length == 0)
+   {
+      return addFilterButton(type, filter);
+   }
+
+   filtersApplied.forEach(f => {
+      if(f.dataset.type != type)
+      {
+         return addFilterButton(type, filter);
+      }
+      else
+      {
+         return updateFilterButton(f, [type, filter]);
+      }
+   });
+} 
+
+function addFilterButton(type, filter)
+{
+   const FILTER = FILTER_TEMPLATE.content.cloneNode(true).children[0];
+   const FILTER_LABEL = FILTER.querySelector('.filter-label');
+
+   let label = filter;
+   if(type == 'category')
+   {
+      let categories = JSON.parse(localStorage.getItem('categories'));
+      categories.forEach(category => {
+         if(category.toLowerCase() == filter)
+         {
+            label = category;
+         }
+      });
+   }
+      
+   FILTER.dataset.type = type;
+   FILTER_LABEL.innerHTML = label;
+   FILTERS_CONTAINER.appendChild(FILTER);
+}
+
+function updateFilterButton(currentFilter, newValues)
+{
+
+}
+
+function removeFilterButton(filter)
+{
+   console.log('Deleting in 3, 2, 1...');
+}
+
 //#endregion

@@ -56,7 +56,23 @@
                <button class="display_mode grid-display" data-mode="grid" aria-selected="true"></button>
             </div>
          </div>
-         <div class="filters-container"></div>
+         <div class="filters-container">
+            <template id="filter-template">
+               <button class="filter" data-type=""><span class="filter-label"></span><i></i></button>
+            </template>
+            <div class="filters">
+               <!-- Tirar Despois -->
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
+               <!-- Tirar Despois -->
+            </div>
+         </div>
          <section class="results-container">
             <div class="filters_setting-container" data-mobile="true" aria-hidden="false">
                <h2>Filtros</h2>
@@ -107,15 +123,15 @@
                   </div>
                   <div class="options-container" aria-expanded="false">
                      <label>
-                        <input type="checkbox" name="health_condition_option" id="pre_diabetes">
+                        <input type="checkbox" name="health_condition_option" id="health_pre_diabetes">
                         Pré-diabetes
                      </label>
                      <label>
-                        <input type="checkbox" name="health_condition_option" id="diabetes">
+                        <input type="checkbox" name="health_condition_option" id="health_diabetes">
                         Diabetes
                      </label>
                      <label>
-                        <input type="checkbox" name="health_condition_option" id="all_conditions" checked>
+                        <input type="checkbox" name="health_condition_option" id="health_all" checked>
                         Nenhuma
                      </label>
                   </div>

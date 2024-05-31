@@ -159,7 +159,7 @@ function uniqueFilter()
                   checkbox.checked = false;
                }
             });
-
+            
             console.log(selectRecipes(this.id));
          }
       });

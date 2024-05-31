@@ -123,12 +123,34 @@ h1 {
 
 .filters-container {
    display: block;
-   height: 50px;
    margin-bottom: 1rem;
    background: var(--neutral-100);
-
-   border: 2px solid red ;
    z-index: 3;
+}
+
+.filters-container .filters {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+
+   gap: .5rem;
+
+   .filter {
+      position: relative;
+      padding: .5rem 1rem;
+      font-size: .8em;
+      border: 2px solid var(--primary-700);
+      border-radius: 7px;
+      background: var(--neutral-100);
+      color: var(--primary-700);
+      transition: all .3s;
+
+      &:hover {
+         background: var(--primary-700);
+         color: var(--neutral-100);
+      }
+   }
 }
 
 .filters_setting-container[aria-hidden="true"] {
@@ -163,7 +185,7 @@ h1 {
 }
 
 .filters_setting-container[data-mobile="true"] {
-   animation: containerAppear .5s ease-in-out forwards;
+   animation: containerAppear .7s ease-in-out forwards;
 }
 
 .filters_setting-container .setting-thumb {
