@@ -107,15 +107,15 @@
                   </div>
                   <div class="options-container" aria-expanded="false">
                      <label>
-                        <input type="checkbox" name="heath_condition_option" id="pre_diabetes">
+                        <input type="checkbox" name="health_condition_option" id="pre_diabetes">
                         Pré-diabetes
                      </label>
                      <label>
-                        <input type="checkbox" name="heath_condition_option" id="diabetes">
+                        <input type="checkbox" name="health_condition_option" id="diabetes">
                         Diabetes
                      </label>
                      <label>
-                        <input type="checkbox" name="heath_condition_option" id="all_conditions" checked>
+                        <input type="checkbox" name="health_condition_option" id="all_conditions" checked>
                         Nenhuma
                      </label>
                   </div>

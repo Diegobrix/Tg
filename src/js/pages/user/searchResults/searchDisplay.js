@@ -107,6 +107,8 @@ function generateCategoriesFilter()
 
    let children = CATEGORIES_FILTER_SETTING_CONTAINER.querySelector('label');
    CATEGORIES_FILTER_SETTING_CONTAINER.insertBefore(CATEGORIES_FILTER_FRAGMENT, children);
+
+   uniqueFilter();
 }
 //#endregion
 
@@ -142,3 +144,24 @@ function sortRecipes(x, y)
    return 0;
 }
 //#endregion
+
+function uniqueFilter()
+{
+   const CATEGORIES_OPTIONS = document.querySelectorAll('input[name="category_option"]');
+
+   CATEGORIES_OPTIONS.forEach(categoryOptions => {
+      categoryOptions.addEventListener('change', function(){
+         if(this.checked)
+         {
+            CATEGORIES_OPTIONS.forEach(checkbox => {
+               if(checkbox !== this)
+               {
+                  checkbox.checked = false;
+               }
+            });
+
+            console.log(selectRecipes(this.id));
+         }
+      });
+   });
+}

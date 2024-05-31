@@ -58,6 +58,7 @@ HEALTH_CONDITION_OPTIONS.forEach(healthOption => {
       }
    });
 });
+
 //#endregion
 
 const FILTERS_SETTINGS_THUMBS = document.querySelectorAll('.filters_setting-container .setting-thumb');
@@ -81,3 +82,35 @@ FILTERS_SETTINGS_THUMBS.forEach(thumb => {
       return filterContainer.ariaExpanded = currentState == 'false'?'true':'false';
    });
 });
+
+//#region Applying Filters
+function selectRecipesByCategory(category)
+{
+   return category!='all'?category:JSON.parse(localStorage.getItem('categories'));
+}
+
+function selectRecipesByAuthor(author)
+{
+   return author;
+}
+
+function selectRecipesByVideo(video)
+{
+   return video;
+}
+
+function selectRecipesByCondition(condition)
+{
+   return condition;
+}
+
+function selectRecipes(type)
+{
+   let filter = type.split('_');
+   let filterTypes = {'category': selectRecipesByCategory, 'video': selectRecipesByVideo, 'health': selectRecipesByCondition};
+   let filterType = filter[0];
+
+   filter.shift();
+   return filterTypes[filterType](filter.join(' '));
+}
+//#endregion
