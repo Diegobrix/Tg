@@ -41,6 +41,8 @@ HAS_VIDEO_OPTIONS.forEach(videoOption => {
                checkbox.checked = false;
             }
          });
+
+         selectRecipes(this.id);
       }
    });
 });
@@ -55,6 +57,8 @@ HEALTH_CONDITION_OPTIONS.forEach(healthOption => {
                checkbox.checked = false;
             }
          });
+         
+         selectRecipes(this.id);
       }
    });
 });
@@ -135,16 +139,23 @@ function displayFilter(type, filter)
    }
 
    let filtersApplied = FILTERS_CONTAINER.childNodes;
-   filtersApplied.forEach(f => {
-      if(f.dataset.type != type)
+   let alreadyExists = false;
+   let currentFilter = null;
+
+   filtersApplied.forEach(applied => {
+      if(applied.dataset.type == type)
       {
-         return addFilterButton(type, filter);
-      }
-      else
-      {
-         return updateFilterButton(f, [type, filter]);
+         alreadyExists = true;
+         currentFilter = applied;
       }
    });
+
+   if(alreadyExists == false)
+   {
+      return addFilterButton(type, filter);
+   }
+
+   return updateFilterButton(currentFilter, [type, filter]);
 } 
 
 function addFilterButton(type, filter)

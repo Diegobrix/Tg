@@ -162,7 +162,7 @@ function uniqueFilter()
                }
             });
             
-            console.log(selectRecipes(this.id));
+            selectRecipes(this.id);
          }
       });
    });
