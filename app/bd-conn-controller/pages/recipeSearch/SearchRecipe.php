@@ -24,6 +24,7 @@
             $recipes[$current]['title'] = $data[$current]['title'];
             $recipes[$current]['category'] = $data[$current]['category'];
             $recipes[$current]['author'] = $data[$current]['author'];
+            $recipes[$current]['suitedFor'] = $data[$current]['suitedFor'];
 
             $current += 1;
             return $this->fitData($data, $current, $recipes);
@@ -42,6 +43,7 @@
             $similarities[$current]['title'] = $recipes[$current]['title'];
             $similarities[$current]['category'] = $recipes[$current]['category'];
             $similarities[$current]['author'] = $recipes[$current]['author'];
+            $similarities[$current]['suitedFor'] = $recipes[$current]['suitedFor'];
 
             $current += 1;
             return $this->calculateSimilarity($recipes, $searchedTerm, $current, $similarities);

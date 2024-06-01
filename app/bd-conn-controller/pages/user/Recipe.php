@@ -26,11 +26,15 @@
             $recipe['description'] = $result['descricaoReceita'];
             $recipe['benefits'] = $result['beneficiosReceita'];
             $recipe['waytodo'] = $result['modoDePreparoReceita'];
+            $recipe['source'] = $result['fonte'];
+            $recipe['suitedFor'] = $result['indicadaPara'];
             $recipe['pic'] = $result['fotoReceita'];
+            $recipe['data'] = $result['dataReceita'];
+
             
             $recipe['category'] = $this->getRecipeCategory($result['categoriaReceita']);
             $recipe['ingredients'] = $this->getIngredients($result['idReceita']);
-            $recipe['author'] = $this->getRecipeAuthor($result['autor']);
+            $recipe['editor'] = $this->getRecipeAuthor($result['editor']);
 
 
             $video = $this->getRecipeVideo($result['idReceita']);

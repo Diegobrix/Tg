@@ -1,10 +1,11 @@
-export function recipesDefinition(recipes, categories, authors)
+export function recipesDefinition(recipes, categories, authors, conditions)
 {
    if(recipes != null)
    {
       localStorage.setItem('recipes', JSON.stringify(recipes));
       localStorage.setItem('categories', JSON.stringify(categories));
       localStorage.setItem('authors', JSON.stringify(authors));
+      localStorage.setItem('condition', JSON.stringify(conditions));
    }
 }
 

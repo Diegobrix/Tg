@@ -127,13 +127,14 @@ const FILTERS_CONTAINER = document.querySelector('.filters');
 const FILTER_TEMPLATE = document.getElementById('filter-template');
 function displayFilter(type, filter)
 {
-   let filtersApplied = FILTERS_CONTAINER.childNodes;
+   let filtersAppliedCount = FILTERS_CONTAINER.childElementCount;
    
-   if(filtersApplied.length == 0)
+   if(filtersAppliedCount == 0)
    {
       return addFilterButton(type, filter);
    }
 
+   let filtersApplied = FILTERS_CONTAINER.childNodes;
    filtersApplied.forEach(f => {
       if(f.dataset.type != type)
       {
@@ -170,7 +171,19 @@ function addFilterButton(type, filter)
 
 function updateFilterButton(currentFilter, newValues)
 {
+   let filter = currentFilter.querySelector('.filter-label');
+   
+   let label;
+   if((newValues[0] == 'category') || (newValues[0] == 'health'))
+   {
+      label = newValues[1];
+   }
+   else
+   {
+      label = 'Possui ' + newValues[1];
+   }
 
+   filter.innerHTML = label;
 }
 
 function removeFilterButton(filter)

@@ -20,7 +20,10 @@
                $data[$i]['thumb'] = $recipe['fotoReceita'];
                $data[$i]['description'] = $recipe['descricaoReceita'];
                $data[$i]['category'] = $this->getCategory($recipe['categoriaReceita']);
+               $data[$i]['editor'] = $recipe['editor'];
                $data[$i]['author'] = $recipe['autor'];
+               $data[$i]['suitedFor'] = $recipe['indicadaPara'];
+               $data[$i]['date'] = $recipe['dataReceita'];
 
                $i += 1;
             }

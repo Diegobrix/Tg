@@ -52,6 +52,7 @@ function generateSearchElement(recipes)
       let recipes = [];
       let categories = [];
       let authors = [];
+      let conditions = [];
       for(let i = 0; i < searchedRecipes.length; i++)
       {
          const RESULT = SEARCH_ELEMENT_TEMPLATE.content.cloneNode(true).children[0];
@@ -73,12 +74,13 @@ function generateSearchElement(recipes)
          recipes.push(searchedRecipes[i]);
          categories.push(searchedRecipes[i].category);
          authors.push(searchedRecipes[i].author);
+         conditions.push(searchedRecipes[i].condition);
       }
 
       console.log(RESULTS_FRAGMENT);
       RESULTS_CONTAINER.append(RESULTS_FRAGMENT);
 
-      recipesDefinition(recipes, categories, authors);
+      recipesDefinition(recipes, categories, authors, conditions);
       generateCategoriesFilter();
    }
    else

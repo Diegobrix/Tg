@@ -60,18 +60,7 @@
             <template id="filter-template">
                <button class="filter" data-type=""><span class="filter-label"></span><i></i></button>
             </template>
-            <div class="filters">
-               <!-- Tirar Despois -->
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <button class="filter" data-type="category"><span class="filter-label">Ao mosso</span></button>
-               <!-- Tirar Despois -->
-            </div>
+            <div class="filters"></div>
          </div>
          <section class="results-container">
             <div class="filters_setting-container" data-mobile="true" aria-hidden="false">
