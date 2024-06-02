@@ -116,11 +116,7 @@ function selectRecipes(type)
 
    filter.shift();
    let filterAdjusted = filter.join(' ');
-
-   if(filterAdjusted != 'all')
-   {
-      displayFilter(filterType, filterAdjusted);
-   }
+   displayFilter(filterType, filterAdjusted);
 
    return filterTypes[filterType](filterAdjusted);
 }
@@ -133,7 +129,10 @@ function displayFilter(type, filter)
 {
    let filtersAppliedCount = FILTERS_CONTAINER.childElementCount;
    
-   if(filtersAppliedCount == 0)
+   console.log('Count: ' + filtersAppliedCount);
+   console.log('Filtro: ' + filter);
+
+   if((filtersAppliedCount == 0) && (filter != 'all'))
    {
       return addFilterButton(type, filter);
    }
@@ -152,10 +151,19 @@ function displayFilter(type, filter)
 
    if(alreadyExists == false)
    {
-      return addFilterButton(type, filter);
+      if(filter != 'all')
+      {
+         return addFilterButton(type, filter);
+      }
+      return;
    }
 
-   return updateFilterButton(currentFilter, [type, filter]);
+   if(filter != 'all')
+   {
+      return updateFilterButton(currentFilter, [type, filter])
+   }
+
+   return removeFilterButton(currentFilter);
 } 
 
 function addFilterButton(type, filter)
@@ -174,6 +182,13 @@ function addFilterButton(type, filter)
          }
       });
    }
+   else
+   {
+      if(type == 'video')
+      {
+         label = filter=='no'?'Sem vídeo':'Possui vídeo';
+      }
+   }
       
    FILTER.dataset.type = type;
    FILTER_LABEL.innerHTML = label;
@@ -191,7 +206,10 @@ function updateFilterButton(currentFilter, newValues)
    }
    else
    {
-      label = 'Possui ' + newValues[1];
+      if(newValues[0] == 'video')
+      {
+         label = newValues[1]=='no'?'Sem Vídeo':'Possui vídeo';
+      }
    }
 
    filter.innerHTML = label;
@@ -199,7 +217,10 @@ function updateFilterButton(currentFilter, newValues)
 
 function removeFilterButton(filter)
 {
-   console.log('Deleting in 3, 2, 1...');
+   if(filter != null)
+   {
+      filter.remove();
+   }
 }
 
 //#endregion
