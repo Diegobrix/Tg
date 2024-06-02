@@ -29,7 +29,7 @@ FILTER_SETTINGS_HANDLER.addEventListener('click', () => {
 
 //#region Unique Filter Settings
 const HAS_VIDEO_OPTIONS = document.querySelectorAll('input[name="video_option"]');
-const HEALTH_CONDITION_OPTIONS = document.querySelectorAll('input[name="heath_condition_option"]');
+const HEALTH_CONDITION_OPTIONS = document.querySelectorAll('input[name="health_condition_option"]');
 
 HAS_VIDEO_OPTIONS.forEach(videoOption => {
    videoOption.addEventListener('change', function(){
@@ -104,7 +104,7 @@ function getRecipes()
    return;
 }
 
-function selectRecipesByCategory(category)
+function applyFilter(type, typeValue)
 {
    let childrenRaw = JSON.parse(localStorage.getItem('recipes'));
    if(childrenRaw != null)
@@ -119,13 +119,30 @@ function selectRecipesByCategory(category)
       if(children != null)
       {
          children.forEach(child => {  
-            if(child.dataset.category.toLowerCase() == category)
+            if(type == 'category')
             {
-               if(child.classList.contains('hide'))
+               if(child.dataset.category.toLowerCase() == typeValue)
                {
-                  child.classList.remove('hide');
+                  if(child.classList.contains('hide'))
+                  {
+                     child.classList.remove('hide');
+                  }
+                  filteredChildren.push(child);
                }
-               filteredChildren.push(child);
+            }
+            else
+            {
+               if(type == 'condition')
+               {
+                  if(child.dataset.condition.toLowerCase() == typeValue)
+                  {
+                     if(child.classList.contains('hide'))
+                     {
+                        child.classList.remove('hide');
+                     }
+                     filteredChildren.push(child);
+                  }
+               }
             }
          });
       
@@ -134,7 +151,7 @@ function selectRecipesByCategory(category)
             recipe.classList.add('hide');
          });
 
-         if(category == 'all')
+         if(typeValue == 'all')
          {
             children.forEach(child => {
                if(child.classList.contains('hide'))
@@ -151,6 +168,11 @@ function selectRecipesByCategory(category)
    return null;
 }
 
+function selectRecipesByCategory(category)
+{
+   applyFilter('category', category);
+}
+
 function selectRecipesByAuthor(author)
 {
    return author;
@@ -163,7 +185,7 @@ function selectRecipesByVideo(video)
 
 function selectRecipesByCondition(condition)
 {
-   return condition;
+   applyFilter('condition', condition);
 }
 
 function selectRecipes(type)
@@ -258,9 +280,14 @@ function addFilterButton(type, filter)
    }
    else
    {
+      console.log(type);
       if(type == 'video')
       {
          label = filter=='no'?'Sem vídeo':'Possui vídeo';
+      }
+      else if(type == 'health')
+      {
+         label = filter == 'pre'?'Pré-diabetes':'Diabetes';
       }
    }
       
@@ -278,7 +305,7 @@ function updateFilterButton(currentFilter, newValues)
    let filter = currentFilter.querySelector('.filter-label');
    
    let label;
-   if((newValues[0] == 'category') || (newValues[0] == 'health'))
+   if(newValues[0] == 'category')
    {
       label = newValues[1];
    }
@@ -287,6 +314,10 @@ function updateFilterButton(currentFilter, newValues)
       if(newValues[0] == 'video')
       {
          label = newValues[1]=='no'?'Sem Vídeo':'Possui vídeo';
+      }
+      else if(newValues[0] == 'health')
+      {
+         label = newValues[1]=='pre'?'Pré-diabetes':'Diabetes';
       }
    }
 

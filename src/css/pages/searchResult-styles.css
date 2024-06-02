@@ -150,6 +150,10 @@ h1 {
          background: var(--primary-700);
          color: var(--neutral-100);
       }
+
+      & .filter-label {
+         text-transform: capitalize;
+      }
    }
 }
 

@@ -112,7 +112,7 @@
                   </div>
                   <div class="options-container" aria-expanded="false">
                      <label>
-                        <input type="checkbox" name="health_condition_option" id="health_pre_diabetes">
+                        <input type="checkbox" name="health_condition_option" id="health_pre">
                         Pré-diabetes
                      </label>
                      <label>
