@@ -49,7 +49,6 @@ function generateSearchElement(recipes)
 
    if(searchedRecipes.length > 0)
    {
-      let recipes = [];
       let categories = [];
       let authors = [];
       let conditions = [];
@@ -68,19 +67,23 @@ function generateSearchElement(recipes)
 
          let RESULT_LINK = RESULT.querySelector('.recipe-link');
          RESULT_LINK.href = './recipe.php?id=' + searchedRecipes[i].id;
-      
+
+         RESULT.id = 'result_' + searchedRecipes[i].id;
+         RESULT.dataset.category = searchedRecipes[i].category;
+         RESULT.dataset.author = searchedRecipes[i].author;
+         RESULT.dataset.condition = searchedRecipes[i].suitedFor;  
+         
          RESULTS_FRAGMENT.append(RESULT);
          
-         recipes.push(searchedRecipes[i]);
          categories.push(searchedRecipes[i].category);
          authors.push(searchedRecipes[i].author);
-         conditions.push(searchedRecipes[i].condition);
+         conditions.push(searchedRecipes[i].suitedFor);
       }
 
       console.log(RESULTS_FRAGMENT);
       RESULTS_CONTAINER.append(RESULTS_FRAGMENT);
 
-      recipesDefinition(recipes, categories, authors, conditions);
+      recipesDefinition(categories, authors, conditions);
       generateCategoriesFilter();
    }
    else

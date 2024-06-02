@@ -253,6 +253,10 @@ h1 {
    border-radius: 15px;
 }
 
+.result.hide {
+   display: none!important;
+}
+
 
 main:has(.list-display[aria-selected="true"]) .results_display-container {
    display: flex;

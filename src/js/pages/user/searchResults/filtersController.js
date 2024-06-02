@@ -88,9 +88,67 @@ FILTERS_SETTINGS_THUMBS.forEach(thumb => {
 });
 
 //#region Applying Filters
+
+const RESULTS_CONTAINER = document.querySelector('.results_display-container');
+
+window.addEventListener('DOMContentLoaded', () => {
+   setTimeout(function() {
+      getRecipes();
+   }, 100);
+});
+
+function getRecipes()
+{
+   let recipes = getResults();
+   localStorage.setItem('recipes', recipes);
+   return;
+}
+
 function selectRecipesByCategory(category)
 {
-   return category!='all'?category:JSON.parse(localStorage.getItem('categories'));
+   let childrenRaw = JSON.parse(localStorage.getItem('recipes'));
+   if(childrenRaw != null)
+   {  
+      let children = [];
+      childrenRaw.forEach(child => {
+         let result = document.getElementById(child);
+         children.push(result);
+      });
+
+      let filteredChildren = [];
+      if(children != null)
+      {
+         children.forEach(child => {  
+            if(child.dataset.category.toLowerCase() == category)
+            {
+               if(child.classList.contains('hide'))
+               {
+                  child.classList.remove('hide');
+               }
+               filteredChildren.push(child);
+            }
+         });
+      
+         let hideRecipes = children.filter(child => !filteredChildren.includes(child));
+         hideRecipes.forEach(recipe => {
+            recipe.classList.add('hide');
+         });
+
+         if(category == 'all')
+         {
+            children.forEach(child => {
+               if(child.classList.contains('hide'))
+               {
+                  child.classList.remove('hide');
+               }
+            });
+         }
+      }
+
+      return null;
+   }
+
+   return null;
 }
 
 function selectRecipesByAuthor(author)
@@ -120,6 +178,26 @@ function selectRecipes(type)
 
    return filterTypes[filterType](filterAdjusted);
 }
+
+function getResults()
+{
+   let childrenRaw = RESULTS_CONTAINER.childNodes;
+   let children = [];
+   childrenRaw.forEach(child => {
+      if(child.className == 'result')
+      {
+         let result = child.id;
+         children.push(result);
+      }
+   });
+   
+   if(children.length > 0)
+   {
+      return JSON.stringify(children);
+   }
+
+   return null;
+}
 //#endregion
 
 //#region Applied Filter Display
@@ -128,10 +206,6 @@ const FILTER_TEMPLATE = document.getElementById('filter-template');
 function displayFilter(type, filter)
 {
    let filtersAppliedCount = FILTERS_CONTAINER.childElementCount;
-   
-   console.log('Count: ' + filtersAppliedCount);
-   console.log('Filtro: ' + filter);
-
    if((filtersAppliedCount == 0) && (filter != 'all'))
    {
       return addFilterButton(type, filter);
@@ -163,7 +237,7 @@ function displayFilter(type, filter)
       return updateFilterButton(currentFilter, [type, filter])
    }
 
-   return removeFilterButton(currentFilter);
+   return removeFilterButton(currentFilter, [type, filter]);
 } 
 
 function addFilterButton(type, filter)
@@ -193,6 +267,10 @@ function addFilterButton(type, filter)
    FILTER.dataset.type = type;
    FILTER_LABEL.innerHTML = label;
    FILTERS_CONTAINER.appendChild(FILTER);
+
+   FILTER.addEventListener('click', function(){
+      removeFilterButton(this, [type, filter]);
+   });
 }
 
 function updateFilterButton(currentFilter, newValues)
@@ -215,10 +293,18 @@ function updateFilterButton(currentFilter, newValues)
    filter.innerHTML = label;
 }
 
-function removeFilterButton(filter)
+function removeFilterButton(filter, values)
 {
    if(filter != null)
    {
+      let type = filter.dataset.type;
+      const DEFAULT_CHECKBOX = document.getElementById(type+'_all');
+
+      let checkedCheckbox = values.join('_').split(' ').join('_');
+      const CHECKED_CHECKBOX = document.getElementById(checkedCheckbox);
+
+      CHECKED_CHECKBOX.checked = false;
+      DEFAULT_CHECKBOX.checked = true;
       filter.remove();
    }
 }
