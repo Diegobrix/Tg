@@ -106,66 +106,34 @@ function getRecipes()
 
 function applyFilter(type, typeValue)
 {
-   let childrenRaw = JSON.parse(localStorage.getItem('recipes'));
-   if(childrenRaw != null)
-   {  
-      let children = [];
-      childrenRaw.forEach(child => {
-         let result = document.getElementById(child);
-         children.push(result);
-      });
+   let childrenRaw = [];
+   JSON.parse(localStorage.getItem('recipes')).forEach(result => {
+      let element = document.getElementById(result);
+      childrenRaw.push(element);
+   });
 
-      let filteredChildren = [];
-      if(children != null)
+   let children = [];
+
+   childrenRaw.forEach(result => {
+      //console.log(type);
+      if(type == 'category')
       {
-         children.forEach(child => {  
-            if(type == 'category')
-            {
-               if(child.dataset.category.toLowerCase() == typeValue)
-               {
-                  if(child.classList.contains('hide'))
-                  {
-                     child.classList.remove('hide');
-                  }
-                  filteredChildren.push(child);
-               }
-            }
-            else
-            {
-               if(type == 'condition')
-               {
-                  if(child.dataset.condition.toLowerCase() == typeValue)
-                  {
-                     if(child.classList.contains('hide'))
-                     {
-                        child.classList.remove('hide');
-                     }
-                     filteredChildren.push(child);
-                  }
-               }
-            }
-         });
-      
-         let hideRecipes = children.filter(child => !filteredChildren.includes(child));
-         hideRecipes.forEach(recipe => {
-            recipe.classList.add('hide');
-         });
-
-         if(typeValue == 'all')
+         if(result.dataset.category.toLowerCase() == typeValue)
          {
-            children.forEach(child => {
-               if(child.classList.contains('hide'))
-               {
-                  child.classList.remove('hide');
-               }
-            });
+            console.log(result.dataset.category);
+            children.push(result);
          }
       }
+      else if(type == 'condition')
+      {
+         if(result.dataset.condition.toLowerCase() == typeValue)
+         {
+            children.push(result);
+         }
+      }
+   });
 
-      return null;
-   }
-
-   return null;
+   console.log(children);
 }
 
 function selectRecipesByCategory(category)
@@ -280,7 +248,6 @@ function addFilterButton(type, filter)
    }
    else
    {
-      console.log(type);
       if(type == 'video')
       {
          label = filter=='no'?'Sem vídeo':'Possui vídeo';
