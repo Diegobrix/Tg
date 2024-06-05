@@ -107,78 +107,6 @@ function getRecipes()
    return;
 }
 
-// function applyFilter(type, typeValue)
-// {
-//    let childrenOriginal = [];
-//    JSON.parse(localStorage.getItem('recipes')).forEach(result => {
-//       let element = document.getElementById(result);
-//       childrenOriginal.push(element);
-//    });
-
-//    let currentChildren = [];
-//    RESULTS_CONTAINER.childNodes.forEach(result => {
-//       if((result.classList != undefined) && (result.classList.contains('result')))
-//       {
-//          currentChildren.push(result);
-//       }
-//    });
-
-//    let filteredRecipes = [];
-//    let hideRecipes = [];
-//    if(localStorage.getItem('filteredRecipes') != null)
-//    {
-//       filteredRecipes = localStorage.getItem('filteredRecipes').split(',');
-//    }
-//    if(localStorage.getItem('hideRecipes') != null)
-//    {
-//       hideRecipes = localStorage.getItem('hideRecipes').split(',');
-//    }
-
-//    currentChildren.forEach(recipe => {
-//       if(type == 'category')
-//       {
-//          if(recipe.dataset.category.toLowerCase() == typeValue)
-//          {
-//             if(!filteredRecipes.includes(recipe.id))
-//             {
-//                filteredRecipes.push(recipe.id);
-//             }
-//          }
-//          else
-//          {
-//             hideRecipes.push(recipe.id);
-//          }
-//       }
-//       else
-//       {
-//          if(type == 'condition')
-//          {
-//             if(recipe.dataset.condition.toLowerCase() == typeValue)
-//             {
-//                if(!filteredRecipes.includes(recipe.id))
-//                {
-//                   filteredRecipes.push(recipe.id);
-//                }
-//             }
-//             else
-//             {
-//                hideRecipes.push(recipe.id);
-//             }
-//          }
-//       }
-//    });
-
-//    localStorage.setItem('filteredRecipes', filteredRecipes);
-//    localStorage.setItem('hideRecipes', hideRecipes);
-//    console.log('Receitas Visíveis');
-//    console.log(filteredRecipes);
-//    console.log('===============');
-//    console.log('Receitas Escondidas');
-//    console.log(hideRecipes);
-//    console.log('===============');
-
-// }
-
 function applyFilter(type, typeValue) {
    let childrenOriginal = [];
    JSON.parse(localStorage.getItem('recipes')).forEach(result => {
@@ -218,8 +146,31 @@ function applyFilter(type, typeValue) {
       }
    });
 
+   currentChildren.forEach(recipe => {
+      if(typeValue === 'all')
+      {
+         if(type === 'category')
+         {
+            if(!filteredRecipes.includes(recipe.id))
+            {
+               filteredRecipes.push(recipe.id);
+            }
+         }
+         else if(type === 'condition')
+         {
+            if(!filteredRecipes.includes(recipe.id))
+            {
+               filteredRecipes.push(recipe.id);
+            }
+         }
+      }
+   });
+
+   console.log(filteredRecipes);
    filteredRecipes.forEach(filtered => {
       let recipe = document.getElementById(filtered);
+      console.log(recipe);
+
       if(recipe.classList.contains('hide'))
       {
          recipe.classList.remove('hide');
@@ -232,14 +183,14 @@ function applyFilter(type, typeValue) {
       recipe.classList.add('hide');
    });
 
-   localStorage.setItem('filteredRecipes', filteredRecipes.join(','));
-   localStorage.setItem('hideRecipes', hideRecipes.join(','));
-   console.log('Receitas Visíveis');
-   console.log(filteredRecipes);
-   console.log('===============');
-   console.log('Receitas Escondidas');
-   console.log(hides);
-   console.log('===============');
+   // localStorage.setItem('filteredRecipes', filteredRecipes.join(','));
+   // localStorage.setItem('hideRecipes', hideRecipes.join(','));
+   // console.log('Receitas Visíveis');
+   // console.log(filteredRecipes);
+   // console.log('===============');
+   // console.log('Receitas Escondidas');
+   // console.log(hides);
+   // console.log('===============');
 }
 
 function selectRecipesByCategory(category)
