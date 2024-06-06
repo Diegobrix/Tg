@@ -3,7 +3,15 @@
       top: -25em;
    }
    to {
-      position: static;
       top: 0;
+   }
+}
+
+@keyframes containerAppearDesktop {
+   from {
+      left: var(--initial-offset);
+   }
+   to {
+      left: 0;      
    }
 }

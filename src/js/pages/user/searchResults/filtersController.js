@@ -91,28 +91,33 @@ FILTERS_SETTINGS_THUMBS.forEach(thumb => {
 
 const RESULTS_CONTAINER = document.querySelector('.results_display-container');
 
-window.addEventListener('DOMContentLoaded', () => {
-   setTimeout(function() {
-      getRecipes();
-   }, 100);
-});
-
 function getRecipes()
 {
    console.log();
    let recipes = getResults();
    localStorage.setItem('recipes', recipes);
-   localStorage.removeItem('filteredRecipes');
-   localStorage.removeItem('hideRecipes');
    return;
 }
 
 function applyFilter(type, typeValue) {
+   getRecipes();
    let childrenOriginal = [];
-   JSON.parse(localStorage.getItem('recipes')).forEach(result => {
-      let element = document.getElementById(result);
-      childrenOriginal.push(element);
-   });
+   // if(localStorage.getItem('filteredRecipes') != null)
+   // {
+   //    JSON.parse(localStorage.getItem('filteredRecipes')).forEach(result => {
+   //       let element = document.getElementById(result);
+   //       childrenOriginal.push(element);
+   //    });   
+   // }
+   // else
+   // {
+   //    JSON.parse(localStorage.getItem('recipes')).forEach(result => {
+   //       let element = document.getElementById(result);
+   //       childrenOriginal.push(element);
+   //    });
+   // }
+   localStorage.removeItem('filteredRecipes');
+   localStorage.removeItem('hideRecipes');
 
    let currentChildren = [];
    RESULTS_CONTAINER.childNodes.forEach(result => {
@@ -183,8 +188,8 @@ function applyFilter(type, typeValue) {
       recipe.classList.add('hide');
    });
 
-   // localStorage.setItem('filteredRecipes', filteredRecipes.join(','));
-   // localStorage.setItem('hideRecipes', hideRecipes.join(','));
+   localStorage.setItem('filteredRecipes', filteredRecipes.join(','));
+   localStorage.setItem('hideRecipes', hideRecipes.join(','));
    // console.log('Receitas Visíveis');
    // console.log(filteredRecipes);
    // console.log('===============');

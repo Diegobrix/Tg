@@ -36,7 +36,9 @@
          <div class="bg"></div>
          <nav class="desktop-menu" aria-expanded="false">
             <ul>
-               <li>Voltar ao Inicio</li>
+               <li><a href="../../../index.php">Home</a></li>
+               <li><a href="../../../index.php">Todas as Receitas</a></li>
+               <li><a href="../../../index.php">Categorias</a></li>
             </ul>
          </nav>
          <hr>
@@ -63,66 +65,70 @@
             <div class="filters"></div>
          </div>
          <section class="results-container">
-            <div class="filters_setting-container" data-mobile="true" aria-hidden="false">
-               <h2>Filtros</h2>
-               <hr>
-               <div class="filter_setting">
-                  <div class="setting-thumb">
-                     <h3>Categoria</h3>
-                     <i class="chevron close"></i>
-                  </div>
-                  <div class="options-container categories_option-container" aria-expanded="false">
-                     <template id="categories-template">
+            <div class="filters_setting-container" data-mobile="true" aria-hidden="true">
+               <div class="container-head">
+                  <h2>Filtros</h2>
+                  <hr>
+               </div>
+               <div class="filter-container">
+                  <div class="filter_setting">
+                     <div class="setting-thumb">
+                        <h3>Categoria</h3>
+                        <i class="chevron close"></i>
+                     </div>
+                     <div class="options-container categories_option-container" aria-expanded="false">
+                        <template id="categories-template">
+                           <label>
+                              <input type="checkbox" name="category_option">
+                           </label>
+                        </template>
                         <label>
-                           <input type="checkbox" name="category_option">
+                           <input type="checkbox" name="category_option" id="category_all" checked>
+                           Todas
                         </label>
-                     </template>
-                     <label>
-                        <input type="checkbox" name="category_option" id="category_all" checked>
-                        Todas
-                     </label>
+                     </div>
                   </div>
-               </div>
-               <hr>
-               <div class="filter_setting">
-                  <div class="setting-thumb">
-                     <h3>Possui Vídeo</h3>
-                     <i class="chevron close"></i>
+                  <hr>
+                  <div class="filter_setting">
+                     <div class="setting-thumb">
+                        <h3>Possui Vídeo</h3>
+                        <i class="chevron close"></i>
+                     </div>
+                     <div class="options-container" aria-expanded="false">
+                        <label>
+                           <input type="checkbox" name="video_option" id="video_yes">
+                           Sim
+                        </label>
+                        <label>
+                           <input type="checkbox" name="video_option" id="video_no">
+                           Não
+                        </label>
+                        <label>
+                           <input type="checkbox" name="video_option" id="video_all" checked>
+                           Tanto faz
+                        </label>
+                     </div>
                   </div>
-                  <div class="options-container" aria-expanded="false">
-                     <label>
-                        <input type="checkbox" name="video_option" id="video_yes">
-                        Sim
-                     </label>
-                     <label>
-                        <input type="checkbox" name="video_option" id="video_no">
-                        Não
-                     </label>
-                     <label>
-                        <input type="checkbox" name="video_option" id="video_all" checked>
-                        Tanto faz
-                     </label>
-                  </div>
-               </div>
-               <hr>
-               <div class="filter_setting">
-                  <div class="setting-thumb">
-                     <h3>Condição Atual</h3>
-                     <i class="chevron close"></i>
-                  </div>
-                  <div class="options-container" aria-expanded="false">
-                     <label>
-                        <input type="checkbox" name="health_condition_option" id="health_pre">
-                        Pré-diabetes
-                     </label>
-                     <label>
-                        <input type="checkbox" name="health_condition_option" id="health_diabetes">
-                        Diabetes
-                     </label>
-                     <label>
-                        <input type="checkbox" name="health_condition_option" id="health_all" checked>
-                        Nenhuma
-                     </label>
+                  <hr>
+                  <div class="filter_setting">
+                     <div class="setting-thumb">
+                        <h3>Condição Atual</h3>
+                        <i class="chevron close"></i>
+                     </div>
+                     <div class="options-container" aria-expanded="false">
+                        <label>
+                           <input type="checkbox" name="health_condition_option" id="health_pre">
+                           Pré-diabetes
+                        </label>
+                        <label>
+                           <input type="checkbox" name="health_condition_option" id="health_diabetes">
+                           Diabetes
+                        </label>
+                        <label>
+                           <input type="checkbox" name="health_condition_option" id="health_all" checked>
+                           Nenhuma
+                        </label>
+                     </div>
                   </div>
                </div>
             </div>

@@ -13,8 +13,7 @@ header {
    position: sticky;
    top: 0;
 
-   padding: 1rem;
-   padding-bottom: 0;
+   padding: .5rem 1rem 0 1rem;
    background: var(--neutral-100);
    z-index: 4;
 }
@@ -162,8 +161,9 @@ h1 {
 }
 
 .filters_setting-container {
+   --initial-offset: 0;
    position: relative;
-   top: -25em;
+   top: var(--initial-offset);
 
    display: block;
    margin-block: 1rem;
@@ -177,10 +177,10 @@ h1 {
       border-radius: 25vw;
       height: .1em;
       box-sizing: border-box;
-   
-      &:first-of-type {
-         margin-bottom: 1.5rem;
-      }
+   }
+
+   & > .container-head {
+      margin-bottom: 1.5rem;
    }
 
    & .options-container {
@@ -189,7 +189,8 @@ h1 {
 }
 
 .filters_setting-container[data-mobile="true"] {
-   animation: containerAppear .7s ease-in-out forwards;
+   --initial-offset: -25em;
+   animation: containerAppear .5s ease-in-out forwards;
 }
 
 .filters_setting-container .setting-thumb {
@@ -245,10 +246,6 @@ h1 {
    & > * {
       z-index: 2;
    }
-}
-
-.desktop_filters_setting-container {
-   display: none;
 }
 
 .results_display-container {
@@ -335,8 +332,8 @@ main:has(.list-display[aria-selected="true"]) .result .result-details {
 @media screen and (min-width: 1440px) {
    header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 0 1.5rem;
 
       padding-inline: 2rem;
       padding-bottom: .5rem;
@@ -353,6 +350,39 @@ main:has(.list-display[aria-selected="true"]) .result .result-details {
 
    .desktop-menu {
       display: block;
+
+      & ul {
+         --container_gap: 1rem;
+         display: flex;
+         gap: var(--container_gap);
+      }
+   }
+
+   .desktop-menu ul li {
+      position: relative;
+   }
+
+   .desktop-menu ul li:not(:where(:first-of-type, :last-of-type))::before,
+   .desktop-menu ul li:not(:where(:first-of-type, :last-of-type))::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+
+      width: .5rem;
+      aspect-ratio: 1;
+      background: var(--primary-700);
+      border-radius: 50%;
+      transform: translate(0, -50%);
+
+      --offset: calc(((var(--container_gap) + .5rem) / 2) * -1);
+   }
+
+   .desktop-menu ul li:not(:where(:first-of-type, :last-of-type))::before {
+      left: var(--offset);
+   }
+   
+   .desktop-menu ul li:not(:where(:first-of-type, :last-of-type))::after {
+      right: var(--offset);
    }
 
    .grid-display {
@@ -416,6 +446,41 @@ main:has(.list-display[aria-selected="true"]) .result .result-details {
          margin-inline: auto;
          font-family: var(--ff-300);
          color: hsl(0 0% 25%);
+      }
+   }
+
+   .results-container {
+      flex-direction: row;
+      gap: 0 1em;
+      padding-inline: 1rem;
+   }
+
+   .results-container .filters_setting-container[aria-hidden="false"] {
+      --initial-offset: -100%;
+      position: relative;
+      top: 0;
+      left: var(--initial-offset);
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+
+      height: 100%;
+      aspect-ratio: .7/1;
+      margin-block: 0;
+      padding-top: 2.5rem;
+      animation: containerAppearDesktop .5s ease-in-out forwards;
+
+      & .container-head {
+         position: absolute;
+         top: 1rem;
+
+         width: calc(100% - 2rem);
+      }
+
+      & hr {
+         width: 100%;
+         margin-block: .5rem;
       }
    }
 }
