@@ -48,7 +48,7 @@
             <div class="abstract_content-container">
                <div class="title-container">
                   <h1 class="recipe-title"><?=$recipe['title']?></h1>
-                  <p>por <span class="recipeAuthor"><?=$recipe['author']?></span></p>
+                  <p>por <span class="recipeAuthor"><?=$recipe['author']?></span><br>editado por <span class="recipeEditor"><?=$recipe['editor']?></span></p>
                   <div class="divider-wrapper">
                      <div class="horizontal-divider"></div>
                      <div class="vertical-divider"></div>

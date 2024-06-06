@@ -30,11 +30,12 @@
             $recipe['suitedFor'] = $result['indicadaPara'];
             $recipe['pic'] = $result['fotoReceita'];
             $recipe['data'] = $result['dataReceita'];
+            $recipe['author'] = $result['autor'];
 
             
             $recipe['category'] = $this->getRecipeCategory($result['categoriaReceita']);
             $recipe['ingredients'] = $this->getIngredients($result['idReceita']);
-            $recipe['editor'] = $this->getRecipeAuthor($result['editor']);
+            $recipe['editor'] = $this->getRecipeEditor($result['editor']);
 
 
             $video = $this->getRecipeVideo($result['idReceita']);
@@ -105,10 +106,10 @@
       #endregion
 
       #region Get Author
-      private function getRecipeAuthor($authorId)
+      private function getRecipeEditor($editorId)
       {
          $stmt = $this->conn->prepare("SELECT nomeUsuario AS username FROM `administrador` WHERE idUsuario = :id");
-         $stmt->bindParam(":id", $authorId);
+         $stmt->bindParam(":id", $editorId);
          $stmt->execute();
 
          if($stmt->rowCount() > 0)
