@@ -1,6 +1,14 @@
 <?php
    require_once(__DIR__."/./Recipe.php");
 
+   function getRecentRecipes()
+   {
+      $r = new Recipe(null, getConn());
+      $recipes = $r->getRecentRecipes();
+
+      return $recipes;
+   }
+
    function getRecipe($recipeId)
    {
       $r = new Recipe($recipeId, getConn());

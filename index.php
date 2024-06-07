@@ -74,7 +74,34 @@
                </div>
             </div>
          </section>
-         <section>
+         <section aria-labelledby="most_recent-section_title">
+            <h2 id="most_recent_section-title">Receitas Recentes</h2>
+            <div class="recipes-container">
+               <?php
+                  require_once('./app/bd-conn-controller/pages/user/getRecipeDB.php');
+                  $recipes = getRecentRecipes();
+
+                  if($recipes != null)
+                  {
+                     foreach($recipes as $recipe)
+                     {
+               ?>
+                        <div class="recipe">
+                           <a href="./app/pages/user/recipe.php?id=<?=$recipe['id']?>">
+                              <figure>
+                                 <img src="./assets/images/recipes/<?=htmlspecialchars($recipe['thumb'])?>" alt="">
+                              </figure>
+                              <div class="recipe-details">
+                                 <h3><?=$recipe['title']?></h3>
+                                 <p><?=$recipe['benefits']?></p>
+                              </div>
+                           </a>
+                        </div>
+               <?php
+                     }
+                  }
+               ?>
+            </div>
          </section>
       </main>
    </body>
