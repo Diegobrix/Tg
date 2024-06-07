@@ -1,3 +1,8 @@
+<?php
+   // ini_set('display_errors', 1);
+   // ini_set('display_startup_errors', 1);
+   // error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
    <head>
@@ -25,142 +30,52 @@
       <main>
          <section aria-labelledby="section-title">
             <h2 id="section-title">Sugestões do dia</h2>
-            <figure>
-               <img src="./assets/images/teste_receita.jpg" alt="teste">
-            </figure>
-            <div class="banner_content-container">
-               <h1 class="sugestion-title">Macarrão</h1>
-               <p class="suggestion-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, reiciendis.</p>
-            </div>
-            <div class="suggestions_step-container">
-               <i class="suggestion_step-icon" data-current="true"></i>
-               <i class="suggestion_step-icon" data-current="false"></i>
-               <i class="suggestion_step-icon" data-current="false"></i>
-               <i class="suggestion_step-icon" data-current="false"></i>
-               <i class="suggestion_step-icon" data-current="false"></i>
-               <i class="suggestion_step-icon" data-current="false"></i>
-            </div>
-         </section>
-         <section aria-labelledby="recentRecipes_section-title">
-            <h2 id="recentRecipes_section-title">Receitas Recentes</h2>
-            <div class="items-container">
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata sua fome</span>
-                  </div>
+            <div class="carousel-container">
+               <div class="suggestions-container">
+                  <?php
+                     $file = './app/pages/admin/data/datasets/temp_data/day_suggestions.json';
+                     if(file_exists($file))
+                     {
+                        $daySuggestions = json_decode(file_get_contents($file), true);
+                     }
+                     else
+                     {
+                        echo 'Erro ao exibir as sugestões do dia!';
+                     }
+
+                     if((isset($daySuggestions)) && ($daySuggestions != null))
+                     {
+                        for($i = 0; $i < sizeof($daySuggestions) - 1; $i++)
+                        {
+                  ?>
+                           <div class="suggestion">
+                              <a href="./app/pages/user/recipe.php?id=<?=$daySuggestions[$i]['id']?>">
+                                 <figure>
+                                    <img src="./assets/images/recipes/<?=htmlspecialchars($daySuggestions[$i]['thumb'])?>" alt="teste">
+                                 </figure>
+                                 <div class="banner_content-container">
+                                    <h1 class="sugestion-title"><?=$daySuggestions[$i]['title']?></h1>
+                                    <p class="suggestion-description"><?=$daySuggestions[$i]['description']?></p>
+                                 </div>
+                              </a>
+                           </div>
+                  <?php
+                        }
+                     }
+                  ?>
                </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata sua fome</span>
-                  </div>
+               <div class="displayers-container">
+                  <i class="displayer d-1"></i>
+                  <i class="displayer d-2"></i>
+                  <i class="displayer d-3"></i>
+                  <i class="displayer d-4"></i>
+                  <i class="displayer d-5"></i>
+                  <i class="displayer d-6"></i>
                </div>
             </div>
          </section>
-         <section aria-labelledby="categories_section-title">
-            <h2 id="categories_section-title">Categorias</h2>
-            <div class="categories-container">
-               <button class="category">
-                  <h3 class="category-title">Ao mosso</h3>
-               </button>
-            </div>
-         </section>
-         <section aria-labelledby="recipes_section-title">
-            <h2 id="recipes_section-title">Todas as Receitas</h2>
-            <div class="all_recipes-container">
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-               <div class="recipe">
-                  <figure>
-                     <img src="./assets/images/teste_receita.jpg" alt="">
-                  </figure>
-                  <div>
-                     <h3 class="recipe-title">Macarrão</h3>
-                     <span>Mata a sua fome</span>
-                  </div>
-               </div>
-            </div>
+         <section>
          </section>
       </main>
-      <footer>
-
-      </footer>
    </body>
 </html>

@@ -29,7 +29,7 @@
       <header>
          <div class="header_head-wrapper">
             <button id="mobile_menu--handler"></button>
-            <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
+            <a href="../../../index.php" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
          <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
