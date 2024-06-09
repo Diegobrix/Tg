@@ -1,10 +1,10 @@
 <?php
    require_once(__DIR__."/./Recipe.php");
 
-   function getRecentRecipes()
+   function getRecentRecipes($limit = 5)
    {
       $r = new Recipe(null, getConn());
-      $recipes = $r->getRecentRecipes();
+      $recipes = $r->getRecentRecipes($limit);
 
       return $recipes;
    }
@@ -39,6 +39,6 @@
 
    function getConn()
    {
-      require_once(__DIR__."/../../../_conn/conn.php");
+      require(__DIR__."/../../../_conn/conn.php");
       return $conn;
    }

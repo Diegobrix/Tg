@@ -15,26 +15,23 @@
 
       require_once(__DIR__.'/./Recipe.php');
       $category = new Recipe(null, $conn);
-      if($search->json_validate(file_get_contents($filePath)))
+      
+      $result = $category->getRecipesByCategory($jsonData['category']);
+      if($result != null)
       {
-         $result = $search->getRecipesByCategory($jsonData['category']);
-         if($result != null)
+         $response['status'] = 'success';
+         $response['data'] = array();
+         $i = 0;
+         foreach($result as $r)
          {
-            $response['status'] = 'success';
-            $response['data'] = array();
-            $i = 0;
-
-            foreach($result as $r)
-            {
-               $response['data'][$i] = $r;
-               $i += 1;
-            }
-            echo json_encode($response);
+            $response['data'][$i] = $r;
+            $i += 1;
          }
-         else
-         {
-            finishHim($response, 'Não há receitas que correspondam à categoria');
-         }
+         echo json_encode($response);
+      }
+      else
+      {
+         finishHim($response, 'Não há receitas que correspondam à categoria');
       }
    }
    else

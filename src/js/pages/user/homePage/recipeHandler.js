@@ -13,8 +13,43 @@ CATEGORY_HANDLERS.forEach(handler => {
       .then(resp => {
          if(resp.status == 'success')
          {
-            console.log(resp);
+            if(resp.data.length > 0)
+            {
+               clearContainer();
+               generateContent(resp.data);
+            }
          }
       });
    });
 });
+
+const RECIPE_BY_CATEGORY_TEMPLATE = document.getElementById('recipe_by_category-template');
+const RECIPES_BY_CATEGORY_FRAGMENT = document.createDocumentFragment();
+const RECIPES_BY_CATEGORY_CONTAINER = document.querySelector('.results-container');
+
+function generateContent(content, i = 0)
+{
+   if(i < content.length)
+   {
+      const RESULT = RECIPE_BY_CATEGORY_TEMPLATE.content.cloneNode(true).children[0];
+      let link = RESULT.querySelector('a');
+      let recipeThumb = RESULT.querySelector('img');
+      let recipeTitle = RESULT.querySelector('.recipe-title');
+      let recipeBenefits = RESULT.querySelector('.recipe-benefits');
+      
+      let recipePath = `./app/pages/user/recipe.php?id=${content[i].id}`;
+      let thumbPath = `./assets/images/recipes/${content[i].thumb}`;
+
+      link.href = recipePath;
+      recipeThumb.src = thumbPath;
+      recipeTitle.innerHTML = content[i].title;
+      recipeBenefits.innerHTML = content[i].benefits;
+
+      RECIPES_BY_CATEGORY_FRAGMENT.append(RESULT);
+      i += 1;
+      return generateContent(content, i);
+   }
+
+   RECIPES_BY_CATEGORY_CONTAINER.append(RECIPES_BY_CATEGORY_FRAGMENT);
+   return; 
+}

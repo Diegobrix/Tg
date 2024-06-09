@@ -153,7 +153,29 @@
                   </div>
                </template>
                <div class="results-container">
-
+                  <?php
+                     $recipes = getRecentRecipes(9);
+                     print('<pre>'.print_r($recipes, true).'</pre>');
+                     if($recipes != null)
+                     {
+                        foreach($recipes as $recipe)
+                        {   
+                  ?>
+                           <div class="recipe">
+                              <a href="./app/pages/user/recipe.php?id=<?=$recipe['id']?>">
+                                 <figure>
+                                    <img src="./assets/images/recipes/<?=htmlspecialchars($recipe['thumb'])?>" alt="">
+                                 </figure>
+                                 <div class="recipe-details">
+                                    <h3 class="recipe-title"><?=$recipe['title']?></h3>
+                                    <p class="recipe-category"><?=$recipe['category']?></p>
+                                 </div>
+                              </a>
+                           </div>
+                  <?php
+                        }
+                     }
+                  ?>
                </div>
             </div>
          </section>

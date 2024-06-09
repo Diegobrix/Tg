@@ -52,9 +52,9 @@
          return null;
       }
 
-      public function getRecentRecipes()
+      public function getRecentRecipes($limit = 5)
       {
-         $stmt = $this->conn->prepare('SELECT idReceita, tituloReceita, beneficiosReceita, fotoReceita FROM `receita` ORDER BY idReceita DESC LIMIT 5;');
+         $stmt = $this->conn->prepare('SELECT idReceita, tituloReceita, beneficiosReceita, fotoReceita, categoriaReceita FROM `receita` ORDER BY idReceita DESC LIMIT '.$limit.' ;');
          $stmt->execute();
 
          if($stmt->rowCount() > 0)
@@ -67,6 +67,7 @@
             {
                $recipes[$i]['id'] = $result['idReceita'];
                $recipes[$i]['title'] = $result['tituloReceita'];
+               $recipes[$i]['category'] = $this->getRecipeCategory($result['categoriaReceita']);
                $recipes[$i]['benefits'] = $result['beneficiosReceita'];
                $recipes[$i]['thumb'] = $result['fotoReceita'];
 
