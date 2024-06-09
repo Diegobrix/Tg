@@ -54,7 +54,35 @@
 
       public function getRecentRecipes()
       {
-         $stmt = $this->conn->prepare('SELECT * FROM `receita` ORDER BY idReceita DESC LIMIT 5;');
+         $stmt = $this->conn->prepare('SELECT idReceita, tituloReceita, beneficiosReceita, fotoReceita FROM `receita` ORDER BY idReceita DESC LIMIT 5;');
+         $stmt->execute();
+
+         if($stmt->rowCount() > 0)
+         {
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $recipes = array();
+            $i = 0;
+            
+            foreach($results as $result)
+            {
+               $recipes[$i]['id'] = $result['idReceita'];
+               $recipes[$i]['title'] = $result['tituloReceita'];
+               $recipes[$i]['benefits'] = $result['beneficiosReceita'];
+               $recipes[$i]['thumb'] = $result['fotoReceita'];
+
+               $i += 1;
+            }
+
+            return $recipes;
+         }
+
+         return null;
+      }
+
+      public function getRecipesByCategory($id)
+      {
+         $stmt = $this->conn->prepare('SELECT idReceita, tituloReceita, beneficiosReceita, fotoReceita FROM `receita` WHERE categoriaReceita = :categoryId ORDER BY idReceita DESC LIMIT 9;');
+         $stmt->bindParam(':categoryId', $id);
          $stmt->execute();
 
          if($stmt->rowCount() > 0)

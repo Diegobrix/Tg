@@ -13,6 +13,9 @@
       <!-- CSS Styles -->
       <link rel="stylesheet" type="text/css" href="src/css/reset.css">
       <link rel="stylesheet" type="text/css" href="src/css/pages/user/user_homepage-styles.css">
+
+      <script defer src="./src/js/pages/hamburger-menu.js"></script>
+      <script type="module" defer src="./src/js/pages/user/homePage/recipeHandler.js"></script>
    </head>
    <body>
       <header>
@@ -74,7 +77,7 @@
                </div>
             </div>
          </section>
-         <section aria-labelledby="most_recent-section_title">
+         <section aria-labelledby="most_recent_section-title">
             <h2 id="most_recent_section-title">Receitas Recentes</h2>
             <div class="recipes-container">
                <?php
@@ -101,6 +104,57 @@
                      }
                   }
                ?>
+            </div>
+         </section>
+         <section aria-labelledby="categories_section-title">
+            <h2 id="categories_section-title">Categorias</h2>
+            <div class="filters-container">
+               <?php
+                  require('./app/_conn/conn.php');
+                  require_once("./app/bd-conn-controller/GetContent.php");
+                  $content = new GetContent($conn);
+                  $categories = $content->getCategories();
+
+                  if($categories != null)
+                  {
+                     $i = 0;
+                     foreach($categories as $category)
+                     {
+                        if($i < 5)
+                        {
+               ?>
+                           <button class="category" data-id="<?=$category['id']?>"><?=$category['title']?></button>
+               <?php
+                           $i += 1;
+                        }
+                     }
+
+                     if($i > 0)
+                     {
+               ?>
+                        <button class="all_categories">Ver todas ></button>
+               <?php
+                     }
+                  }
+               ?>
+            </div>
+            <div class="category_recipes-container">
+               <template id="recipe_by_category-template">
+                  <div class="recipe">
+                     <a href="">
+                        <figure>
+                           <img src="" alt="">
+                        </figure>
+                        <div class="recipe-details">
+                           <h3 class="recipe-title"></h3>
+                           <p class="recipe-benefits"></p>
+                        </div>
+                     </a>
+                  </div>
+               </template>
+               <div class="results-container">
+
+               </div>
             </div>
          </section>
       </main>
