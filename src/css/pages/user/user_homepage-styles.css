@@ -136,7 +136,7 @@ main ::-webkit-scrollbar {
    height: 5px;
 }
 
-.recipes-container .recipe {
+.recipe {
    scroll-snap-align: start;
    padding: 1rem;
    border-radius: 10px;
@@ -217,4 +217,17 @@ main ::-webkit-scrollbar {
       background: var(--primary-700);
       color: var(--neutral-100);
    }
+}
+
+.results-container {
+   display: flex;
+   gap: .5rem;
+
+   margin-block: 1rem;
+   padding-bottom: .5rem;
+   padding-inline: 1rem;
+
+   scroll-snap-type: x mandatory;
+   scroll-padding-left: 1rem;
+   overflow: auto hidden;
 }

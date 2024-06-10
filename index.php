@@ -155,7 +155,6 @@
                <div class="results-container">
                   <?php
                      $recipes = getRecentRecipes(9);
-                     print('<pre>'.print_r($recipes, true).'</pre>');
                      if($recipes != null)
                      {
                         foreach($recipes as $recipe)

@@ -15,7 +15,6 @@ CATEGORY_HANDLERS.forEach(handler => {
          {
             if(resp.data.length > 0)
             {
-               clearContainer();
                generateContent(resp.data);
             }
          }
@@ -49,7 +48,27 @@ function generateContent(content, i = 0)
       i += 1;
       return generateContent(content, i);
    }
-
+      
+   clearContainer();
    RECIPES_BY_CATEGORY_CONTAINER.append(RECIPES_BY_CATEGORY_FRAGMENT);
    return; 
+}
+
+function clearContainer()
+{
+   let containerChildren = RECIPES_BY_CATEGORY_CONTAINER.childNodes;
+   let currentRecipes = [];
+   containerChildren.forEach(recipe => {
+      if((recipe.classList != undefined) && (recipe.classList.contains('recipe')))
+      {
+         currentRecipes.push(recipe);
+      }
+   });
+
+   if(currentRecipes.length > 0)
+   {
+      currentRecipes.forEach(recipe => {
+         recipe.remove();
+      });
+   }
 }
