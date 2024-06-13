@@ -1,6 +1,7 @@
 @import url("../../animations/admin_homePage/admin_homePage-animations.css");
 @import url("../../partials/admin/homePage/admin_homePage-styles.css");
 @import url("../../partials/admin/homePage/suggestions-admin_home-styles.css");
+@import url("../../partials/misc/dialog-styles.css");
 
 body {
    --page-margin: 1rem;
@@ -308,6 +309,30 @@ main {
    }
 }
 
+#videos-extra_options button.option {
+   all: unset;
+   font-size: 1em;
+   cursor: pointer;
+}
+
+#video_modal[open] {
+   margin: auto;
+
+   & input:not([type="file"]),
+   & textarea {
+      --input-color: var(--bg-color);
+      border: 3px solid hsl(273, 26%, 93%);
+      border-radius: 5px;
+      box-shadow: 2px 2px 3px hsl(273 26% 85% / .5),
+      -2px -2px 5px hsl(273 26% 94% / .5);
+      outline-color: hsl(273, 26%, 87%);
+      padding: .5rem;
+
+      background: var(--input-color);
+      width: 100%;
+   }
+}
+
 @media screen and (min-width: 1440px) {
 
    body > * {
@@ -481,6 +506,10 @@ main {
          right: 50%;
 
          transform: translate(50%, 0);
+      }
+
+      & .category-title {
+         text-transform: capitalize;
       }
    }
 

@@ -29,6 +29,7 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_homePage-styles.css"/>
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
+      <script defer src="../../../src/js/pages/admin/admin_homePage/video_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
    </head>
    <body>
@@ -155,9 +156,33 @@
                <button id="videos-extra_options-handler" class="options-handler" popovertarget="videos-extra_options"></button>
 
                <div popover anchor="videos-extra_options-handler" id="videos-extra_options" class="extra_options">
-                  <a href="" class="option">Add. Vídeo</a>
+                  <button class="option" id="add_video-handler">Add. Vídeo</button>
                   <a href="./admin_dashboard.php?content-type-id=3" class="option">Todos vídeos</a>
                </div>
+               <dialog id="video_modal">
+                  <div class="video_modal_steps_display-container">
+                     <i class="step_display" data-current="true" data-step="0"></i>
+                     <i class="step_display" data-current="false" data-step="1"></i>
+                  </div>
+                  <section class="video_modal-step" data-current="false" data-step="0">
+                     <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
+                     <input type="file" id="flVideo" accept="video/*" name="recipe_video">
+                     <div class="section_controller">
+                        <button type="button" class="btn_video_cancel">Não quero</button>
+                        <label for="flVideo">Add Vídeo</label>
+                     </div>
+                  </section>
+                  <section class="video_modal-step" data-current="true" data-step="1">
+                     <label for="txtVideoTitle">Título</label>
+                     <input required type="text" name="video_title" id="txtVideoTitle">
+                     <label for="txtVideoDescription">Descrição</label>
+                     <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="10"></textarea>
+                     <div class="section_controller">
+                        <button type="button" class="btn_video_cancel">Perder o vídeo</button>
+                        <button type="submit" id="btn_send_video">Finalizar</button>
+                     </div>
+                  </section>
+               </dialog>
             </div>
             <div class="categories-widget">
                <h2>Categorias</h2>
