@@ -10,6 +10,7 @@ export function verifyIngredients(ingredients)
    return ingredients.length > 0?true:false;
 }
 
+
 export function addVideo()
 {
    VIDEO_MODAL.showModal();

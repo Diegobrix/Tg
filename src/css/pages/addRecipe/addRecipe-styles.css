@@ -192,6 +192,15 @@ dialog textarea {
    background: var(--input-color);
 }
 
+#video_modal[open] {
+   margin: auto;
+
+   & .video_modal-step[data-step="1"] label,
+   & .video_modal-step[data-step="1"] textarea {
+      width: 100%;
+   }
+}
+
 form textarea {
    max-width: 100%;
    aspect-ratio: 16/8;
