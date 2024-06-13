@@ -106,12 +106,40 @@
                ?>
             </div>
          </section>
+         <section aria-labelledby="videos_section-title">
+            <h2 id="videos_section-title">Vídeos</h2>
+            <div class="videos-container">
+               <?php
+                  require('./app/_conn/conn.php');
+                  require_once("./app/bd-conn-controller/GetContent.php");
+                  $content = new GetContent($conn);
+                  $videos = $content->getVideos();
+
+                  if((isset($videos)) && ($videos != null))
+                  {
+                     foreach($videos as $video)
+                     {
+               ?>
+                        <div class="video">
+                           <a href="./app/pages/user/recipe.php?id=<?=$video['id']?>">
+                              <figure>
+                                 <img src="./assets/images/recipes/<?=htmlspecialchars($video['url'])?>" alt="">
+                              </figure>
+                              <div class="recipe-details">
+                                 <h3><?=$video['title']?></h3>
+                              </div>
+                           </a>
+                        </div>
+               <?php
+                     }
+                  }
+               ?>
+            </div>
+         </section>
          <section aria-labelledby="categories_section-title">
             <h2 id="categories_section-title">Categorias</h2>
             <div class="filters-container">
                <?php
-                  require('./app/_conn/conn.php');
-                  require_once("./app/bd-conn-controller/GetContent.php");
                   $content = new GetContent($conn);
                   $categories = $content->getCategories();
 
@@ -181,11 +209,21 @@
       </main>
       <footer>
          <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
-         <div class="credentials">
-            <p>Administrador</p>
-            <ul>
-               <li><a href="./app/pages/credentials.php">É um editor?</a></li>
-            </ul>
+         <div class="topics">
+            <div class="topic topic_pages">
+               <p class="topic-title">SOBRE O SITE</p>
+               <ul>
+                  <li><a href="">Home</a></li>
+                  <li><a href="">Receitas</a></li>
+                  <li><a href="">Vídeos</a></li>
+               </ul>
+            </div>
+            <div class="topic topic_credentials">
+               <p class="topic-title">ADMINISTRADOR</p>
+               <ul>
+                  <li><a href="./app/pages/credentials.php">É um editor?</a></li>
+               </ul>
+            </div>
          </div>
       </footer>
    </body>

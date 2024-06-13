@@ -47,9 +47,15 @@
       return $file;
     }
     
-    private function saveVideo($content)
+    private function saveVideo($content, $noRecipe = false)
     {
-      $targetDir = $this->baseUrl.$this->dirTitle."/video/";
+      $baseUrl = __DIR__."/../../../../../assets/videos/";
+      $targetDir = $baseUrl.$this->dirTitle."/";
+      if($noRecipe == true)
+      {
+        $targetDir = $baseUrl;
+      }
+      
       if(!$this->createDir($targetDir))
       {
         return null;
