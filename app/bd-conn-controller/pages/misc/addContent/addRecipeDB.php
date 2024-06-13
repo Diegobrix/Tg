@@ -10,6 +10,7 @@
       $recipeAuthor = filter_input(INPUT_POST, "recipe_author", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $recipeSource = filter_input(INPUT_POST, "recipe_source", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
       $recipeEditor = filter_input(INPUT_POST, "recipe_editor", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+      $bestFor = filter_input(INPUT_POST, "indicated_for", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
       $waysToDo = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS)["waytodo"];
       $recipeWayToDo = "";
@@ -19,8 +20,7 @@
       }
 
       require_once(__DIR__."/MediaSaver.php");
-      // $mSaver = new MediaSaver($recipeTitle);
-      $mSaver = new MediaSaver('Teste');
+      $mSaver = new MediaSaver($recipeTitle);
 
       if((isset($_FILES['recipe_thumb'])) && ($_FILES['recipe_thumb']['name'] != ""))
       {
@@ -32,7 +32,7 @@
 
       $recipeDate = date('Y-m-d');
 
-      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `descricaoReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `editor`, `autor`, `fonte`, `dataReceita`) VALUES(:tit, :recipeDesc, :benefits, :way, :photo, :category, :editor, :author, :source, :recipeDate);");
+      $stmtRecipe = $conn -> prepare("INSERT INTO `receita`(`tituloReceita`, `descricaoReceita`, `beneficiosReceita`, `modoDePreparoReceita`, `fotoReceita`, `categoriaReceita`, `editor`, `autor`, `fonte`, `indicadaPara`, `dataReceita`) VALUES(:tit, :recipeDesc, :benefits, :way, :photo, :category, :editor, :author, :source, :bestFor, :recipeDate);");
       $stmtRecipe -> execute(array(
          ":tit" => $recipeTitle,
          ":recipeDesc" => $recipeDescription,
@@ -43,6 +43,7 @@
          ":editor" => $recipeEditor,
          ":author" => $recipeAuthor,
          ":source" => $recipeSource,
+         ":bestFor" => $bestFor,
          ":recipeDate" => $recipeDate
       ));
    

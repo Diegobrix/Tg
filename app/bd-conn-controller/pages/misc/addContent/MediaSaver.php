@@ -1,5 +1,5 @@
 <?php
-  class MediaSaver
+class MediaSaver
   {
     private $baseUrl = __DIR__."/../../../../../assets/images/recipes/";
     private $dirTitle;
@@ -61,10 +61,7 @@
         return null;
       }
 
-      $originalFilename = explode(' ', $content);
-      $finalFilename = implode('_', $originalFilename);
-
-      $file = $this->moveFile($finalFilename, $targetDir);
+      $file = $this->moveFile($content, $targetDir);
       return $file;
     }
 

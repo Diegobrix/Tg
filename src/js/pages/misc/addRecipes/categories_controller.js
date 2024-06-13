@@ -49,7 +49,7 @@ ADD_CATEGORY_SENDER.addEventListener("click", () => {
    
    if(val.match(pattern))
    {
-      insertItem(val);
+      insertItem(val.toLowerCase());
    }
 });
 
@@ -58,7 +58,14 @@ function insertItem(data)
    let category = {"category_title":data};
    let response = sendData("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/addContent/addCategoryDB.php", category)
    .then(resp => {
-      addOption(resp);
+      if(resp.status == 'success')
+      {
+         addOption(resp);
+      }
+      else
+      {
+         window.alert(resp.msg);
+      }
    });
 
    closeAddModal();

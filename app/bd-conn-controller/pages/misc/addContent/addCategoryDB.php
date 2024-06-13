@@ -33,7 +33,7 @@
          }
          else
          {
-            finishHim($response, "A categoria informada já cadastrada no sistema!");
+            finishHim($response, "A categoria informada já existe no sistema!");
          }
       }
 

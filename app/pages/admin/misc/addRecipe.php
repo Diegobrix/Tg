@@ -166,6 +166,19 @@
                   <label for="txtSource">Fonte para a Receita</label>
                   <input type="text" name="recipe_source" id="txtSource" placeholder="e. url de um site">
                </div>
+               <div class="input-group group-indicated_for">
+                  <p>Esta receita é mais indicada para</p>
+                  <div class="inputs">
+                     <label>
+                        <input type="radio" name="indicated_for" value="pre" checked>
+                        Pré-diabetes
+                     </label>
+                     <label>
+                        <input type="radio" name="indicated_for" value="diabetes">
+                        Diabetes
+                     </label>
+                  </div>
+               </div>
             </section>
             <section class="form_step" data-step="2" data-current="false">
                <h2 class="section_title">Add Receita</h2>
@@ -224,7 +237,6 @@
                      <button type="button" id="add_category_sender">Finalizar</button>
                   </div>
                </dialog>
-               <input type="submit" value="Enviar">
             </section>
             <section class="form_step" data-step="3" data-current="false">
                <h2 class="section_title">Adicionar<br>Ingredientes</h2>
