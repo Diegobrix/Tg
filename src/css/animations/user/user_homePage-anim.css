@@ -36,10 +36,10 @@
 
 @keyframes handleCurrent {
    from {
-      --colour: purple;
+      --colour: var(--primary-700);
    }   
    33.3%,
    100% {
-      --colour: pink;
+      --colour: var(--primary-500);
    }
 }

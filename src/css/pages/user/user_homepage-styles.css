@@ -89,12 +89,14 @@ main > section:last-of-type {
    margin-top: .5rem;
 
    & .displayer {
-      --colour: pink;
+      --colour: var(--primary-500);
       display: block;
       width: 1rem;
       aspect-ratio: 1;
       border: 4px solid var(--colour);
       border-radius: 50%;
+      box-shadow: -2px -2px 3px 0px hsl(0 0% 100% / .3),
+      2px 2px 2px 0px hsl(0 0% 0% / .4);
 
       --delay: 0s;
       animation: 60s linear var(--delay) infinite handleCurrent;
@@ -221,16 +223,23 @@ main ::-webkit-scrollbar {
 }
 
 .results-container {
-   display: flex;
-   gap: .5rem;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+   gap: 1rem;
 
+   width: calc(100vw - 25vw);
+
+   margin: auto;
    margin-block: 1rem;
    padding-bottom: .5rem;
-   padding-inline: 1rem;
 
    scroll-snap-type: x mandatory;
    scroll-padding-left: 1rem;
    overflow: auto hidden;
+
+   & figure {
+      width: 100%;
+   }
 }
 
 @media screen and (min-width: 1440px) {
@@ -251,6 +260,7 @@ main ::-webkit-scrollbar {
 
          padding: .5rem 2rem .5rem 1rem;
          background: var(--primary-700);
+         color: var(--neutral-100);
          clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 50%, 100% 100%, 0 100%);
       }
 
