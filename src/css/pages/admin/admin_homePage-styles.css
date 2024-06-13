@@ -379,7 +379,7 @@ main {
    }
 
    .extra_options .option:hover {
-      color: var(--neutral-800);
+      color: var(--neutral-900);
    }
 
    .recipes_overview--wrapper {

@@ -554,7 +554,7 @@ div:has(.ingredients) {
 
       & li[data-current="true"] .step-icon {
          background: var(--neutral-100);
-         color: var(--neutral-800);
+         color: var(--neutral-900);
          border-color: var(--neutral-300);
       }
    }

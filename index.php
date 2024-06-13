@@ -179,5 +179,14 @@
             </div>
          </section>
       </main>
+      <footer>
+         <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
+         <div class="credentials">
+            <p>Administrador</p>
+            <ul>
+               <li><a href="./app/pages/credentials.php">É um editor?</a></li>
+            </ul>
+         </div>
+      </footer>
    </body>
 </html>

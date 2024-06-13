@@ -144,7 +144,7 @@ dialog button {
 
 #video_modal .video_modal-step[data-step="1"] label {
    background: inherit;
-   color: var(--neutral-800);
+   color: var(--neutral-900);
 
    float: left;
    padding: 0;

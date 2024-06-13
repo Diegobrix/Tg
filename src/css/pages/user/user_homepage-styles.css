@@ -227,11 +227,12 @@ main ::-webkit-scrollbar {
    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
    gap: 1rem;
 
-   width: calc(100vw - 25vw);
+   max-width: calc(15rem * 4);
 
    margin: auto;
    margin-block: 1rem;
    padding-bottom: .5rem;
+   padding-inline: 1rem;
 
    scroll-snap-type: x mandatory;
    scroll-padding-left: 1rem;
@@ -240,6 +241,10 @@ main ::-webkit-scrollbar {
    & figure {
       width: 100%;
    }
+}
+
+footer {
+   display: none;
 }
 
 @media screen and (min-width: 1440px) {
@@ -278,5 +283,32 @@ main ::-webkit-scrollbar {
          right: 1rem;
          width: fit-content;
       }
+   }
+
+   .results-container {
+      padding-inline: 0;
+   }
+
+   footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0 1rem;
+
+      padding-block: 1em;
+
+      background: var(--logo-blue);
+   }
+
+   footer .logo {
+      color: var(--neutral-800);
+
+      & span {
+         color: inherit;
+      }
+   }
+
+   footer ul {
+      margin: 0;
    }
 }

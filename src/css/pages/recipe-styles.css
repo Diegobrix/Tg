@@ -76,7 +76,7 @@ figure {
 
    & div {
       border-radius: 50vw;
-      background-color: var(--neutral-800);
+      background-color: var(--neutral-900);
    }
 
    & .vertical-divider {
