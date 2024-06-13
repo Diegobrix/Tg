@@ -117,4 +117,16 @@ export function addIngredientElement(data)
    let ingredientData = INGREDIENT.querySelector("input[name='ingredient[]']");
    ingredientData.value = data.id+"/"+data.ingredient.toLowerCase()+"/"+data.amount+"/"+data.unit;
    INGREDIENTS_CONTAINER.append(INGREDIENT);
+
+   let ingredients = [];
+   if(localStorage.getItem('selectedIngredients') != null)
+   {
+      let lsIngredients = localStorage.getItem('selectedIngredients').split(',');
+      lsIngredients.forEach(ingredient => {
+         ingredients.push(ingredient);
+      });
+   }
+
+   ingredients.push(data.ingredient);
+   localStorage.setItem('selectedIngredients', ingredients);
 }

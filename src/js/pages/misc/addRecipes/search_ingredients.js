@@ -7,6 +7,13 @@ const SUGGESTIONS_TEMPLATE = document.querySelector("[data-template]");
 const SUGGESTIONS_CONTAINER = document.querySelector(".ingredient_suggestions-container");
 const INGREDIENT_MODAL = document.getElementById("ingredient-modal");
 
+window.addEventListener('DOMContentLoaded', () => {
+   if((localStorage.getItem('selectedIngredients') != null) && localStorage.getItem('selectedIngredients').split(',').length > 0)
+   {
+      localStorage.removeItem('selectedIngredients');
+   }
+});
+
 INGREDIENT_SEARCH_BAR.addEventListener("click", () => {
    showSuggestions();
 });
@@ -62,9 +69,33 @@ sendData("http://127.0.0.1/tg/app/bd-conn-controller/pages/misc/getContent/getIn
          event.preventDefault();
          event.stopPropagation();
 
-         let vals = suggestion.querySelector(".ingredient");
-         setIngredientModal(vals.id, vals.textContent);         
-         hideSuggestions();
+         console.log(localStorage.getItem('selectedIngredients'));
+
+         let exeste = false;
+         if(localStorage.getItem('selectedIngredients') != null)
+         {
+            let selectedIngredients = localStorage.getItem('selectedIngredients').split(',');
+            selectedIngredients.forEach(ingredient => {
+               console.log('LocalStorage: ' + ingredient);
+               console.log('Sugestão: ' + suggestion.innerText.toLowerCase());
+               
+               if(ingredient.toLowerCase() == suggestion.innerText.toLowerCase())
+               {
+                  exeste = true;
+               }
+            });
+         }
+
+         if(exeste == false)
+         {
+            let vals = suggestion.querySelector(".ingredient");
+            setIngredientModal(vals.id, vals.textContent);         
+            hideSuggestions();
+         }
+         else
+         {
+            window.alert('O ingrediente selecionado já existe na receita, caso queira atualize-o');
+         }
       });
    });
 });
