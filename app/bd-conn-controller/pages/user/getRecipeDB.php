@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
    require_once(__DIR__."/./Recipe.php");
 
    function getRecentRecipes($limit = 5)
@@ -13,7 +16,6 @@
    {
       $r = new Recipe($recipeId, getConn());
       $recipe = $r->getRecipe();
-      //Voltar despois
 
       return $recipe;
    }

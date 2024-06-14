@@ -18,8 +18,6 @@
 
          if($stmt->rowCount() > 0)
          {
-            $stmt = $this->conn->prepare("SELECT * FROM `receita` WHERE idReceita = :recipeId;");
-            $stmt -> bindParam(":recipeId", $this->id);
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $recipe = array();
