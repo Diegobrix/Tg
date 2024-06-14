@@ -147,7 +147,7 @@
                               if(file_exists('./assets/videos/'.$video['url']))
                               {
                            ?>
-                           <iframe src="./assets/videos/<?= htmlspecialchars($video['url'])?>?rel=0" frameborder="0"></iframe>
+                           <iframe src="./assets/videos/<?= htmlspecialchars($video['url'])?>" frameborder="0"></iframe>
                            <?php
                               }
                               else
@@ -167,7 +167,16 @@
                ?>
             </div>
             <dialog id="video_modal">
-               <h2 class="video_title"></h2>
+               <div class="dialog-header">
+                  <h2 class="video_title"></h2>
+                  <div class="video_modal_steps_display-container">
+                     <i class="step_display" data-current="true" data-step="0"></i>
+                     <i class="step_display" data-current="false" data-step="1"></i>
+                  </div>
+               </div>
+               <iframe class="video_display" src="" frameborder="0"></iframe>
+               <p class="video_description"></p>
+               
             </dialog>
          </section>
          <section aria-labelledby="categories_section-title">

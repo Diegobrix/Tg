@@ -303,7 +303,40 @@ main ::-webkit-scrollbar {
 }
 
 #video_modal[open] {
+   max-width: 60ch;
+   max-width: 60ch; 
    margin: auto;
+
+   & .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+   }
+
+   & h2 {
+      margin: 0;
+   }
+
+   & iframe {
+      width: 100%;
+      aspect-ratio: 1/.4;
+      margin-top: 1rem;
+      border-radius: 5px;
+   }
+
+   & p {
+      color: var(--neutral-800);
+      text-align: justify;
+      margin-block: 1rem;
+   }
+
+   & a {
+      color: var(--primary-700);
+      &:hover {
+         color: var(--neutral-900);
+      }
+   }
 }
 
 footer {
