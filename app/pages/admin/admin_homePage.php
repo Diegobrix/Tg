@@ -29,7 +29,7 @@
       <link rel="stylesheet" type="text/css" href="../../../src/css/pages/admin/admin_homePage-styles.css"/>
 
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
-      <script defer src="../../../src/js/pages/admin/admin_homePage/video_controller.js"></script>
+      <script type="module" defer src="../../../src/js/pages/admin/admin_homePage/video_controller.js"></script>
       <script defer src="../../../src/js/pages/admin/admin_homePage/admin_homePage_responsive.js"></script>
    </head>
    <body>
@@ -176,7 +176,55 @@
                      <label for="txtVideoTitle">Título</label>
                      <input required type="text" name="video_title" id="txtVideoTitle">
                      <label for="txtVideoDescription">Descrição</label>
-                     <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="10"></textarea>
+                     <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="5"></textarea>
+                     <div class="video_recipe">
+                        <template id="recipe_indicator-template">
+                           <div class="choosed_recipe">
+                              <input type="hidden" value="" name="recipe_choosed">
+                              <span></span>
+                              <button class="remove_recipe"></button>
+                           </div>
+                        </template>
+                        <div class="recipe_indicator_container"></div>
+                        <button class="add_recipe-video_modal" popovertarget="recipes_list">Associar a uma receita?</button>
+                     </div>
+                     <div popover id="recipes_list">
+                        <h2>Selecionar Receita</h2>
+                        <div class="recipes_container">
+                           <?php
+                              require_once('../../bd-conn-controller/GetContent.php');
+                              $content = new GetContent($conn);
+                              $recipes = $content->getRecipes();
+
+                              $i = 0;
+                              if($recipes != null)
+                              {
+                                 foreach($recipes as $recipe)
+                                 {
+                           ?>
+                                    <div class="recipe">
+                                       <label for="recipe_<?=$recipe['id']?>"><?=$recipe['title']?></label>
+                                       <input type="checkbox" id="recipe_<?=$recipe['id']?>" data-label="<?=$recipe['title']?>" value="<?=$recipe['id']?>"/>
+                                    </div>
+                           <?php
+                                    $i += 1;
+                                 }
+                              }
+                              
+                           ?>
+                        </div>
+                        <?php
+                           if($i > 0)
+                           {
+                        ?>
+                              <div class="list_controller-container">
+                                 <button class="controller" popovertarget="recipes_list" id="btn_cancel">Cancelar</button>
+                                 <button class="controller" popovertarget="recipes_list" id="btn_save">Salvar</button>
+                              </div>
+                        <?php
+                           }
+                        ?>
+                     </div>
                      <div class="section_controller">
                         <button type="button" class="btn_video_cancel">Perder o vídeo</button>
                         <button type="submit" id="btn_send_video">Finalizar</button>

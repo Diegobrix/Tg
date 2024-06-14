@@ -333,6 +333,111 @@ main {
    }
 }
 
+.video_recipe {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+
+   gap: 1rem;
+
+   & .choosed_recipe {
+      position: relative;
+      background: var(--logo-blue);
+      padding: .5rem 1rem;
+      padding-right: 2rem;
+      border-radius: 25vw;
+      color: var(--neutral-100);
+      cursor: pointer;
+      
+      & .remove_recipe {
+         all: unset;
+         position: absolute;
+         top: 0;
+         right: .7rem;
+         width: 1rem;
+         height: 1rem;
+         border-radius: 50%;
+         transform: translate(0, 50%);
+
+         background: url('../../../../assets/icons/remove.svg');
+         background-color: var(--neutral-100);
+      }
+   }
+}
+
+.add_recipe-video_modal {
+   display: block;
+   margin-block: 2em;
+}
+
+#recipes_list:popover-open {
+   display: flex;
+   flex-direction: column;
+   padding: 1rem;
+   max-height: calc(100dvh - 35%);
+
+   border: 2px solid hsl(0 0% 85%);
+   border-radius: 10px;
+   outline-color: transparent;
+
+   & h2 {
+      text-align: left;
+   }
+}
+
+#recipes_list:popover-open .recipes_container {
+   position: relative;
+   flex: 1 1 auto;
+   overflow: hidden auto;
+   display: flex;
+   flex-direction: column;
+   gap: .5em;
+
+   margin-top: 1rem;
+
+   & .recipe {
+      position: relative;
+      display: flex;
+      width: 100%;
+      padding-right: 3rem;
+
+      & input {
+         all: unset;
+         position: absolute;
+         right: .5rem;
+         display: block;
+         
+         height: 100%;
+         aspect-ratio: 1;
+
+         background-color: var(--neutral-300);
+         border-radius: 5px;
+         cursor: pointer;
+      
+         &:checked {
+            background: url("../../../../assets/icons/checked_icon.svg") no-repeat center center;
+            background-color: var(--neutral-300);
+            background-size: 70%;
+         }
+      }
+   }
+}
+
+#recipes_list::backdrop {
+   background: hsl(0 0% 50% / .1);
+   backdrop-filter: blur(1q);
+}
+
+#recipes_list .list_controller-container {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   gap: .5rem;
+
+   width: 100%;
+   margin-top: 1rem;
+}
+
 @media screen and (min-width: 1440px) {
 
    body > * {

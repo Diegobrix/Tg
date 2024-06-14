@@ -118,6 +118,8 @@ dialog button {
    justify-content: space-between;
    align-items: center;
    margin-top: 2rem;
+
+   width: 100%;
 }
 
 .section_controller button {
