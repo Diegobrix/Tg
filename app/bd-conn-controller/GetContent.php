@@ -95,6 +95,19 @@
          $videos = $this->getContent("video", $limit);
          if($videos != null)
          {
+            $stmtVideoRecipes = $this->conn->prepare('SELECT * FROM `videoreceita` LIMIT 100;');
+            $stmtVideoRecipes->execute();
+
+            $videosRecipes = [];
+            if($stmtVideoRecipes -> rowCount() > 0)
+            {
+               $results = $stmtVideoRecipes->fetchAll(PDO::FETCH_ASSOC);
+               foreach($results as $result)
+               {
+                  $videosRecipes[] = $result;
+               }
+            }
+
             $data = array();
             $i = 0;
             foreach($videos as $video)
@@ -103,6 +116,14 @@
                $data[$i]['title'] = $video['titVideo'];
                $data[$i]['description'] = $video['descricaoVideo'];
                $data[$i]['url'] = $video['urlVideo'];
+
+               foreach($videosRecipes as $vr)
+               {
+                  if($vr['idVideo'] == $video['idVideo'])
+                  {
+                     $data[$i]['recipe'] = $vr['idReceita'];
+                  }
+               }
 
                $i += 1;
             }

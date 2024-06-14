@@ -16,6 +16,9 @@
 
       <script defer src="./src/js/pages/hamburger-menu.js"></script>
       <script type="module" defer src="./src/js/pages/user/homePage/recipeHandler.js"></script>
+      <script defer src="./src/js/pages/user/homePage/videoController.js"></script>
+      <script defer src="./src/js/pages/user/homePage/searchbarHandler.js"></script>
+
    </head>
    <body>
       <header>
@@ -27,7 +30,11 @@
             <button id="btn_close"></button>
          </nav>
          <div class="bg"></div>
-         <div class="desktop-menu">   
+         <div class="desktop-menu">
+            <div class="searchbar-container">
+               <input class="searchbar" type="text" name="" id="searchbar" placeholder="O que quer comer hoje?">
+               <label for="searchbar"><i class="searchbar-icon"></i></label>
+            </div>   
          </div>
       </header>
       <main>
@@ -117,24 +124,51 @@
 
                   if((isset($videos)) && ($videos != null))
                   {
+                     
+                     /*
+                         [15] => Array
+                        (
+                            [id] => 23
+                            [title] => Testebxscnnsx
+                            [description] => sxkmsxksx
+                            [url] => 666b9c1260643@/666b9c1260771_teste.mp4
+                        )
+                     */
                      foreach($videos as $video)
                      {
+                        $videoRecipe = null;
+                        if((isset($video['recipe'])) && ($video['recipe'] != null))
+                        {
+                           $videoRecipe = 'data-recipe="'.$video['recipe'].'"';
+                        }
                ?>
-                        <div class="video">
-                           <a href="./app/pages/user/recipe.php?id=<?=$video['id']?>">
-                              <figure>
-                                 <img src="./assets/images/recipes/<?=htmlspecialchars($video['url'])?>" alt="">
-                              </figure>
-                              <div class="recipe-details">
-                                 <h3><?=$video['title']?></h3>
-                              </div>
-                           </a>
+                        <div class="video" data-id="<?=$video['id']?>" data-title="<?=$video['title']?>" data-description="<?=$video['description']?>" data-url="<?=$video['url']?>" <?=$videoRecipe != null?$videoRecipe:""?>>
+                           <?php
+                              if(file_exists('./assets/videos/'.$video['url']))
+                              {
+                           ?>
+                           <iframe src="./assets/videos/<?= htmlspecialchars($video['url'])?>?rel=0" frameborder="0"></iframe>
+                           <?php
+                              }
+                              else
+                              {
+                           ?>
+                              <img src="./assets/images/recipes/no_image.png" alt="">
+                           <?php
+                              }
+                           ?>
+                           <div class="recipe-details">
+                              <h3><?=htmlspecialchars($video['title'])?></h3>
+                           </div>
                         </div>
                <?php
                      }
                   }
                ?>
             </div>
+            <dialog id="video_modal">
+               <h2 class="video_title"></h2>
+            </dialog>
          </section>
          <section aria-labelledby="categories_section-title">
             <h2 id="categories_section-title">Categorias</h2>

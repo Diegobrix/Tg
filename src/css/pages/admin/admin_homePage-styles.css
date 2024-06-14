@@ -476,6 +476,10 @@ main {
    .desktop-menu {
       display: flex;
       position: relative;
+
+      & li {
+         color: var(--neutral-100);
+      }
    }
    
    .logout {

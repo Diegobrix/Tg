@@ -1,15 +1,21 @@
 @import url("../../logo-style.css");
 @import url("../../partials/menu/mobile_menu-styles.css");
 @import url("../../animations/user/user_homePage-anim.css");
+@import url("../../partials/misc/dialog-styles.css");
 
 header {
    position: sticky;
    position: -webkit-sticky;
    top: 0;
 
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
    width: 100%;
-   background: var(--neutral-100);
+   background: hsl(0 0% 100% / .9);
+   backdrop-filter: blur(1px);
    padding: 1rem;
+   border-bottom: 1px solid hsl(0 0% 90%);
    z-index: 4;
 }
 
@@ -17,6 +23,35 @@ header .header_head-wrapper {
    display: flex;
    align-items: center;
    gap: 0 .5em;
+}
+
+.searchbar-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+
+   & .searchbar {
+      border: 2px solid hsl(0 0% 85%);
+      border-radius: 7px;
+      padding: .5rem 1rem;
+      padding-right: 3rem;
+   }
+
+   & label {
+      position: absolute;
+      right: .5rem;
+      width: fit-content;
+      height: 100%;
+
+      & .searchbar-icon {
+         display: block;
+         width: 2rem;
+         height: 2rem;
+         background: url('../../../../assets/icons/search.svg') no-repeat center center;
+         background-size: 70%;
+      }
+   }
+
 }
 
 h2[id$='-title'] {
@@ -122,7 +157,8 @@ main > section:last-of-type {
    }
 }
 
-.recipes-container {
+.recipes-container,
+.videos-container {
    display: flex;
    gap: 0 .5rem;
    padding-inline: 1rem;
@@ -139,7 +175,8 @@ main ::-webkit-scrollbar {
    height: 5px;
 }
 
-.recipe {
+.recipe,
+.video {
    scroll-snap-align: start;
    padding: 1rem;
    border-radius: 10px;
@@ -241,6 +278,32 @@ main ::-webkit-scrollbar {
    & figure {
       width: 100%;
    }
+}
+
+.videos-container .video {
+   display: flex;
+   flex-direction: column;
+
+   max-width: 12rem;
+   width: auto;
+   max-height: 15rem;
+   background: var(--neutral-200);
+   overflow: hidden;
+   cursor: pointer;
+
+   & img,
+   & iframe {
+      max-width: 100%;
+      max-height: 70%;
+      aspect-ratio: unset;
+      border-radius: 5px;
+
+      object-fit: cover;
+   }
+}
+
+#video_modal[open] {
+   margin: auto;
 }
 
 footer {
