@@ -20,6 +20,10 @@ class MediaSaver
       {
         return $this->saveVideo($content);
       }
+      else if($type == "video_noRecipe")
+      {
+        return $this->saveVideo($content, true);
+      }
 
       return $this->saveImage($content, $dirName);
     }

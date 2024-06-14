@@ -160,76 +160,78 @@
                   <a href="./admin_dashboard.php?content-type-id=3" class="option">Todos vídeos</a>
                </div>
                <dialog id="video_modal">
-                  <div class="video_modal_steps_display-container">
-                     <i class="step_display" data-current="true" data-step="0"></i>
-                     <i class="step_display" data-current="false" data-step="1"></i>
-                  </div>
-                  <section class="video_modal-step" data-current="false" data-step="0">
-                     <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
-                     <input type="file" id="flVideo" accept="video/*" name="recipe_video">
-                     <div class="section_controller">
-                        <button type="button" class="btn_video_cancel">Não quero</button>
-                        <label for="flVideo">Add Vídeo</label>
+                  <form action="../../bd-conn-controller/pages/admin/addVideoDB.php" method="POST" enctype="multipart/form-data">
+                     <div class="video_modal_steps_display-container">
+                        <i class="step_display" data-current="true" data-step="0"></i>
+                        <i class="step_display" data-current="false" data-step="1"></i>
                      </div>
-                  </section>
-                  <section class="video_modal-step" data-current="true" data-step="1">
-                     <label for="txtVideoTitle">Título</label>
-                     <input required type="text" name="video_title" id="txtVideoTitle">
-                     <label for="txtVideoDescription">Descrição</label>
-                     <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="5"></textarea>
-                     <div class="video_recipe">
-                        <template id="recipe_indicator-template">
-                           <div class="choosed_recipe">
-                              <input type="hidden" value="" name="recipe_choosed">
-                              <span></span>
-                              <button class="remove_recipe"></button>
-                           </div>
-                        </template>
-                        <div class="recipe_indicator_container"></div>
-                        <button class="add_recipe-video_modal" popovertarget="recipes_list">Associar a uma receita?</button>
-                     </div>
-                     <div popover id="recipes_list">
-                        <h2>Selecionar Receita</h2>
-                        <div class="recipes_container">
-                           <?php
-                              require_once('../../bd-conn-controller/GetContent.php');
-                              $content = new GetContent($conn);
-                              $recipes = $content->getRecipes();
-
-                              $i = 0;
-                              if($recipes != null)
-                              {
-                                 foreach($recipes as $recipe)
+                     <section class="video_modal-step" data-current="true" data-step="0">
+                        <h2>Deseja Adicionar um Vídeo para essa Receita?</h2>
+                        <input type="file" id="flVideo" accept="video/*" name="recipe_video">
+                        <div class="section_controller">
+                           <button type="button" class="btn_video_cancel">Não quero</button>
+                           <label for="flVideo">Add Vídeo</label>
+                        </div>
+                     </section>
+                     <section class="video_modal-step" data-current="false" data-step="1">
+                        <label for="txtVideoTitle">Título</label>
+                        <input required type="text" name="video_title" id="txtVideoTitle">
+                        <label for="txtVideoDescription">Descrição</label>
+                        <textarea required name="video_description" id="txtVideoDescription" cols="30" rows="5"></textarea>
+                        <div class="video_recipe">
+                           <template id="recipe_indicator-template">
+                              <div class="choosed_recipe">
+                                 <input type="hidden" class="input_id" value="" name="recipe_choosed_id">
+                                 <input type="hidden" class="input_title" name="recipe_choosed_title">
+                                 <span></span>
+                                 <button type="button" class="remove_recipe"></button>
+                              </div>
+                           </template>
+                           <div class="recipe_indicator_container"></div>
+                           <button type="button" class="add_recipe-video_modal" popovertarget="recipes_list">Associar a uma receita?</button>
+                        </div>
+                        <div popover id="recipes_list">
+                           <h2>Selecionar Receita</h2>
+                           <div class="recipes_container">
+                              <?php
+                                 require_once('../../bd-conn-controller/GetContent.php');
+                                 $content = new GetContent($conn);
+                                 $recipes = $content->getRecipes();
+                                 $i = 0;
+                                 if($recipes != null)
                                  {
-                           ?>
-                                    <div class="recipe">
-                                       <label for="recipe_<?=$recipe['id']?>"><?=$recipe['title']?></label>
-                                       <input type="checkbox" id="recipe_<?=$recipe['id']?>" data-label="<?=$recipe['title']?>" value="<?=$recipe['id']?>"/>
-                                    </div>
-                           <?php
-                                    $i += 1;
+                                    foreach($recipes as $recipe)
+                                    {
+                              ?>
+                                       <div class="recipe">
+                                          <label for="recipe_<?=$recipe['id']?>"><?=$recipe['title']?></label>
+                                          <input type="checkbox" id="recipe_<?=$recipe['id']?>" data-label="<?=$recipe['title']?>" value="<?=$recipe['id']?>"/>
+                                       </div>
+                              <?php
+                                       $i += 1;
+                                    }
                                  }
+                     
+                              ?>
+                           </div>
+                           <?php
+                              if($i > 0)
+                              {
+                           ?>
+                                 <div class="list_controller-container">
+                                    <button type="button" class="controller" popovertarget="recipes_list" id="btn_cancel">Cancelar</button>
+                                    <button type="button" class="controller" popovertarget="recipes_list" id="btn_save">Salvar</button>
+                                 </div>
+                           <?php
                               }
-                              
                            ?>
                         </div>
-                        <?php
-                           if($i > 0)
-                           {
-                        ?>
-                              <div class="list_controller-container">
-                                 <button class="controller" popovertarget="recipes_list" id="btn_cancel">Cancelar</button>
-                                 <button class="controller" popovertarget="recipes_list" id="btn_save">Salvar</button>
-                              </div>
-                        <?php
-                           }
-                        ?>
-                     </div>
-                     <div class="section_controller">
-                        <button type="button" class="btn_video_cancel">Perder o vídeo</button>
-                        <button type="submit" id="btn_send_video">Finalizar</button>
-                     </div>
-                  </section>
+                        <div class="section_controller">
+                           <button type="button" class="btn_video_cancel">Perder o vídeo</button>
+                           <button type="submit" id="btn_send_video">Finalizar</button>
+                        </div>
+                     </section>
+                  </form>
                </dialog>
             </div>
             <div class="categories-widget">

@@ -2,16 +2,15 @@
 const ADD_VIDEO_HANDLER = document.getElementById('add_video-handler');
 const VIDEO_MODAL = document.getElementById('video_modal');
 
-VIDEO_MODAL.showModal();
-
 ADD_VIDEO_HANDLER.addEventListener('click', () => {
    VIDEO_MODAL.showModal();
 });
 
 const VIDEO_INPUT = document.getElementById('flVideo');
+const STEPS_DECORATORS = document.querySelectorAll('.step_display');
+
 VIDEO_INPUT.addEventListener('change', () => {
    const MODAL_STEPS = document.querySelectorAll('.video_modal-step');
-   const STEPS_DECORATORS = document.querySelectorAll('.step_display');
    MODAL_STEPS[0].dataset.current = "false";
    MODAL_STEPS[1].dataset.current = "true";
    STEPS_DECORATORS[0].dataset.current = "false";
@@ -64,10 +63,12 @@ function saveChoice(choice, label = null)
    if(choice != null)
    {
       let indicator = RECIPE_INDICATOR_TEMPLATE.content.cloneNode(true).children[0];
-      let input = indicator.querySelector('input');
+      let inputId = indicator.querySelector('.input_id');
+      let inputTitle = indicator.querySelector('.input_title');
       let textLabel = indicator.querySelector('span');
 
-      input.value = choice;
+      inputId.value = choice;
+      inputTitle.value = label;
       textLabel.innerHTML = label;
 
       indicator.addEventListener('click', function(){
@@ -78,12 +79,18 @@ function saveChoice(choice, label = null)
    }
 }
 
-const SEND_VIDEO_HANDLER = document.getElementById('btn_send_video');
-SEND_VIDEO_HANDLER.addEventListener('click', () => {
-   sendVideo();
+const CANCEL_SEND_BTNS = document.querySelectorAll('.btn_video_cancel');
+CANCEL_SEND_BTNS.forEach(btn => {
+   btn.addEventListener('click', () => {
+      if(window.confirm('Deseja mesmo perder o vídeo?'))
+      {
+         VIDEO_MODAL.close();
+      }
+   });
 });
 
-function sendVideo()
-{
-   
-}
+STEPS_DECORATORS.forEach(decorator => {
+   decorator.addEventListener('click', () => {
+      VIDEO_MODAL.close();
+   });
+});

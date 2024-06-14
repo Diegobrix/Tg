@@ -438,6 +438,10 @@ main {
    margin-top: 1rem;
 }
 
+.step_display {
+   cursor: pointer;
+}
+
 @media screen and (min-width: 1440px) {
 
    body > * {
