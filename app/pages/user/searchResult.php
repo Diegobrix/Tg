@@ -65,7 +65,7 @@
             <div class="filters"></div>
          </div>
          <section class="results-container">
-            <div class="filters_setting-container" data-mobile="true" aria-hidden="true">
+            <div class="filters_setting-container" data-mobile="false" aria-hidden="false">
                <div class="container-head">
                   <h2>Filtros</h2>
                   <hr>
@@ -88,27 +88,7 @@
                         </label>
                      </div>
                   </div>
-                  <hr>
-                  <div class="filter_setting">
-                     <div class="setting-thumb">
-                        <h3>Possui Vídeo</h3>
-                        <i class="chevron close"></i>
-                     </div>
-                     <div class="options-container" aria-expanded="false">
-                        <label>
-                           <input type="checkbox" name="video_option" id="video_yes">
-                           Sim
-                        </label>
-                        <label>
-                           <input type="checkbox" name="video_option" id="video_no">
-                           Não
-                        </label>
-                        <label>
-                           <input type="checkbox" name="video_option" id="video_all" checked>
-                           Tanto faz
-                        </label>
-                     </div>
-                  </div>
+                  <!-- Bolar outro filtro -->
                   <hr>
                   <div class="filter_setting">
                      <div class="setting-thumb">
@@ -126,10 +106,13 @@
                         </label>
                         <label>
                            <input type="checkbox" name="health_condition_option" id="health_all" checked>
-                           Nenhuma
+                           Não importa
                         </label>
                      </div>
                   </div>
+               </div>
+               <div class="apply-container">
+                  <button class="btn_filter_apply">Ver <span class="recipes_amount"></span> Receitas</button>
                </div>
             </div>
             <div class="results_display-container">

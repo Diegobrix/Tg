@@ -24,10 +24,16 @@
       <header>
          <div class="header_head-wrapper">
             <button id="mobile_menu--handler"></button>
-            <a href="" class="logo"><span>DIABETES</span><br>Sob Controle</a>
+            <a href="./index.php" class="logo"><span>DIABETES</span><br>Sob Controle</a>
          </div>
          <nav class="mobile-menu" aria-expanded="false">
             <button id="btn_close"></button>
+            <div class="menu-content">
+               <div class="searchbar-container">
+                  <input class="searchbar" type="text" name="" id="searchbar" placeholder="O que quer comer hoje?">
+                  <label for="searchbar"><i class="searchbar-icon"></i></label>
+               </div>
+            </div>
          </nav>
          <div class="bg"></div>
          <div class="desktop-menu">
@@ -158,7 +164,7 @@
                               }
                            ?>
                            <div class="recipe-details">
-                              <h3><?=htmlspecialchars($video['title'])?></h3>
+                              <h3><?=$video['title']?></h3>
                            </div>
                         </div>
                <?php
@@ -176,7 +182,6 @@
                </div>
                <iframe class="video_display" src="" frameborder="0"></iframe>
                <p class="video_description"></p>
-               
             </dialog>
          </section>
          <section aria-labelledby="categories_section-title">

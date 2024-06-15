@@ -251,6 +251,23 @@ figure {
    font-family: var(--ff-300);
 }
 
+.videos-container {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   margin-bottom: 2rem;
+   
+   padding: 0 1rem;
+
+   & .video p {
+      margin-bottom: .5rem;
+   }
+
+   & iframe {
+      width: 100%;
+   }
+}
+
 @media screen and (min-width: 1440px) {
    #mobile_menu--handler {
       display: none;
@@ -330,5 +347,14 @@ figure {
 
    .abstract_content-container .title-container .divider-wrapper {
       display: none;
+   }
+
+   .videos-container .video {
+      width: 50%;
+      
+      & iframe {
+         width: 100%;
+         aspect-ratio: 1/.6;
+      }
    }
 }

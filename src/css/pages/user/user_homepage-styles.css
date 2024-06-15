@@ -1,7 +1,9 @@
 @import url("../../logo-style.css");
-@import url("../../partials/menu/mobile_menu-styles.css");
+@import url("../../partials/menu/mobile_menu-styles.css") layer(menu);
 @import url("../../animations/user/user_homePage-anim.css");
 @import url("../../partials/misc/dialog-styles.css");
+
+@layer reset, utilities, animations, menu;
 
 header {
    position: sticky;
@@ -23,6 +25,28 @@ header .header_head-wrapper {
    display: flex;
    align-items: center;
    gap: 0 .5em;
+}
+
+.mobile-menu {
+   height: 100vh;
+
+   & .menu-content {
+      width: 100%;
+      margin-top: 4rem;
+
+      & .searchbar-container {
+         width: calc(100% - 2rem);
+         margin: auto;
+
+         & input {
+            width: 100%;
+         }
+      }
+   }
+}
+
+.desktop-menu {
+   display: none;
 }
 
 .searchbar-container {
@@ -346,6 +370,10 @@ footer {
 @media screen and (min-width: 1440px) {
    #mobile_menu--handler {
       display: none;
+   }
+
+   .desktop-menu {
+      display: block;
    }
 
    main section:first-of-type {

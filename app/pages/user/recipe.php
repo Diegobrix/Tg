@@ -19,8 +19,7 @@
 
          if($recipeId == null)
          {
-            //Redirecionar Usuario a tela principal...
-            //header();
+            header('location: ../../../index.php');
          }
 
          require_once("../../bd-conn-controller/pages/user/getRecipeDB.php");
@@ -114,6 +113,27 @@
                </div>
             </section>
          </section>
+         <?php
+            if(isset($recipe['video']))
+            {
+         ?>
+         <section aria-labelledby="videos_section-title" class="videos-container">
+            <h2 id="videos_section-title">Vídeo</h2>
+            <?php
+               foreach($recipe['video'] as $video)
+               {
+            ?>
+               <div class="video">
+                  <p><?=$video['titVideo']?></p>
+                  <iframe src="../../../assets/videos/<?=htmlspecialchars($video['urlVideo'])?>" frameborder="0"></iframe>
+               </div>
+            <?php
+               }
+            ?>
+         </section>
+         <?php
+            }
+         ?>
       </main>
    </body>
 </html>

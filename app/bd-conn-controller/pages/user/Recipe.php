@@ -198,18 +198,40 @@
       #region Get Video
       private function getRecipeVideo($recipeId)
       {
-         $videoDB = $this->itemExists($recipeId, 'videoreceita', 'idReceita');
+         $videoDB = $this->getVideoId($recipeId);
          if($videoDB != false)
          {
-            $stmt = $this->conn->prepare("SELECT * FROM `video` WHERE idVideo = :id;");
-            $stmt->bindParam(":id", $videoDB['idVideo']);
+            $stmt = $this->conn->prepare("SELECT * FROM `video` WHERE idVideo in (".implode(',', $videoDB).");");
+            $stmt->execute();
 
             if($stmt -> rowCount() > 0)
             {
-               $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+               $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
                return $result;
             }
          }
+         return null;
+      }
+
+      private function getVideoId($recipeId)
+      {  
+         $stmt = $this->conn->prepare('SELECT idVideo FROM `videoreceita` WHERE idReceita = :id;');
+         $stmt->bindParam(':id', $recipeId);
+         $stmt->execute();
+
+         if($stmt->rowCount() > 0)
+         {
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $id = [];
+
+            foreach($results as $result)
+            {
+               $id[] = $result['idVideo'];
+            }
+
+            return $id;
+         }
+
          return null;
       }
       #endregion
