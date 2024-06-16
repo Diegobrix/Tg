@@ -1,6 +1,6 @@
 @keyframes containerAppear {
    from {
-      top: -25em;
+      top: var(--y_offset);
    }
    to {
       top: 0;

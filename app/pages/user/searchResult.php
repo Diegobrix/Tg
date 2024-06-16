@@ -22,6 +22,7 @@
       <script defer src="../../../src/js/pages/user/searchResults/filtersController.js"></script>
       <script defer src="../../../src/js/pages/hamburger-menu.js"></script>
       <script type="module" defer src="../../../src/js/pages/user/searchResults/searchDisplay.js"></script>
+      <script defer src="../../../src/js/pages/user/stickyPosition.js"></script>
    </head>
    <body>
       <header>
@@ -64,57 +65,56 @@
             </template>
             <div class="filters"></div>
          </div>
-         <section class="results-container">
-            <div class="filters_setting-container" data-mobile="false" aria-hidden="false">
-               <div class="container-head">
-                  <h2>Filtros</h2>
-                  <hr>
-               </div>
-               <div class="filter-container">
-                  <div class="filter_setting">
-                     <div class="setting-thumb">
-                        <h3>Categoria</h3>
-                        <i class="chevron close"></i>
-                     </div>
-                     <div class="options-container categories_option-container" aria-expanded="false">
-                        <template id="categories-template">
-                           <label>
-                              <input type="checkbox" name="category_option">
-                           </label>
-                        </template>
-                        <label>
-                           <input type="checkbox" name="category_option" id="category_all" checked>
-                           Todas
-                        </label>
-                     </div>
+         <div class="filters_setting-container" data-mobile="false" aria-hidden="false">
+            <div class="container-head">
+               <h2>Filtros</h2>
+               <hr>
+            </div>
+            <div class="filter-container">
+               <div class="filter_setting">
+                  <div class="setting-thumb">
+                     <h3>Categoria</h3>
+                     <i class="chevron close"></i>
                   </div>
-                  <!-- Bolar outro filtro -->
-                  <hr>
-                  <div class="filter_setting">
-                     <div class="setting-thumb">
-                        <h3>Condição Atual</h3>
-                        <i class="chevron close"></i>
-                     </div>
-                     <div class="options-container" aria-expanded="false">
+                  <div class="options-container categories_option-container" aria-expanded="false">
+                     <template id="categories-template">
                         <label>
-                           <input type="checkbox" name="health_condition_option" id="health_pre">
-                           Pré-diabetes
+                           <input type="checkbox" name="category_option">
                         </label>
-                        <label>
-                           <input type="checkbox" name="health_condition_option" id="health_diabetes">
-                           Diabetes
-                        </label>
-                        <label>
-                           <input type="checkbox" name="health_condition_option" id="health_all" checked>
-                           Não importa
-                        </label>
-                     </div>
+                     </template>
+                     <label>
+                        <input type="checkbox" name="category_option" id="category_all" checked>
+                        Todas
+                     </label>
                   </div>
                </div>
-               <div class="apply-container">
-                  <button class="btn_filter_apply">Ver <span class="recipes_amount"></span> Receitas</button>
+               <hr>
+               <div class="filter_setting">
+                  <div class="setting-thumb">
+                     <h3>Condição Atual</h3>
+                     <i class="chevron close"></i>
+                  </div>
+                  <div class="options-container" aria-expanded="false">
+                     <label>
+                        <input type="checkbox" name="health_condition_option" id="health_pre">
+                        Pré-diabetes
+                     </label>
+                     <label>
+                        <input type="checkbox" name="health_condition_option" id="health_diabetes">
+                        Diabetes
+                     </label>
+                     <label>
+                        <input type="checkbox" name="health_condition_option" id="health_all" checked>
+                        Não importa
+                     </label>
+                  </div>
                </div>
             </div>
+            <div class="apply-container">
+               <button class="btn_filter_apply">Ver <span class="recipes_amount"></span> Receitas</button>
+            </div>
+         </div>
+         <section class="results-container">
             <div class="results_display-container">
                <template id="result-template">
                   <div class="result">
