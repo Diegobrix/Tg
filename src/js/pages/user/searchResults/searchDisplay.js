@@ -99,14 +99,26 @@ const CATEGORIES_FILTER_FRAGMENT = document.createDocumentFragment();
 const CATEGORIES_FILTER_SETTING_CONTAINER = document.querySelector('.categories_option-container');
 function generateCategoriesFilter()
 {
+   let currentCategories = [];
    let categories = JSON.parse(localStorage.getItem('categories'));
-   for(let i = 0; i < categories.length; i++)
+   if(categories == null)
+   {
+      return null;
+   }
+   categories.forEach(category => {
+      if(!currentCategories.includes(category))
+      {
+         currentCategories.push(category);
+      }
+   });
+
+   for(let i = 0; i < currentCategories.length; i++)
    {
       const CATEGORY_FILTER = CATEGORY_FILTER_TEMPLATE.content.cloneNode(true).children[0];
       const INPUT = CATEGORY_FILTER.querySelector('input[type="checkbox"]');
-      INPUT.id = 'category_'+categories[i].toLowerCase().split(' ').join('_');
+      INPUT.id = 'category_'+currentCategories[i].toLowerCase().split(' ').join('_');
 
-      CATEGORY_FILTER.append(categories[i]);
+      CATEGORY_FILTER.append(currentCategories[i]);
       CATEGORIES_FILTER_FRAGMENT.appendChild(CATEGORY_FILTER);
    }
 
