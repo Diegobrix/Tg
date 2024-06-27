@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+:root
+{
+   --ff-100: 'Arial Rounded MT';
+   --ff-200: 'EB Garamond';
+   --ff-300: 'Segoe UI';
+
+   --fs-100: 1.1rem;
+   --fs-200: 1.6rem;
+   --fs-300: 2rem;
+   --fs-400: 2.5rem;
+
+   --fw-100: 300;
+   --fw-200: 400;
+   --fw-300: 600;
+   --fw-400: 800;
+
+   font-size: 16px;
+}

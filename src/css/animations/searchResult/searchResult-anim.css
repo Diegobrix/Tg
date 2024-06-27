@@ -1,0 +1,17 @@
+@keyframes containerAppear {
+   from {
+      top: var(--y_offset);
+   }
+   to {
+      top: 0;
+   }
+}
+
+@keyframes containerAppearDesktop {
+   from {
+      left: var(--initial-offset);
+   }
+   to {
+      left: 0;      
+   }
+}

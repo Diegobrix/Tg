@@ -1,0 +1,5 @@
+@keyframes openMenu {
+   to {
+      left: 0;
+   }
+}

@@ -1,0 +1,463 @@
+@import url("../../logo-style.css");
+@import url("../../partials/menu/mobile_menu-styles.css") layer(menu);
+@import url("../../animations/user/user_homePage-anim.css");
+@import url("../../partials/misc/dialog-styles.css");
+
+@layer reset, utilities, animations, menu;
+
+header {
+   position: sticky;
+   position: -webkit-sticky;
+   top: 0;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   background: hsl(0 0% 100% / .9);
+   backdrop-filter: blur(1px);
+   padding: 1rem;
+   border-bottom: 1px solid hsl(0 0% 90%);
+   z-index: 4;
+}
+
+header .header_head-wrapper {
+   display: flex;
+   align-items: center;
+   gap: 0 .5em;
+}
+
+.mobile-menu {
+   height: 100vh;
+
+   & .menu-content {
+      width: 100%;
+      margin-top: 4rem;
+
+      & .searchbar-container {
+         width: calc(100% - 2rem);
+         margin: auto;
+
+         & input {
+            width: 100%;
+         }
+      }
+   }
+}
+
+.desktop-menu {
+   display: none;
+}
+
+.searchbar-container {
+   position: relative;
+   display: flex;
+   align-items: center;
+
+   & .searchbar {
+      border: 2px solid hsl(0 0% 85%);
+      border-radius: 7px;
+      padding: .5rem 1rem;
+      padding-right: 3rem;
+   }
+
+   & label {
+      position: absolute;
+      right: .5rem;
+      width: fit-content;
+      height: 100%;
+
+      & .searchbar-icon {
+         display: block;
+         width: 2rem;
+         height: 2rem;
+         background: url('../../../../assets/icons/search.svg') no-repeat center center;
+         background-size: 70%;
+      }
+   }
+
+}
+
+h2[id$='-title'] {
+   text-align: center;
+   margin-block: 1rem;
+}
+
+figure > img {
+   object-fit: cover;
+}
+
+main > section:first-of-type {
+   width: calc(100% - 2rem);
+   margin: auto;
+}
+
+main > section:last-of-type {
+   margin-bottom: 1rem;
+}
+
+.carousel-container {
+   overflow: hidden;
+}
+
+.suggestions-container {
+   position: relative;
+   display: flex;
+   width: 100%;
+   animation: carousel 60s linear infinite;
+}
+
+.suggestion {
+   position: relative;
+   min-width: 100%;
+   max-height: 100%;
+   border-radius: 10px;
+   overflow: hidden;
+
+   & figure {
+      width: 100%;
+      aspect-ratio: 1;
+      overflow: hidden;
+   }  
+
+   & .banner_content-container {
+      position: absolute;
+      bottom: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: .5em 0;
+
+      width: 100%;
+      padding: 1rem;
+
+      background: var(--transparent-600);
+      backdrop-filter: blur(2px);
+      color: var(--neutral-100);
+
+      & .suggestion-description {
+         font-family: var(--ff-300);
+      }
+   }
+}
+
+.displayers-container {
+   display: flex;
+   justify-content: center;
+   gap: 0 .25em;
+   margin-top: .5rem;
+
+   & .displayer {
+      --colour: var(--primary-500);
+      display: block;
+      width: 1rem;
+      aspect-ratio: 1;
+      border: 4px solid var(--colour);
+      border-radius: 50%;
+      box-shadow: -2px -2px 3px 0px hsl(0 0% 100% / .3),
+      2px 2px 2px 0px hsl(0 0% 0% / .4);
+
+      --delay: 0s;
+      animation: 60s linear var(--delay) infinite handleCurrent;
+   
+      &.d-1 {
+         --delay: 0s;
+      }
+      &.d-2 {
+         --delay: 9.96s;
+      }
+      &.d-3 {
+         --delay: 19.92s;
+      }
+      &.d-4 {
+         --delay: 29.88s;
+      }
+      &.d-5 {
+         --delay: 39.84s;
+      }
+      &.d-6 {
+         --delay: 49.8s;
+      }
+   }
+}
+
+.recipes-container,
+.videos-container {
+   display: flex;
+   gap: 0 .5rem;
+   padding-inline: 1rem;
+   padding-bottom: .5rem;
+
+   scroll-snap-type: x mandatory;
+   scroll-padding-left: 1rem;
+
+   height: fit-content;
+   overflow: auto hidden;
+}
+
+main ::-webkit-scrollbar {
+   height: 5px;
+}
+
+.recipe,
+.video {
+   scroll-snap-align: start;
+   padding: 1rem;
+   border-radius: 10px;
+   background: var(--neutral-200); 
+   aspect-ratio: 16/13.5;
+
+   min-width: fit-content;
+
+   & > a {
+      display: flex;
+      flex-direction: column;
+
+      width: 100%;
+      height: 100%;
+   }
+
+   & figure {
+      width: 15rem;
+      max-height: 10rem;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0; 
+   } 
+
+   & .recipe-details {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      & p {
+         display: block;
+         width: 15rem;
+         text-wrap: nowrap;
+         text-overflow: ellipsis;
+         overflow: hidden;
+
+         color: var(--neutral-700); 
+      }
+   }
+}
+
+.filters-container {
+   display: flex;
+   gap: 0 .5rem;
+   padding-inline: 1rem;
+   padding-bottom: .5rem; 
+   overflow: auto hidden;
+   scroll-snap-type: x mandatory;
+   scroll-padding-left: 1rem;
+
+   &::-webkit-scrollbar {
+      height: 0;
+   }
+}
+
+.filters-container .category,
+.filters-container .all_categories {
+   background: var(--neutral-200);
+   font-size: 1rem;
+   min-width: fit-content;
+
+   padding: .7rem 1.2rem;
+   border-radius: 5px;
+   scroll-snap-align: start;
+   transition: all .3s;
+
+   &:last-of-type {
+      scroll-snap-stop: center;
+   }
+}
+
+.category[data-current="true"] {
+   background: var(--neutral-500);
+}
+
+.filters-container .all_categories {
+   border: 3px solid var(--primary-700);
+   color: var(--primary-700);
+
+   &:hover {
+      background: var(--primary-700);
+      color: var(--neutral-100);
+   }
+}
+
+.results-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+   gap: 1rem;
+
+   max-width: calc(15rem * 4);
+
+   margin: auto;
+   margin-block: 1rem;
+   padding-bottom: .5rem;
+   padding-inline: 1rem;
+
+   scroll-snap-type: x mandatory;
+   scroll-padding-left: 1rem;
+   overflow: auto hidden;
+
+   & figure {
+      width: 100%;
+   }
+}
+
+.videos-container .video {
+   display: flex;
+   flex-direction: column;
+
+   max-width: 12rem;
+   width: auto;
+   max-height: 15rem;
+   background: var(--neutral-200);
+   overflow: hidden;
+   cursor: pointer;
+
+   & img,
+   & iframe {
+      max-width: 100%;
+      max-height: 70%;
+      aspect-ratio: unset;
+      border-radius: 5px;
+
+      object-fit: cover;
+   }
+}
+
+#video_modal[open] {
+   max-width: 60ch;
+   max-width: 60ch; 
+   margin: auto;
+
+   & .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+   }
+
+   & h2 {
+      margin: 0;
+   }
+
+   & iframe {
+      width: 100%;
+      aspect-ratio: 1/.4;
+      margin-top: 1rem;
+      border-radius: 5px;
+   }
+
+   & p {
+      color: var(--neutral-800);
+      text-align: justify;
+      margin-block: 1rem;
+   }
+
+   & a {
+      color: var(--primary-700);
+      &:hover {
+         color: var(--neutral-900);
+      }
+   }
+}
+
+footer {
+   display: none;
+}
+
+@media screen and (min-width: 1440px) {
+   #mobile_menu--handler {
+      display: none;
+   }
+
+   .desktop-menu {
+      display: block;
+   }
+
+   main section:first-of-type {
+      position: relative;
+      max-height: 35rem;
+
+      & #section-title {
+         position: absolute;
+         top: 1rem;
+         left: 0;
+         margin: 0;
+         z-index: 2;
+
+         padding: .5rem 2rem .5rem 1rem;
+         background: var(--primary-700);
+         color: var(--neutral-100);
+         clip-path: polygon(0 0, 100% 0, calc(100% - 1rem) 50%, 100% 100%, 0 100%);
+      }
+
+      & .suggestion {
+         height: 35rem;
+      }
+   }
+
+   .carousel-container {
+      position: relative;
+
+      & .displayers-container {
+         position: absolute;
+         bottom: 1rem;
+         right: 1rem;
+         width: fit-content;
+      }
+   }
+
+   .results-container {
+      padding-inline: 0;
+   }
+
+   footer {
+      display: flex;
+      align-items: flex-start;
+      gap: 0 5rem;
+
+      padding: 1em;
+
+      background: var(--logo-blue);
+
+      & .topic-title {
+         font-family: var(--ff-200);
+         font-weight: 700;
+         letter-spacing: 1px;
+      }
+   }
+
+   footer .topics {
+      flex: 1 1 auto;
+      display: flex;
+      gap: 1rem;
+   }
+
+   footer .logo {
+      color: var(--neutral-800);
+
+      & span {
+         color: inherit;
+      }
+   }
+
+   footer ul {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+
+      margin: 0;
+      margin-top: .5rem;
+      padding-left: 1rem;
+      
+      & li {
+         list-style-type: disc;
+      }
+   }
+}

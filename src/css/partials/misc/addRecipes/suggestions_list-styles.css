@@ -1,0 +1,43 @@
+.ingredient_suggestions-container {
+   position: absolute;
+   /* top: 0; */
+   top: 2.05rem;
+
+   visibility: hidden;
+   display: flex;
+   flex-direction: column;
+   gap: .5rem;
+
+   width: 100%;
+
+   padding-block: .5rem;
+
+   border-radius: 5px;
+   background: var(--neutral-200); 
+   border: 2px solid var(--neutral-300);
+   box-shadow: 2px 2px 10px hsl(0 0% 0% / .2);
+   z-index: -1;
+}
+
+.search_bar[aria-hidden="false"] .ingredient_suggestions-container {
+   visibility: visible;
+   animation: suggestion_list_appear .5s ease-in-out forwards;
+}
+
+.suggestion {
+   display: block;
+   position: relative;
+   padding: .2rem;
+   padding-left: .5rem;
+   z-index: 10;
+   cursor: pointer;
+
+   &.hide {
+      display: none;
+      z-index: 9;
+   }
+}
+
+.suggestion:hover {
+   background: var(--neutral-300);
+}

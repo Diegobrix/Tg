@@ -1,0 +1,168 @@
+dialog[open] {
+   padding: 1rem;
+
+   border: 0;
+   border-radius: 10px;
+   outline-color: transparent;
+
+   & .decoration-container {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+
+      & .decoration {
+         position: absolute;
+         width: .8rem;
+         height: .8rem;
+         border-radius: 50%;
+         background: var(--primary-700);
+
+         cursor: pointer;
+      }
+   }
+}
+
+dialog::backdrop {
+   background: hsl(0, 0%, 0% /.4);
+   backdrop-filter: blur(1px);
+}
+
+dialog input {
+   width: 100%;
+}
+
+dialog input:not(:last-child) {
+   margin-block: 1.5rem;
+}
+
+.amount-wrapper {
+   display: none;
+
+   &[aria-hidden="false"] {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem 0;
+
+      padding: 0;
+      margin-bottom: 1.5rem;
+   }
+}
+
+.amount-wrapper[aria-hidden="false"] div {
+   display: flex;
+   align-items: center;
+
+   max-height:  2.5rem;
+
+   & input {
+      width: 90%;
+      border-radius: 5px 0 0 5px;
+   }
+
+   & select {
+      border: 2px solid var(--primary-700);
+   }
+}
+
+dialog button {
+   float: right;
+   padding: .5rem 1rem;
+   border-radius: 10px;
+
+   color: var(--neutral-100);
+   background: var(--primary-700);
+}
+
+#video_modal {
+   margin: auto 3rem;
+   border: 2px solid hsl(273 70% 74%);
+   box-shadow: 4px 3px 4px hsl(273 70% 24% / .1);
+}
+
+#video_modal h2 {
+   margin-top: 1rem;
+}
+
+.video_modal_steps_display-container {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+
+   gap: 0 3px;
+}
+
+.video_modal_steps_display-container .step_display {
+   --display-color: var(--neutral-300);
+
+   width: .7rem;
+   aspect-ratio: 1;
+   border-radius: 50%;
+
+   background: var(--display-color);
+
+   &[data-current="true"] {
+      --display-color: var(--primary-700);
+   }
+}
+
+#video_modal section[data-current="false"] {
+   display: none;
+}
+
+#video_modal section[data-current="true"] {
+   display: block;
+}
+
+#video_modal .section_controller {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-top: 2rem;
+
+   width: 100%;
+}
+
+.section_controller button {
+   padding: .5rem 1rem;
+   font-size: 1rem;
+
+   background: inherit;
+   color: #000;
+}
+
+#video_modal input[type='file'] {
+   display: none;
+}
+
+#video_modal label {
+   padding: .5rem 1rem;
+   border-radius: 7px;
+   font-size: 1rem;
+
+   background: var(--primary-700);
+   color: var(--neutral-100);
+   float: right;
+}
+
+#video_modal .video_modal-step[data-step="1"] label {
+   background: inherit;
+   color: var(--neutral-900);
+
+   float: left;
+   padding: 0;
+
+   margin-bottom: .5rem;
+} 
+
+#video_modal textarea {
+   resize: none;
+}
+
+.section_controller .btn_video_cancel {
+   color: var(--neutral-400);
+}
+
+.section_controller #btn_send_video {
+   background: var(--primary-700);
+   color: var(--neutral-100);
+}

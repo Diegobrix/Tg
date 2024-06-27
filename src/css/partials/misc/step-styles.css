@@ -1,0 +1,48 @@
+/* Form Steps */
+form .form_step[data-current="false"] ,
+.btn_finish {
+   display: none;
+}
+textarea {
+   resize: none;
+}
+
+form:has(.form_step[data-step="0"][data-current="true"]) .btn_prev {
+   display: none;
+}
+
+form:has(.form_step[data-step="3"][data-current="true"]) .btn_next {
+   display: none;
+}
+form:has(.form_step[data-step="3"][data-current="true"]) .btn_finish {
+   display: block;
+}
+
+form:has(.form_step[data-step="0"][data-current="true"]) .form_footer {
+   flex-direction: row-reverse;
+}
+
+/* Steps Indicators */
+.steps-wrapper {
+   display: flex;
+   align-items: center;
+
+   gap: 0 5px;
+}
+
+.step {
+   width: 1.3rem;
+   aspect-ratio: 1;
+   border-radius: 50%; 
+   border: 7px solid var(--neutral-300);
+
+   &[data-already="true"] {
+      border-color: var(--primary-700);
+      background: var(--primary-700);
+   }
+
+   &[data-current="true"] {
+      border-color: var(--primary-700);
+      background: #0000;
+   }
+}

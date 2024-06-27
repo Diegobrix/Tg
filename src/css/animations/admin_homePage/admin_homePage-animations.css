@@ -1,0 +1,9 @@
+@keyframes showDropDownMenu {
+   from {
+      top: var(--animStart);
+   }
+   to {
+      visibility: visible;
+      top: 2.7em;
+   }
+}
